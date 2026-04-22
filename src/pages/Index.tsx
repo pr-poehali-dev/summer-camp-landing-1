@@ -382,7 +382,7 @@ export default function Index() {
 
                 {(() => {
                   const selectedShift = SHIFTS.find(s => s.title === form.shift);
-                  const amount = selectedShift ? parseInt(selectedShift.price.replace(/\D/g, "")) : 0;
+                  const amount = selectedShift ? 1 : 0; // TODO: вернуть реальную цену после теста: parseInt(selectedShift.price.replace(/\D/g, ""))
                   const canPay = form.name && form.phone && form.email && form.shift;
                   return (
                     <PaymentButton
