@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Playfair+Display:wght@700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,26 @@
 
 @layer base {
   :root {
-    --background: 43 38% 96%;
-    --foreground: 30 25% 15%;
-
-    --card: 40 30% 99%;
-    --card-foreground: 30 25% 15%;
-
-    --popover: 40 30% 99%;
-    --popover-foreground: 30 25% 15%;
-
-    --primary: 152 42% 38%;
+    --background: 37 100% 97%;
+    --foreground: 210 29% 24%;
+    --card: 37 100% 99%;
+    --card-foreground: 210 29% 24%;
+    --popover: 37 100% 99%;
+    --popover-foreground: 210 29% 24%;
+    --primary: 0 100% 71%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 38 55% 88%;
-    --secondary-foreground: 30 25% 15%;
-
-    --muted: 40 25% 92%;
-    --muted-foreground: 30 15% 42%;
-
-    --accent: 164 38% 52%;
-    --accent-foreground: 0 0% 100%;
-
+    --secondary: 176 57% 56%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 37 50% 93%;
+    --muted-foreground: 210 20% 45%;
+    --accent: 49 100% 71%;
+    --accent-foreground: 210 29% 24%;
     --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 38 20% 82%;
-    --input: 38 20% 82%;
-    --ring: 152 42% 38%;
-
+    --border: 37 30% 87%;
+    --input: 37 30% 87%;
+    --ring: 0 100% 71%;
     --radius: 1rem;
-
-    --sidebar-background: 43 38% 96%;
-    --sidebar-foreground: 30 25% 15%;
-    --sidebar-primary: 152 42% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 25% 92%;
-    --sidebar-accent-foreground: 30 25% 15%;
-    --sidebar-border: 38 20% 82%;
-    --sidebar-ring: 152 42% 38%;
   }
 }
 
@@ -51,15 +33,14 @@
   * {
     @apply border-border;
   }
-
   html {
     scroll-behavior: smooth;
   }
 
   body {
     font-family: "Nunito", sans-serif;
-    background-color: #f5f0e8;
-    color: #2d2416;
+    background-color: #fff9f0;
+    color: #2c3e50;
     overflow-x: hidden;
   }
 
@@ -67,13 +48,13 @@
   h2,
   h3,
   h4 {
-    font-family: "Playfair Display", serif;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
+    color: #2c3e50;
   }
 }
 
-/* Animations */
+/* ── Animations ─────────────────────────────────────────────────────── */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -84,7 +65,6 @@
     transform: translateY(0);
   }
 }
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -93,17 +73,15 @@
     opacity: 1;
   }
 }
-
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
   50% {
     transform: translateY(-12px);
   }
 }
-
 @keyframes wiggle {
   0%,
   100% {
@@ -113,7 +91,6 @@
     transform: rotate(3deg);
   }
 }
-
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -122,7 +99,6 @@
     transform: translateX(-50%);
   }
 }
-
 @keyframes bounce-slow {
   0%,
   100% {
@@ -132,7 +108,6 @@
     transform: translateY(-8px) rotate(2deg);
   }
 }
-
 @keyframes wave {
   0% {
     transform: rotate(0deg);
@@ -153,16 +128,15 @@
     transform: rotate(0deg);
   }
 }
-
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(217, 175, 62, 0.5);
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.45);
   }
   50% {
     box-shadow:
-      0 0 40px rgba(217, 175, 62, 0.9),
-      0 0 60px rgba(217, 175, 62, 0.3);
+      0 0 40px rgba(255, 107, 107, 0.9),
+      0 0 60px rgba(255, 230, 109, 0.3);
   }
 }
 
@@ -217,46 +191,43 @@
   animation-delay: 0.7s;
 }
 
-/* Gradient texts */
+/* ── Gradient texts ──────────────────────────────────────────────────── */
 .text-sunny {
-  background: linear-gradient(135deg, #d4a017 0%, #e07b39 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffe66d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .text-ocean {
-  background: linear-gradient(135deg, #2d8f6f 0%, #3aab8a 100%);
+  background: linear-gradient(135deg, #4ecdc4 0%, #44b8b0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .text-summer {
-  background: linear-gradient(135deg, #c97d2a 0%, #3aab8a 50%, #2d8f6f 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffe66d 50%, #4ecdc4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Cards */
+/* ── Cards ───────────────────────────────────────────────────────────── */
 .summer-card {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
   border-radius: 1.5rem;
 }
-
 .summer-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(100, 160, 90, 0.18);
+  box-shadow: 0 20px 50px rgba(255, 107, 107, 0.15);
 }
 
-/* Inputs */
+/* ── Inputs ──────────────────────────────────────────────────────────── */
 .summer-input {
-  background: #fffdf8;
-  border: 2px solid #d4c9a8;
-  color: #2d2416;
+  background: #fff;
+  border: 2px solid #f0e0d0;
+  color: #2c3e50;
   border-radius: 12px;
   padding: 12px 16px;
   width: 100%;
@@ -266,30 +237,16 @@
     border-color 0.3s,
     box-shadow 0.3s;
 }
-
 .summer-input:focus {
   outline: none;
-  border-color: #3aab8a;
-  box-shadow: 0 0 0 3px rgba(58, 171, 138, 0.15);
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
 }
-
 .summer-input::placeholder {
-  color: #a89880;
+  color: #a0aec0;
 }
 
-/* Wave divider */
-.wave-divider {
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-/* Blob shapes */
-.blob {
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-}
-
-/* Timeline */
+/* ── Timeline ────────────────────────────────────────────────────────── */
 .timeline-item:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -297,27 +254,37 @@
   top: 3rem;
   bottom: -1rem;
   width: 2px;
-  background: linear-gradient(to bottom, #3aab8a, #8fcf6a);
+  background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
 }
 
-/* Accordion */
+/* ── Wave divider ────────────────────────────────────────────────────── */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* ── Blob ────────────────────────────────────────────────────────────── */
+.blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* ── Accordion ───────────────────────────────────────────────────────── */
 .summer-accordion {
   border-radius: 1rem;
   overflow: hidden;
 }
 
-/* Gallery */
+/* ── Gallery ─────────────────────────────────────────────────────────── */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
-
 .gallery-grid .gallery-big {
   grid-column: span 2;
   grid-row: span 2;
 }
-
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -328,10 +295,19 @@
   }
 }
 
-/* Hero waves */
+/* ── Hero wave ───────────────────────────────────────────────────────── */
 .hero-wave {
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 100%;
+}
+
+/* ── Reveal ──────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
