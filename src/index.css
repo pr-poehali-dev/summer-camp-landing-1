@@ -2,46 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap");
+
 @layer base {
   :root {
-    --background: 20 14% 4%;
-    --foreground: 35 40% 92%;
+    --background: 195 80% 97%;
+    --foreground: 220 30% 15%;
 
-    --card: 20 12% 8%;
-    --card-foreground: 35 40% 92%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
 
-    --popover: 20 12% 8%;
-    --popover-foreground: 35 40% 92%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
 
-    --primary: 25 90% 52%;
-    --primary-foreground: 20 14% 4%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 20 12% 14%;
-    --secondary-foreground: 35 40% 92%;
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 220 30% 15%;
 
-    --muted: 20 12% 14%;
-    --muted-foreground: 35 20% 60%;
+    --muted: 195 40% 92%;
+    --muted-foreground: 220 20% 45%;
 
-    --accent: 140 50% 38%;
-    --accent-foreground: 35 40% 92%;
+    --accent: 340 82% 62%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 35 40% 92%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 20 12% 18%;
-    --input: 20 12% 18%;
-    --ring: 25 90% 52%;
+    --border: 195 30% 85%;
+    --input: 195 30% 85%;
+    --ring: 199 89% 48%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --sidebar-background: 20 14% 4%;
-    --sidebar-foreground: 35 40% 92%;
-    --sidebar-primary: 25 90% 52%;
-    --sidebar-primary-foreground: 20 14% 4%;
-    --sidebar-accent: 20 12% 14%;
-    --sidebar-accent-foreground: 35 40% 92%;
-    --sidebar-border: 20 12% 18%;
-    --sidebar-ring: 25 90% 52%;
+    --sidebar-background: 195 80% 97%;
+    --sidebar-foreground: 220 30% 15%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 195 40% 92%;
+    --sidebar-accent-foreground: 220 30% 15%;
+    --sidebar-border: 195 30% 85%;
+    --sidebar-ring: 199 89% 48%;
   }
 }
 
@@ -56,8 +58,8 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Golos Text", sans-serif;
-    background-color: #0e0a06;
+    font-family: "Nunito", sans-serif;
+    background-color: #f0faff;
     overflow-x: hidden;
   }
 
@@ -65,8 +67,8 @@
   h2,
   h3,
   h4 {
-    font-family: "Oswald", sans-serif;
-    letter-spacing: 0.02em;
+    font-family: "Fredoka One", cursive;
+    letter-spacing: 0.01em;
   }
 }
 
@@ -91,20 +93,6 @@
   }
 }
 
-@keyframes fire-pulse {
-  0%,
-  100% {
-    text-shadow:
-      0 0 20px rgba(232, 98, 26, 0.5),
-      0 0 40px rgba(232, 98, 26, 0.25);
-  }
-  50% {
-    text-shadow:
-      0 0 40px rgba(245, 151, 58, 0.5),
-      0 0 80px rgba(232, 98, 26, 0.4);
-  }
-}
-
 @keyframes float {
   0%,
   100% {
@@ -112,6 +100,16 @@
   }
   50% {
     transform: translateY(-12px);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
   }
 }
 
@@ -134,6 +132,39 @@
   }
 }
 
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(14deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(14, 165, 233, 0.8),
+      0 0 60px rgba(14, 165, 233, 0.3);
+  }
+}
+
 .animate-fade-up {
   opacity: 0;
   animation: fade-up 0.8s ease-out forwards;
@@ -144,12 +175,12 @@
   animation: fade-in 0.6s ease-out forwards;
 }
 
-.animate-fire {
-  animation: fire-pulse 2.5s ease-in-out infinite;
-}
-
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
 }
 
 .animate-marquee {
@@ -158,6 +189,16 @@
 
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .delay-100 {
@@ -182,107 +223,100 @@
   animation-delay: 0.7s;
 }
 
-/* Gradient text */
-.text-fire {
-  background: linear-gradient(135deg, #f5973a 0%, #e8621a 100%);
+/* Gradient texts */
+.text-sunny {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.text-forest-grad {
-  background: linear-gradient(135deg, #52b788 0%, #2d6a4f 100%);
+.text-ocean {
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Card hover effects */
-.camp-card {
+.text-summer {
+  background: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cards */
+.summer-card {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  border-radius: 1.5rem;
 }
 
-.camp-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 64px rgba(232, 98, 26, 0.25);
+.summer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(14, 165, 233, 0.2);
 }
 
-/* Fire border glow */
-.fire-border {
-  border: 1px solid rgba(232, 98, 26, 0.35);
-  box-shadow:
-    0 0 24px rgba(232, 98, 26, 0.1),
-    inset 0 0 24px rgba(232, 98, 26, 0.04);
-}
-
-/* Navigation link underline */
-.nav-link {
-  position: relative;
-  transition: color 0.3s;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #f5973a, #e8621a);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
-}
-
-/* Form inputs */
-.camp-input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(232, 98, 26, 0.3);
-  color: #f4e9d8;
-  border-radius: 8px;
+/* Inputs */
+.summer-input {
+  background: white;
+  border: 2px solid #bae6fd;
+  color: #1e3a5f;
+  border-radius: 12px;
   padding: 12px 16px;
   width: 100%;
-  font-family: "Golos Text", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1rem;
   transition:
     border-color 0.3s,
     box-shadow 0.3s;
 }
 
-.camp-input:focus {
+.summer-input:focus {
   outline: none;
-  border-color: #e8621a;
-  box-shadow: 0 0 0 3px rgba(232, 98, 26, 0.15);
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
 }
 
-.camp-input::placeholder {
-  color: rgba(244, 233, 216, 0.35);
+.summer-input::placeholder {
+  color: #94a3b8;
 }
 
-/* Section big number decoration */
-.section-num {
-  font-family: "Oswald", sans-serif;
-  font-size: 10rem;
-  font-weight: 700;
-  color: rgba(232, 98, 26, 0.05);
+/* Wave divider */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Blob shapes */
+.blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* Timeline */
+.timeline-item:not(:last-child)::after {
+  content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
+  left: 1.25rem;
+  top: 3rem;
+  bottom: -1rem;
+  width: 2px;
+  background: linear-gradient(to bottom, #0ea5e9, #06b6d4);
+}
+
+/* Accordion */
+.summer-accordion {
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 /* Gallery */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 
 .gallery-grid .gallery-big {
@@ -298,16 +332,12 @@
     grid-column: span 2;
     grid-row: span 1;
   }
-  .section-num {
-    font-size: 5rem;
-  }
 }
 
-/* Diagonal clip */
-.clip-diag-top {
-  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
-}
-
-.clip-diag-both {
-  clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+/* Hero waves */
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
 }
