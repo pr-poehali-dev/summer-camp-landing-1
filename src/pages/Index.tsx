@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
+import { PaymentButton } from "@/components/extensions/robokassa/PaymentButton";
+import func2url from "../../backend/func2url.json";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/files/6a758c5c-7949-438b-9910-7517ba7c0847.jpg";
 
@@ -80,7 +82,7 @@ const STATS = [
 export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", shift: "", child: "", comment: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", shift: "", child: "", comment: "" });
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -350,6 +352,10 @@ export default function Index() {
                   <input type="tel" required placeholder="+7 (999) 000-00-00" className="camp-input" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} />
                 </div>
               </div>
+              <div className="mb-5">
+                <label className="block text-xs font-semibold mb-2 tracking-wider" style={{ color: "rgba(244,233,216,0.45)", fontFamily: "Oswald" }}>EMAIL *</label>
+                <input type="email" required placeholder="ivan@mail.ru" className="camp-input" value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                 <div>
                   <label className="block text-xs font-semibold mb-2 tracking-wider" style={{ color: "rgba(244,233,216,0.45)", fontFamily: "Oswald" }}>ИМЯ РЕБЁНКА *</label>
@@ -367,11 +373,40 @@ export default function Index() {
                 <label className="block text-xs font-semibold mb-2 tracking-wider" style={{ color: "rgba(244,233,216,0.45)", fontFamily: "Oswald" }}>КОММЕНТАРИЙ</label>
                 <textarea rows={3} placeholder="Особые пожелания, вопросы..." className="camp-input resize-none" value={form.comment} onChange={e => setForm({...form, comment: e.target.value})} />
               </div>
-              <button type="submit" className="w-full py-4 text-base font-bold rounded-xl transition-all hover:scale-105 active:scale-95" style={{ background: "linear-gradient(135deg, #F5973A, #E8621A)", color: "#0E0A06", fontFamily: "Oswald", letterSpacing: "0.08em", boxShadow: "0 8px 32px rgba(232,98,26,0.35)" }}>
-                ОТПРАВИТЬ ЗАЯВКУ
-              </button>
+
+              {/* Кнопки действия */}
+              <div className="flex flex-col gap-3">
+                <button type="submit" className="w-full py-4 text-base font-bold rounded-xl transition-all hover:scale-105 active:scale-95" style={{ background: "rgba(232,98,26,0.12)", border: "1px solid rgba(232,98,26,0.35)", color: "#F5973A", fontFamily: "Oswald", letterSpacing: "0.08em" }}>
+                  ОТПРАВИТЬ ЗАЯВКУ (оплата позже)
+                </button>
+
+                {(() => {
+                  const selectedShift = SHIFTS.find(s => s.title === form.shift);
+                  const amount = selectedShift ? parseInt(selectedShift.price.replace(/\D/g, "")) : 0;
+                  const canPay = form.name && form.phone && form.email && form.shift;
+                  return (
+                    <PaymentButton
+                      apiUrl={func2url["robokassa-robokassa"]}
+                      amount={amount}
+                      userName={form.name}
+                      userEmail={form.email}
+                      userPhone={form.phone}
+                      orderComment={`Смена: ${form.shift}. Ребёнок: ${form.child}. ${form.comment}`}
+                      cartItems={selectedShift ? [{ id: form.shift, name: `Смена «${selectedShift.title}» ${selectedShift.dates}`, price: amount, quantity: 1 }] : []}
+                      successUrl={`${window.location.origin}/?payment=success`}
+                      failUrl={`${window.location.origin}/#register`}
+                      onSuccess={() => setSubmitted(true)}
+                      disabled={!canPay}
+                      buttonText={canPay ? `ОПЛАТИТЬ ${selectedShift?.price ?? ""}` : "ЗАПОЛНИТЕ ФОРМУ ДЛЯ ОПЛАТЫ"}
+                      className="w-full py-4 text-base font-bold rounded-xl transition-all hover:scale-105 active:scale-95"
+                      style={{ background: canPay ? "linear-gradient(135deg, #F5973A, #E8621A)" : "rgba(255,255,255,0.05)", color: canPay ? "#0E0A06" : "rgba(244,233,216,0.25)", fontFamily: "Oswald", letterSpacing: "0.08em", boxShadow: canPay ? "0 8px 32px rgba(232,98,26,0.35)" : "none", cursor: canPay ? "pointer" : "not-allowed" } as React.CSSProperties}
+                    />
+                  );
+                })()}
+              </div>
+
               <p className="text-center text-xs mt-4" style={{ color: "rgba(244,233,216,0.25)", fontFamily: "Golos Text" }}>
-                Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                Нажимая кнопку, вы соглашаетесь с <a href="/oferta" target="_blank" style={{ color: "rgba(244,233,216,0.4)", textDecoration: "underline" }}>публичной офертой</a> и обработкой персональных данных
               </p>
             </form>
           )}
