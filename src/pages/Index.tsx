@@ -5,7 +5,7 @@ import func2url from "../../backend/func2url.json";
 
 // ── данные смен ────────────────────────────────────────────────────────────────
 const SHIFTS = [
-  { id: 1, name: "Сундук со сказками", emoji: "🧙‍♀️", dates: "1–12 июня", age: "7–9 лет", spots: 5, color: "from-violet-400 to-purple-500", lightColor: "bg-violet-50", borderColor: "border-violet-300", days: [
+  { id: 1, name: "Сундук со сказками", emoji: "🧙‍♀️", dates: "1–12 июня", age: "7–9 лет", spots: 5, color: "from-emerald-500 to-teal-600", lightColor: "bg-emerald-50", borderColor: "border-emerald-200", days: [
     "День 1: Введение в смену. МК «Волшебная шляпа» и интерактив со сказочными героями",
     "День 2: Сказочная почта прямо у нас в центре. Викторина с волшебными существами",
     "День 3: Подводный мир тоже бывает волшебным. МК «Черепаха»",
@@ -17,9 +17,9 @@ const SHIFTS = [
     "День 9: А вы знали, что бывают игрушки из ваты? 3, 2, 1...",
     "День 10: Театр теней — волшебно, интересно и немного страшно. Управляем героями сами!"
   ]},
-  { id: 2, name: "Вкусные открытия", emoji: "👨‍🍳", dates: "15–26 июня", age: "7–12 лет", spots: 4, color: "from-orange-400 to-yellow-500", lightColor: "bg-orange-50", borderColor: "border-orange-300", days: [] },
-  { id: 3, name: "Мульти-драйв", emoji: "🎨", dates: "29 июня – 10 июля", age: "7–10 лет", spots: 6, color: "from-green-400 to-teal-500", lightColor: "bg-green-50", borderColor: "border-green-300", days: [] },
-  { id: 4, name: "Поколение АЛЬФА", emoji: "🚀", dates: "13–24 июля", age: "10–14 лет", spots: 8, color: "from-blue-400 to-indigo-500", lightColor: "bg-blue-50", borderColor: "border-blue-300", days: [
+  { id: 2, name: "Вкусные открытия", emoji: "👨‍🍳", dates: "15–26 июня", age: "7–12 лет", spots: 4, color: "from-amber-500 to-orange-500", lightColor: "bg-amber-50", borderColor: "border-amber-200", days: [] },
+  { id: 3, name: "Мульти-драйв", emoji: "🎨", dates: "29 июня – 10 июля", age: "7–10 лет", spots: 6, color: "from-teal-500 to-cyan-600", lightColor: "bg-teal-50", borderColor: "border-teal-200", days: [] },
+  { id: 4, name: "Поколение АЛЬФА", emoji: "🚀", dates: "13–24 июля", age: "10–14 лет", spots: 8, color: "from-green-600 to-emerald-700", lightColor: "bg-green-50", borderColor: "border-green-200", days: [
     "День 1: Создание коллажа с помощью программы Flyvi — первые шаги в технологичном мире",
     "День 2: Учимся создавать подкасты. Ораторское искусство — говорим так, чтобы хотелось слушать",
     "День 3: Проект полезного приложения — развиваем в себе создателя",
@@ -31,9 +31,9 @@ const SHIFTS = [
     "День 9: Легко ли быть дизайнером? Создаём макет термонаклейки и переводим на футболку",
     "День 10: Кто лучшие кондитеры? Десерт «Корзиночка из песочного теста с кремом маскарпоне»"
   ]},
-  { id: 5, name: "Есть ли жизнь на Марсе?", emoji: "🪐", dates: "27 июля – 7 августа", age: "10–14 лет", spots: 5, color: "from-red-400 to-rose-500", lightColor: "bg-red-50", borderColor: "border-red-300", days: [] },
-  { id: 6, name: "Кругосветка", emoji: "🌍", dates: "10–21 августа", age: "7–10 лет", spots: 9, color: "from-cyan-400 to-sky-500", lightColor: "bg-cyan-50", borderColor: "border-cyan-300", days: [] },
-  { id: 7, name: "Лаборатория чудес", emoji: "🔬", dates: "24–28 августа", age: "7–12 лет", spots: 10, color: "from-pink-400 to-fuchsia-500", lightColor: "bg-pink-50", borderColor: "border-pink-300", days: [] },
+  { id: 5, name: "Есть ли жизнь на Марсе?", emoji: "🪐", dates: "27 июля – 7 августа", age: "10–14 лет", spots: 5, color: "from-stone-500 to-amber-700", lightColor: "bg-stone-50", borderColor: "border-stone-200", days: [] },
+  { id: 6, name: "Кругосветка", emoji: "🌍", dates: "10–21 августа", age: "7–10 лет", spots: 9, color: "from-mint-500 to-teal-500", lightColor: "bg-teal-50", borderColor: "border-teal-200", days: [] },
+  { id: 7, name: "Лаборатория чудес", emoji: "🔬", dates: "24–28 августа", age: "7–12 лет", spots: 10, color: "from-emerald-400 to-green-600", lightColor: "bg-emerald-50", borderColor: "border-emerald-200", days: [] },
 ];
 
 const TESTIMONIALS = [
@@ -143,22 +143,22 @@ export default function Index() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-emerald-50">
 
       {/* ── ШАПКА ─────────────────────────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-2xl">🐟</span>
-            <span className="font-black text-sky-600 text-lg leading-tight hidden sm:block">Рыбка Долли</span>
+            <span className="font-black text-emerald-700 text-lg leading-tight hidden sm:block">Рыбка Долли</span>
           </div>
           <div className="flex items-center gap-3 flex-wrap justify-end">
-            <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-sky-600 transition-colors">
+            <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-emerald-600 transition-colors">
               <Icon name="Phone" size={15} />
               <span className="hidden sm:inline">+7 988 152-16-98</span>
               <span className="sm:hidden">МТС</span>
             </a>
-            <a href="tel:+79787120353" className="flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-sky-600 transition-colors">
+            <a href="tel:+79787120353" className="flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-emerald-600 transition-colors">
               <Icon name="Phone" size={15} />
               <span className="hidden sm:inline">+7 978 712-03-53</span>
               <span className="sm:hidden">Волна</span>
@@ -179,13 +179,13 @@ export default function Index() {
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         {/* фон */}
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-green-700" />
         <div className="absolute inset-0 opacity-20" style={{backgroundImage:"url('https://images.unsplash.com/photo-1472746729193-e9f4b9a35987?w=1600&q=80')", backgroundSize:"cover", backgroundPosition:"center"}} />
         {/* декоративные пузыри */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-300 rounded-full opacity-30 animate-float" />
-        <div className="absolute top-40 right-16 w-20 h-20 bg-pink-300 rounded-full opacity-40 animate-float delay-300" />
-        <div className="absolute bottom-40 left-20 w-24 h-24 bg-cyan-300 rounded-full opacity-30 animate-float delay-500" />
-        <div className="absolute bottom-20 right-10 w-16 h-16 bg-green-300 rounded-full opacity-40 animate-float delay-200" />
+        <div className="absolute top-20 left-10 w-32 h-32 bg-lime-200 rounded-full opacity-30 animate-float" />
+        <div className="absolute top-40 right-16 w-20 h-20 bg-amber-200 rounded-full opacity-40 animate-float delay-300" />
+        <div className="absolute bottom-40 left-20 w-24 h-24 bg-teal-200 rounded-full opacity-30 animate-float delay-500" />
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-yellow-200 rounded-full opacity-40 animate-float delay-200" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white py-16">
           {/* лейбл */}
@@ -248,16 +248,16 @@ export default function Index() {
         {/* волны */}
         <div className="hero-wave">
           <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f0faff"/>
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f7f5ef"/>
           </svg>
         </div>
       </section>
 
       {/* ── БЛОК 2: ДОВЕРИЕ ───────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-sky-50">
+      <section className="py-16 px-4 bg-stone-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 font-bold px-5 py-2 rounded-full text-sm mb-4">
+            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 font-bold px-5 py-2 rounded-full text-sm mb-4">
               ⚡ Уже забронировали 25 семей
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-slate-800">Что говорят родители?</h2>
@@ -266,9 +266,9 @@ export default function Index() {
           {/* отзывы */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-sky-100 summer-card">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-stone-100 summer-card">
                 <div className="flex items-start gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-200 to-indigo-200 flex items-center justify-center text-2xl flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-100 to-teal-200 flex items-center justify-center text-2xl flex-shrink-0">
                     {t.emoji}
                   </div>
                   <div>
@@ -281,7 +281,7 @@ export default function Index() {
           </div>
 
           {/* счётчики мест по сменам */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-sky-100">
+          <div className="bg-white rounded-3xl p-6 shadow-sm border border-emerald-100">
             <p className="text-center font-black text-slate-700 text-lg mb-4">🔥 Мест становится меньше каждый день!</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {SHIFTS.map((s) => (
@@ -299,7 +299,7 @@ export default function Index() {
               ))}
             </div>
             <div className="text-center mt-5">
-              <button onClick={scrollToBooking} className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-black px-8 py-3 rounded-2xl shadow-md transition-all hover:scale-105">
+              <button onClick={scrollToBooking} className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black px-8 py-3 rounded-2xl shadow-md transition-all hover:scale-105">
                 Забронировать место сейчас →
               </button>
             </div>
@@ -327,7 +327,7 @@ export default function Index() {
               { emoji: "🏕️", title: "Самостоятельность", desc: "Готовим на костре, ставим палатку, работаем в команде" },
               { emoji: "👫", title: "Друзья навсегда", desc: "Настоящие дружбы, которые остаются после смены" },
             ].map((item, i) => (
-              <div key={i} className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-5 border border-sky-100 summer-card text-center">
+              <div key={i} className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 border border-emerald-100 summer-card text-center">
                 <div className="text-4xl mb-3">{item.emoji}</div>
                 <h3 className="font-black text-slate-700 mb-1">{item.title}</h3>
                 <p className="text-sm text-slate-500">{item.desc}</p>
@@ -336,11 +336,11 @@ export default function Index() {
           </div>
 
           {/* видео-заглушка */}
-          <div className="bg-gradient-to-br from-sky-100 to-indigo-100 rounded-3xl p-10 text-center border-2 border-dashed border-sky-300">
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-100 rounded-3xl p-10 text-center border-2 border-dashed border-emerald-300">
             <div className="text-6xl mb-4">📹</div>
             <h3 className="font-black text-slate-700 text-xl mb-2">Смотрите, как это было в прошлом году</h3>
             <p className="text-slate-500 mb-4">Видео с прошлых смен — дети плавают, готовят на костре, смеются у палатки</p>
-            <p className="text-sm text-sky-500 font-semibold">Вставьте ссылку на видео с ВКонтакте или YouTube</p>
+            <p className="text-sm text-emerald-600 font-semibold">Вставьте ссылку на видео с ВКонтакте или YouTube</p>
           </div>
         </div>
       </section>
@@ -360,7 +360,7 @@ export default function Index() {
               { emoji: "📱", text: "Он «залипает» в гаджетах", detail: "Телефоны только для связи с родителями — вечером 30 минут" },
               { emoji: "🌟", text: "Вы хотите, чтобы лето было незабываемым", detail: "Каждая смена — отдельная история с уникальной темой!" },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 flex gap-4 items-start shadow-sm border border-orange-100 summer-card">
+              <div key={i} className="bg-white rounded-2xl p-5 flex gap-4 items-start shadow-sm border border-stone-100 summer-card">
                 <div className="text-3xl flex-shrink-0">{item.emoji}</div>
                 <div>
                   <p className="font-bold text-slate-700">✅ {item.text}</p>
@@ -369,7 +369,7 @@ export default function Index() {
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl p-6 text-white text-center">
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-3xl p-6 text-white text-center">
             <p className="text-xl font-black mb-2">🎯 Мы чётко разделяем возраст!</p>
             <p className="text-white/90">
               В смене для детей 10–14 лет мы не рисуем котиков — мы создаём чат-ботов, элитную парфюмерию,
@@ -453,13 +453,13 @@ export default function Index() {
             ].map((item, i) => (
               <div key={i} className="flex gap-4 relative timeline-item">
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center text-white font-black text-xs flex-shrink-0 z-10">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-black text-xs flex-shrink-0 z-10">
                     {item.emoji}
                   </div>
                 </div>
-                <div className="bg-white rounded-2xl p-4 flex-1 shadow-sm border border-sky-100 mb-2">
+                <div className="bg-white rounded-2xl p-4 flex-1 shadow-sm border border-emerald-100 mb-2">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="font-black text-sky-600 text-sm">{item.time}</span>
+                    <span className="font-black text-emerald-700 text-sm">{item.time}</span>
                     <span className="font-bold text-slate-700">{item.title}</span>
                   </div>
                   <p className="text-sm text-slate-500">{item.desc}</p>
@@ -475,7 +475,7 @@ export default function Index() {
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">Наша команда</h2>
           <p className="text-slate-600 mb-10">Педагоги-профессионалы, а не «студенты-аниматоры»</p>
-          <div className="bg-gradient-to-br from-sky-50 to-indigo-50 rounded-3xl p-10 border-2 border-dashed border-sky-200">
+          <div className="bg-gradient-to-br from-stone-50 to-emerald-50 rounded-3xl p-10 border-2 border-dashed border-stone-200">
             <div className="text-5xl mb-4">👩‍🏫</div>
             <p className="text-slate-600 text-lg font-semibold">Здесь появятся фото и рассказы о вожатых</p>
             <p className="text-sm text-slate-400 mt-2">Добавьте реальные фотографии команды — это вызывает доверие родителей!</p>
@@ -499,7 +499,7 @@ export default function Index() {
               { emoji: "📞", title: "Связь весь день", desc: "Вы всегда можете позвонить и узнать как дела" },
               { emoji: "📸", title: "Родители в курсе", desc: "Фото и видео каждый день в родительском чате" },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-green-100 summer-card text-center">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-emerald-100 summer-card text-center">
                 <div className="text-4xl mb-3">{item.emoji}</div>
                 <h3 className="font-black text-slate-700 mb-1">{item.title}</h3>
                 <p className="text-sm text-slate-500">{item.desc}</p>
@@ -519,21 +519,21 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                day: "🗓️ Среда", color: "from-orange-400 to-yellow-500",
+                day: "🗓️ Среда", color: "from-emerald-500 to-teal-600",
                 meals: [
                   { type: "🍲 Обед", items: ["Чечевичный суп с сухариками", "Плов с говядиной", "Овощная нарезка (помидоры, огурцы, салат)", "Компот из сезонных фруктов"] },
                   { type: "🍎 Полдник", items: ["Булочка со штрейзельной крошкой", "Чай", "Фрукты по сезону"] },
                 ]
               },
               {
-                day: "🗓️ Пятница", color: "from-green-400 to-teal-500",
+                day: "🗓️ Пятница", color: "from-amber-500 to-orange-500",
                 meals: [
                   { type: "🍲 Обед", items: ["Зелёный борщ", "Хлеб с маслом", "Пельмени с куриным фаршем", "Салат из моркови", "Чай с лимоном"] },
                   { type: "🍎 Полдник", items: ["Шарлотка с яблоками", "Чай с молоком (по желанию)"] },
                 ]
               }
             ].map((menu, i) => (
-              <div key={i} className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-3xl overflow-hidden shadow-sm border border-sky-100">
+              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-100">
                 <div className={`bg-gradient-to-r ${menu.color} text-white font-black text-xl p-4`}>{menu.day}</div>
                 <div className="p-5 space-y-4">
                   {menu.meals.map((meal, j) => (
@@ -556,21 +556,21 @@ export default function Index() {
       </section>
 
       {/* ── БЛОК 10–11: ОТЗЫВЫ ───────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+      <section className="py-16 px-4 bg-gradient-to-br from-stone-50 to-amber-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">⭐ Что говорят дети и родители?</h2>
           </div>
 
           {/* видео-отзывы заглушка */}
-          <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-purple-100 shadow-sm">
+          <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-stone-100 shadow-sm">
             <div className="text-5xl mb-4">🎬</div>
             <h3 className="font-black text-slate-700 text-xl mb-2">Видео-отзывы детей</h3>
             <p className="text-slate-500">Сюда добавьте 3–4 коротких видео с отзывами детей (30–60 сек)</p>
           </div>
 
           {/* фото-отзывы заглушка */}
-          <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-pink-100 shadow-sm">
+          <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-amber-100 shadow-sm">
             <div className="text-5xl mb-4">📱</div>
             <h3 className="font-black text-slate-700 text-xl mb-2">Отзывы родителей</h3>
             <p className="text-slate-500">Добавьте скриншоты переписок, скриншоты из ВКонтакте со звёздочками 5/5</p>
@@ -591,7 +591,7 @@ export default function Index() {
       </section>
 
       {/* ── БЛОК 12: ЦЕНЫ + ФОРМА ─────────────────────────────────────────────── */}
-      <section ref={bookingRef} className="py-16 px-4 bg-gradient-to-br from-sky-500 to-indigo-600">
+      <section ref={bookingRef} className="py-16 px-4 bg-gradient-to-br from-emerald-600 to-teal-800">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 text-white">
             <h2 className="text-3xl md:text-4xl font-black mb-2">💰 Стоимость смены (10 дней)</h2>
@@ -642,8 +642,8 @@ export default function Index() {
                 <label className="font-bold text-slate-700 block mb-3">Выберите смену:</label>
                 <div className="grid grid-cols-1 gap-2">
                   {SHIFTS.map((s) => (
-                    <label key={s.id} className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${selectedShift === s.id ? `border-sky-500 ${s.lightColor}` : "border-slate-100 hover:border-sky-200"}`}>
-                      <input type="radio" name="shift" className="accent-sky-500" checked={selectedShift === s.id} onChange={() => setSelectedShift(s.id)} />
+                    <label key={s.id} className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${selectedShift === s.id ? `border-emerald-500 ${s.lightColor}` : "border-slate-100 hover:border-emerald-200"}`}>
+                      <input type="radio" name="shift" className="accent-emerald-600" checked={selectedShift === s.id} onChange={() => setSelectedShift(s.id)} />
                       <span className="text-xl">{s.emoji}</span>
                       <div className="flex-1">
                         <span className="font-bold text-slate-700">Смена {s.id}: «{s.name}»</span>
@@ -729,13 +729,13 @@ export default function Index() {
                 </div>
 
                 {selectedShift && (
-                  <div className="bg-sky-50 rounded-2xl p-4 mb-5 flex items-center justify-between flex-wrap gap-2">
+                  <div className="bg-emerald-50 rounded-2xl p-4 mb-5 flex items-center justify-between flex-wrap gap-2">
                     <div>
                       <p className="font-bold text-slate-700">Смена: «{shiftObj?.name}»</p>
                       <p className="text-sm text-slate-500">{shiftObj?.dates} · {shiftObj?.age}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-black text-2xl text-sky-600">
+                      <p className="font-black text-2xl text-emerald-700">
                         {(afterDiscount ? PRICE_SALE : PRICE_FULL).toLocaleString()} ₽
                       </p>
                       {afterDiscount && <p className="text-xs text-red-500 font-bold">Скидка 12% — до 15 мая!</p>}
@@ -746,7 +746,7 @@ export default function Index() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 disabled:opacity-50 text-white font-black text-xl py-4 rounded-2xl shadow-lg transition-all hover:scale-105"
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 disabled:opacity-50 text-white font-black text-xl py-4 rounded-2xl shadow-lg transition-all hover:scale-105"
                 >
                   {isSubmitting ? "⏳ Создаём заказ..." : "💳 Оплатить и забронировать место"}
                 </button>
@@ -761,7 +761,7 @@ export default function Index() {
       </section>
 
       {/* ── ФУТЕР ─────────────────────────────────────────────────────────────── */}
-      <footer className="bg-slate-800 text-white py-8 px-4">
+      <footer className="bg-stone-800 text-white py-8 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="text-3xl">🐟</span>
@@ -769,8 +769,8 @@ export default function Index() {
           </div>
           <p className="text-slate-400 text-sm mb-3">г. Керчь, ул. Циолковского, 12</p>
           <div className="flex items-center justify-center gap-6 flex-wrap mb-4">
-            <a href="tel:+79881521698" className="text-sky-400 hover:text-sky-300 font-semibold">+7 988 152-16-98 (МТС)</a>
-            <a href="tel:+79787120353" className="text-sky-400 hover:text-sky-300 font-semibold">+7 978 712-03-53 (Волна)</a>
+            <a href="tel:+79881521698" className="text-emerald-400 hover:text-emerald-300 font-semibold">+7 988 152-16-98 (МТС)</a>
+            <a href="tel:+79787120353" className="text-emerald-400 hover:text-emerald-300 font-semibold">+7 978 712-03-53 (Волна)</a>
           </div>
           <a
             href="https://vk.com/app6379730_-179759189#l=8"

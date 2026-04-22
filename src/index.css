@@ -2,48 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Rounded+Mplus+1c:wght@400;500;700;800&display=swap");
 
 @layer base {
   :root {
-    --background: 195 80% 97%;
-    --foreground: 220 30% 15%;
+    --background: 60 30% 97%;
+    --foreground: 30 20% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 15%;
+    --card-foreground: 30 20% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 15%;
+    --popover-foreground: 30 20% 18%;
 
-    --primary: 199 89% 48%;
+    --primary: 152 45% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 43 96% 56%;
-    --secondary-foreground: 220 30% 15%;
+    --secondary: 40 40% 88%;
+    --secondary-foreground: 30 20% 18%;
 
-    --muted: 195 40% 92%;
-    --muted-foreground: 220 20% 45%;
+    --muted: 120 20% 93%;
+    --muted-foreground: 30 15% 45%;
 
-    --accent: 340 82% 62%;
+    --accent: 168 40% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 30% 85%;
-    --input: 195 30% 85%;
-    --ring: 199 89% 48%;
+    --border: 120 15% 84%;
+    --input: 120 15% 84%;
+    --ring: 152 45% 42%;
 
     --radius: 1rem;
 
-    --sidebar-background: 195 80% 97%;
-    --sidebar-foreground: 220 30% 15%;
-    --sidebar-primary: 199 89% 48%;
+    --sidebar-background: 60 30% 97%;
+    --sidebar-foreground: 30 20% 18%;
+    --sidebar-primary: 152 45% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 195 40% 92%;
-    --sidebar-accent-foreground: 220 30% 15%;
-    --sidebar-border: 195 30% 85%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-accent: 120 20% 93%;
+    --sidebar-accent-foreground: 30 20% 18%;
+    --sidebar-border: 120 15% 84%;
+    --sidebar-ring: 152 45% 42%;
   }
 }
 
@@ -58,8 +58,8 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Nunito", sans-serif;
-    background-color: #f0faff;
+    font-family: "Comfortaa", cursive;
+    background-color: #f7f5ef;
     overflow-x: hidden;
   }
 
@@ -67,8 +67,9 @@
   h2,
   h3,
   h4 {
-    font-family: "Fredoka One", cursive;
-    letter-spacing: 0.01em;
+    font-family: "Comfortaa", cursive;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -255,14 +256,14 @@
 
 .summer-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(14, 165, 233, 0.2);
+  box-shadow: 0 20px 50px rgba(16, 148, 100, 0.18);
 }
 
 /* Inputs */
 .summer-input {
   background: white;
-  border: 2px solid #bae6fd;
-  color: #1e3a5f;
+  border: 2px solid #a7f3d0;
+  color: #1c3a2a;
   border-radius: 12px;
   padding: 12px 16px;
   width: 100%;
@@ -275,8 +276,8 @@
 
 .summer-input:focus {
   outline: none;
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
 .summer-input::placeholder {
