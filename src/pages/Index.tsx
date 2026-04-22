@@ -31,7 +31,7 @@ const SHIFTS = [
     "День 9: Легко ли быть дизайнером? Создаём макет термонаклейки и переводим на футболку",
     "День 10: Кто лучшие кондитеры? Десерт «Корзиночка из песочного теста с кремом маскарпоне»"
   ]},
-  { id: 5, name: "Есть ли жизнь на Марсе?", emoji: "🪐", dates: "27 июля – 7 августа", age: "10–14 лет", spots: 5, color: "from-stone-500 to-amber-700", lightColor: "bg-stone-50", borderColor: "border-stone-200", days: [] },
+  { id: 5, name: "Есть ли жизнь на Марсе?", emoji: "🪐", dates: "27 июля – 7 августа", age: "10–14 лет", spots: 5, color: "from-warm-500 to-amber-700", lightColor: "bg-warm-50", borderColor: "border-warm-200", days: [] },
   { id: 6, name: "Кругосветка", emoji: "🌍", dates: "10–21 августа", age: "7–10 лет", spots: 9, color: "from-mint-500 to-teal-500", lightColor: "bg-teal-50", borderColor: "border-teal-200", days: [] },
   { id: 7, name: "Лаборатория чудес", emoji: "🔬", dates: "24–28 августа", age: "7–12 лет", spots: 10, color: "from-emerald-400 to-green-600", lightColor: "bg-emerald-50", borderColor: "border-emerald-200", days: [] },
 ];
@@ -143,7 +143,7 @@ export default function Index() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-b from-warm-50 to-mint-50">
 
       {/* ── ШАПКА ─────────────────────────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
@@ -153,12 +153,12 @@ export default function Index() {
             <span className="font-black text-emerald-700 text-lg leading-tight hidden sm:block">Рыбка Долли</span>
           </div>
           <div className="flex items-center gap-3 flex-wrap justify-end">
-            <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-emerald-600 transition-colors">
+            <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-warm-800 hover:text-emerald-600 transition-colors">
               <Icon name="Phone" size={15} />
               <span className="hidden sm:inline">+7 988 152-16-98</span>
               <span className="sm:hidden">МТС</span>
             </a>
-            <a href="tel:+79787120353" className="flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-emerald-600 transition-colors">
+            <a href="tel:+79787120353" className="flex items-center gap-1.5 text-sm font-bold text-warm-800 hover:text-emerald-600 transition-colors">
               <Icon name="Phone" size={15} />
               <span className="hidden sm:inline">+7 978 712-03-53</span>
               <span className="sm:hidden">Волна</span>
@@ -254,26 +254,26 @@ export default function Index() {
       </section>
 
       {/* ── БЛОК 2: ДОВЕРИЕ ───────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-stone-50">
+      <section className="py-16 px-4 bg-warm-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 font-bold px-5 py-2 rounded-full text-sm mb-4">
               ⚡ Уже забронировали 25 семей
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800">Что говорят родители?</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900">Что говорят родители?</h2>
           </div>
 
           {/* отзывы */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-stone-100 summer-card">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-warm-100 summer-card">
                 <div className="flex items-start gap-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-100 to-teal-200 flex items-center justify-center text-2xl flex-shrink-0">
                     {t.emoji}
                   </div>
                   <div>
-                    <p className="text-slate-700 font-semibold italic mb-1">«{t.text}»</p>
-                    <p className="text-sm text-slate-500">— {t.author}, {t.child}</p>
+                    <p className="text-warm-800 font-semibold italic mb-1">«{t.text}»</p>
+                    <p className="text-sm text-warm-600">— {t.author}, {t.child}</p>
                   </div>
                 </div>
               </div>
@@ -282,17 +282,17 @@ export default function Index() {
 
           {/* счётчики мест по сменам */}
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-emerald-100">
-            <p className="text-center font-black text-slate-700 text-lg mb-4">🔥 Мест становится меньше каждый день!</p>
+            <p className="text-center font-black text-warm-800 text-lg mb-4">🔥 Мест становится меньше каждый день!</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {SHIFTS.map((s) => (
                 <div key={s.id} className={`rounded-2xl p-4 ${s.lightColor} border ${s.borderColor}`}>
                   <div className="flex items-center gap-2 mb-1">
                     <span>{s.emoji}</span>
-                    <span className="font-bold text-slate-700 text-sm">{s.name}</span>
+                    <span className="font-bold text-warm-800 text-sm">{s.name}</span>
                   </div>
-                  <p className="text-xs text-slate-500 mb-2">{s.dates} · {s.age}</p>
+                  <p className="text-xs text-warm-600 mb-2">{s.dates} · {s.age}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-600">Осталось мест:</span>
+                    <span className="text-xs text-warm-700">Осталось мест:</span>
                     <span className={`font-black text-lg ${s.spots <= 5 ? "text-red-500" : "text-green-600"}`}>{s.spots}</span>
                   </div>
                 </div>
@@ -311,8 +311,8 @@ export default function Index() {
       <section id="about" className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">Что такое наши летние смены?</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">Что такое наши летние смены?</h2>
+            <p className="text-xl text-warm-700 max-w-2xl mx-auto">
               Это лето, о котором ваш ребёнок будет вспоминать всю жизнь.
               Не просто «занять детей», а настоящие приключения!
             </p>
@@ -329,8 +329,8 @@ export default function Index() {
             ].map((item, i) => (
               <div key={i} className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-5 border border-emerald-100 summer-card text-center">
                 <div className="text-4xl mb-3">{item.emoji}</div>
-                <h3 className="font-black text-slate-700 mb-1">{item.title}</h3>
-                <p className="text-sm text-slate-500">{item.desc}</p>
+                <h3 className="font-black text-warm-800 mb-1">{item.title}</h3>
+                <p className="text-sm text-warm-600">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -338,8 +338,8 @@ export default function Index() {
           {/* видео-заглушка */}
           <div className="bg-gradient-to-br from-emerald-50 to-teal-100 rounded-3xl p-10 text-center border-2 border-dashed border-emerald-300">
             <div className="text-6xl mb-4">📹</div>
-            <h3 className="font-black text-slate-700 text-xl mb-2">Смотрите, как это было в прошлом году</h3>
-            <p className="text-slate-500 mb-4">Видео с прошлых смен — дети плавают, готовят на костре, смеются у палатки</p>
+            <h3 className="font-black text-warm-800 text-xl mb-2">Смотрите, как это было в прошлом году</h3>
+            <p className="text-warm-600 mb-4">Видео с прошлых смен — дети плавают, готовят на костре, смеются у палатки</p>
             <p className="text-sm text-emerald-600 font-semibold">Вставьте ссылку на видео с ВКонтакте или YouTube</p>
           </div>
         </div>
@@ -349,7 +349,7 @@ export default function Index() {
       <section className="py-16 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">Рыбка Долли — это для вашего ребёнка, если:</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">Рыбка Долли — это для вашего ребёнка, если:</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {[
@@ -360,11 +360,11 @@ export default function Index() {
               { emoji: "📱", text: "Он «залипает» в гаджетах", detail: "Телефоны только для связи с родителями — вечером 30 минут" },
               { emoji: "🌟", text: "Вы хотите, чтобы лето было незабываемым", detail: "Каждая смена — отдельная история с уникальной темой!" },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 flex gap-4 items-start shadow-sm border border-stone-100 summer-card">
+              <div key={i} className="bg-white rounded-2xl p-5 flex gap-4 items-start shadow-sm border border-warm-100 summer-card">
                 <div className="text-3xl flex-shrink-0">{item.emoji}</div>
                 <div>
-                  <p className="font-bold text-slate-700">✅ {item.text}</p>
-                  <p className="text-sm text-slate-500 mt-0.5">→ {item.detail}</p>
+                  <p className="font-bold text-warm-800">✅ {item.text}</p>
+                  <p className="text-sm text-warm-600 mt-0.5">→ {item.detail}</p>
                 </div>
               </div>
             ))}
@@ -384,8 +384,8 @@ export default function Index() {
       <section id="program" className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">Программа смен (10 дней)</h2>
-            <p className="text-slate-600">Каждая смена — отдельная история с уникальной темой!</p>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">Программа смен (10 дней)</h2>
+            <p className="text-warm-700">Каждая смена — отдельная история с уникальной темой!</p>
           </div>
           <div className="space-y-3">
             {SHIFTS.map((shift) => (
@@ -408,14 +408,14 @@ export default function Index() {
                     {shift.days.length > 0 ? (
                       <ol className="space-y-2">
                         {shift.days.map((day, i) => (
-                          <li key={i} className="flex gap-3 text-sm text-slate-700">
+                          <li key={i} className="flex gap-3 text-sm text-warm-800">
                             <span className="font-black text-sky-500 flex-shrink-0">{i + 1}.</span>
                             <span>{day}</span>
                           </li>
                         ))}
                       </ol>
                     ) : (
-                      <p className="text-slate-500 text-sm italic">Подробная программа скоро появится. Следите за обновлениями в ВКонтакте!</p>
+                      <p className="text-warm-600 text-sm italic">Подробная программа скоро появится. Следите за обновлениями в ВКонтакте!</p>
                     )}
                     <button
                       onClick={() => { setSelectedShift(shift.id); scrollToBooking(); }}
@@ -428,7 +428,7 @@ export default function Index() {
               </div>
             ))}
           </div>
-          <p className="text-center text-slate-500 mt-6 text-sm">И это только малая часть активностей! Скорее бронируйте, пока места не закончились!</p>
+          <p className="text-center text-warm-600 mt-6 text-sm">И это только малая часть активностей! Скорее бронируйте, пока места не закончились!</p>
         </div>
       </section>
 
@@ -436,8 +436,8 @@ export default function Index() {
       <section className="py-16 px-4 bg-gradient-to-br from-cyan-50 to-sky-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">Как проходит день в клубе?</h2>
-            <p className="text-slate-600">Каждая минута продумана — дети под контролем и в движении!</p>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">Как проходит день в клубе?</h2>
+            <p className="text-warm-700">Каждая минута продумана — дети под контролем и в движении!</p>
           </div>
           <div className="relative space-y-4">
             {[
@@ -460,9 +460,9 @@ export default function Index() {
                 <div className="bg-white rounded-2xl p-4 flex-1 shadow-sm border border-emerald-100 mb-2">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-black text-emerald-700 text-sm">{item.time}</span>
-                    <span className="font-bold text-slate-700">{item.title}</span>
+                    <span className="font-bold text-warm-800">{item.title}</span>
                   </div>
-                  <p className="text-sm text-slate-500">{item.desc}</p>
+                  <p className="text-sm text-warm-600">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -473,12 +473,12 @@ export default function Index() {
       {/* ── БЛОК 7: КОМАНДА ───────────────────────────────────────────────────── */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">Наша команда</h2>
-          <p className="text-slate-600 mb-10">Педагоги-профессионалы, а не «студенты-аниматоры»</p>
-          <div className="bg-gradient-to-br from-stone-50 to-emerald-50 rounded-3xl p-10 border-2 border-dashed border-stone-200">
+          <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">Наша команда</h2>
+          <p className="text-warm-700 mb-10">Педагоги-профессионалы, а не «студенты-аниматоры»</p>
+          <div className="bg-gradient-to-br from-warm-50 to-mint-50 rounded-3xl p-10 border-2 border-dashed border-warm-200">
             <div className="text-5xl mb-4">👩‍🏫</div>
-            <p className="text-slate-600 text-lg font-semibold">Здесь появятся фото и рассказы о вожатых</p>
-            <p className="text-sm text-slate-400 mt-2">Добавьте реальные фотографии команды — это вызывает доверие родителей!</p>
+            <p className="text-warm-700 text-lg font-semibold">Здесь появятся фото и рассказы о вожатых</p>
+            <p className="text-sm text-warm-500 mt-2">Добавьте реальные фотографии команды — это вызывает доверие родителей!</p>
           </div>
         </div>
       </section>
@@ -487,8 +487,8 @@ export default function Index() {
       <section className="py-16 px-4 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">🛡️ Безопасность — наш приоритет №1</h2>
-            <p className="text-slate-600">Что мы делаем, чтобы вы были спокойны:</p>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">🛡️ Безопасность — наш приоритет №1</h2>
+            <p className="text-warm-700">Что мы делаем, чтобы вы были спокойны:</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
@@ -501,8 +501,8 @@ export default function Index() {
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-emerald-100 summer-card text-center">
                 <div className="text-4xl mb-3">{item.emoji}</div>
-                <h3 className="font-black text-slate-700 mb-1">{item.title}</h3>
-                <p className="text-sm text-slate-500">{item.desc}</p>
+                <h3 className="font-black text-warm-800 mb-1">{item.title}</h3>
+                <p className="text-sm text-warm-600">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -513,8 +513,8 @@ export default function Index() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">🍜 Чем кормим?</h2>
-            <p className="text-slate-600">Вкусно, сытно и по-домашнему!</p>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">🍜 Чем кормим?</h2>
+            <p className="text-warm-700">Вкусно, сытно и по-домашнему!</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -533,15 +533,15 @@ export default function Index() {
                 ]
               }
             ].map((menu, i) => (
-              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-100">
+              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-warm-100">
                 <div className={`bg-gradient-to-r ${menu.color} text-white font-black text-xl p-4`}>{menu.day}</div>
                 <div className="p-5 space-y-4">
                   {menu.meals.map((meal, j) => (
                     <div key={j}>
-                      <p className="font-bold text-slate-700 mb-2">{meal.type}</p>
+                      <p className="font-bold text-warm-800 mb-2">{meal.type}</p>
                       <ul className="space-y-1">
                         {meal.items.map((item, k) => (
-                          <li key={k} className="text-sm text-slate-600 flex gap-2">
+                          <li key={k} className="text-sm text-warm-700 flex gap-2">
                             <span className="text-green-500">✓</span> {item}
                           </li>
                         ))}
@@ -556,24 +556,24 @@ export default function Index() {
       </section>
 
       {/* ── БЛОК 10–11: ОТЗЫВЫ ───────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-gradient-to-br from-stone-50 to-amber-50">
+      <section className="py-16 px-4 bg-gradient-to-br from-warm-50 to-warm-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3">⭐ Что говорят дети и родители?</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-warm-900 mb-3">⭐ Что говорят дети и родители?</h2>
           </div>
 
           {/* видео-отзывы заглушка */}
-          <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-stone-100 shadow-sm">
+          <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-warm-100 shadow-sm">
             <div className="text-5xl mb-4">🎬</div>
-            <h3 className="font-black text-slate-700 text-xl mb-2">Видео-отзывы детей</h3>
-            <p className="text-slate-500">Сюда добавьте 3–4 коротких видео с отзывами детей (30–60 сек)</p>
+            <h3 className="font-black text-warm-800 text-xl mb-2">Видео-отзывы детей</h3>
+            <p className="text-warm-600">Сюда добавьте 3–4 коротких видео с отзывами детей (30–60 сек)</p>
           </div>
 
           {/* фото-отзывы заглушка */}
           <div className="bg-white rounded-3xl p-8 mb-6 text-center border border-amber-100 shadow-sm">
             <div className="text-5xl mb-4">📱</div>
-            <h3 className="font-black text-slate-700 text-xl mb-2">Отзывы родителей</h3>
-            <p className="text-slate-500">Добавьте скриншоты переписок, скриншоты из ВКонтакте со звёздочками 5/5</p>
+            <h3 className="font-black text-warm-800 text-xl mb-2">Отзывы родителей</h3>
+            <p className="text-warm-600">Добавьте скриншоты переписок, скриншоты из ВКонтакте со звёздочками 5/5</p>
           </div>
 
           <div className="text-center">
@@ -629,25 +629,25 @@ export default function Index() {
           {submitted ? (
             <div className="bg-white rounded-3xl p-10 text-center">
               <div className="text-6xl mb-4">🎉</div>
-              <h3 className="text-2xl font-black text-slate-800 mb-2">Оплата принята!</h3>
-              <p className="text-slate-600 mb-6">Мы свяжемся с вами в ближайшее время. Спасибо, что выбрали Рыбку Долли!</p>
+              <h3 className="text-2xl font-black text-warm-900 mb-2">Оплата принята!</h3>
+              <p className="text-warm-700 mb-6">Мы свяжемся с вами в ближайшее время. Спасибо, что выбрали Рыбку Долли!</p>
               <button onClick={() => setSubmitted(false)} className="text-sky-600 font-bold underline">Записать ещё одного ребёнка</button>
             </div>
           ) : (
             <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl">
-              <h3 className="font-black text-slate-800 text-xl mb-5 text-center">💳 Оплата онлайн — место гарантировано!</h3>
+              <h3 className="font-black text-warm-900 text-xl mb-5 text-center">💳 Оплата онлайн — место гарантировано!</h3>
 
               {/* выбор смены */}
               <div className="mb-5">
-                <label className="font-bold text-slate-700 block mb-3">Выберите смену:</label>
+                <label className="font-bold text-warm-800 block mb-3">Выберите смену:</label>
                 <div className="grid grid-cols-1 gap-2">
                   {SHIFTS.map((s) => (
-                    <label key={s.id} className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${selectedShift === s.id ? `border-emerald-500 ${s.lightColor}` : "border-slate-100 hover:border-emerald-200"}`}>
+                    <label key={s.id} className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${selectedShift === s.id ? `border-emerald-500 ${s.lightColor}` : "border-warm-100 hover:border-emerald-200"}`}>
                       <input type="radio" name="shift" className="accent-emerald-600" checked={selectedShift === s.id} onChange={() => setSelectedShift(s.id)} />
                       <span className="text-xl">{s.emoji}</span>
                       <div className="flex-1">
-                        <span className="font-bold text-slate-700">Смена {s.id}: «{s.name}»</span>
-                        <span className="text-xs text-slate-500 ml-2">{s.dates} · {s.age}</span>
+                        <span className="font-bold text-warm-800">Смена {s.id}: «{s.name}»</span>
+                        <span className="text-xs text-warm-600 ml-2">{s.dates} · {s.age}</span>
                       </div>
                       <span className={`text-xs font-bold px-2 py-1 rounded-full ${s.spots <= 5 ? "bg-red-100 text-red-600" : "bg-green-100 text-green-600"}`}>
                         {s.spots} мест
@@ -660,7 +660,7 @@ export default function Index() {
 
               {/* квиз-кнопка */}
               <div className="bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-2xl p-4 mb-5 text-center">
-                <p className="font-bold text-slate-700 mb-2">😵 Глаза разбегаются? Не знаешь какую смену выбрать?</p>
+                <p className="font-bold text-warm-800 mb-2">😵 Глаза разбегаются? Не знаешь какую смену выбрать?</p>
                 <a
                   href="https://vk.com/app6379730_-179759189#l=8"
                   target="_blank"
@@ -669,14 +669,14 @@ export default function Index() {
                 >
                   🎯 Пройти квиз «Какая смена подойдёт моему ребёнку?»
                 </a>
-                <p className="text-xs text-slate-500 mt-2">Создан профессионалами — точно подскажет!</p>
+                <p className="text-xs text-warm-600 mt-2">Создан профессионалами — точно подскажет!</p>
               </div>
 
               {/* поля формы */}
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className="font-bold text-slate-700 block mb-1 text-sm">Имя ребёнка *</label>
+                    <label className="font-bold text-warm-800 block mb-1 text-sm">Имя ребёнка *</label>
                     <input
                       className="summer-input"
                       placeholder="Артём"
@@ -686,7 +686,7 @@ export default function Index() {
                     {formErrors.name && <p className="text-red-500 text-xs mt-1">{formErrors.name}</p>}
                   </div>
                   <div>
-                    <label className="font-bold text-slate-700 block mb-1 text-sm">Возраст *</label>
+                    <label className="font-bold text-warm-800 block mb-1 text-sm">Возраст *</label>
                     <input
                       className="summer-input"
                       placeholder="9"
@@ -696,7 +696,7 @@ export default function Index() {
                     {formErrors.age && <p className="text-red-500 text-xs mt-1">{formErrors.age}</p>}
                   </div>
                   <div>
-                    <label className="font-bold text-slate-700 block mb-1 text-sm">Ваш телефон *</label>
+                    <label className="font-bold text-warm-800 block mb-1 text-sm">Ваш телефон *</label>
                     <input
                       className="summer-input"
                       placeholder="+7 988 152-16-98"
@@ -706,7 +706,7 @@ export default function Index() {
                     {formErrors.phone && <p className="text-red-500 text-xs mt-1">{formErrors.phone}</p>}
                   </div>
                   <div>
-                    <label className="font-bold text-slate-700 block mb-1 text-sm">Email *</label>
+                    <label className="font-bold text-warm-800 block mb-1 text-sm">Email *</label>
                     <input
                       className="summer-input"
                       type="email"
@@ -718,7 +718,7 @@ export default function Index() {
                   </div>
                 </div>
                 <div className="mb-5">
-                  <label className="font-bold text-slate-700 block mb-1 text-sm">Комментарий (необязательно)</label>
+                  <label className="font-bold text-warm-800 block mb-1 text-sm">Комментарий (необязательно)</label>
                   <textarea
                     className="summer-input resize-none"
                     rows={2}
@@ -731,8 +731,8 @@ export default function Index() {
                 {selectedShift && (
                   <div className="bg-emerald-50 rounded-2xl p-4 mb-5 flex items-center justify-between flex-wrap gap-2">
                     <div>
-                      <p className="font-bold text-slate-700">Смена: «{shiftObj?.name}»</p>
-                      <p className="text-sm text-slate-500">{shiftObj?.dates} · {shiftObj?.age}</p>
+                      <p className="font-bold text-warm-800">Смена: «{shiftObj?.name}»</p>
+                      <p className="text-sm text-warm-600">{shiftObj?.dates} · {shiftObj?.age}</p>
                     </div>
                     <div className="text-right">
                       <p className="font-black text-2xl text-emerald-700">
@@ -750,7 +750,7 @@ export default function Index() {
                 >
                   {isSubmitting ? "⏳ Создаём заказ..." : "💳 Оплатить и забронировать место"}
                 </button>
-                <p className="text-center text-xs text-slate-400 mt-3">
+                <p className="text-center text-xs text-warm-500 mt-3">
                   Нажимая кнопку, вы соглашаетесь с <a href="/oferta" className="underline">публичной офертой</a>.
                   Оплата через Robokassa — безопасно и надёжно.
                 </p>
@@ -761,13 +761,13 @@ export default function Index() {
       </section>
 
       {/* ── ФУТЕР ─────────────────────────────────────────────────────────────── */}
-      <footer className="bg-stone-800 text-white py-8 px-4">
+      <footer className="bg-warm-900 text-white py-8 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="text-3xl">🐟</span>
             <span className="font-black text-xl">Рыбка Долли</span>
           </div>
-          <p className="text-slate-400 text-sm mb-3">г. Керчь, ул. Циолковского, 12</p>
+          <p className="text-warm-400 text-sm mb-3">г. Керчь, ул. Циолковского, 12</p>
           <div className="flex items-center justify-center gap-6 flex-wrap mb-4">
             <a href="tel:+79881521698" className="text-emerald-400 hover:text-emerald-300 font-semibold">+7 988 152-16-98 (МТС)</a>
             <a href="tel:+79787120353" className="text-emerald-400 hover:text-emerald-300 font-semibold">+7 978 712-03-53 (Волна)</a>
@@ -780,8 +780,8 @@ export default function Index() {
           >
             ВКонтакте
           </a>
-          <p className="text-slate-500 text-xs">
-            © 2026 Летний клуб «Рыбка Долли» · <a href="/oferta" className="underline hover:text-slate-300">Публичная оферта</a>
+          <p className="text-warm-500 text-xs">
+            © 2026 Летний клуб «Рыбка Долли» · <a href="/oferta" className="underline hover:text-warm-300">Публичная оферта</a>
           </p>
         </div>
       </footer>

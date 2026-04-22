@@ -1,49 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Playfair+Display:wght@700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Rounded+Mplus+1c:wght@400;500;700;800&display=swap");
-
 @layer base {
   :root {
-    --background: 60 30% 97%;
-    --foreground: 30 20% 18%;
+    --background: 43 38% 96%;
+    --foreground: 30 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 30 20% 18%;
+    --card: 40 30% 99%;
+    --card-foreground: 30 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 20% 18%;
+    --popover: 40 30% 99%;
+    --popover-foreground: 30 25% 15%;
 
-    --primary: 152 45% 42%;
+    --primary: 152 42% 38%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 40% 88%;
-    --secondary-foreground: 30 20% 18%;
+    --secondary: 38 55% 88%;
+    --secondary-foreground: 30 25% 15%;
 
-    --muted: 120 20% 93%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 40 25% 92%;
+    --muted-foreground: 30 15% 42%;
 
-    --accent: 168 40% 55%;
+    --accent: 164 38% 52%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 120 15% 84%;
-    --input: 120 15% 84%;
-    --ring: 152 45% 42%;
+    --border: 38 20% 82%;
+    --input: 38 20% 82%;
+    --ring: 152 42% 38%;
 
     --radius: 1rem;
 
-    --sidebar-background: 60 30% 97%;
-    --sidebar-foreground: 30 20% 18%;
-    --sidebar-primary: 152 45% 42%;
+    --sidebar-background: 43 38% 96%;
+    --sidebar-foreground: 30 25% 15%;
+    --sidebar-primary: 152 42% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 120 20% 93%;
-    --sidebar-accent-foreground: 30 20% 18%;
-    --sidebar-border: 120 15% 84%;
-    --sidebar-ring: 152 45% 42%;
+    --sidebar-accent: 40 25% 92%;
+    --sidebar-accent-foreground: 30 25% 15%;
+    --sidebar-border: 38 20% 82%;
+    --sidebar-ring: 152 42% 38%;
   }
 }
 
@@ -57,9 +57,9 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: "Comfortaa", cursive;
-    background-color: #f7f5ef;
+    font-family: "Nunito", sans-serif;
+    background-color: #f5f0e8;
+    color: #2d2416;
     overflow-x: hidden;
   }
 
@@ -67,9 +67,9 @@
   h2,
   h3,
   h4 {
-    font-family: "Comfortaa", cursive;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-family: "Playfair Display", serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -157,12 +157,12 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    box-shadow: 0 0 20px rgba(217, 175, 62, 0.5);
   }
   50% {
     box-shadow:
-      0 0 40px rgba(14, 165, 233, 0.8),
-      0 0 60px rgba(14, 165, 233, 0.3);
+      0 0 40px rgba(217, 175, 62, 0.9),
+      0 0 60px rgba(217, 175, 62, 0.3);
   }
 }
 
@@ -170,34 +170,27 @@
   opacity: 0;
   animation: fade-up 0.8s ease-out forwards;
 }
-
 .animate-fade-in {
   opacity: 0;
   animation: fade-in 0.6s ease-out forwards;
 }
-
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
-
 .animate-wiggle {
   animation: wiggle 2s ease-in-out infinite;
 }
-
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
-
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
 }
-
 .animate-wave {
   animation: wave 2s ease-in-out infinite;
   transform-origin: 70% 70%;
   display: inline-block;
 }
-
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -226,21 +219,21 @@
 
 /* Gradient texts */
 .text-sunny {
-  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  background: linear-gradient(135deg, #d4a017 0%, #e07b39 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-ocean {
-  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #2d8f6f 0%, #3aab8a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-summer {
-  background: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #c97d2a 0%, #3aab8a 50%, #2d8f6f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -256,14 +249,14 @@
 
 .summer-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(16, 148, 100, 0.18);
+  box-shadow: 0 20px 50px rgba(100, 160, 90, 0.18);
 }
 
 /* Inputs */
 .summer-input {
-  background: white;
-  border: 2px solid #a7f3d0;
-  color: #1c3a2a;
+  background: #fffdf8;
+  border: 2px solid #d4c9a8;
+  color: #2d2416;
   border-radius: 12px;
   padding: 12px 16px;
   width: 100%;
@@ -276,12 +269,12 @@
 
 .summer-input:focus {
   outline: none;
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  border-color: #3aab8a;
+  box-shadow: 0 0 0 3px rgba(58, 171, 138, 0.15);
 }
 
 .summer-input::placeholder {
-  color: #94a3b8;
+  color: #a89880;
 }
 
 /* Wave divider */
@@ -304,7 +297,7 @@
   top: 3rem;
   bottom: -1rem;
   width: 2px;
-  background: linear-gradient(to bottom, #0ea5e9, #06b6d4);
+  background: linear-gradient(to bottom, #3aab8a, #8fcf6a);
 }
 
 /* Accordion */
