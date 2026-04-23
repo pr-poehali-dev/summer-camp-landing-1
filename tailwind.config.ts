@@ -7,7 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
-			"./1776855489032395408.html"
+		"./1776855489032395408.html"
 	],
 	prefix: "",
 	theme: {
@@ -19,14 +19,15 @@ export default {
 			}
 		},
 		fontFamily: {
-				'oswald': ['Oswald', 'sans-serif'],
-				'golos': ['Golos Text', 'sans-serif'],
-				'nunito': ['Nunito', 'sans-serif'],
-				'playfair': ['Playfair Display', 'serif'],
-			},
+			'oswald': ['Oswald', 'sans-serif'],
+			'golos': ['Golos Text', 'sans-serif'],
+			'nunito': ['Nunito', 'sans-serif'],
+			'baloo': ['Baloo 2', 'cursive'],
+			'fredoka': ['Fredoka One', 'cursive'],
+		},
 		extend: {
 			colors: {
-					coral: {
+				coral: {
 					DEFAULT: '#FF6B6B',
 					light: '#FF9B9B',
 					dark:  '#E84444',
@@ -34,10 +35,14 @@ export default {
 					100:   '#FFD6D6',
 				},
 				brand: {
-					teal:   '#4ECDC4',
-					yellow: '#FFE66D',
-					bg:     '#FFF9F0',
-					dark:   '#2C3E50',
+					teal:   '#3dbfb8',
+					sky:    '#6dd5d0',
+					yellow: '#FFD93D',
+					sand:   '#FFF0C8',
+					ocean:  '#1a6a8a',
+					navy:   '#0d4f6e',
+					dark:   '#1a3a5c',
+					bg:     '#e8f7f8',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -90,20 +95,12 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				}
 			},
 			animation: {
