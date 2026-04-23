@@ -38,6 +38,7 @@ export default {
 					teal:   '#3dbfb8',
 					sky:    '#6dd5d0',
 					yellow: '#FFD93D',
+					orange: '#EA592A',
 					sand:   '#FFF0C8',
 					ocean:  '#1a6a8a',
 					navy:   '#0d4f6e',

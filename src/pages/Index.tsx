@@ -216,7 +216,7 @@ export default function Index() {
           <div className="rounded-3xl p-6 mb-8 max-w-2xl mx-auto border" style={{background:"rgba(13,79,110,0.75)", backdropFilter:"blur(12px)", borderColor:"rgba(255,255,255,0.3)"}}>
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="text-2xl">⏰</span>
-              <span className="font-black text-[#FFD93D] text-xl" style={{fontFamily:"'Fredoka One', cursive"}}>АКЦИЯ ДО 15 МАЯ — СКИДКА 12%!</span>
+              <span className="font-black text-xl" style={{fontFamily:"'Fredoka One', cursive", color:"#EA592A"}}>АКЦИЯ ДО 15 МАЯ — СКИДКА 12%!</span>
             </div>
             <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
               <TimerBlock value={countdown.days} label="ДНЕЙ" />
@@ -236,7 +236,7 @@ export default function Index() {
             <button
               onClick={scrollToBooking}
               className="font-black text-lg px-8 py-4 rounded-2xl shadow-lg transition-all hover:scale-105 animate-pulse-glow-teal"
-              style={{background:"linear-gradient(135deg, #FFD93D 0%, #ffbd00 100%)", color:"#0d4f6e"}}
+              style={{background:"linear-gradient(135deg, #EA592A 0%, #FFD93D 100%)", color:"#fff"}}
             >
               🎉 Забронировать со скидкой 12%
             </button>
@@ -305,7 +305,7 @@ export default function Index() {
               ))}
             </div>
             <div className="text-center mt-5">
-              <button onClick={scrollToBooking} className="text-white font-black px-8 py-3 rounded-2xl shadow-md transition-all hover:scale-105" style={{background:"linear-gradient(135deg, #1a6a8a 0%, #3dbfb8 100%)"}}>
+              <button onClick={scrollToBooking} className="text-white font-black px-8 py-3 rounded-2xl shadow-md transition-all hover:scale-105" style={{background:"linear-gradient(135deg, #EA592A 0%, #FFD93D 100%)"}}>
                 Забронировать место сейчас →
               </button>
             </div>
@@ -378,7 +378,7 @@ export default function Index() {
           <button
             onClick={scrollToBooking}
             className="inline-block font-black text-lg px-10 py-4 rounded-2xl transition-all hover:scale-105 shadow-2xl"
-            style={{background:"linear-gradient(135deg, #FFD93D 0%, #FF9A3C 100%)", color:"#0d4f6e"}}
+            style={{background:"linear-gradient(135deg, #EA592A 0%, #FFD93D 100%)", color:"#fff"}}
           >
             🌊 Забронировать место на лето
           </button>
@@ -643,7 +643,7 @@ export default function Index() {
               <span className="font-black text-3xl px-4 py-1 rounded-xl" style={{background:"linear-gradient(135deg,#FFD93D,#FF9A3C)", color:"#0d4f6e"}}>
                 {afterDiscount ? PRICE_SALE.toLocaleString() : PRICE_FULL.toLocaleString()} ₽
               </span>
-              {afterDiscount && <span className="bg-[#3dbfb8] text-white font-bold px-3 py-1 rounded-full text-sm">−12% до 15 мая</span>}
+              {afterDiscount && <span className="text-white font-bold px-3 py-1 rounded-full text-sm" style={{background:"#EA592A"}}>−12% до 15 мая</span>}
             </div>
 
             {/* что включено */}
@@ -656,7 +656,7 @@ export default function Index() {
             {/* таймер */}
             {afterDiscount && (
               <div className="mb-6">
-                <p className="text-[#FFD93D] font-bold mb-3">⏰ До конца акции осталось:</p>
+                <p className="font-bold mb-3" style={{color:"#EA592A"}}>⏰ До конца акции осталось:</p>
                 <div className="flex items-center justify-center gap-3 flex-wrap">
                   <TimerBlock value={countdown.days} label="ДНЕЙ" />
                   <span className="text-white/60 text-2xl font-bold">:</span>
@@ -791,7 +791,7 @@ export default function Index() {
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full disabled:opacity-50 text-white font-black text-xl py-4 rounded-2xl shadow-lg transition-all hover:scale-105"
-                  style={{background:"linear-gradient(135deg, #1a6a8a 0%, #3dbfb8 100%)"}}
+                  style={{background:"linear-gradient(135deg, #EA592A 0%, #FFD93D 100%)"}}
                 >
                   {isSubmitting ? "⏳ Создаём заказ..." : "💳 Оплатить и забронировать место"}
                 </button>
