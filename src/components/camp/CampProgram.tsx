@@ -46,7 +46,19 @@ export default function CampProgram({
 
           {/* видео с ВК */}
           <div className="rounded-3xl p-6 md:p-8" style={{background:"#FFF8F0", border:"2px solid #FFE5D9", boxShadow:"0 10px 30px rgba(255,154,86,0.15)"}}>
-            <h3 className="font-black text-xl md:text-2xl mb-4 text-center" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>📹 Смотрите, как это было в прошлом году</h3>
+            <h3
+              className="font-black text-3xl md:text-5xl mb-6 text-center animate-rainbow-pulse"
+              style={{
+                fontFamily:"'Fredoka One', cursive",
+                backgroundImage:"linear-gradient(90deg, #FF3D8B 0%, #FF9A56 20%, #FFD93D 40%, #00C9A7 60%, #6C5CE7 80%, #FF3D8B 100%)",
+                WebkitBackgroundClip:"text",
+                WebkitTextFillColor:"transparent",
+                backgroundClip:"text",
+                letterSpacing:"0.5px",
+              }}
+            >
+              📹 Смотрите, как это было в прошлом году! 🎉
+            </h3>
             <div className="relative w-full overflow-hidden rounded-2xl" style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
               <iframe
                 src="https://vk.com/video_ext.php?oid=-179759189&id=456239214&hd=2&t=4m8s"

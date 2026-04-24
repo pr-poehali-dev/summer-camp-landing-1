@@ -193,6 +193,34 @@
     transform: rotate(8deg);
   }
 }
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes rainbow-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    background-position: 0% 50%;
+    filter: drop-shadow(0 4px 15px rgba(255, 61, 139, 0.4));
+  }
+  50% {
+    transform: scale(1.05);
+    background-position: 100% 50%;
+    filter: drop-shadow(0 6px 25px rgba(0, 201, 167, 0.6));
+  }
+}
+.animate-rainbow-pulse {
+  background-size: 200% auto !important;
+  animation: rainbow-pulse 2s ease-in-out infinite;
+}
 
 .animate-fade-up {
   opacity: 0;
