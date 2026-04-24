@@ -69,16 +69,38 @@ export default function CampProgram({
                   title="Видео Рыбка Долли — смена 1"
                 />
               </div>
-              <div className="relative w-full overflow-hidden rounded-2xl bg-white" style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
-                <iframe
-                  src="https://vk.com/widget_post.php?app=0&width=100%25&_ver=1&owner_id=-179759189&post_id=2691&hash=auto"
-                  className="absolute top-0 left-0 w-full h-full border-0"
-                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
-                  allowFullScreen
-                  title="Видео Рыбка Долли — смена 2"
-                  scrolling="no"
+              <a
+                href="https://vk.com/wall-179759189_2691"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative w-full overflow-hidden rounded-2xl block"
+                style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}
+              >
+                <img
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/39d89f39-bd12-4c91-bc24-1d5b9e4da4c5.png"
+                  alt="Видео Рыбка Долли — клип"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
+                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center animate-play"
+                    style={{background:"linear-gradient(135deg,#FF9A56,#FFD93D)", boxShadow:"0 10px 30px rgba(255,154,86,0.6)"}}
+                  >
+                    <Icon name="Play" size={40} className="text-white ml-1" fill="white" />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white" style={{background:"linear-gradient(0deg, rgba(0,0,0,0.8), transparent)"}}>
+                  <div className="flex items-center gap-2 text-xs font-bold mb-1 opacity-90">
+                    <Icon name="Sparkles" size={14} />
+                    НОВЫЙ КЛИП
+                  </div>
+                  <p className="font-black text-base md:text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
+                    Скоро двери летнего клуба распахнутся!
+                  </p>
+                  <p className="text-xs opacity-80 mt-1">Смотреть в ВКонтакте →</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
