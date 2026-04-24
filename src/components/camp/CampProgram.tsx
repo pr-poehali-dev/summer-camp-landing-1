@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
 
@@ -15,17 +14,6 @@ export default function CampProgram({
   scrollToBooking,
   setSelectedShift,
 }: CampProgramProps) {
-  const [clipOpen, setClipOpen] = useState(false);
-
-  useEffect(() => {
-    if (clipOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [clipOpen]);
-
   return (
     <>
       {/* ── БЛОК 3: ЧТО ТАКОЕ РЫБКА ДОЛЛИ ───────────────────────────────────── */}
@@ -72,104 +60,27 @@ export default function CampProgram({
               📹 Смотрите, как это было в прошлом году! 🎉
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto items-stretch">
-              <div className="relative w-full overflow-hidden rounded-2xl" style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
-                <iframe
-                  src="https://vk.com/video_ext.php?oid=-179759189&id=456239214&hd=2&t=4m8s"
-                  className="absolute top-0 left-0 w-full h-full border-0"
-                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
-                  allowFullScreen
-                  title="Видео Рыбка Долли — смена 1"
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black" style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
+                <video
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/034b7134-32f7-411e-b6a7-e99bc9f8c195.mp4"
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
                 />
               </div>
-              <button
-                type="button"
-                onClick={() => setClipOpen(true)}
-                className="group relative w-full overflow-hidden rounded-2xl block cursor-pointer text-left"
-                style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}
-              >
-                <img
-                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/39d89f39-bd12-4c91-bc24-1d5b9e4da4c5.png"
-                  alt="Видео Рыбка Долли — клип"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black" style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
+                <video
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/db6717d2-5463-4014-a065-2eab9a7a2743.mp4"
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/15 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center animate-play"
-                    style={{background:"linear-gradient(135deg,#FF9A56,#FFD93D)", boxShadow:"0 10px 30px rgba(255,154,86,0.6)"}}
-                  >
-                    <Icon name="Play" size={40} className="text-white ml-1" fill="white" />
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white" style={{background:"linear-gradient(0deg, rgba(0,0,0,0.85), transparent)"}}>
-                  <div className="flex items-center gap-2 text-xs font-bold mb-1 opacity-90">
-                    <Icon name="Sparkles" size={14} />
-                    НОВЫЙ КЛИП
-                  </div>
-                  <p className="font-black text-base md:text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
-                    Скоро двери летнего клуба распахнутся!
-                  </p>
-                </div>
-              </button>
+              </div>
             </div>
           </div>
         </div>
-
-        {clipOpen && (
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in"
-            style={{background:"rgba(0,0,0,0.85)", backdropFilter:"blur(8px)"}}
-            onClick={() => setClipOpen(false)}
-          >
-            <button
-              type="button"
-              onClick={() => setClipOpen(false)}
-              className="absolute top-4 right-4 md:top-6 md:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-colors"
-              aria-label="Закрыть"
-            >
-              <Icon name="X" size={22} className="text-white" />
-            </button>
-
-            <div
-              className="relative bg-white rounded-3xl overflow-hidden w-full max-w-sm"
-              style={{boxShadow:"0 20px 60px rgba(0,0,0,0.5)"}}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative w-full" style={{paddingBottom:"130%"}}>
-                <img
-                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/39d89f39-bd12-4c91-bc24-1d5b9e4da4c5.png"
-                  alt="Клип Рыбка Долли"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0" style={{background:"linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%)"}} />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="inline-flex items-center gap-1 text-[11px] font-black px-2 py-1 rounded-full mb-2" style={{background:"#FF3D8B"}}>
-                    <Icon name="Sparkles" size={12} />
-                    НОВЫЙ КЛИП
-                  </div>
-                  <p className="font-black text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
-                    Скоро двери летнего клуба распахнутся!
-                  </p>
-                  <p className="text-xs opacity-90 mt-1">Детский досуговый центр «Рыбка Долли»</p>
-                </div>
-              </div>
-              <div className="p-5 text-center" style={{background:"#FFF8F0"}}>
-                <p className="text-sm mb-4" style={{color:"#3D3D3D"}}>
-                  Этот ролик — клип ВКонтакте, его можно посмотреть только в самом ВК 🎬
-                </p>
-                <a
-                  href="https://vk.com/wall-179759189_2691"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-cta inline-flex items-center gap-2 text-base px-6 py-3"
-                >
-                  <Icon name="Play" size={18} fill="white" />
-                  Смотреть в ВКонтакте
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* ── ТЁМНЫЙ БЛОК ───────────────────────────────────────────────────────── */}
