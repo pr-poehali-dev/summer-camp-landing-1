@@ -351,41 +351,6 @@ export default function CampProgram({
         </div>
       </section>
 
-      {/* ── БЛОК 10–11: ОТЗЫВЫ ───────────────────────────────────────────────── */}
-      <section className="py-16 px-4" style={{background:"#FFF8F0"}}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>⭐ Что говорят дети и родители?</h2>
-          </div>
-
-          {/* видео-отзывы заглушка */}
-          <div className="bg-white rounded-3xl p-8 mb-6 text-center shadow-sm" style={{border:"3px solid #00C9A7", boxShadow:"0 8px 25px rgba(0,201,167,0.2)"}}>
-            <div className="text-5xl mb-4">🎬</div>
-            <h3 className="font-black text-xl mb-2" style={{color:"#3D3D3D"}}>Видео-отзывы детей</h3>
-            <p style={{color:"rgba(61,61,61,0.7)"}}>Сюда добавьте 3–4 коротких видео с отзывами детей (30–60 сек)</p>
-          </div>
-
-          {/* фото-отзывы заглушка */}
-          <div className="bg-white rounded-3xl p-8 mb-6 text-center shadow-sm" style={{border:"2px solid #FFE5D9"}}>
-            <div className="text-5xl mb-4">📱</div>
-            <h3 className="font-black text-xl mb-2" style={{color:"#3D3D3D"}}>Отзывы родителей</h3>
-            <p style={{color:"rgba(61,61,61,0.7)"}}>Добавьте скриншоты переписок, скриншоты из ВКонтакте со звёздочками 5/5</p>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://vk.com/app6379730_-179759189#l=8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white font-black px-8 py-4 rounded-2xl transition-all hover:scale-105"
-              style={{background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.131-.427.131-.427s-.019-1.305.585-1.496c.596-.188 1.361 1.26 2.174 1.815.614.418 1.08.326 1.08.326l2.17-.03s1.135-.071.597-1.002c-.044-.076-.312-.681-1.608-1.927-1.356-1.303-1.173-1.093.459-3.348.997-1.384 1.395-2.228 1.269-2.588-.12-.344-.876-.253-.876-.253l-2.443.015s-.181-.025-.315.056c-.132.079-.217.262-.217.262s-.386 1.077-.901 1.991c-1.085 1.923-1.52 2.025-1.698 1.905-.413-.274-.31-1.112-.31-1.705 0-1.854.273-2.628-.537-2.824-.27-.067-.468-.111-1.158-.118-.885-.009-1.633.003-2.057.218-.282.144-.499.463-.367.48.163.022.532.103.727.378.252.352.243 1.143.243 1.143s.145 2.186-.338 2.453c-.331.181-.786-.188-1.761-1.876-.5-.896-.878-1.888-.878-1.888s-.072-.177-.202-.272c-.157-.115-.376-.151-.376-.151l-2.322.015s-.348.01-.476.166c-.114.139-.009.427-.009.427s1.816 4.424 3.872 6.651c1.885 2.042 4.026 1.907 4.026 1.907h.97z"/></svg>
-              Читать все отзывы ВКонтакте
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
