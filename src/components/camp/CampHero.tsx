@@ -89,8 +89,14 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               </div>
 
               <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.4rem, 5vw, 3.6rem)", lineHeight:1.1}}>
-                <span style={{color:"#FF9A56"}}>Рыбка </span>
-                <span style={{color:"#FFD93D"}}>Долли</span>
+                <span style={{
+                  color:"#FF9A56",
+                  textShadow:"0 1px 0 #FFB47A, 0 2px 0 #FF8A3D, 0 3px 0 #E67A35, 0 4px 0 #CC6A2D, 0 5px 0 #B35A25, 0 6px 8px rgba(0,0,0,0.25)",
+                }}>Рыбка </span>
+                <span style={{
+                  color:"#FFD93D",
+                  textShadow:"0 1px 0 #FFE066, 0 2px 0 #E6C235, 0 3px 0 #CCAB2D, 0 4px 0 #B39425, 0 5px 0 #997D1D, 0 6px 8px rgba(0,0,0,0.25)",
+                }}>Долли</span>
                 <br />
                 <span style={{
                   background:"linear-gradient(135deg, #FF9A56 0%, #FFD93D 100%)",
@@ -99,6 +105,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   backgroundClip:"text",
                   fontSize:"0.7em",
                   letterSpacing:"0.05em",
+                  filter:"drop-shadow(0 3px 0 rgba(204,106,45,0.5)) drop-shadow(0 5px 8px rgba(0,0,0,0.2))",
                 }}>Лето 2026</span>
               </h1>
 
