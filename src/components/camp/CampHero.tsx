@@ -54,10 +54,10 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
       <section className="relative pt-16" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
 
-        <div className="relative z-10 w-full" style={{display:"grid", gridTemplateColumns:"1fr 1fr", minHeight:"calc(100vh - 64px)"}}>
+        <div className="relative z-10 w-full" style={{display:"grid", gridTemplateColumns:"1fr 1fr", minHeight:"calc(100vh - 64px)", alignItems:"start"}}>
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото — занимает всю высоту ── */}
-            <div style={{position:"relative", overflow:"hidden", minHeight:"500px"}}>
+            <div style={{position:"relative", overflow:"hidden", minHeight:"500px", height:"calc(100vh - 64px)"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/16e9434b-45a0-4d1f-8a1e-c57cbd12aa38.jpg"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
@@ -66,7 +66,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div style={{textAlign:"left", padding:"2rem 3rem 2rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
+            <div style={{textAlign:"left", padding:"1rem 2.5rem 2rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
 
               {/* Бейдж — у верха, на уровне фото */}
               <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)", alignSelf:"flex-start", marginBottom:"1.25rem"}}>
