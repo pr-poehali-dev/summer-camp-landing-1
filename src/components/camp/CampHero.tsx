@@ -6,11 +6,11 @@ interface CampHeroProps {
 }
 
 const TimerBlock = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-2xl px-4 py-3 min-w-[70px]">
-    <span className="text-3xl md:text-4xl font-black text-white tabular-nums">
+  <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-xl px-2 py-1.5 flex-1 min-w-0">
+    <span className="text-2xl font-black text-white tabular-nums leading-none">
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-xs text-white/80 font-semibold mt-1">{label}</span>
+    <span className="text-[10px] text-white/80 font-semibold mt-0.5">{label}</span>
   </div>
 );
 
@@ -137,13 +137,10 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     fontSize:"1.1rem",
                   }}>−12%</span>
                 </div>
-                <div style={{display:"flex", alignItems:"center", gap:"0.5rem", flexWrap:"wrap", marginBottom:"0.75rem"}}>
+                <div style={{display:"flex", alignItems:"stretch", gap:"0.35rem", marginBottom:"0.75rem"}}>
                   <TimerBlock value={countdown.days} label="ДНЕЙ" />
-                  <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.hours} label="ЧАСОВ" />
-                  <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.minutes} label="МИНУТ" />
-                  <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.seconds} label="СЕКУНД" />
                 </div>
                 <p style={{color:"rgba(255,255,255,0.9)", fontSize:"0.85rem", fontWeight:600}}>
@@ -151,15 +148,15 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </p>
               </div>
 
-              {/* Кнопки под таймером — такой же ширины */}
-              <div style={{display:"flex", flexDirection:"row", gap:"0.75rem"}}>
-                <button onClick={scrollToBooking} className="btn-cta" style={{flex:2, padding:"0.9rem 1rem", fontSize:"1rem"}}>
-                  🎉 Забронировать со скидкой 12%
+              {/* Кнопки под таймером — на всю ширину бейджа */}
+              <div style={{display:"flex", flexDirection:"row", gap:"0.75rem", width:"100%"}}>
+                <button onClick={scrollToBooking} className="btn-cta" style={{flex:"2 1 0", padding:"0.9rem 0.5rem", fontSize:"0.95rem", whiteSpace:"nowrap"}}>
+                  🎉 Забронировать −12%
                 </button>
                 <a
                   href="#about"
                   className="font-bold rounded-2xl border-2 bg-white/80 transition-all hover:scale-105"
-                  style={{flex:1, padding:"0.9rem 1rem", fontSize:"1rem", color:"#FF9A56", borderColor:"#FF9A56", textAlign:"center", display:"flex", alignItems:"center", justifyContent:"center"}}
+                  style={{flex:"1 1 0", padding:"0.9rem 0.5rem", fontSize:"0.95rem", color:"#FF9A56", borderColor:"#FF9A56", textAlign:"center", display:"flex", alignItems:"center", justifyContent:"center", whiteSpace:"nowrap"}}
                 >
                   Программа смен
                 </a>
