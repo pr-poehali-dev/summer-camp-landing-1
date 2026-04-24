@@ -251,30 +251,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             ))}
           </div>
 
-          {/* счётчики мест по сменам */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm" style={{border:"2px solid #FFE5D9", boxShadow:"0 10px 30px rgba(255,154,86,0.15)"}}>
-            <p className="text-center font-black text-lg mb-4" style={{color:"#FF9A56"}}>🔥 Мест становится меньше каждый день!</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {SHIFTS.map((s) => (
-                <div key={s.id} className={`rounded-2xl p-4 ${s.lightColor} border ${s.borderColor}`}>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span>{s.emoji}</span>
-                    <span className="font-bold text-warm-800 text-sm">{s.name}</span>
-                  </div>
-                  <p className="text-xs text-warm-600 mb-2">{s.dates} · {s.age}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-warm-700">Осталось мест:</span>
-                    <span className={`font-black text-lg ${s.spots <= 5 ? "text-red-500" : "text-[#00C9A7]"}`}>{s.spots}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-5">
-              <button onClick={scrollToBooking} className="btn-cta px-8 py-3 font-black">
-                Забронировать место сейчас →
-              </button>
-            </div>
-          </div>
+          {/* здесь будет блок «Частые вопросы» */}
         </div>
       </section>
     </>
