@@ -52,7 +52,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       </header>
 
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-16" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0"}}>
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-16 pb-20" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0"}}>
         {/* декоративные кружки */}
         <div className="absolute top-24 right-8 w-28 h-28 rounded-full opacity-20 animate-float" style={{background:"#FFD93D"}} />
         <div className="absolute bottom-40 right-16 w-20 h-20 rounded-full opacity-20 animate-float delay-300" style={{background:"#00C9A7"}} />
@@ -62,29 +62,28 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото в рамке ── */}
-            <div className="flex-shrink-0 w-full lg:w-[420px] flex items-center justify-center animate-fade-in">
-              <div className="relative w-full max-w-[400px]">
-                {/* Рамка-фон */}
+            <div className="flex-shrink-0 w-full lg:w-[460px] flex items-center justify-start animate-fade-in">
+              <div className="relative w-full max-w-[440px]">
+                {/* Фото детей */}
                 <img
-                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/73c33939-6c41-4257-a1da-1af779c14d16.jpg"
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-fill pointer-events-none"
-                  style={{zIndex:2}}
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/3d9a57af-1bab-46c2-b523-b89695373724.jpg"
+                  alt="Дети в летнем клубе Рыбка Долли, Керчь"
+                  className="w-full object-cover rounded-3xl"
+                  style={{aspectRatio:"4/3", display:"block"}}
                 />
-                {/* Фото детей внутри рамки */}
-                <div className="relative" style={{zIndex:1, padding:"13% 12% 18% 12%"}}>
-                  <img
-                    src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/3d9a57af-1bab-46c2-b523-b89695373724.jpg"
-                    alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                    className="w-full rounded-2xl object-cover"
-                    style={{aspectRatio:"4/3"}}
-                  />
-                </div>
-                {/* Невидимый spacer для корректной высоты */}
+                {/* Рамка поверх через multiply — белый фон исчезает, краски остаются */}
                 <img
                   src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/73c33939-6c41-4257-a1da-1af779c14d16.jpg"
                   alt=""
-                  className="w-full opacity-0 pointer-events-none"
+                  className="absolute pointer-events-none"
+                  style={{
+                    inset: "-18%",
+                    width: "136%",
+                    height: "136%",
+                    objectFit: "fill",
+                    mixBlendMode: "multiply",
+                    zIndex: 2,
+                  }}
                 />
               </div>
             </div>
