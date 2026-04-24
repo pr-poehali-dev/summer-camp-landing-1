@@ -88,7 +88,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
               </div>
 
-              <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.6rem, 5.4vw, 4rem)", lineHeight:1.1}}>
+              <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.6rem, 5.4vw, 4rem)", lineHeight:1.1, textAlign:"center"}}>
                 <span style={{
                   color:"#FF5E1A",
                   textShadow:"0 0 20px rgba(255,94,26,0.5), 0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 0 #B33307, 0 5px 0 #992A05, 0 6px 12px rgba(0,0,0,0.35)",
@@ -108,11 +108,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   fontSize:"0.7em",
                   letterSpacing:"0.05em",
                   filter:"drop-shadow(0 2px 0 #CC3F0B) drop-shadow(0 4px 0 rgba(153,42,5,0.6)) drop-shadow(0 6px 12px rgba(0,0,0,0.3))",
+                  display:"inline-block",
                 }}>Лето 2026</span>
               </h1>
 
               <p className="text-lg font-bold mb-2" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
-                <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы · <span style={{color:"#00C9A7"}}>🎭</span> Квесты
+                <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы
               </p>
 
               <p className="text-base mb-5 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
