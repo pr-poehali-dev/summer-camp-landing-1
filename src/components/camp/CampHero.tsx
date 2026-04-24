@@ -55,20 +55,20 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       <section className="relative min-h-screen flex items-center pt-16 pb-10" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-10">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2rem", alignItems:"center"}}>
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
-            <div className="w-full lg:w-[44%] flex items-center justify-center flex-shrink-0">
+            <div style={{display:"flex", justifyContent:"flex-start"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/20e95528-7f1d-4903-ac6d-dbc7ee9439b9.png"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                style={{display:"block", width:"100%", maxWidth:"420px"}}
+                style={{display:"block", width:"100%", maxWidth:"480px"}}
               />
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div className="w-full lg:w-[56%] text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5 animate-bounce-slow" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
+            <div style={{textAlign:"left"}}>
+              <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
                 🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
               </div>
 
@@ -97,14 +97,14 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
 
               {/* Таймер-акция */}
               <div className="rounded-[20px] p-5 mb-6" style={{background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 12px 40px rgba(255,217,61,0.4)"}}>
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
+                <div className="flex items-center justify-start gap-2 mb-3">
                   <span className="text-xl">⏰</span>
                   <span className="font-black text-lg text-white" style={{fontFamily:"'Nunito', sans-serif"}}>
                     АКЦИЯ ДО 15 МАЯ — СКИДКА{" "}
                     <span style={{outline:"3px solid #00C9A7", outlineOffset:"2px", borderRadius:"4px", padding:"0 4px"}}>12%</span>!
                   </span>
                 </div>
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-3 flex-wrap">
+                <div className="flex items-center justify-start gap-2 mb-3 flex-wrap">
                   <TimerBlock value={countdown.days} label="ДНЕЙ" />
                   <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.hours} label="ЧАСОВ" />
@@ -118,7 +118,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 justify-start">
                 <button onClick={scrollToBooking} className="btn-cta text-lg px-8 py-4">
                   🎉 Забронировать со скидкой 12%
                 </button>
