@@ -58,12 +58,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         <div className="absolute bottom-40 right-16 w-20 h-20 rounded-full opacity-20 animate-float delay-300" style={{background:"#00C9A7"}} />
         <div className="absolute top-1/2 right-1/3 w-14 h-14 rounded-full opacity-15 animate-float delay-500" style={{background:"#FF9A56"}} />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 py-12 w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-12 w-full">
+          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото с SVG-брызгами ── */}
-            <div className="flex-shrink-0 w-full lg:w-[460px] flex items-center justify-start animate-fade-in">
-              <div className="relative w-full max-w-[420px]">
+            <div className="w-full lg:w-1/2 flex items-center justify-center animate-fade-in">
+              <div className="relative w-full max-w-[460px]">
 
                 {/* SVG-брызги: лайм + немного розового, эффект разбрызгивания с хвостиками */}
                 <svg className="absolute pointer-events-none" style={{inset:"-24%", width:"148%", height:"148%", zIndex:3}} viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +141,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div className="flex-1 text-center lg:text-left">
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5 animate-bounce-slow" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
                 🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
               </div>
