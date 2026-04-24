@@ -71,8 +71,8 @@ export default function CampProgram({
             >
               📹 Смотрите, как это было в прошлом году! 🎉
             </h3>
-            <div className="flex flex-col md:flex-row gap-5 items-center justify-center max-w-4xl mx-auto">
-              <div className="relative w-full md:w-2/3 overflow-hidden rounded-2xl" style={{paddingBottom:"37.5%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto items-stretch">
+              <div className="relative w-full overflow-hidden rounded-2xl" style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
                 <iframe
                   src="https://vk.com/video_ext.php?oid=-179759189&id=456239214&hd=2&t=4m8s"
                   className="absolute top-0 left-0 w-full h-full border-0"
@@ -84,30 +84,30 @@ export default function CampProgram({
               <button
                 type="button"
                 onClick={() => setClipOpen(true)}
-                className="group relative w-2/3 md:w-1/3 overflow-hidden rounded-2xl block cursor-pointer text-left mx-auto"
-                style={{paddingBottom:"59.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}
+                className="group relative w-full overflow-hidden rounded-2xl block cursor-pointer text-left"
+                style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}
               >
                 <img
                   src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/39d89f39-bd12-4c91-bc24-1d5b9e4da4c5.png"
                   alt="Видео Рыбка Долли — клип"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/15 transition-colors" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div
-                    className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center animate-play"
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center animate-play"
                     style={{background:"linear-gradient(135deg,#FF9A56,#FFD93D)", boxShadow:"0 10px 30px rgba(255,154,86,0.6)"}}
                   >
-                    <Icon name="Play" size={32} className="text-white ml-1" fill="white" />
+                    <Icon name="Play" size={40} className="text-white ml-1" fill="white" />
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white" style={{background:"linear-gradient(0deg, rgba(0,0,0,0.85), transparent)"}}>
-                  <div className="flex items-center gap-1 text-[10px] font-bold mb-1 opacity-90">
-                    <Icon name="Sparkles" size={12} />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white" style={{background:"linear-gradient(0deg, rgba(0,0,0,0.85), transparent)"}}>
+                  <div className="flex items-center gap-2 text-xs font-bold mb-1 opacity-90">
+                    <Icon name="Sparkles" size={14} />
                     НОВЫЙ КЛИП
                   </div>
-                  <p className="font-black text-sm leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
-                    Скоро летний клуб!
+                  <p className="font-black text-base md:text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
+                    Скоро двери летнего клуба распахнутся!
                   </p>
                 </div>
               </button>
