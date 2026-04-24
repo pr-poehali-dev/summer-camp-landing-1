@@ -1,6 +1,7 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS, useCountdown } from "./CampData";
 import CampFAQ from "./CampFAQ";
+import ReserveCTA from "./ReserveCTA";
 
 interface CampHeroProps {
   scrollToBooking: () => void;
@@ -188,7 +189,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               </a>
             </div>
           </div>
-          <p className="text-sm mt-2 font-semibold text-center" style={{color:"rgba(61,61,61,0.6)"}}>Раннее бронирование — оплата онлайн, место гарантировано!</p>
+          <ReserveCTA />
         </div>
 
         <div className="hero-wave">

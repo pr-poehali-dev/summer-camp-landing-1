@@ -494,3 +494,17 @@
   line-height: 1;
   pointer-events: none;
 }
+
+/* Переливающаяся CTA кнопка бронирования */
+@keyframes rainbow-cta-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.rainbow-cta {
+  animation: rainbow-cta-shift 4s linear infinite;
+}
