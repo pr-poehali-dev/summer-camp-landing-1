@@ -111,14 +111,31 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 находят друзей и возвращаются окрылёнными!
               </p>
 
-              {/* Таймер-акция — прямоугольный, на всю ширину */}
-              <div style={{borderRadius:"16px", padding:"1.25rem 1.5rem", marginBottom:"1.25rem", background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 12px 40px rgba(255,217,61,0.4)"}}>
-                <div style={{display:"flex", alignItems:"center", gap:"0.5rem", marginBottom:"0.75rem"}}>
-                  <span style={{fontSize:"1.2rem"}}>⏰</span>
-                  <span className="font-black text-lg text-white" style={{fontFamily:"'Nunito', sans-serif"}}>
-                    АКЦИЯ ДО 15 МАЯ — СКИДКА{" "}
-                    <span style={{outline:"3px solid #00C9A7", outlineOffset:"2px", borderRadius:"4px", padding:"0 4px"}}>12%</span>!
-                  </span>
+              {/* Таймер-акция — выпуклый прямоугольник */}
+              <div style={{
+                borderRadius:"20px",
+                padding:"1.25rem 1.75rem",
+                marginBottom:"1rem",
+                background:"linear-gradient(160deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
+                boxShadow:"0 8px 0 #CC6A00, 0 12px 30px rgba(255,150,0,0.45), 0 2px 0 rgba(255,255,255,0.35) inset",
+                position:"relative",
+              }}>
+                <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"0.75rem"}}>
+                  <div style={{display:"flex", alignItems:"center", gap:"0.5rem"}}>
+                    <span style={{fontSize:"1.3rem"}}>⏰</span>
+                    <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"1.1rem"}}>
+                      АКЦИЯ ДО 15 МАЯ
+                    </span>
+                  </div>
+                  <span style={{
+                    background:"#00C9A7",
+                    boxShadow:"0 3px 0 #008F78, 0 1px 0 rgba(255,255,255,0.3) inset",
+                    borderRadius:"10px",
+                    padding:"3px 12px",
+                    color:"white",
+                    fontWeight:900,
+                    fontSize:"1.1rem",
+                  }}>−12%</span>
                 </div>
                 <div style={{display:"flex", alignItems:"center", gap:"0.5rem", flexWrap:"wrap", marginBottom:"0.75rem"}}>
                   <TimerBlock value={countdown.days} label="ДНЕЙ" />
@@ -129,20 +146,20 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.seconds} label="СЕКУНД" />
                 </div>
-                <p className="text-white/90 text-sm font-semibold">
-                  Осталось мест: <span className="font-black text-lg text-white">45</span> из 70
+                <p style={{color:"rgba(255,255,255,0.9)", fontSize:"0.85rem", fontWeight:600}}>
+                  Осталось мест: <span style={{fontWeight:900, fontSize:"1rem", color:"white"}}>45</span> из 70
                 </p>
               </div>
 
-              {/* Кнопки под таймером */}
-              <div style={{display:"flex", flexDirection:"column", gap:"0.75rem"}}>
-                <button onClick={scrollToBooking} className="btn-cta text-lg px-8 py-4" style={{width:"100%"}}>
+              {/* Кнопки под таймером — такой же ширины */}
+              <div style={{display:"flex", flexDirection:"row", gap:"0.75rem"}}>
+                <button onClick={scrollToBooking} className="btn-cta" style={{flex:2, padding:"0.9rem 1rem", fontSize:"1rem"}}>
                   🎉 Забронировать со скидкой 12%
                 </button>
                 <a
                   href="#about"
-                  className="font-bold text-lg px-8 py-4 rounded-2xl border-2 bg-white/80 transition-all hover:scale-105"
-                  style={{color:"#FF9A56", borderColor:"#FF9A56", textAlign:"center"}}
+                  className="font-bold rounded-2xl border-2 bg-white/80 transition-all hover:scale-105"
+                  style={{flex:1, padding:"0.9rem 1rem", fontSize:"1rem", color:"#FF9A56", borderColor:"#FF9A56", textAlign:"center", display:"flex", alignItems:"center", justifyContent:"center"}}
                 >
                   Программа смен
                 </a>
