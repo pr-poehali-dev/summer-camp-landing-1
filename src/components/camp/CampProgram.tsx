@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
 
@@ -14,6 +15,17 @@ export default function CampProgram({
   scrollToBooking,
   setSelectedShift,
 }: CampProgramProps) {
+  const [clipOpen, setClipOpen] = useState(false);
+
+  useEffect(() => {
+    if (clipOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [clipOpen]);
+
   return (
     <>
       {/* ── БЛОК 3: ЧТО ТАКОЕ РЫБКА ДОЛЛИ ───────────────────────────────────── */}
@@ -69,11 +81,10 @@ export default function CampProgram({
                   title="Видео Рыбка Долли — смена 1"
                 />
               </div>
-              <a
-                href="https://vk.com/wall-179759189_2691"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative w-full overflow-hidden rounded-2xl block"
+              <button
+                type="button"
+                onClick={() => setClipOpen(true)}
+                className="group relative w-full overflow-hidden rounded-2xl block cursor-pointer text-left"
                 style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}
               >
                 <img
@@ -98,12 +109,57 @@ export default function CampProgram({
                   <p className="font-black text-base md:text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
                     Скоро двери летнего клуба распахнутся!
                   </p>
-                  <p className="text-xs opacity-80 mt-1">Смотреть в ВКонтакте →</p>
+                  <p className="text-xs opacity-80 mt-1">Нажмите, чтобы посмотреть ▶</p>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>
+
+        {clipOpen && (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in"
+            style={{background:"rgba(0,0,0,0.85)", backdropFilter:"blur(8px)"}}
+            onClick={() => setClipOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setClipOpen(false)}
+              className="absolute top-4 right-4 md:top-6 md:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-colors"
+              aria-label="Закрыть"
+            >
+              <Icon name="X" size={22} className="text-white" />
+            </button>
+
+            <div
+              className="relative bg-white rounded-3xl overflow-hidden w-full max-w-md"
+              style={{boxShadow:"0 20px 60px rgba(0,0,0,0.5)"}}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full" style={{paddingBottom:"177.77%"}}>
+                <iframe
+                  src="https://vk.com/widget_post.php?app=0&width=100%25&_ver=1&owner_id=-179759189&post_id=2691&hash=0"
+                  className="absolute top-0 left-0 w-full h-full border-0 bg-white"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                  allowFullScreen
+                  title="Клип Рыбка Долли"
+                />
+              </div>
+              <div className="p-4 text-center border-t" style={{borderColor:"#FFE5D9"}}>
+                <a
+                  href="https://vk.com/wall-179759189_2691"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-bold text-sm"
+                  style={{color:"#FF9A56"}}
+                >
+                  <Icon name="ExternalLink" size={16} />
+                  Открыть в ВКонтакте
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ── ТЁМНЫЙ БЛОК ───────────────────────────────────────────────────────── */}
