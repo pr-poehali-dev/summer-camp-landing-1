@@ -125,7 +125,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         </div>
 
         {/* ── ПОЛОСА «АКЦИЯ» — ДЛИННАЯ, НА ВСЮ ШИРИНУ СТРАНИЦЫ ── */}
-        <div style={{padding:"0 2rem 1.5rem 2rem"}}>
+        <div style={{padding:"0 2rem 1.5rem 2rem", marginTop:"-3rem"}}>
           <div style={{
             borderRadius:"22px",
             padding:"1rem 1.5rem",
