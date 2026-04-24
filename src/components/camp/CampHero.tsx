@@ -54,21 +54,21 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center pt-16 pb-10" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 py-10">
-          <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10">
+        <div className="relative z-10 w-full py-10">
+          <div className="flex flex-col lg:flex-row items-center">
 
-            {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
-            <div className="w-full lg:w-[55%] flex items-center justify-center">
+            {/* ── ЛЕВАЯ КОЛОНКА: фото (от самого края) ── */}
+            <div className="w-full lg:w-[58%] flex items-center justify-start relative">
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/20e95528-7f1d-4903-ac6d-dbc7ee9439b9.png"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
                 className="w-full"
-                style={{display:"block", maxWidth:"680px"}}
+                style={{display:"block", position:"relative", zIndex:1}}
               />
             </div>
 
-            {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
+            {/* ── ПРАВАЯ КОЛОНКА: текст (поверх брызг) ── */}
+            <div className="w-full lg:w-[42%] text-center lg:text-left px-6 lg:px-10 relative" style={{zIndex:2}}>
               <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5 animate-bounce-slow" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
                 🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
               </div>
