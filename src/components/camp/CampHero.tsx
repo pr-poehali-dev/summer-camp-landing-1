@@ -61,28 +61,74 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         <div className="relative z-10 max-w-5xl mx-auto px-4 py-12 w-full">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
-            {/* ── ЛЕВАЯ КОЛОНКА: фото в рамке ── */}
+            {/* ── ЛЕВАЯ КОЛОНКА: фото с SVG-брызгами ── */}
             <div className="flex-shrink-0 w-full lg:w-[460px] flex items-center justify-start animate-fade-in">
-              <div className="relative w-full max-w-[440px]">
+              <div className="relative w-full max-w-[420px]">
+
+                {/* SVG-брызги — абсолютно прозрачный фон, только краска */}
+                <svg className="absolute pointer-events-none" style={{inset:"-22%", width:"144%", height:"144%", zIndex:3}} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* розовые брызги */}
+                  <circle cx="62" cy="58" r="22" fill="#FF2D9B" opacity="0.9"/>
+                  <circle cx="88" cy="42" r="10" fill="#FF2D9B" opacity="0.75"/>
+                  <circle cx="44" cy="80" r="7"  fill="#FF2D9B" opacity="0.6"/>
+                  <circle cx="105" cy="30" r="5" fill="#FF2D9B" opacity="0.5"/>
+                  <circle cx="30" cy="48" r="5"  fill="#FF2D9B" opacity="0.55"/>
+                  <circle cx="18" cy="65" r="3"  fill="#FF2D9B" opacity="0.45"/>
+                  <ellipse cx="75" cy="25" rx="14" ry="8" fill="#FF2D9B" opacity="0.65"/>
+
+                  {/* розовые брызги справа-сверху */}
+                  <circle cx="430" cy="70" r="20" fill="#FF2D9B" opacity="0.85"/>
+                  <circle cx="455" cy="48" r="12" fill="#FF2D9B" opacity="0.7"/>
+                  <circle cx="470" cy="90" r="7"  fill="#FF2D9B" opacity="0.55"/>
+                  <circle cx="415" cy="40" r="5"  fill="#FF2D9B" opacity="0.5"/>
+                  <circle cx="482" cy="65" r="4"  fill="#FF2D9B" opacity="0.45"/>
+                  <ellipse cx="445" cy="30" rx="16" ry="7" fill="#FF2D9B" opacity="0.6"/>
+
+                  {/* лаймовые брызги снизу-слева */}
+                  <circle cx="55" cy="430" r="24" fill="#8BC400" opacity="0.9"/>
+                  <circle cx="32" cy="455" r="13" fill="#8BC400" opacity="0.7"/>
+                  <circle cx="78" cy="460" r="9"  fill="#8BC400" opacity="0.6"/>
+                  <circle cx="20" cy="410" r="6"  fill="#8BC400" opacity="0.55"/>
+                  <circle cx="90" cy="478" r="5"  fill="#8BC400" opacity="0.45"/>
+                  <ellipse cx="45" cy="475" rx="18" ry="8" fill="#8BC400" opacity="0.65"/>
+
+                  {/* чёрные брызги снизу */}
+                  <circle cx="200" cy="488" r="14" fill="#1a1a1a" opacity="0.7"/>
+                  <circle cx="230" cy="496" r="8"  fill="#1a1a1a" opacity="0.55"/>
+                  <circle cx="175" cy="494" r="6"  fill="#1a1a1a" opacity="0.5"/>
+                  <circle cx="255" cy="490" r="4"  fill="#1a1a1a" opacity="0.4"/>
+                  <ellipse cx="205" cy="500" rx="20" ry="6" fill="#1a1a1a" opacity="0.5"/>
+
+                  {/* розовые снизу-справа */}
+                  <circle cx="440" cy="435" r="19" fill="#FF2D9B" opacity="0.8"/>
+                  <circle cx="465" cy="460" r="11" fill="#FF2D9B" opacity="0.65"/>
+                  <circle cx="420" cy="462" r="7"  fill="#FF2D9B" opacity="0.55"/>
+                  <circle cx="478" cy="440" r="5"  fill="#FF2D9B" opacity="0.45"/>
+                  <ellipse cx="458" cy="478" rx="15" ry="7" fill="#FF2D9B" opacity="0.6"/>
+
+                  {/* маленькие случайные точки */}
+                  <circle cx="130" cy="20" r="4"  fill="#FF2D9B" opacity="0.5"/>
+                  <circle cx="360" cy="18" r="5"  fill="#8BC400" opacity="0.6"/>
+                  <circle cx="490" cy="200" r="6"  fill="#FF2D9B" opacity="0.55"/>
+                  <circle cx="495" cy="310" r="4"  fill="#8BC400" opacity="0.5"/>
+                  <circle cx="8"   cy="220" r="5"  fill="#FF2D9B" opacity="0.5"/>
+                  <circle cx="12"  cy="330" r="4"  fill="#8BC400" opacity="0.45"/>
+                  <circle cx="310" cy="495" r="5"  fill="#1a1a1a" opacity="0.45"/>
+                </svg>
+
                 {/* Фото детей */}
                 <img
                   src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/3d9a57af-1bab-46c2-b523-b89695373724.jpg"
                   alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                  className="w-full object-cover rounded-3xl"
-                  style={{aspectRatio:"4/3", display:"block"}}
-                />
-                {/* Рамка поверх через multiply — белый фон исчезает, краски остаются */}
-                <img
-                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/73c33939-6c41-4257-a1da-1af779c14d16.jpg"
-                  alt=""
-                  className="absolute pointer-events-none"
+                  className="w-full object-cover"
                   style={{
-                    inset: "-18%",
-                    width: "136%",
-                    height: "136%",
-                    objectFit: "fill",
-                    mixBlendMode: "multiply",
-                    zIndex: 2,
+                    aspectRatio:"4/3",
+                    display:"block",
+                    borderRadius:"24px",
+                    border:"5px solid #FF2D9B",
+                    boxShadow:"0 8px 40px rgba(255,45,155,0.25), 0 4px 20px rgba(139,196,0,0.2)",
+                    position:"relative",
+                    zIndex:2,
                   }}
                 />
               </div>
