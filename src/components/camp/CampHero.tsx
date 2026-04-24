@@ -88,24 +88,26 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
               </div>
 
-              <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.4rem, 5vw, 3.6rem)", lineHeight:1.1}}>
+              <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.6rem, 5.4vw, 4rem)", lineHeight:1.1}}>
                 <span style={{
-                  color:"#FF9A56",
-                  textShadow:"0 1px 0 #FFB47A, 0 2px 0 #FF8A3D, 0 3px 0 #E67A35, 0 4px 0 #CC6A2D, 0 5px 0 #B35A25, 0 6px 8px rgba(0,0,0,0.25)",
+                  color:"#FF5E1A",
+                  textShadow:"0 0 20px rgba(255,94,26,0.5), 0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 0 #B33307, 0 5px 0 #992A05, 0 6px 12px rgba(0,0,0,0.35)",
+                  WebkitTextStroke:"1px #FF4500",
                 }}>Рыбка </span>
                 <span style={{
-                  color:"#FFD93D",
-                  textShadow:"0 1px 0 #FFE066, 0 2px 0 #E6C235, 0 3px 0 #CCAB2D, 0 4px 0 #B39425, 0 5px 0 #997D1D, 0 6px 8px rgba(0,0,0,0.25)",
+                  color:"#FFCC00",
+                  textShadow:"0 0 20px rgba(255,204,0,0.6), 0 1px 0 #FFE066, 0 2px 0 #E6B800, 0 3px 0 #CC9E00, 0 4px 0 #B38600, 0 5px 0 #996F00, 0 6px 12px rgba(0,0,0,0.35)",
+                  WebkitTextStroke:"1px #E6B800",
                 }}>Долли</span>
                 <br />
                 <span style={{
-                  background:"linear-gradient(135deg, #FF9A56 0%, #FFD93D 100%)",
+                  background:"linear-gradient(135deg, #FF5E1A 0%, #FF9A00 50%, #FFCC00 100%)",
                   WebkitBackgroundClip:"text",
                   WebkitTextFillColor:"transparent",
                   backgroundClip:"text",
                   fontSize:"0.7em",
                   letterSpacing:"0.05em",
-                  filter:"drop-shadow(0 3px 0 rgba(204,106,45,0.5)) drop-shadow(0 5px 8px rgba(0,0,0,0.2))",
+                  filter:"drop-shadow(0 2px 0 #CC3F0B) drop-shadow(0 4px 0 rgba(153,42,5,0.6)) drop-shadow(0 6px 12px rgba(0,0,0,0.3))",
                 }}>Лето 2026</span>
               </h1>
 
