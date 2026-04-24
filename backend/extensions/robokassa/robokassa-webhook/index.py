@@ -24,12 +24,11 @@ def get_db_connection():
     return psycopg2.connect(dsn)
 
 
-def send_email(subject: str, html_body: str) -> bool:
-    """Отправляет письмо на NOTIFICATION_EMAIL через SMTP. Возвращает True при успехе."""
+def send_email_to(to_email: str, subject: str, html_body: str) -> bool:
+    """Отправляет письмо на указанный email через SMTP."""
     host = os.environ.get('SMTP_HOST')
     user = os.environ.get('SMTP_USER')
     password = os.environ.get('SMTP_PASSWORD')
-    to_email = os.environ.get('NOTIFICATION_EMAIL')
 
     if not all([host, user, password, to_email]):
         print('SMTP config missing, skip email')
@@ -48,8 +47,16 @@ def send_email(subject: str, html_body: str) -> bool:
             server.sendmail(user, [to_email], msg.as_string())
         return True
     except Exception as e:
-        print(f'Email send error: {e}')
+        print(f'Email send error to {to_email}: {e}')
         return False
+
+
+def send_email(subject: str, html_body: str) -> bool:
+    """Отправляет письмо на NOTIFICATION_EMAIL (админу)."""
+    admin = os.environ.get('NOTIFICATION_EMAIL')
+    if not admin:
+        return False
+    return send_email_to(admin, subject, html_body)
 
 
 HEADERS = {
@@ -145,5 +152,44 @@ def handler(event: dict, context) -> dict:
     </div>
     """
     send_email(subject, html)
+
+    if user_email and '@' in user_email and user_email != 'noreply@rybka-dolly.ru':
+        client_html = f"""
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:0;background:#FFF8F0;border-radius:16px;overflow:hidden;">
+          <div style="background:linear-gradient(135deg,#FF3D8B 0%,#FF9A56 50%,#FFD93D 100%);padding:28px 24px;text-align:center;">
+            <div style="font-size:48px;margin-bottom:8px;">🎉</div>
+            <h1 style="color:white;margin:0;font-size:26px;font-family:'Baloo 2',Arial,sans-serif;text-shadow:0 2px 4px rgba(0,0,0,0.15);">Спасибо за бронирование!</h1>
+          </div>
+          <div style="padding:24px;">
+            <p style="font-size:16px;color:#3D3D3D;margin:0 0 14px;">Здравствуйте, <b>{user_name}</b>!</p>
+            <p style="font-size:15px;color:#3D3D3D;line-height:1.6;margin:0 0 18px;">
+              Мы получили вашу бронь и оплату на сумму <b style="color:#00C9A7;">{amount} ₽</b>.
+              Место за вашим ребёнком <b>забронировано</b>.
+            </p>
+            <div style="background:white;border:2px solid #FFE5D9;border-radius:12px;padding:16px;margin-bottom:18px;">
+              <div style="font-weight:bold;color:#FF9A56;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Что дальше?</div>
+              <div style="font-size:14px;color:#3D3D3D;line-height:1.7;">
+                📞 В течение дня с вами свяжется администратор<br>
+                🎒 За неделю до смены пришлём памятку «что взять с собой»<br>
+                💰 Остаток за смену оплачивается в первый день
+              </div>
+            </div>
+            <div style="background:#FFF8F0;border:2px dashed #FF9A56;border-radius:12px;padding:14px;text-align:center;margin-bottom:18px;">
+              <div style="font-size:13px;color:rgba(61,61,61,0.7);">Номер вашего заказа:</div>
+              <div style="font-weight:900;font-size:18px;color:#3D3D3D;margin-top:4px;">{order_number}</div>
+            </div>
+            <p style="font-size:14px;color:#3D3D3D;margin:0 0 8px;">Если возникнут вопросы — звоните:</p>
+            <p style="font-size:15px;margin:0 0 18px;">
+              <a href="tel:+79881521698" style="color:#FF9A56;font-weight:bold;text-decoration:none;">+7 988 152-16-98</a> ·
+              <a href="tel:+79787120353" style="color:#FF9A56;font-weight:bold;text-decoration:none;">+7 978 712-03-53</a>
+            </p>
+            <p style="font-size:14px;color:#3D3D3D;margin:0;">До встречи на смене!<br><b>Команда летнего клуба «Рыбка Долли»</b> 🐠</p>
+          </div>
+          <div style="background:#3D3D3D;padding:14px 24px;text-align:center;">
+            <p style="color:rgba(255,255,255,0.6);font-size:12px;margin:0;">© Летний клуб «Рыбка Долли» · г. Керчь</p>
+          </div>
+        </div>
+        """
+        send_email_to(user_email, '🎉 Ваша бронь в «Рыбке Долли» подтверждена!', client_html)
 
     return {'statusCode': 200, 'headers': HEADERS, 'body': f'OK{inv_id}', 'isBase64Encoded': False}
