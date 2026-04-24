@@ -132,29 +132,40 @@ export default function CampProgram({
             </button>
 
             <div
-              className="relative bg-white rounded-3xl overflow-hidden w-full max-w-md"
+              className="relative bg-white rounded-3xl overflow-hidden w-full max-w-sm"
               style={{boxShadow:"0 20px 60px rgba(0,0,0,0.5)"}}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full" style={{paddingBottom:"177.77%"}}>
-                <iframe
-                  src="https://vk.com/widget_post.php?app=0&width=100%25&_ver=1&owner_id=-179759189&post_id=2691&hash=0"
-                  className="absolute top-0 left-0 w-full h-full border-0 bg-white"
-                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
-                  allowFullScreen
-                  title="Клип Рыбка Долли"
+              <div className="relative w-full" style={{paddingBottom:"130%"}}>
+                <img
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/39d89f39-bd12-4c91-bc24-1d5b9e4da4c5.png"
+                  alt="Клип Рыбка Долли"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
+                <div className="absolute inset-0" style={{background:"linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%)"}} />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="inline-flex items-center gap-1 text-[11px] font-black px-2 py-1 rounded-full mb-2" style={{background:"#FF3D8B"}}>
+                    <Icon name="Sparkles" size={12} />
+                    НОВЫЙ КЛИП
+                  </div>
+                  <p className="font-black text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>
+                    Скоро двери летнего клуба распахнутся!
+                  </p>
+                  <p className="text-xs opacity-90 mt-1">Детский досуговый центр «Рыбка Долли»</p>
+                </div>
               </div>
-              <div className="p-4 text-center border-t" style={{borderColor:"#FFE5D9"}}>
+              <div className="p-5 text-center" style={{background:"#FFF8F0"}}>
+                <p className="text-sm mb-4" style={{color:"#3D3D3D"}}>
+                  Этот ролик — клип ВКонтакте, его можно посмотреть только в самом ВК 🎬
+                </p>
                 <a
                   href="https://vk.com/wall-179759189_2691"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-bold text-sm"
-                  style={{color:"#FF9A56"}}
+                  className="btn-cta inline-flex items-center gap-2 text-base px-6 py-3"
                 >
-                  <Icon name="ExternalLink" size={16} />
-                  Открыть в ВКонтакте
+                  <Icon name="Play" size={18} fill="white" />
+                  Смотреть в ВКонтакте
                 </a>
               </div>
             </div>
