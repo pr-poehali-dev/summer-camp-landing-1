@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "Создание заказа с номенклатурой (Receipt)",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "amount": 19900,
+        "user_name": "Тест Тестов",
+        "user_email": "test@example.com",
+        "user_phone": "+79991234567",
+        "user_address": "",
+        "order_comment": "Смена 1",
+        "cart_items": [
+          {
+            "id": 1,
+            "name": "Летняя смена детского клуба Рыбка Долли",
+            "price": 19900,
+            "quantity": 1
+          }
+        ]
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"payment_url": "string", "order_id": "number"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

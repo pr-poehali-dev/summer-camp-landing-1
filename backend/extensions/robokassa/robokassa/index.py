@@ -3,7 +3,7 @@ import os
 import hashlib
 import psycopg2
 import random
-from urllib.parse import urlencode
+from urllib.parse import urlencode, quote
 from datetime import datetime
 
 
@@ -32,11 +32,57 @@ HEADERS = {
 ROBOKASSA_URL = 'https://auth.robokassa.ru/Merchant/Index.aspx'
 
 
+def build_receipt(cart_items: list, total_amount: float) -> dict:
+    """
+    Формирует объект Receipt для Robokassa (ФЗ-54).
+    Патентная система налогообложения, НДС не облагается.
+    """
+    items = []
+
+    if cart_items:
+        # Используем переданные позиции корзины
+        for item in cart_items:
+            name = str(item.get('name', 'Услуга'))[:128]
+            quantity = int(item.get('quantity', 1))
+            price = float(item.get('price', 0))
+            item_sum = round(price * quantity, 2)
+            items.append({
+                'name': name,
+                'quantity': quantity,
+                'sum': item_sum,
+                'tax': 'none',
+                'payment_method': 'full_payment',
+                'payment_object': 'service',
+            })
+    else:
+        # Fallback: одна позиция на всю сумму
+        items.append({
+            'name': 'Летняя смена детского клуба Рыбка Долли',
+            'quantity': 1,
+            'sum': round(total_amount, 2),
+            'tax': 'none',
+            'payment_method': 'full_payment',
+            'payment_object': 'service',
+        })
+
+    # Выравниваем сумму позиций до суммы заказа (копеечные расхождения)
+    items_total = round(sum(i['sum'] for i in items), 2)
+    if items_total != round(total_amount, 2) and items:
+        diff = round(total_amount - items_total, 2)
+        items[-1]['sum'] = round(items[-1]['sum'] + diff, 2)
+
+    return {
+        'sno': 'patent',
+        'items': items,
+    }
+
+
 def handler(event: dict, context) -> dict:
     '''
     Создание заказа и генерация ссылки на оплату Robokassa.
     POST body: amount, user_name, user_email, user_phone, user_address, cart_items
     Returns: payment_url, order_id, order_number
+    Передаёт Receipt с номенклатурой по ФЗ-54 (патентная система, tax=none).
     '''
     method = event.get('httpMethod', 'GET').upper()
 
@@ -100,24 +146,34 @@ def handler(event: dict, context) -> dict:
         # Формирование ссылки на оплату
         amount_str = f"{amount:.2f}"
 
-        # Подпись с учётом SuccessUrl2/FailUrl2 если переданы
+        # Формируем Receipt и URL-кодируем для подписи
+        receipt = build_receipt(cart_items, amount)
+        receipt_json = json.dumps(receipt, ensure_ascii=False, separators=(',', ':'))
+        receipt_encoded = quote(receipt_json)
+
+        # Подпись: MerchantLogin:OutSum:InvId:Receipt:Password#1
+        # (+ SuccessUrl2/FailUrl2 если переданы — но Receipt вставляется перед паролем)
         if success_url or fail_url:
-            # MerchantLogin:OutSum:InvId:SuccessUrl2:SuccessUrl2Method:FailUrl2:FailUrl2Method:Password#1
             signature = calculate_signature(
                 merchant_login, amount_str, robokassa_inv_id,
+                receipt_encoded,
                 success_url, 'GET', fail_url, 'GET', password_1
             )
         else:
-            signature = calculate_signature(merchant_login, amount_str, robokassa_inv_id, password_1)
+            signature = calculate_signature(
+                merchant_login, amount_str, robokassa_inv_id,
+                receipt_encoded, password_1
+            )
 
         query_params = {
             'MerchantLogin': merchant_login,
             'OutSum': amount_str,
             'InvoiceID': robokassa_inv_id,
             'SignatureValue': signature,
+            'Receipt': receipt_encoded,
             'Email': user_email,
             'Culture': 'ru',
-            'Description': f'Заказ {order_number}'
+            'Description': f'Заказ {order_number}',
         }
 
         if success_url:
@@ -127,7 +183,10 @@ def handler(event: dict, context) -> dict:
             query_params['FailUrl2'] = fail_url
             query_params['FailUrl2Method'] = 'GET'
 
-        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}"
+        # Receipt уже URL-закодирован — передаём как есть, без повторного кодирования
+        # urlencode будет кодировать остальные параметры
+        base_params = {k: v for k, v in query_params.items() if k != 'Receipt'}
+        payment_url = f"{ROBOKASSA_URL}?{urlencode(base_params)}&Receipt={receipt_encoded}"
 
         cur.execute("UPDATE orders SET payment_url = %s WHERE id = %s", (payment_url, order_id))
         conn.commit()
