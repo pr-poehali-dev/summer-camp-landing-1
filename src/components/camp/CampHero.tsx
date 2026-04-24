@@ -59,7 +59,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
             <div style={{position:"relative", overflow:"hidden", minHeight:"480px"}}>
               <img
-                src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/16e9434b-45a0-4d1f-8a1e-c57cbd12aa38.jpg"
+                src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/9b990763-8f65-44b0-a17c-bc2d40ad3847.jpg"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
                 style={{position:"absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"contain", objectPosition:"center top", background:"transparent"}}
               />
