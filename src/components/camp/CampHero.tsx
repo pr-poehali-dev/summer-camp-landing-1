@@ -57,102 +57,9 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 py-10">
           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10">
 
-            {/* ── ЛЕВАЯ КОЛОНКА: фото с SVG-брызгами ── */}
+            {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
             <div className="w-full lg:w-1/2 flex items-center justify-center">
-              <div className="relative" style={{width:"min(90vw, 480px)"}}>
-
-
-                {/* SVG-брызги: большие, выпуклые, с градиентом, overflow:visible */}
-                <svg
-                  className="absolute pointer-events-none"
-                  style={{top:"-38%", left:"-38%", width:"176%", height:"176%", zIndex:3, overflow:"visible"}}
-                  viewBox="0 0 600 600"
-                  overflow="visible"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <defs>
-                    <radialGradient id="g1" cx="30%" cy="30%" r="70%">
-                      <stop offset="0%" stopColor="#C8FF00"/>
-                      <stop offset="100%" stopColor="#5A9400"/>
-                    </radialGradient>
-                    <radialGradient id="g2" cx="30%" cy="30%" r="70%">
-                      <stop offset="0%" stopColor="#FF6FCC"/>
-                      <stop offset="100%" stopColor="#CC006A"/>
-                    </radialGradient>
-                    <radialGradient id="g3" cx="30%" cy="30%" r="70%">
-                      <stop offset="0%" stopColor="#FFE000"/>
-                      <stop offset="100%" stopColor="#FF9A56"/>
-                    </radialGradient>
-                  </defs>
-
-                  {/* ══ СВЕРХУ-СЛЕВА: лайм, разлёт вверх-влево ══ */}
-                  <ellipse cx="80" cy="60" rx="42" ry="18" fill="url(#g1)" transform="rotate(-40 80 60)"/>
-                  <ellipse cx="48" cy="32" rx="28" ry="10" fill="url(#g1)" transform="rotate(-55 48 32)"/>
-                  <ellipse cx="118" cy="22" rx="16" ry="7"  fill="url(#g1)" transform="rotate(-20 118 22)"/>
-                  <ellipse cx="28" cy="78" rx="20" ry="8"   fill="url(#g1)" transform="rotate(-65 28 78)"/>
-                  <circle cx="148" cy="10" r="9"  fill="url(#g1)"/>
-                  <circle cx="10"  cy="42" r="7"  fill="url(#g1)"/>
-                  <circle cx="165" cy="38" r="5"  fill="url(#g1)" opacity="0.8"/>
-                  <circle cx="-10" cy="62" r="6"  fill="url(#g1)" opacity="0.7"/>
-                  <circle cx="100" cy="-5" r="5"  fill="url(#g1)" opacity="0.75"/>
-                  <circle cx="55"  cy="5"  r="4"  fill="url(#g1)" opacity="0.65"/>
-
-                  {/* ══ СВЕРХУ-СПРАВА: розовый ══ */}
-                  <ellipse cx="520" cy="58" rx="40" ry="17" fill="url(#g2)" transform="rotate(42 520 58)"/>
-                  <ellipse cx="552" cy="28" rx="26" ry="10" fill="url(#g2)" transform="rotate(58 552 28)"/>
-                  <ellipse cx="488" cy="22" rx="18" ry="7"  fill="url(#g2)" transform="rotate(22 488 22)"/>
-                  <ellipse cx="572" cy="80" rx="20" ry="8"  fill="url(#g2)" transform="rotate(70 572 80)"/>
-                  <circle cx="450" cy="8"   r="9"  fill="url(#g2)"/>
-                  <circle cx="595" cy="45"  r="7"  fill="url(#g2)"/>
-                  <circle cx="440" cy="35"  r="5"  fill="url(#g2)" opacity="0.8"/>
-                  <circle cx="610" cy="68"  r="6"  fill="url(#g2)" opacity="0.7"/>
-                  <circle cx="505" cy="-8"  r="5"  fill="url(#g2)" opacity="0.7"/>
-
-                  {/* ══ СНИЗУ-СЛЕВА: лайм ══ */}
-                  <ellipse cx="78"  cy="540" rx="44" ry="18" fill="url(#g1)" transform="rotate(35 78 540)"/>
-                  <ellipse cx="42"  cy="572" rx="28" ry="11" fill="url(#g1)" transform="rotate(55 42 572)"/>
-                  <ellipse cx="120" cy="576" rx="18" ry="7"  fill="url(#g1)" transform="rotate(18 120 576)"/>
-                  <ellipse cx="18"  cy="508" rx="22" ry="9"  fill="url(#g1)" transform="rotate(70 18 508)"/>
-                  <circle cx="155" cy="598" r="9"  fill="url(#g1)"/>
-                  <circle cx="8"   cy="575" r="7"  fill="url(#g1)"/>
-                  <circle cx="170" cy="572" r="5"  fill="url(#g1)" opacity="0.8"/>
-                  <circle cx="-5"  cy="545" r="6"  fill="url(#g1)" opacity="0.7"/>
-                  <circle cx="92"  cy="608" r="5"  fill="url(#g1)" opacity="0.7"/>
-
-                  {/* ══ СНИЗУ-СПРАВА: лайм + розовый вперемешку ══ */}
-                  <ellipse cx="522" cy="542" rx="42" ry="17" fill="url(#g2)" transform="rotate(-38 522 542)"/>
-                  <ellipse cx="558" cy="572" rx="26" ry="10" fill="url(#g1)" transform="rotate(-55 558 572)"/>
-                  <ellipse cx="488" cy="578" rx="18" ry="7"  fill="url(#g2)" transform="rotate(-18 488 578)"/>
-                  <ellipse cx="570" cy="508" rx="20" ry="8"  fill="url(#g1)" transform="rotate(-68 570 508)"/>
-                  <circle cx="450" cy="595" r="9"  fill="url(#g2)"/>
-                  <circle cx="598" cy="560" r="7"  fill="url(#g1)"/>
-                  <circle cx="440" cy="572" r="5"  fill="url(#g2)" opacity="0.8"/>
-                  <circle cx="610" cy="535" r="6"  fill="url(#g1)" opacity="0.7"/>
-
-                  {/* ══ БОКА: одиночные крупные капли ══ */}
-                  {/* лево */}
-                  <ellipse cx="-8"  cy="200" rx="18" ry="7" fill="url(#g1)" transform="rotate(85 -8 200)"/>
-                  <ellipse cx="-12" cy="290" rx="14" ry="6" fill="url(#g2)" transform="rotate(80 -12 290)"/>
-                  <ellipse cx="-5"  cy="380" rx="16" ry="6" fill="url(#g1)" transform="rotate(75 -5 380)"/>
-                  <circle cx="-18" cy="240" r="7" fill="url(#g1)" opacity="0.7"/>
-                  <circle cx="-15" cy="340" r="6" fill="url(#g2)" opacity="0.65"/>
-                  {/* право */}
-                  <ellipse cx="608" cy="180" rx="18" ry="7" fill="url(#g2)" transform="rotate(-82 608 180)"/>
-                  <ellipse cx="612" cy="300" rx="14" ry="6" fill="url(#g1)" transform="rotate(-78 612 300)"/>
-                  <ellipse cx="606" cy="400" rx="16" ry="6" fill="url(#g2)" transform="rotate(-72 606 400)"/>
-                  <circle cx="622" cy="230" r="7" fill="url(#g2)" opacity="0.7"/>
-                  <circle cx="618" cy="360" r="6" fill="url(#g1)" opacity="0.65"/>
-                  {/* верх-центр */}
-                  <ellipse cx="200" cy="-10" rx="16" ry="6" fill="url(#g3)" transform="rotate(8 200 -10)"/>
-                  <ellipse cx="360" cy="-8"  rx="14" ry="5" fill="url(#g2)" transform="rotate(-5 360 -8)"/>
-                  <circle cx="290" cy="-18" r="8" fill="url(#g1)" opacity="0.75"/>
-                  {/* низ-центр */}
-                  <ellipse cx="220" cy="610" rx="18" ry="7" fill="url(#g1)" transform="rotate(5 220 610)"/>
-                  <ellipse cx="380" cy="612" rx="14" ry="6" fill="url(#g2)" transform="rotate(-8 380 612)"/>
-                  <circle cx="305" cy="622" r="8" fill="url(#g3)" opacity="0.75"/>
-                </svg>
-
-                {/* Фото детей */}
+              <div style={{width:"min(90vw, 500px)"}}>
                 <img
                   src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/3d9a57af-1bab-46c2-b523-b89695373724.jpg"
                   alt="Дети в летнем клубе Рыбка Долли, Керчь"
@@ -162,9 +69,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     display:"block",
                     borderRadius:"20px",
                     border:"6px solid #FF9A56",
-                    boxShadow:"0 8px 40px rgba(255,154,86,0.35)",
-                    position:"relative",
-                    zIndex:2,
+                    boxShadow:"0 12px 50px rgba(255,154,86,0.4)",
                   }}
                 />
               </div>
