@@ -52,22 +52,21 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       </header>
 
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center pt-16 pb-10" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
+      <section className="relative pt-16" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-10">
-          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2rem", alignItems:"center"}}>
+        <div className="relative z-10 w-full" style={{display:"grid", gridTemplateColumns:"1fr 1fr", minHeight:"calc(100vh - 64px)"}}>
 
-            {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
-            <div style={{display:"flex", justifyContent:"flex-start"}}>
+            {/* ── ЛЕВАЯ КОЛОНКА: фото — занимает всю высоту ── */}
+            <div style={{position:"relative", overflow:"hidden", minHeight:"500px"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/20e95528-7f1d-4903-ac6d-dbc7ee9439b9.png"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                style={{display:"block", width:"100%", maxWidth:"480px"}}
+                style={{position:"absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top"}}
               />
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div style={{textAlign:"left"}}>
+            <div style={{textAlign:"left", padding:"3rem 3rem 3rem 2.5rem", display:"flex", flexDirection:"column", justifyContent:"center"}}>
               <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
                 🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
               </div>
@@ -132,7 +131,6 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               </div>
               <p className="text-sm mt-3 font-semibold" style={{color:"rgba(61,61,61,0.6)"}}>Раннее бронирование — оплата онлайн, место гарантировано!</p>
             </div>
-          </div>
         </div>
 
         <div className="hero-wave">
