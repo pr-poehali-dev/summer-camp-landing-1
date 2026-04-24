@@ -6,37 +6,37 @@
 
 @layer base {
   :root {
-    /* Shadcn tokens — обновлены под новую палитру */
-    --background: 40 43% 94%;
-    --foreground: 210 29% 24%;
+    /* Shadcn tokens */
+    --background: 36 100% 97%;
+    --foreground: 0 0% 24%;
     --card: 0 0% 100%;
-    --card-foreground: 210 29% 24%;
+    --card-foreground: 0 0% 24%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 29% 24%;
-    --primary: 174 100% 33%;
+    --popover-foreground: 0 0% 24%;
+    --primary: 26 100% 65%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 100% 71%;
-    --secondary-foreground: 210 29% 24%;
-    --muted: 40 30% 91%;
-    --muted-foreground: 210 15% 45%;
-    --accent: 28 87% 67%;
-    --accent-foreground: 210 29% 24%;
+    --secondary: 47 100% 62%;
+    --secondary-foreground: 0 0% 24%;
+    --muted: 36 60% 93%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 170 100% 39%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 25% 83%;
-    --input: 40 25% 83%;
-    --ring: 174 100% 33%;
-    --radius: 1rem;
+    --border: 26 40% 88%;
+    --input: 26 40% 88%;
+    --ring: 26 100% 65%;
+    --radius: 1.25rem;
 
-    /* ── Бренд-палитра ── */
-    --c-primary: #00a896; /* Средиземноморский бирюзовый */
-    --c-coral: #ff6b6b; /* Закатный коралл */
-    --c-sand: #f8f3e8; /* Песочный крем */
-    --c-slate: #2c3e50; /* Морской сланец */
-    --c-mist: #e8f4f8; /* Облачная дымка */
-    --c-amber: #f4a261; /* Солнечный янтарь */
-    --c-primary-hover: #ff6b6b;
-    --c-primary-dark: #008a7a;
+    /* ── «Солнечная» палитра ── */
+    --c-sun: #ff9a56; /* Закатный апельсин — основной */
+    --c-yellow: #ffd93d; /* Солнечный жёлтый — акцент */
+    --c-teal: #00c9a7; /* Морская волна — иконки, кнопка оплаты */
+    --c-cream: #fff8f0; /* Сливочный крем — фон секций */
+    --c-peach: #ffe5d9; /* Персик — карточки, фон форм */
+    --c-dark: #3d3d3d; /* Тёмный текст */
+    --c-sun-dark: #e8854a;
+    --c-teal-dark: #00a88c;
   }
 }
 
@@ -49,9 +49,9 @@
   }
 
   body {
-    font-family: "Inter", "Nunito", sans-serif;
-    background-color: var(--c-sand);
-    color: var(--c-slate);
+    font-family: "Inter", "Montserrat", sans-serif;
+    background-color: var(--c-cream);
+    color: var(--c-dark);
     overflow-x: hidden;
   }
 
@@ -61,7 +61,7 @@
   h4 {
     font-family: "Montserrat", "Baloo 2", cursive;
     font-weight: 800;
-    color: var(--c-slate);
+    color: var(--c-dark);
   }
 
   .font-camp {
@@ -69,7 +69,7 @@
   }
 }
 
-/* ── Animations ─────────────────────────────────────────────────────── */
+/* ── Animations ──────────────────────────────────────────────────────── */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -143,26 +143,54 @@
     transform: rotate(0deg);
   }
 }
-@keyframes pulse-coral {
+@keyframes pulse-sun {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 154, 86, 0.4);
   }
   50% {
     box-shadow:
-      0 0 40px rgba(255, 107, 107, 0.8),
-      0 0 60px rgba(244, 162, 97, 0.3);
+      0 8px 40px rgba(255, 154, 86, 0.75),
+      0 0 60px rgba(255, 217, 61, 0.3);
   }
 }
 @keyframes pulse-teal {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(0, 168, 150, 0.35);
+    box-shadow: 0 8px 25px rgba(0, 201, 167, 0.3);
   }
   50% {
-    box-shadow:
-      0 0 40px rgba(0, 168, 150, 0.7),
-      0 0 60px rgba(0, 168, 150, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 201, 167, 0.6);
+  }
+}
+@keyframes colon-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes play-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+@keyframes lock-shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
   }
 }
 
@@ -192,10 +220,16 @@
   display: inline-block;
 }
 .animate-pulse-glow {
-  animation: pulse-coral 2s ease-in-out infinite;
+  animation: pulse-sun 2s ease-in-out infinite;
 }
 .animate-pulse-glow-teal {
   animation: pulse-teal 2s ease-in-out infinite;
+}
+.animate-colon {
+  animation: colon-blink 1s step-end infinite;
+}
+.animate-play {
+  animation: play-pulse 2s ease-in-out infinite;
 }
 
 .delay-100 {
@@ -222,81 +256,119 @@
 
 /* ── Gradient texts ──────────────────────────────────────────────────── */
 .text-sunny {
-  background: linear-gradient(135deg, #f4a261 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #ff9a56 0%, #ffd93d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .text-ocean {
-  background: linear-gradient(135deg, #00a896 0%, #007a6c 100%);
+  background: linear-gradient(135deg, #00c9a7 0%, #ffd93d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .text-summer {
-  background: linear-gradient(135deg, #00a896 0%, #f4a261 50%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #ff9a56 0%, #ffd93d 50%, #00c9a7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Camp gradient backgrounds ───────────────────────────────────────── */
+/* ── Camp backgrounds ────────────────────────────────────────────────── */
 .bg-camp-hero {
-  background: linear-gradient(160deg, #e8f4f8 0%, #d4eef5 40%, #f8f3e8 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 217, 61, 0.3) 0%,
+    rgba(255, 154, 86, 0.4) 100%
+  );
 }
 .bg-camp-navy {
-  background: linear-gradient(135deg, #00a896 0%, #007a6c 100%);
+  background: linear-gradient(135deg, #ff9a56 0%, #ffd93d 100%);
 }
 .bg-camp-sunset {
-  background: linear-gradient(135deg, #ff6b6b 0%, #f4a261 100%);
+  background: linear-gradient(135deg, #ff9a56 0%, #ffd93d 100%);
 }
 .bg-camp-sand {
-  background: linear-gradient(135deg, #f8f3e8 0%, #eee7d4 100%);
+  background: linear-gradient(180deg, #fff8f0 0%, #ffe5d9 100%);
 }
 .bg-camp-teal {
-  background: linear-gradient(135deg, #e8f4f8 0%, #c8e8f0 100%);
+  background: linear-gradient(135deg, #00c9a7 0%, #ffd93d 100%);
 }
 
 /* ── Cards ───────────────────────────────────────────────────────────── */
 .summer-card {
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   border-radius: 1.5rem;
 }
 .summer-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(0, 168, 150, 0.15);
+  box-shadow: 0 15px 50px rgba(255, 154, 86, 0.25);
 }
 
-/* ── CTA Button ──────────────────────────────────────────────────────── */
+/* ── CTA Button (Градиент «Закат») ───────────────────────────────────── */
 .btn-cta {
-  background: var(--c-primary);
+  background: linear-gradient(90deg, #ff9a56 0%, #ffd93d 100%);
   color: #fff;
   font-weight: 800;
-  border-radius: 1rem;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 1.25rem;
   padding: 14px 32px;
   font-size: 1.05rem;
   transition:
-    background 0.25s ease,
+    background 0.3s ease,
     transform 0.2s ease,
-    box-shadow 0.25s ease;
-  box-shadow: 0 6px 20px rgba(0, 168, 150, 0.3);
+    box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 154, 86, 0.5);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 .btn-cta:hover {
-  background: var(--c-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.35);
+  background: linear-gradient(90deg, #ffd93d 0%, #ff9a56 100%);
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(255, 154, 86, 0.65);
+}
+
+/* ── Pay Button (Teal) ───────────────────────────────────────────────── */
+.btn-pay {
+  background: #00c9a7;
+  color: #fff;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 1.25rem;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 8px 25px rgba(0, 201, 167, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-pay:hover {
+  background: #ff9a56;
+  transform: scale(1.02);
+}
+.btn-pay:disabled {
+  opacity: 0.55;
 }
 
 /* ── Inputs ──────────────────────────────────────────────────────────── */
 .summer-input {
   background: #fff;
-  border: 2px solid #c8dce3;
-  color: var(--c-slate);
+  border: 2px solid #ffe5d9;
+  color: #3d3d3d;
   border-radius: 12px;
   padding: 12px 16px;
   width: 100%;
@@ -308,11 +380,11 @@
 }
 .summer-input:focus {
   outline: none;
-  border-color: var(--c-primary);
-  box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.12);
+  border-color: #ff9a56;
+  box-shadow: 0 0 0 3px rgba(255, 154, 86, 0.15);
 }
 .summer-input::placeholder {
-  color: #9ab0b8;
+  color: #c4a897;
 }
 
 /* ── Timeline ────────────────────────────────────────────────────────── */
@@ -323,10 +395,10 @@
   top: 3rem;
   bottom: -1rem;
   width: 2px;
-  background: linear-gradient(to bottom, #00a896, #e8f4f8);
+  background: linear-gradient(to bottom, #ff9a56, #ffe5d9);
 }
 
-/* ── Wave divider ────────────────────────────────────────────────────── */
+/* ── Wave ────────────────────────────────────────────────────────────── */
 .wave-divider {
   width: 100%;
   overflow: hidden;
@@ -376,4 +448,21 @@
 .reveal {
   opacity: 0;
   transform: translateY(40px);
+}
+
+/* ── Quote bg decoration ──────────────────────────────────────────────── */
+.quote-bg {
+  position: relative;
+  overflow: hidden;
+}
+.quote-bg::before {
+  content: "\201C";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 120px;
+  font-family: Georgia, serif;
+  color: rgba(255, 154, 86, 0.18);
+  line-height: 1;
+  pointer-events: none;
 }
