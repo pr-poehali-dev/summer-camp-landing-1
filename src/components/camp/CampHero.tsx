@@ -213,10 +213,10 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
           {/* видеоотзывы детей */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {[
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/69878726-465d-473a-9d01-5984d7c6234a.mp4", poster: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/files/6ce3ea52-b0bf-429b-bc6b-23ca9b66e9d9.jpg", name: "Полина", shift: "4 смена" },
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/5aa0afd9-eb3f-40b0-aae7-55eb0abab924.mp4", poster: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/files/f9bdb59c-f882-43c3-96be-3986d9b4f1e4.jpg", name: "Амира", shift: "2 смена" },
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/8d89b8bb-e70d-47d5-8dbb-f80fb41670b6.mp4", poster: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/files/20865e4c-b3cd-4abd-b824-7482b0f725c5.jpg", name: "Лиза", shift: "2 смена" },
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/11c3322d-2b5b-4e36-8b45-97a6b5f197ec.mp4", poster: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/files/80aade73-9dd2-4fd9-9f9a-8e3d77e18b17.jpg", name: "Настя", shift: "2 смена" },
+              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/69878726-465d-473a-9d01-5984d7c6234a.mp4", name: "Полина", shift: "4 смена" },
+              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/5aa0afd9-eb3f-40b0-aae7-55eb0abab924.mp4", name: "Амира", shift: "2 смена" },
+              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/8d89b8bb-e70d-47d5-8dbb-f80fb41670b6.mp4", name: "Лиза", shift: "2 смена" },
+              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/11c3322d-2b5b-4e36-8b45-97a6b5f197ec.mp4", name: "Настя", shift: "2 смена" },
             ].map((v, i) => (
               <div key={i} className="flex flex-col">
                 <div
@@ -225,7 +225,6 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 >
                   <video
                     src={v.src}
-                    poster={v.poster}
                     controls
                     playsInline
                     preload="metadata"

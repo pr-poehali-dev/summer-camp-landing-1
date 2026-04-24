@@ -44,12 +44,18 @@ export default function CampProgram({
             ))}
           </div>
 
-          {/* видео-заглушка */}
-          <div className="rounded-3xl p-10 text-center border-2 border-dashed" style={{background:"#FFF8F0", borderColor:"#00C9A7"}}>
-            <div className="text-6xl mb-4">📹</div>
-            <h3 className="font-black text-xl mb-2" style={{color:"#3D3D3D"}}>Смотрите, как это было в прошлом году</h3>
-            <p className="mb-4" style={{color:"rgba(61,61,61,0.7)"}}>Видео с прошлых смен — дети плавают, готовят на костре, смеются у палатки</p>
-            <p className="text-sm font-semibold" style={{color:"#00C9A7"}}>Вставьте ссылку на видео с ВКонтакте или YouTube</p>
+          {/* видео с ВК */}
+          <div className="rounded-3xl p-6 md:p-8" style={{background:"#FFF8F0", border:"2px solid #FFE5D9", boxShadow:"0 10px 30px rgba(255,154,86,0.15)"}}>
+            <h3 className="font-black text-xl md:text-2xl mb-4 text-center" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>📹 Смотрите, как это было в прошлом году</h3>
+            <div className="relative w-full overflow-hidden rounded-2xl" style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
+              <iframe
+                src="https://vk.com/video_ext.php?oid=-179759189&id=456239214&hd=2&t=4m8s"
+                className="absolute top-0 left-0 w-full h-full border-0"
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                allowFullScreen
+                title="Видео Рыбка Долли"
+              />
+            </div>
           </div>
         </div>
       </section>
