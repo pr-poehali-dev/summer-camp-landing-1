@@ -1,7 +1,12 @@
 import json
 import os
 import hashlib
+import smtplib
+import ssl
 import psycopg2
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.utils import formataddr
 from urllib.parse import parse_qs
 
 
@@ -17,6 +22,34 @@ def get_db_connection():
     if not dsn:
         raise ValueError('DATABASE_URL not configured')
     return psycopg2.connect(dsn)
+
+
+def send_email(subject: str, html_body: str) -> bool:
+    """Отправляет письмо на NOTIFICATION_EMAIL через SMTP. Возвращает True при успехе."""
+    host = os.environ.get('SMTP_HOST')
+    user = os.environ.get('SMTP_USER')
+    password = os.environ.get('SMTP_PASSWORD')
+    to_email = os.environ.get('NOTIFICATION_EMAIL')
+
+    if not all([host, user, password, to_email]):
+        print('SMTP config missing, skip email')
+        return False
+
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = subject
+        msg['From'] = formataddr(('Рыбка Долли', user))
+        msg['To'] = to_email
+        msg.attach(MIMEText(html_body, 'html', 'utf-8'))
+
+        ctx = ssl.create_default_context()
+        with smtplib.SMTP_SSL(host, 465, context=ctx, timeout=15) as server:
+            server.login(user, password)
+            server.sendmail(user, [to_email], msg.as_string())
+        return True
+    except Exception as e:
+        print(f'Email send error: {e}')
+        return False
 
 
 HEADERS = {
@@ -76,13 +109,12 @@ def handler(event: dict, context) -> dict:
         UPDATE orders
         SET status = 'paid', paid_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
         WHERE robokassa_inv_id = %s AND status = 'pending'
-        RETURNING id, order_number, user_email
+        RETURNING id, order_number, user_name, user_email, user_phone, amount, order_comment
     """, (int(inv_id),))
 
     result = cur.fetchone()
 
     if not result:
-        # Проверяем, может уже оплачен
         cur.execute("SELECT status FROM orders WHERE robokassa_inv_id = %s", (int(inv_id),))
         existing = cur.fetchone()
         conn.close()
@@ -95,7 +127,23 @@ def handler(event: dict, context) -> dict:
     cur.close()
     conn.close()
 
-    # TODO: Отправить уведомление (email, telegram) после успешной оплаты
-    # order_id, order_number, user_email = result
+    order_id, order_number, user_name, user_email, user_phone, amount, order_comment = result
+
+    subject = f'🎉 Новая бронь: {user_name} — {amount} ₽'
+    html = f"""
+    <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;background:#FFF8F0;border-radius:12px;">
+      <h2 style="color:#FF9A56;margin:0 0 16px;">🎉 Новая бронь оплачена!</h2>
+      <table style="width:100%;border-collapse:collapse;background:white;border-radius:8px;overflow:hidden;">
+        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Номер заказа:</b></td><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">{order_number}</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Сумма:</b></td><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;color:#00C9A7;font-weight:bold;">{amount} ₽</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Имя:</b></td><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">{user_name}</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Телефон:</b></td><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><a href="tel:{user_phone or ''}">{user_phone or '—'}</a></td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Email:</b></td><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><a href="mailto:{user_email}">{user_email}</a></td></tr>
+        <tr><td style="padding:10px 14px;"><b>Комментарий:</b></td><td style="padding:10px 14px;">{order_comment or '—'}</td></tr>
+      </table>
+      <p style="color:#777;font-size:13px;margin-top:16px;">Свяжитесь с клиентом и подтвердите бронь в течение дня.</p>
+    </div>
+    """
+    send_email(subject, html)
 
     return {'statusCode': 200, 'headers': HEADERS, 'body': f'OK{inv_id}', 'isBase64Encoded': False}
