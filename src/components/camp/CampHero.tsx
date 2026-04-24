@@ -69,8 +69,23 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             <div style={{textAlign:"left", padding:"1rem 2.5rem 2rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
 
               {/* Бейдж — у верха, на уровне фото */}
-              <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)", alignSelf:"flex-start", marginBottom:"1.25rem"}}>
-                🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
+              <div className="animate-bounce-slow" style={{alignSelf:"flex-start", marginBottom:"1.25rem"}}>
+                <div style={{
+                  background:"linear-gradient(135deg, #00C9A7 0%, #00A67E 60%, #00DEB8 100%)",
+                  boxShadow:"0 6px 20px rgba(0,201,167,0.5), 0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.15) inset",
+                  borderRadius:"999px",
+                  padding:"0.5rem 1.25rem",
+                  display:"inline-flex",
+                  flexDirection:"column",
+                  gap:"2px",
+                }}>
+                  <span style={{color:"white", fontWeight:800, fontSize:"0.9rem", letterSpacing:"0.01em"}}>
+                    🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
+                  </span>
+                  <span style={{color:"rgba(255,255,255,0.9)", fontWeight:600, fontSize:"0.78rem", textAlign:"center"}}>
+                    ⭐ Работаем с детьми с 2018 года
+                  </span>
+                </div>
               </div>
 
               <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.4rem, 5vw, 3.6rem)", lineHeight:1.1}}>
