@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { SHIFTS, TESTIMONIALS, useCountdown } from "./CampData";
+import { SHIFTS, useCountdown } from "./CampData";
 
 interface CampHeroProps {
   scrollToBooking: () => void;
@@ -205,24 +205,6 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               ⚡ Уже забронировали 25 семей
             </div>
             <h2 className="text-3xl md:text-4xl font-black" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Отзывы детей</h2>
-          </div>
-
-          {/* отзывы */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="rounded-2xl p-5 shadow-sm summer-card quote-bg" style={{background:"#FFE5D9", border:"1px solid #FFD9C5", boxShadow:"0 5px 20px rgba(255,154,86,0.1)"}}>
-                <div className="text-[#FFD93D] text-sm mb-2">⭐⭐⭐⭐⭐</div>
-                <div className="flex items-start gap-3">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0" style={{background:"rgba(255,154,86,0.15)"}}>
-                    {t.emoji}
-                  </div>
-                  <div>
-                    <p className="text-warm-800 font-semibold italic mb-1">«{t.text}»</p>
-                    <p className="text-sm text-warm-600">— {t.author}, {t.child}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
 
           {/* счётчики мест по сменам */}
