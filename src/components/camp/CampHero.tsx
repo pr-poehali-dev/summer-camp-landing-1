@@ -153,7 +153,19 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             <div style={{display:"flex", gap:"0.75rem", flexShrink:0}}>
-              <button onClick={scrollToBooking} className="btn-cta" style={{padding:"0.75rem 1.25rem", fontSize:"0.95rem", whiteSpace:"nowrap"}}>
+              <button onClick={scrollToBooking} style={{
+                padding:"0.75rem 1.25rem",
+                fontSize:"0.95rem",
+                whiteSpace:"nowrap",
+                background:"#00C9A7",
+                color:"white",
+                fontWeight:900,
+                borderRadius:"14px",
+                border:"none",
+                cursor:"pointer",
+                boxShadow:"0 4px 0 #008F78, 0 8px 20px rgba(0,201,167,0.4), 0 1px 0 rgba(255,255,255,0.3) inset",
+                transition:"transform 0.15s",
+              }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
                 🎉 Забронировать −12%
               </button>
               <a
