@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Отправка корректного вопроса",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тестовая Мама",
+        "child_age": "8",
+        "email": "test@example.com",
+        "question": "Это тестовый вопрос?"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Без обязательных полей - ошибка",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "", "email": "", "question": ""},
+      "expectedStatus": 400
+    }
+  ]
+}

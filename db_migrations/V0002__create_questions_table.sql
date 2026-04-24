@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS questions (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    child_age VARCHAR(50),
+    email VARCHAR(255) NOT NULL,
+    question TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

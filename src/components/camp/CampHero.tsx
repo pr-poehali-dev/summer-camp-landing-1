@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS, useCountdown } from "./CampData";
+import CampFAQ from "./CampFAQ";
 
 interface CampHeroProps {
   scrollToBooking: () => void;
@@ -251,7 +252,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             ))}
           </div>
 
-          {/* здесь будет блок «Частые вопросы» */}
+          <CampFAQ />
         </div>
       </section>
     </>
