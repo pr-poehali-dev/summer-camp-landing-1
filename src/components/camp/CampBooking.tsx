@@ -219,7 +219,6 @@ export default function CampBooking({
       <footer className="text-white py-8 px-4" style={{background:"linear-gradient(135deg, #3D3D3D 0%, #1a1a1a 100%)"}}>
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-3xl">🐟</span>
             <span className="font-black text-xl" style={{fontFamily:"'Fredoka One',cursive"}}>Рыбка Долли</span>
           </div>
           <p className="text-sm mb-3" style={{color:"rgba(255,255,255,0.6)"}}>г. Керчь, ул. Циолковского, 12</p>

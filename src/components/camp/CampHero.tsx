@@ -24,8 +24,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm" style={{background: "rgba(255,154,86,0.97)"}}>
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🐟</span>
-            <span className="font-black text-white text-lg leading-tight hidden sm:block" style={{fontFamily:"'Fredoka One', cursive"}}>Рыбка Долли</span>
+            <span className="font-black text-white text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>Рыбка Долли</span>
           </div>
           <div className="flex items-center gap-3 flex-wrap justify-end">
             <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-white/90 hover:text-white transition-colors">
@@ -53,71 +52,102 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       </header>
 
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        <div className="absolute inset-0" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.25) 0%, rgba(255,154,86,0.35) 100%)", backgroundColor:"#FFF8F0"}} />
-        <div className="absolute top-24 left-8 w-32 h-32 rounded-full opacity-30 animate-float" style={{background:"#FFD93D"}} />
-        <div className="absolute top-40 right-12 w-20 h-20 rounded-full opacity-25 animate-float delay-300" style={{background:"#FF9A56"}} />
-        <div className="absolute bottom-52 left-16 w-24 h-24 rounded-full opacity-20 animate-float delay-500" style={{background:"#00C9A7"}} />
-        <div className="absolute bottom-32 right-8 w-14 h-14 rounded-full opacity-25 animate-float delay-200" style={{background:"#FFD93D"}} />
-        <div className="absolute top-32 left-1/3 text-3xl animate-float delay-400 opacity-50">🕊️</div>
-        <div className="absolute top-20 right-1/4 text-2xl animate-float delay-100 opacity-40">🕊️</div>
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-16" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0"}}>
+        {/* декоративные кружки */}
+        <div className="absolute top-24 right-8 w-28 h-28 rounded-full opacity-20 animate-float" style={{background:"#FFD93D"}} />
+        <div className="absolute bottom-40 right-16 w-20 h-20 rounded-full opacity-20 animate-float delay-300" style={{background:"#00C9A7"}} />
+        <div className="absolute top-1/2 right-1/3 w-14 h-14 rounded-full opacity-15 animate-float delay-500" style={{background:"#FF9A56"}} />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center py-16">
-          <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-6 animate-bounce-slow" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
-            🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
-          </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 py-12 w-full">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
-          <h1 className="text-5xl md:text-7xl font-black mb-4" style={{fontFamily:"'Fredoka One', cursive", color:"#FF9A56", textShadow:"0 4px 15px rgba(255,154,86,0.4)", WebkitTextStroke:"1px rgba(255,255,255,0.6)"}}>
-            🐟 Рыбка Долли
-            <br />
-            <span style={{background:"linear-gradient(135deg, #FF9A56 0%, #FFD93D 100%)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", WebkitTextStroke:"0"}}>Лето 2026</span>
-          </h1>
-
-          <p className="text-xl md:text-2xl font-bold mb-4" style={{color:"#3D3D3D"}}>
-            <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы · <span style={{color:"#00C9A7"}}>🎭</span> Квесты
-          </p>
-
-          <p className="text-lg mb-8 max-w-2xl mx-auto font-semibold" style={{color:"rgba(61,61,61,0.8)"}}>
-            Авторские смены, где дети становятся самостоятельнее, находят друзей
-            и возвращаются окрылёнными!
-          </p>
-
-          {/* Таймер-акция */}
-          <div className="rounded-[20px] p-6 mb-8 max-w-2xl mx-auto" style={{background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 15px 50px rgba(255,217,61,0.4)"}}>
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-2xl">⏰</span>
-              <span className="font-black text-xl text-white" style={{fontFamily:"'Fredoka One', cursive"}}>
-                АКЦИЯ ДО 15 МАЯ — СКИДКА{" "}
-                <span style={{outline:"3px solid #00C9A7", outlineOffset:"2px", borderRadius:"4px", padding:"0 4px"}}>12%</span>!
-              </span>
+            {/* ── ЛЕВАЯ КОЛОНКА: фото в рамке ── */}
+            <div className="flex-shrink-0 w-full lg:w-[420px] flex items-center justify-center animate-fade-in">
+              <div className="relative w-full max-w-[400px]">
+                {/* Рамка-фон */}
+                <img
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/73c33939-6c41-4257-a1da-1af779c14d16.jpg"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-fill pointer-events-none"
+                  style={{zIndex:2}}
+                />
+                {/* Фото детей внутри рамки */}
+                <div className="relative" style={{zIndex:1, padding:"13% 12% 18% 12%"}}>
+                  <img
+                    src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/3d9a57af-1bab-46c2-b523-b89695373724.jpg"
+                    alt="Дети в летнем клубе Рыбка Долли, Керчь"
+                    className="w-full rounded-2xl object-cover"
+                    style={{aspectRatio:"4/3"}}
+                  />
+                </div>
+                {/* Невидимый spacer для корректной высоты */}
+                <img
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/73c33939-6c41-4257-a1da-1af779c14d16.jpg"
+                  alt=""
+                  className="w-full opacity-0 pointer-events-none"
+                />
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
-              <TimerBlock value={countdown.days} label="ДНЕЙ" />
-              <span className="text-white text-2xl font-black animate-colon">:</span>
-              <TimerBlock value={countdown.hours} label="ЧАСОВ" />
-              <span className="text-white text-2xl font-black animate-colon">:</span>
-              <TimerBlock value={countdown.minutes} label="МИНУТ" />
-              <span className="text-white text-2xl font-black animate-colon">:</span>
-              <TimerBlock value={countdown.seconds} label="СЕКУНД" />
-            </div>
-            <p className="text-white/90 text-sm font-semibold">
-              Осталось мест: <span className="font-black text-lg text-white">45</span> из 70
-            </p>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={scrollToBooking} className="btn-cta text-lg px-8 py-4">
-              🎉 Забронировать со скидкой 12%
-            </button>
-            <a
-              href="#about"
-              className="font-bold text-lg px-8 py-4 rounded-2xl border-2 bg-white/80 transition-all hover:scale-105"
-              style={{color:"#FF9A56", borderColor:"#FF9A56"}}
-            >
-              Смотреть программу смен
-            </a>
+            {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
+            <div className="flex-1 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5 animate-bounce-slow" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
+                🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight" style={{fontFamily:"'Fredoka One', cursive", color:"#FF9A56", textShadow:"0 4px 15px rgba(255,154,86,0.35)"}}>
+                Рыбка Долли
+                <br />
+                <span style={{background:"linear-gradient(135deg, #FF9A56 0%, #FFD93D 100%)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text"}}>Лето 2026</span>
+              </h1>
+
+              <p className="text-lg md:text-xl font-bold mb-3" style={{color:"#3D3D3D"}}>
+                <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы · <span style={{color:"#00C9A7"}}>🎭</span> Квесты
+              </p>
+
+              <p className="text-base mb-6 font-semibold" style={{color:"rgba(61,61,61,0.8)"}}>
+                Авторские смены, где дети становятся самостоятельнее,
+                находят друзей и возвращаются окрылёнными!
+              </p>
+
+              {/* Таймер-акция */}
+              <div className="rounded-[20px] p-5 mb-6" style={{background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 12px 40px rgba(255,217,61,0.4)"}}>
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
+                  <span className="text-xl">⏰</span>
+                  <span className="font-black text-lg text-white" style={{fontFamily:"'Fredoka One', cursive"}}>
+                    АКЦИЯ ДО 15 МАЯ — СКИДКА{" "}
+                    <span style={{outline:"3px solid #00C9A7", outlineOffset:"2px", borderRadius:"4px", padding:"0 4px"}}>12%</span>!
+                  </span>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-3 flex-wrap">
+                  <TimerBlock value={countdown.days} label="ДНЕЙ" />
+                  <span className="text-white text-2xl font-black animate-colon">:</span>
+                  <TimerBlock value={countdown.hours} label="ЧАСОВ" />
+                  <span className="text-white text-2xl font-black animate-colon">:</span>
+                  <TimerBlock value={countdown.minutes} label="МИНУТ" />
+                  <span className="text-white text-2xl font-black animate-colon">:</span>
+                  <TimerBlock value={countdown.seconds} label="СЕКУНД" />
+                </div>
+                <p className="text-white/90 text-sm font-semibold text-center lg:text-left">
+                  Осталось мест: <span className="font-black text-lg text-white">45</span> из 70
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <button onClick={scrollToBooking} className="btn-cta text-lg px-8 py-4">
+                  🎉 Забронировать со скидкой 12%
+                </button>
+                <a
+                  href="#about"
+                  className="font-bold text-lg px-8 py-4 rounded-2xl border-2 bg-white/80 transition-all hover:scale-105"
+                  style={{color:"#FF9A56", borderColor:"#FF9A56"}}
+                >
+                  Программа смен
+                </a>
+              </div>
+              <p className="text-sm mt-3 font-semibold" style={{color:"rgba(61,61,61,0.6)"}}>Раннее бронирование — оплата онлайн, место гарантировано!</p>
+            </div>
           </div>
-          <p className="text-sm mt-4 font-semibold" style={{color:"rgba(61,61,61,0.6)"}}>Раннее бронирование — оплата онлайн, место гарантировано!</p>
         </div>
 
         <div className="hero-wave">
