@@ -179,7 +179,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 🎉 Забронировать −12%
               </button>
               <a
-                href="#about"
+                href="#program"
                 className="font-bold rounded-2xl border-2 bg-white/90 transition-all hover:scale-105"
                 style={{padding:"0.75rem 1.25rem", fontSize:"0.95rem", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", whiteSpace:"nowrap"}}
               >
