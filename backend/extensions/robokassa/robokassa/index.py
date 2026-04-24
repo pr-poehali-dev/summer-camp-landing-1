@@ -174,7 +174,6 @@ def handler(event: dict, context) -> dict:
             'Email': user_email,
             'Culture': 'ru',
             'Description': f'Заказ {order_number}',
-            'IsTest': '1',
         }
 
         if success_url:
