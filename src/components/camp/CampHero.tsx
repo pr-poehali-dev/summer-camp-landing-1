@@ -65,55 +65,61 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             <div className="flex-shrink-0 w-full lg:w-[460px] flex items-center justify-start animate-fade-in">
               <div className="relative w-full max-w-[420px]">
 
-                {/* SVG-брызги — абсолютно прозрачный фон, только краска */}
-                <svg className="absolute pointer-events-none" style={{inset:"-22%", width:"144%", height:"144%", zIndex:3}} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* розовые брызги */}
-                  <circle cx="62" cy="58" r="22" fill="#FF2D9B" opacity="0.9"/>
-                  <circle cx="88" cy="42" r="10" fill="#FF2D9B" opacity="0.75"/>
-                  <circle cx="44" cy="80" r="7"  fill="#FF2D9B" opacity="0.6"/>
-                  <circle cx="105" cy="30" r="5" fill="#FF2D9B" opacity="0.5"/>
-                  <circle cx="30" cy="48" r="5"  fill="#FF2D9B" opacity="0.55"/>
-                  <circle cx="18" cy="65" r="3"  fill="#FF2D9B" opacity="0.45"/>
-                  <ellipse cx="75" cy="25" rx="14" ry="8" fill="#FF2D9B" opacity="0.65"/>
+                {/* SVG-брызги: лайм + немного розового, эффект разбрызгивания с хвостиками */}
+                <svg className="absolute pointer-events-none" style={{inset:"-24%", width:"148%", height:"148%", zIndex:3}} viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-                  {/* розовые брызги справа-сверху */}
-                  <circle cx="430" cy="70" r="20" fill="#FF2D9B" opacity="0.85"/>
-                  <circle cx="455" cy="48" r="12" fill="#FF2D9B" opacity="0.7"/>
-                  <circle cx="470" cy="90" r="7"  fill="#FF2D9B" opacity="0.55"/>
-                  <circle cx="415" cy="40" r="5"  fill="#FF2D9B" opacity="0.5"/>
-                  <circle cx="482" cy="65" r="4"  fill="#FF2D9B" opacity="0.45"/>
-                  <ellipse cx="445" cy="30" rx="16" ry="7" fill="#FF2D9B" opacity="0.6"/>
+                  {/* ── УГОЛ СВЕРХУ-СЛЕВА: лайм ── */}
+                  <ellipse cx="72" cy="52" rx="28" ry="12" fill="#8BC400" opacity="0.95" transform="rotate(-35 72 52)"/>
+                  <ellipse cx="50" cy="38" rx="18" ry="6"  fill="#8BC400" opacity="0.8"  transform="rotate(-50 50 38)"/>
+                  <ellipse cx="95" cy="28" rx="10" ry="4"  fill="#8BC400" opacity="0.7"  transform="rotate(-20 95 28)"/>
+                  <circle  cx="110" cy="18" r="5"  fill="#8BC400" opacity="0.6"/>
+                  <circle  cx="32"  cy="55" r="4"  fill="#8BC400" opacity="0.55"/>
+                  <circle  cx="120" cy="35" r="3"  fill="#8BC400" opacity="0.5"/>
+                  <circle  cx="20"  cy="40" r="3"  fill="#8BC400" opacity="0.45"/>
+                  <ellipse cx="60"  cy="18" rx="7" ry="3"  fill="#8BC400" opacity="0.6"  transform="rotate(-60 60 18)"/>
 
-                  {/* лаймовые брызги снизу-слева */}
-                  <circle cx="55" cy="430" r="24" fill="#8BC400" opacity="0.9"/>
-                  <circle cx="32" cy="455" r="13" fill="#8BC400" opacity="0.7"/>
-                  <circle cx="78" cy="460" r="9"  fill="#8BC400" opacity="0.6"/>
-                  <circle cx="20" cy="410" r="6"  fill="#8BC400" opacity="0.55"/>
-                  <circle cx="90" cy="478" r="5"  fill="#8BC400" opacity="0.45"/>
-                  <ellipse cx="45" cy="475" rx="18" ry="8" fill="#8BC400" opacity="0.65"/>
+                  {/* ── УГОЛ СВЕРХУ-СПРАВА: розовый ── */}
+                  <ellipse cx="488" cy="55" rx="26" ry="11" fill="#FF2D9B" opacity="0.9" transform="rotate(40 488 55)"/>
+                  <ellipse cx="510" cy="38" rx="16" ry="6"  fill="#FF2D9B" opacity="0.75" transform="rotate(55 510 38)"/>
+                  <ellipse cx="465" cy="30" rx="12" ry="5"  fill="#FF2D9B" opacity="0.65" transform="rotate(25 465 30)"/>
+                  <circle  cx="530" cy="60" r="5"  fill="#FF2D9B" opacity="0.6"/>
+                  <circle  cx="452" cy="18" r="4"  fill="#FF2D9B" opacity="0.55"/>
+                  <circle  cx="540" cy="42" r="3"  fill="#FF2D9B" opacity="0.5"/>
+                  <circle  cx="475" cy="12" r="3"  fill="#FF2D9B" opacity="0.45"/>
 
-                  {/* чёрные брызги снизу */}
-                  <circle cx="200" cy="488" r="14" fill="#1a1a1a" opacity="0.7"/>
-                  <circle cx="230" cy="496" r="8"  fill="#1a1a1a" opacity="0.55"/>
-                  <circle cx="175" cy="494" r="6"  fill="#1a1a1a" opacity="0.5"/>
-                  <circle cx="255" cy="490" r="4"  fill="#1a1a1a" opacity="0.4"/>
-                  <ellipse cx="205" cy="500" rx="20" ry="6" fill="#1a1a1a" opacity="0.5"/>
+                  {/* ── УГОЛ СНИЗУ-СЛЕВА: лайм ── */}
+                  <ellipse cx="68"  cy="508" rx="30" ry="11" fill="#8BC400" opacity="0.95" transform="rotate(30 68 508)"/>
+                  <ellipse cx="42"  cy="528" rx="20" ry="7"  fill="#8BC400" opacity="0.8"  transform="rotate(50 42 528)"/>
+                  <ellipse cx="100" cy="530" rx="12" ry="5"  fill="#8BC400" opacity="0.7"  transform="rotate(15 100 530)"/>
+                  <circle  cx="25"  cy="510" r="5"  fill="#8BC400" opacity="0.6"/>
+                  <circle  cx="115" cy="545" r="4"  fill="#8BC400" opacity="0.55"/>
+                  <circle  cx="18"  cy="540" r="3"  fill="#8BC400" opacity="0.5"/>
+                  <circle  cx="88"  cy="548" r="3"  fill="#8BC400" opacity="0.45"/>
+                  <ellipse cx="55"  cy="548" rx="10" ry="4"  fill="#8BC400" opacity="0.6"  transform="rotate(40 55 548)"/>
 
-                  {/* розовые снизу-справа */}
-                  <circle cx="440" cy="435" r="19" fill="#FF2D9B" opacity="0.8"/>
-                  <circle cx="465" cy="460" r="11" fill="#FF2D9B" opacity="0.65"/>
-                  <circle cx="420" cy="462" r="7"  fill="#FF2D9B" opacity="0.55"/>
-                  <circle cx="478" cy="440" r="5"  fill="#FF2D9B" opacity="0.45"/>
-                  <ellipse cx="458" cy="478" rx="15" ry="7" fill="#FF2D9B" opacity="0.6"/>
+                  {/* ── УГОЛ СНИЗУ-СПРАВА: вперемешку ── */}
+                  <ellipse cx="492" cy="510" rx="26" ry="10" fill="#FF2D9B" opacity="0.9"  transform="rotate(-30 492 510)"/>
+                  <ellipse cx="518" cy="530" rx="17" ry="6"  fill="#8BC400" opacity="0.85" transform="rotate(-50 518 530)"/>
+                  <ellipse cx="468" cy="532" rx="11" ry="5"  fill="#FF2D9B" opacity="0.7"  transform="rotate(-15 468 532)"/>
+                  <circle  cx="540" cy="515" r="5"  fill="#8BC400" opacity="0.6"/>
+                  <circle  cx="455" cy="548" r="4"  fill="#FF2D9B" opacity="0.55"/>
+                  <circle  cx="530" cy="546" r="3"  fill="#8BC400" opacity="0.5"/>
+                  <circle  cx="510" cy="548" r="3"  fill="#FF2D9B" opacity="0.45"/>
 
-                  {/* маленькие случайные точки */}
-                  <circle cx="130" cy="20" r="4"  fill="#FF2D9B" opacity="0.5"/>
-                  <circle cx="360" cy="18" r="5"  fill="#8BC400" opacity="0.6"/>
-                  <circle cx="490" cy="200" r="6"  fill="#FF2D9B" opacity="0.55"/>
-                  <circle cx="495" cy="310" r="4"  fill="#8BC400" opacity="0.5"/>
-                  <circle cx="8"   cy="220" r="5"  fill="#FF2D9B" opacity="0.5"/>
-                  <circle cx="12"  cy="330" r="4"  fill="#8BC400" opacity="0.45"/>
-                  <circle cx="310" cy="495" r="5"  fill="#1a1a1a" opacity="0.45"/>
+                  {/* ── БОКОВЫЕ ОДИНОЧНЫЕ КАПЛИ ── */}
+                  {/* лево */}
+                  <ellipse cx="22"  cy="200" rx="10" ry="4"  fill="#8BC400" opacity="0.6"  transform="rotate(80 22 200)"/>
+                  <circle  cx="14"  cy="240" r="4"  fill="#FF2D9B" opacity="0.45"/>
+                  <ellipse cx="18"  cy="320" rx="8"  ry="3"  fill="#8BC400" opacity="0.5"  transform="rotate(70 18 320)"/>
+                  {/* право */}
+                  <ellipse cx="540" cy="190" rx="9"  ry="4"  fill="#FF2D9B" opacity="0.55" transform="rotate(-75 540 190)"/>
+                  <circle  cx="546" cy="350" r="4"  fill="#8BC400" opacity="0.5"/>
+                  {/* верх */}
+                  <ellipse cx="200" cy="16"  rx="10" ry="4"  fill="#8BC400" opacity="0.55" transform="rotate(10 200 16)"/>
+                  <circle  cx="340" cy="12"  r="4"  fill="#FF2D9B" opacity="0.5"/>
+                  {/* низ */}
+                  <ellipse cx="280" cy="548" rx="12" ry="5"  fill="#8BC400" opacity="0.6"  transform="rotate(5 280 548)"/>
+                  <circle  cx="380" cy="552" r="3"  fill="#FF2D9B" opacity="0.45"/>
                 </svg>
 
                 {/* Фото детей */}
@@ -124,9 +130,9 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   style={{
                     aspectRatio:"4/3",
                     display:"block",
-                    borderRadius:"24px",
-                    border:"5px solid #FF2D9B",
-                    boxShadow:"0 8px 40px rgba(255,45,155,0.25), 0 4px 20px rgba(139,196,0,0.2)",
+                    borderRadius:"20px",
+                    border:"6px solid #FF9A56",
+                    boxShadow:"0 8px 40px rgba(255,154,86,0.35)",
                     position:"relative",
                     zIndex:2,
                   }}
