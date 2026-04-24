@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
 
@@ -14,6 +15,29 @@ export default function CampProgram({
   scrollToBooking,
   setSelectedShift,
 }: CampProgramProps) {
+  const firstVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = firstVideoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* ── БЛОК 3: ЧТО ТАКОЕ РЫБКА ДОЛЛИ ───────────────────────────────────── */}
@@ -62,10 +86,13 @@ export default function CampProgram({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto items-stretch">
               <div className="relative w-full overflow-hidden rounded-2xl bg-black" style={{aspectRatio:"16 / 9", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
                 <video
+                  ref={firstVideoRef}
                   src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/034b7134-32f7-411e-b6a7-e99bc9f8c195.mp4"
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   controls
                   playsInline
+                  muted
+                  loop
                   preload="metadata"
                 />
               </div>
