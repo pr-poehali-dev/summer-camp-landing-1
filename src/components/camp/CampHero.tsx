@@ -59,18 +59,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
             <div className="w-full lg:w-1/2 flex items-center justify-center">
-              <div style={{width:"min(90vw, 500px)"}}>
+              <div style={{width:"min(90vw, 560px)"}}>
                 <img
-                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/3d9a57af-1bab-46c2-b523-b89695373724.jpg"
+                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/20e95528-7f1d-4903-ac6d-dbc7ee9439b9.png"
                   alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                  className="w-full object-cover"
-                  style={{
-                    aspectRatio:"4/3",
-                    display:"block",
-                    borderRadius:"20px",
-                    border:"6px solid #FF9A56",
-                    boxShadow:"0 12px 50px rgba(255,154,86,0.4)",
-                  }}
+                  className="w-full"
+                  style={{display:"block"}}
                 />
               </div>
             </div>
