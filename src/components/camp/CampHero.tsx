@@ -24,7 +24,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm" style={{background: "rgba(255,154,86,0.97)"}}>
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="font-black text-white text-lg leading-tight" style={{fontFamily:"'Fredoka One', cursive"}}>Рыбка Долли</span>
+            <span className="font-black text-white text-lg leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"1.25rem"}}>Рыбка Долли</span>
           </div>
           <div className="flex items-center gap-3 flex-wrap justify-end">
             <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-white/90 hover:text-white transition-colors">
@@ -146,17 +146,25 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight" style={{fontFamily:"'Fredoka One', cursive", color:"#FF9A56", textShadow:"0 4px 15px rgba(255,154,86,0.35)"}}>
-                Рыбка Долли
+              <h1 className="font-black mb-4 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.4rem, 5vw, 3.6rem)", lineHeight:1.1}}>
+                <span style={{color:"#FF9A56"}}>Рыбка </span>
+                <span style={{color:"#FFD93D"}}>Долли</span>
                 <br />
-                <span style={{background:"linear-gradient(135deg, #FF9A56 0%, #FFD93D 100%)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text"}}>Лето 2026</span>
+                <span style={{
+                  background:"linear-gradient(135deg, #FF9A56 0%, #FFD93D 100%)",
+                  WebkitBackgroundClip:"text",
+                  WebkitTextFillColor:"transparent",
+                  backgroundClip:"text",
+                  fontSize:"0.7em",
+                  letterSpacing:"0.05em",
+                }}>Лето 2026</span>
               </h1>
 
-              <p className="text-lg md:text-xl font-bold mb-3" style={{color:"#3D3D3D"}}>
+              <p className="text-lg md:text-xl font-bold mb-3" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
                 <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы · <span style={{color:"#00C9A7"}}>🎭</span> Квесты
               </p>
 
-              <p className="text-base mb-6 font-semibold" style={{color:"rgba(61,61,61,0.8)"}}>
+              <p className="text-base mb-6 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
                 Авторские смены, где дети становятся самостоятельнее,
                 находят друзей и возвращаются окрылёнными!
               </p>
@@ -165,7 +173,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               <div className="rounded-[20px] p-5 mb-6" style={{background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 12px 40px rgba(255,217,61,0.4)"}}>
                 <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
                   <span className="text-xl">⏰</span>
-                  <span className="font-black text-lg text-white" style={{fontFamily:"'Fredoka One', cursive"}}>
+                  <span className="font-black text-lg text-white" style={{fontFamily:"'Nunito', sans-serif"}}>
                     АКЦИЯ ДО 15 МАЯ — СКИДКА{" "}
                     <span style={{outline:"3px solid #00C9A7", outlineOffset:"2px", borderRadius:"4px", padding:"0 4px"}}>12%</span>!
                   </span>
