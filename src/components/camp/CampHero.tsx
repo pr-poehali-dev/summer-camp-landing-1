@@ -210,6 +210,30 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </p>
           </div>
 
+          {/* видеоотзывы детей */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {[
+              "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/69878726-465d-473a-9d01-5984d7c6234a.mp4",
+              "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/5aa0afd9-eb3f-40b0-aae7-55eb0abab924.mp4",
+              "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/8d89b8bb-e70d-47d5-8dbb-f80fb41670b6.mp4",
+              "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/11c3322d-2b5b-4e36-8b45-97a6b5f197ec.mp4",
+            ].map((src, i) => (
+              <div
+                key={i}
+                className="relative rounded-2xl overflow-hidden bg-white shadow-md"
+                style={{border:"3px solid #FFE5D9", boxShadow:"0 10px 25px rgba(255,154,86,0.2)", aspectRatio:"9/16"}}
+              >
+                <video
+                  src={src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
           {/* счётчики мест по сменам */}
           <div className="bg-white rounded-3xl p-6 shadow-sm" style={{border:"2px solid #FFE5D9", boxShadow:"0 10px 30px rgba(255,154,86,0.15)"}}>
             <p className="text-center font-black text-lg mb-4" style={{color:"#FF9A56"}}>🔥 Мест становится меньше каждый день!</p>
