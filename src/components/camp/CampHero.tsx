@@ -66,12 +66,14 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div style={{textAlign:"left", padding:"3rem 3rem 3rem 2.5rem", display:"flex", flexDirection:"column", justifyContent:"center"}}>
-              <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm mb-5" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)"}}>
+            <div style={{textAlign:"left", padding:"2rem 3rem 2rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
+
+              {/* Бейдж — у верха, на уровне фото */}
+              <div className="inline-flex items-center gap-2 text-white font-bold px-5 py-2 rounded-full text-sm" style={{background:"#00C9A7", boxShadow:"0 4px 15px rgba(0,201,167,0.4)", alignSelf:"flex-start", marginBottom:"1.25rem"}}>
                 🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
               </div>
 
-              <h1 className="font-black mb-4 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.4rem, 5vw, 3.6rem)", lineHeight:1.1}}>
+              <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.4rem, 5vw, 3.6rem)", lineHeight:1.1}}>
                 <span style={{color:"#FF9A56"}}>Рыбка </span>
                 <span style={{color:"#FFD93D"}}>Долли</span>
                 <br />
@@ -85,25 +87,25 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 }}>Лето 2026</span>
               </h1>
 
-              <p className="text-lg md:text-xl font-bold mb-3" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
+              <p className="text-lg font-bold mb-2" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
                 <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы · <span style={{color:"#00C9A7"}}>🎭</span> Квесты
               </p>
 
-              <p className="text-base mb-6 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
+              <p className="text-base mb-5 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
                 Авторские смены, где дети становятся самостоятельнее,
                 находят друзей и возвращаются окрылёнными!
               </p>
 
-              {/* Таймер-акция */}
-              <div className="rounded-[20px] p-5 mb-6" style={{background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 12px 40px rgba(255,217,61,0.4)"}}>
-                <div className="flex items-center justify-start gap-2 mb-3">
-                  <span className="text-xl">⏰</span>
+              {/* Таймер-акция — прямоугольный, на всю ширину */}
+              <div style={{borderRadius:"16px", padding:"1.25rem 1.5rem", marginBottom:"1.25rem", background:"linear-gradient(90deg, #FFD93D 0%, #FF9A56 100%)", boxShadow:"0 12px 40px rgba(255,217,61,0.4)"}}>
+                <div style={{display:"flex", alignItems:"center", gap:"0.5rem", marginBottom:"0.75rem"}}>
+                  <span style={{fontSize:"1.2rem"}}>⏰</span>
                   <span className="font-black text-lg text-white" style={{fontFamily:"'Nunito', sans-serif"}}>
                     АКЦИЯ ДО 15 МАЯ — СКИДКА{" "}
                     <span style={{outline:"3px solid #00C9A7", outlineOffset:"2px", borderRadius:"4px", padding:"0 4px"}}>12%</span>!
                   </span>
                 </div>
-                <div className="flex items-center justify-start gap-2 mb-3 flex-wrap">
+                <div style={{display:"flex", alignItems:"center", gap:"0.5rem", flexWrap:"wrap", marginBottom:"0.75rem"}}>
                   <TimerBlock value={countdown.days} label="ДНЕЙ" />
                   <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.hours} label="ЧАСОВ" />
@@ -112,19 +114,20 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   <span className="text-white text-2xl font-black animate-colon">:</span>
                   <TimerBlock value={countdown.seconds} label="СЕКУНД" />
                 </div>
-                <p className="text-white/90 text-sm font-semibold text-center lg:text-left">
+                <p className="text-white/90 text-sm font-semibold">
                   Осталось мест: <span className="font-black text-lg text-white">45</span> из 70
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-start">
-                <button onClick={scrollToBooking} className="btn-cta text-lg px-8 py-4">
+              {/* Кнопки под таймером */}
+              <div style={{display:"flex", flexDirection:"column", gap:"0.75rem"}}>
+                <button onClick={scrollToBooking} className="btn-cta text-lg px-8 py-4" style={{width:"100%"}}>
                   🎉 Забронировать со скидкой 12%
                 </button>
                 <a
                   href="#about"
                   className="font-bold text-lg px-8 py-4 rounded-2xl border-2 bg-white/80 transition-all hover:scale-105"
-                  style={{color:"#FF9A56", borderColor:"#FF9A56"}}
+                  style={{color:"#FF9A56", borderColor:"#FF9A56", textAlign:"center"}}
                 >
                   Программа смен
                 </a>
