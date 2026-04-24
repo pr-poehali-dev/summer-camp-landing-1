@@ -58,15 +58,13 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10">
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center">
-              <div style={{width:"min(90vw, 560px)"}}>
-                <img
-                  src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/20e95528-7f1d-4903-ac6d-dbc7ee9439b9.png"
-                  alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                  className="w-full"
-                  style={{display:"block"}}
-                />
-              </div>
+            <div className="w-full lg:w-[55%] flex items-center justify-center">
+              <img
+                src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/20e95528-7f1d-4903-ac6d-dbc7ee9439b9.png"
+                alt="Дети в летнем клубе Рыбка Долли, Керчь"
+                className="w-full"
+                style={{display:"block", maxWidth:"680px"}}
+              />
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
@@ -146,7 +144,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       </section>
 
       {/* ── БЛОК 2: ДОВЕРИЕ ───────────────────────────────────────────────────── */}
-      <section className="py-16 px-4" style={{background:"#FFF8F0"}}>
+      <section className="py-16 px-4" style={{background:"linear-gradient(180deg, #E8FF6A 0%, #C8F000 100%)"}}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 font-bold px-5 py-2 rounded-full text-sm mb-4 text-white" style={{background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}>
