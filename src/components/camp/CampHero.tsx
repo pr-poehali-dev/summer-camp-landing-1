@@ -204,7 +204,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             <div className="inline-flex items-center gap-2 font-bold px-5 py-2 rounded-full text-sm mb-4 text-white" style={{background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}>
               ⚡ Уже забронировали 25 семей
             </div>
-            <h2 className="text-3xl md:text-4xl font-black" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Что говорят родители?</h2>
+            <h2 className="text-3xl md:text-4xl font-black" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Отзывы детей</h2>
           </div>
 
           {/* отзывы */}
