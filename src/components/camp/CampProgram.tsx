@@ -59,14 +59,26 @@ export default function CampProgram({
             >
               📹 Смотрите, как это было в прошлом году! 🎉
             </h3>
-            <div className="relative w-full overflow-hidden rounded-2xl" style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
-              <iframe
-                src="https://vk.com/video_ext.php?oid=-179759189&id=456239214&hd=2&t=4m8s"
-                className="absolute top-0 left-0 w-full h-full border-0"
-                allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
-                allowFullScreen
-                title="Видео Рыбка Долли"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="relative w-full overflow-hidden rounded-2xl" style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
+                <iframe
+                  src="https://vk.com/video_ext.php?oid=-179759189&id=456239214&hd=2&t=4m8s"
+                  className="absolute top-0 left-0 w-full h-full border-0"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                  allowFullScreen
+                  title="Видео Рыбка Долли — смена 1"
+                />
+              </div>
+              <div className="relative w-full overflow-hidden rounded-2xl bg-white" style={{paddingBottom:"56.25%", boxShadow:"0 10px 25px rgba(0,0,0,0.15)"}}>
+                <iframe
+                  src="https://vk.com/widget_post.php?app=0&width=100%25&_ver=1&owner_id=-179759189&post_id=2691&hash=auto"
+                  className="absolute top-0 left-0 w-full h-full border-0"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                  allowFullScreen
+                  title="Видео Рыбка Долли — смена 2"
+                  scrolling="no"
+                />
+              </div>
             </div>
           </div>
         </div>
