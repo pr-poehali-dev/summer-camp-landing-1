@@ -234,8 +234,8 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             ].map((v, i) => (
               <div key={i} className="flex flex-col">
                 <div
-                  className="relative rounded-2xl overflow-hidden bg-white shadow-md"
-                  style={{border:"3px solid #FFE5D9", boxShadow:"0 10px 25px rgba(255,154,86,0.2)", aspectRatio:"9/16"}}
+                  className="relative overflow-hidden bg-white"
+                  style={{borderRadius:"24px", border:"3px solid #FFE5D9", boxShadow:"0 12px 30px rgba(255,154,86,0.25), 0 2px 0 rgba(255,255,255,0.4) inset", aspectRatio:"9/16"}}
                 >
                   <video
                     src={v.src}
