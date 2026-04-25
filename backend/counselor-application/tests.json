@@ -1,0 +1,39 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Reject GET",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 405
+    },
+    {
+      "name": "Reject empty body",
+      "method": "POST",
+      "path": "/",
+      "body": {},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Accept valid application",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "full_name": "Тестовый Кандидат",
+        "age": "19",
+        "phone": "+79001234567",
+        "email": "test@example.com",
+        "about": "Студент",
+        "experience": "Работала с детьми"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
