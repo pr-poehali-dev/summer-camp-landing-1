@@ -193,8 +193,8 @@ export default function CampProgram({
                       <img
                         src={shift.iconUrl}
                         alt={shift.name}
-                        className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 object-contain"
-                        style={{filter:"drop-shadow(0 3px 6px rgba(0,0,0,0.25))"}}
+                        className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 object-contain"
+                        style={{filter:"drop-shadow(0 4px 10px rgba(0,0,0,0.35))"}}
                       />
                     ) : (
                       <span className="text-3xl flex-shrink-0" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
