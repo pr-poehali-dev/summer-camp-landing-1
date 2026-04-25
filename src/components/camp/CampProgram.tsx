@@ -156,21 +156,25 @@ export default function CampProgram({
             <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Программа смен (10 дней)</h2>
             <p style={{color:"rgba(61,61,61,0.7)"}}>Каждая смена — отдельная история с уникальной темой!</p>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {SHIFTS.map((shift) => (
-              <div key={shift.id} className="rounded-2xl overflow-hidden shadow-sm" style={{border:"2px solid #FFE5D9", boxShadow:"0 10px 30px rgba(255,154,86,0.15)"}}>
+              <div key={shift.id} className="rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5" style={{border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
                 <button
                   onClick={() => setOpenAccordion(openAccordion === shift.id ? null : shift.id)}
-                  className="w-full flex items-center justify-between p-5 text-left text-white font-black hover:opacity-90 transition-opacity"
-                  style={{background:"linear-gradient(90deg, #FF9A56 0%, #FFD93D 100%)"}}>
+                  className="w-full flex items-center justify-between p-5 text-left font-black hover:brightness-105 transition-all"
+                  style={{
+                    background:"linear-gradient(135deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
+                    color:"#5C2E00",
+                    boxShadow:"0 2px 0 rgba(255,255,255,0.45) inset, 0 -3px 0 rgba(204,106,0,0.18) inset",
+                  }}>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{shift.emoji}</span>
+                    <span className="text-3xl" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
                     <div>
-                      <div className="text-lg" style={{textShadow:"0 1px 3px rgba(0,0,0,0.15)"}}>Смена {shift.id}: «{shift.name}»</div>
-                      <div className="text-sm font-normal opacity-80">{shift.dates} · {shift.age} · Осталось {shift.spots} мест</div>
+                      <div className="text-lg md:text-xl" style={{textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
+                      <div className="text-sm font-semibold" style={{color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age} · Осталось {shift.spots} мест</div>
                     </div>
                   </div>
-                  <Icon name={openAccordion === shift.id ? "ChevronUp" : "ChevronDown"} size={20} />
+                  <Icon name={openAccordion === shift.id ? "ChevronUp" : "ChevronDown"} size={22} />
                 </button>
                 {openAccordion === shift.id && (
                   <div className="p-5" style={{background:"#FFF8F0"}}>
