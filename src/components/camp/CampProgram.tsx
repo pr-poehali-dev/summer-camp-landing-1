@@ -193,11 +193,8 @@ export default function CampProgram({
                     <div className="min-w-0 flex-1">
                       {isTeen && (
                         <div className="flex flex-wrap gap-1.5 mb-1.5">
-                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full text-white shadow animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#FFD93D,#FF3D8B,#FFD93D)", color:"#3D1E70", letterSpacing:"0.5px"}}>
+                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#3D1E70", letterSpacing:"0.5px"}}>
                             🔥 ДЛЯ ПОДРОСТКОВ
-                          </span>
-                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#3D1E70"}}>
-                            ⚡ АНАЛОГОВ В КЕРЧИ НЕТ
                           </span>
                         </div>
                       )}
