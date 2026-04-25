@@ -201,6 +201,59 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         </div>
       </section>
 
+      {/* ── БАННЕР: УНИКАЛЬНЫЕ ПОДРОСТКОВЫЕ СМЕНЫ ─────────────────────────────── */}
+      <section className="px-4 py-8" style={{background:"#FFF8F0"}}>
+        <div className="max-w-5xl mx-auto">
+          <div
+            className="relative rounded-3xl overflow-hidden"
+            style={{
+              background:"linear-gradient(135deg, #6C5CE7 0%, #A855F7 45%, #FF3D8B 100%)",
+              boxShadow:"0 10px 0 rgba(108,92,231,0.35), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.45) inset",
+              padding:"1.5rem 1.25rem",
+            }}
+          >
+            <div className="absolute -top-8 -right-8 text-9xl opacity-20 select-none">🚀</div>
+            <div className="absolute -bottom-6 -left-6 text-7xl opacity-15 select-none">💜</div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-6">
+              <div className="flex-shrink-0 flex flex-col items-center gap-2">
+                <span className="text-5xl md:text-6xl">🌐</span>
+                <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#FFD93D,#FF9A56,#FFD93D)", color:"#3D1E70", letterSpacing:"0.5px", whiteSpace:"nowrap"}}>
+                  ⚡ АНАЛОГОВ В КЕРЧИ НЕТ
+                </span>
+              </div>
+
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="font-black text-white text-2xl md:text-3xl leading-tight mb-2" style={{fontFamily:"'Nunito', sans-serif", textShadow:"0 2px 8px rgba(0,0,0,0.35)"}}>
+                  Уникальные смены для подростков 10–14 лет
+                </h3>
+                <p className="text-sm md:text-base font-semibold mb-1" style={{color:"rgba(255,255,255,0.95)"}}>
+                  «Поколение АЛЬФА» и «Есть ли жизнь на Марсе?» — единственные в Керчи программы, созданные специально для возраста, который «уже не дети».
+                </p>
+                <p className="text-sm font-medium" style={{color:"rgba(255,255,255,0.85)"}}>
+                  Чат-боты, дизайн в Canva и Photoshop, фуд-блогинг, элитная парфюмерия, эксперименты и реальные навыки — вместо «положи телефон».
+                </p>
+              </div>
+
+              <div className="flex-shrink-0">
+                <a
+                  href="#program"
+                  className="inline-flex items-center gap-2 font-black rounded-xl px-5 py-3 text-sm md:text-base transition-transform hover:scale-105"
+                  style={{
+                    background:"linear-gradient(90deg,#FFD93D,#FF9A56)",
+                    color:"#3D1E70",
+                    boxShadow:"0 6px 0 rgba(204,106,0,0.45), 0 10px 24px rgba(255,154,86,0.45), 0 1px 0 rgba(255,255,255,0.5) inset",
+                    whiteSpace:"nowrap",
+                  }}
+                >
+                  Смотреть смены →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── БЛОК 2: ДОВЕРИЕ ───────────────────────────────────────────────────── */}
       <section className="py-16 px-4" style={{background:"linear-gradient(180deg, #E8FF6A 0%, #C8F000 100%)"}}>
         <div className="max-w-5xl mx-auto">
