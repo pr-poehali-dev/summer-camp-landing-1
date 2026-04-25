@@ -1,9 +1,13 @@
-import { useCountdown, PRICE_FULL, PRICE_SALE } from "./CampData";
+import { useCountdown, PRICE_FULL, PRICE_SALE, SHIFTS } from "./CampData";
 import ReserveCTA from "./ReserveCTA";
 
 interface CampBookingProps {
   bookingRef: React.RefObject<HTMLDivElement>;
+  selectedShift?: number | null;
 }
+
+const SHORT_SHIFT_ID = 7;
+const SHORT_SHIFT_PRICE = 7000;
 
 const TimerBlock = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-2xl px-4 py-3 min-w-[70px]">
@@ -14,10 +18,15 @@ const TimerBlock = ({ value, label }: { value: number; label: string }) => (
   </div>
 );
 
-export default function CampBooking({ bookingRef }: CampBookingProps) {
+export default function CampBooking({ bookingRef, selectedShift }: CampBookingProps) {
   const deadline = new Date("2026-05-15T23:59:00");
   const countdown = useCountdown(deadline);
   const afterDiscount = countdown.days > 0 || countdown.hours > 0;
+
+  const isShort = selectedShift === SHORT_SHIFT_ID;
+  const shortShift = SHIFTS.find((s) => s.id === SHORT_SHIFT_ID);
+  const displayPrice = isShort ? SHORT_SHIFT_PRICE : (afterDiscount ? PRICE_SALE : PRICE_FULL);
+  const oldPrice = isShort ? PRICE_SALE : PRICE_FULL;
 
   return (
     <>
@@ -29,27 +38,43 @@ export default function CampBooking({ bookingRef }: CampBookingProps) {
       >
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-8">
+            {isShort && shortShift && (
+              <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full text-xs md:text-sm font-black text-white" style={{background:"linear-gradient(90deg,#00C9A7,#0094C6,#FFD93D)", boxShadow:"0 6px 18px rgba(0,201,167,0.45)"}}>
+                ⚡ Выбрана смена «{shortShift.name}» · 5 дней
+              </div>
+            )}
             <h2
               className="text-3xl md:text-4xl font-black mb-2"
               style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}
             >
-              💰 Стоимость смены (10 дней)
+              💰 Стоимость смены ({isShort ? "5 дней" : "10 дней"})
             </h2>
             <div className="flex items-center justify-center gap-4 flex-wrap mb-4">
               <span className="line-through text-2xl" style={{ color: "rgba(61,61,61,0.5)" }}>
-                {PRICE_FULL.toLocaleString()} ₽
+                {oldPrice.toLocaleString()} ₽
               </span>
               <span
                 className="font-black text-4xl px-4 py-1 rounded-xl"
-                style={{
+                style={isShort ? {
+                  color: "#00A67E",
+                  border: "4px solid #FFD93D",
+                  textShadow: "0 2px 8px rgba(0,201,167,0.3)",
+                } : {
                   color: "#FF9A56",
                   border: "4px solid #FFD93D",
                   textShadow: "0 2px 8px rgba(255,154,86,0.3)",
                 }}
               >
-                {afterDiscount ? PRICE_SALE.toLocaleString() : PRICE_FULL.toLocaleString()} ₽
+                {displayPrice.toLocaleString()} ₽
               </span>
-              {afterDiscount && (
+              {isShort ? (
+                <span
+                  className="font-black px-3 py-1 rounded-full text-sm text-white"
+                  style={{ background: "linear-gradient(90deg,#00C9A7,#0094C6)" }}
+                >
+                  💰 Экономия почти в 2 раза
+                </span>
+              ) : afterDiscount && (
                 <span
                   className="font-black px-3 py-1 rounded-full text-sm text-white"
                   style={{ background: "#FF9A56" }}

@@ -5,7 +5,7 @@ import CampBooking from "@/components/camp/CampBooking";
 
 export default function Index() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
-  const [, setSelectedShift] = useState<number | null>(null);
+  const [selectedShift, setSelectedShift] = useState<number | null>(null);
 
   const bookingRef = useRef<HTMLDivElement>(null);
   const scrollToBooking = () => bookingRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -32,7 +32,7 @@ export default function Index() {
         scrollToBooking={scrollToBooking}
         setSelectedShift={setSelectedShift}
       />
-      <CampBooking bookingRef={bookingRef} />
+      <CampBooking bookingRef={bookingRef} selectedShift={selectedShift} />
     </div>
   );
 }
