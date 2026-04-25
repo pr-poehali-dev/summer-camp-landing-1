@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import CampHero from "@/components/camp/CampHero";
 import CampProgram from "@/components/camp/CampProgram";
 import CampTeam from "@/components/camp/CampTeam";
+import CampReviews from "@/components/camp/CampReviews";
 import CampBooking from "@/components/camp/CampBooking";
 
 export default function Index() {
@@ -34,6 +35,7 @@ export default function Index() {
         setSelectedShift={setSelectedShift}
       />
       <CampTeam />
+      <CampReviews />
       <CampBooking bookingRef={bookingRef} selectedShift={selectedShift} />
     </div>
   );

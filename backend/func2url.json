@@ -1,4 +1,6 @@
 {
+  "reviews": "https://functions.poehali.dev/f0ac4a46-76e0-4844-9a17-0e69fca7a807",
+  "admin": "https://functions.poehali.dev/4fc3a949-19b1-496b-9b78-f0fe9d34a3d0",
   "counselor-application": "https://functions.poehali.dev/888ad9f6-9ffa-4eb9-a1b3-84ae5e011c17",
   "questions": "https://functions.poehali.dev/e5f876ee-298a-401b-b6dd-8251bc6df945",
   "robokassa-robokassa-webhook": "https://functions.poehali.dev/747181a0-f518-405a-b31d-056c93c9216b",

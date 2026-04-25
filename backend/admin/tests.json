@@ -1,0 +1,29 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Reject without token",
+      "method": "GET",
+      "path": "/?action=reviews",
+      "expectedStatus": 401
+    },
+    {
+      "name": "POST login requires action",
+      "method": "POST",
+      "path": "/",
+      "body": {"password": "wrong-password"},
+      "expectedStatus": 401
+    },
+    {
+      "name": "Unknown action with no token",
+      "method": "GET",
+      "path": "/?action=unknown",
+      "expectedStatus": 401
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "GET approved reviews",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST without text",
+      "method": "POST",
+      "path": "/",
+      "body": {"parent_name": "Анна"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "POST valid review",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "parent_name": "Анна",
+        "child_name": "Маша",
+        "rating": 5,
+        "text": "Замечательный лагерь!"
+      },
+      "expectedStatus": 200
+    }
+  ]
+}
