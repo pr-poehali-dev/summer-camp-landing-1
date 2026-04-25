@@ -58,7 +58,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         <div className="relative z-10 w-full" style={{display:"grid", gridTemplateColumns:"1fr 1fr", alignItems:"stretch"}}>
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
-            <div style={{position:"relative", overflow:"hidden", minHeight:"480px"}}>
+            <div style={{position:"relative", overflow:"hidden", minHeight:"380px"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/9b990763-8f65-44b0-a17c-bc2d40ad3847.jpg"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
@@ -67,10 +67,10 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div style={{textAlign:"left", padding:"1rem 2.5rem 2rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
+            <div style={{textAlign:"left", padding:"0.5rem 2.5rem 1rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
 
               {/* Бейдж — у верха, на уровне фото */}
-              <div className="animate-bounce-slow" style={{alignSelf:"flex-start", marginBottom:"1.25rem"}}>
+              <div className="animate-bounce-slow" style={{alignSelf:"flex-start", marginBottom:"0.75rem"}}>
                 <div style={{
                   background:"linear-gradient(135deg, #00C9A7 0%, #00A67E 60%, #00DEB8 100%)",
                   boxShadow:"0 6px 20px rgba(0,201,167,0.5), 0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.15) inset",
@@ -89,7 +89,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
               </div>
 
-              <h1 className="font-black mb-3 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.6rem, 5.4vw, 4rem)", lineHeight:1.1, textAlign:"center"}}>
+              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(2.2rem, 4.6vw, 3.4rem)", lineHeight:1.1, textAlign:"center"}}>
                 <span style={{
                   color:"#FF5E1A",
                   textShadow:"0 0 20px rgba(255,94,26,0.5), 0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 0 #B33307, 0 5px 0 #992A05, 0 6px 12px rgba(0,0,0,0.35)",
@@ -113,11 +113,11 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 }}>Лето 2026</span>
               </h1>
 
-              <p className="text-lg font-bold mb-2" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
+              <p className="text-base font-bold mb-1" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
                 <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы
               </p>
 
-              <p className="text-base mb-5 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
+              <p className="text-sm mb-2 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
                 Авторские смены, где дети становятся самостоятельнее,
                 находят друзей и возвращаются окрылёнными!
               </p>
@@ -126,7 +126,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         </div>
 
         {/* ── ПОЛОСА «АКЦИЯ» — ДЛИННАЯ, НА ВСЮ ШИРИНУ СТРАНИЦЫ ── */}
-        <div style={{padding:"0 2rem 1.5rem 2rem", marginTop:"-3rem"}}>
+        <div style={{padding:"0 2rem 1rem 2rem", marginTop:"-1.5rem"}}>
           <div style={{
             borderRadius:"22px",
             padding:"1rem 1.5rem",
