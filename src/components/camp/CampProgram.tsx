@@ -159,8 +159,9 @@ export default function CampProgram({
           <div className="space-y-4">
             {SHIFTS.map((shift) => {
               const isTeen = shift.id === 4 || shift.id === 5;
+              const isShort = shift.id === 7;
               return (
-              <div key={shift.id} className="rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5 relative" style={isTeen ? {border:"3px solid #6C5CE7", boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : {border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
+              <div key={shift.id} className="rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5 relative" style={isTeen ? {border:"3px solid #6C5CE7", boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : isShort ? {border:"3px solid #00C9A7", boxShadow:"0 14px 0 rgba(0,201,167,0.22), 0 18px 50px rgba(0,201,167,0.4), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : {border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
                 {isTeen && (
                   <div className="absolute -top-3 left-4 z-10 flex flex-wrap gap-2">
                     <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full text-white shadow-lg animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", letterSpacing:"0.5px"}}>
@@ -168,6 +169,16 @@ export default function CampProgram({
                     </span>
                     <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full shadow-lg" style={{background:"#FFD93D", color:"#3D1E70"}}>
                       ⚡ АНАЛОГОВ В КЕРЧИ НЕТ
+                    </span>
+                  </div>
+                )}
+                {isShort && (
+                  <div className="absolute -top-3 left-4 z-10 flex flex-wrap gap-2">
+                    <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full text-white shadow-lg animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#00C9A7,#00A67E,#FFD93D)", letterSpacing:"0.5px"}}>
+                      ⚡ ФИНАЛ ЛЕТА · 5 ДНЕЙ
+                    </span>
+                    <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full shadow-lg" style={{background:"#FFD93D", color:"#1A5C4D"}}>
+                      💰 ВСЕГО 7 000 ₽
                     </span>
                   </div>
                 )}
@@ -179,6 +190,11 @@ export default function CampProgram({
                     color:"#FFFFFF",
                     boxShadow:"0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.18) inset",
                     paddingTop: "1.75rem",
+                  } : isShort ? {
+                    background:"linear-gradient(135deg, #00DEB8 0%, #00C9A7 50%, #0094C6 100%)",
+                    color:"#FFFFFF",
+                    boxShadow:"0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.18) inset",
+                    paddingTop: "1.75rem",
                   } : {
                     background:"linear-gradient(135deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
                     color:"#5C2E00",
@@ -187,8 +203,8 @@ export default function CampProgram({
                   <div className="flex items-center gap-3">
                     <span className="text-3xl" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
                     <div>
-                      <div className="text-lg md:text-xl" style={isTeen ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
-                      <div className="text-sm font-semibold" style={isTeen ? {color:"rgba(255,255,255,0.9)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age} · Осталось {shift.spots} мест</div>
+                      <div className="text-lg md:text-xl" style={(isTeen || isShort) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
+                      <div className="text-sm font-semibold" style={(isTeen || isShort) ? {color:"rgba(255,255,255,0.9)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age} · Осталось {shift.spots} мест{isShort ? " · 7 000 ₽" : ""}</div>
                     </div>
                   </div>
                   <Icon name={openAccordion === shift.id ? "ChevronUp" : "ChevronDown"} size={22} />
@@ -199,6 +215,22 @@ export default function CampProgram({
                       <div className="mb-4 rounded-2xl p-4" style={{background:"linear-gradient(135deg, #6C5CE7 0%, #FF3D8B 100%)", color:"#fff", boxShadow:"0 8px 20px rgba(108,92,231,0.35)"}}>
                         <p className="font-black text-sm md:text-base mb-1">⚡ Единственная такая смена в Керчи!</p>
                         <p className="text-sm" style={{color:"rgba(255,255,255,0.92)"}}>Программа специально для подростков 10–14 лет: технологии, творчество, реальные навыки. Аналогов в городе нет — мы первые, кто делает это для возраста, который «уже не дети».</p>
+                      </div>
+                    )}
+                    {isShort && (
+                      <div className="mb-4 rounded-2xl p-4" style={{background:"linear-gradient(135deg, #00C9A7 0%, #0094C6 100%)", color:"#fff", boxShadow:"0 8px 20px rgba(0,201,167,0.35)"}}>
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <span className="text-[11px] font-black px-2 py-0.5 rounded-full" style={{background:"#FFD93D", color:"#1A5C4D"}}>5-ДНЕВНЫЙ ФОРМАТ</span>
+                          <span className="text-[11px] font-black px-2 py-0.5 rounded-full" style={{background:"rgba(255,255,255,0.2)", color:"#fff", border:"1px solid rgba(255,255,255,0.4)"}}>ФИНАЛ ЛЕТА</span>
+                        </div>
+                        <p className="font-black text-base md:text-lg mb-1">💰 Всего 7 000 ₽ — экономия почти в 2 раза!</p>
+                        <p className="text-sm mb-2" style={{color:"rgba(255,255,255,0.92)"}}>Идеальный финал лета: 5 насыщенных дней, 20+ научных опытов и яркие впечатления перед школой. Подойдёт, если хотите сэкономить, ребёнок уже был в основной смене или нужно «протестировать» наш клуб.</p>
+                        <div className="flex flex-wrap gap-3 text-xs font-bold">
+                          <span>✅ 2-разовое питание</span>
+                          <span>✅ Все материалы и реактивы</span>
+                          <span>✅ Море каждый день</span>
+                          <span>✅ Подарки и диплом</span>
+                        </div>
                       </div>
                     )}
                     {shift.days.length > 0 ? (
@@ -216,9 +248,9 @@ export default function CampProgram({
                     <button
                       onClick={() => { setSelectedShift(shift.id); scrollToBooking(); }}
                       className="mt-4 font-bold px-5 py-2.5 rounded-xl text-sm text-white transition-all hover:scale-105"
-                      style={isTeen ? {background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", boxShadow:"0 6px 18px rgba(108,92,231,0.45)"} : {background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
+                      style={isTeen ? {background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", boxShadow:"0 6px 18px rgba(108,92,231,0.45)"} : isShort ? {background:"linear-gradient(90deg,#00C9A7,#0094C6,#FFD93D)", boxShadow:"0 6px 18px rgba(0,201,167,0.45)"} : {background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
                     >
-                      {isTeen ? "🚀 Забронировать уникальную смену →" : "Забронировать эту смену →"}
+                      {isTeen ? "🚀 Забронировать уникальную смену →" : isShort ? "💰 Забронировать за 7 000 ₽ →" : "Забронировать эту смену →"}
                     </button>
                   </div>
                 )}
