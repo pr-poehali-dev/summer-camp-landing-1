@@ -7,11 +7,11 @@ interface CampHeroProps {
 }
 
 const TimerBlock = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-xl px-2 py-1.5 flex-1 min-w-0">
-    <span className="text-2xl font-black text-white tabular-nums leading-none">
+  <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-lg px-1.5 py-1 flex-1 min-w-0">
+    <span className="text-xl font-black text-white tabular-nums leading-none">
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-[10px] text-white/80 font-semibold mt-0.5">{label}</span>
+    <span className="text-[9px] text-white/80 font-semibold mt-0.5">{label}</span>
   </div>
 );
 
@@ -126,64 +126,64 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
         </div>
 
         {/* ── ПОЛОСА «АКЦИЯ» — ДЛИННАЯ, НА ВСЮ ШИРИНУ СТРАНИЦЫ ── */}
-        <div style={{padding:"0 2rem 1rem 2rem", marginTop:"-1.5rem"}}>
+        <div style={{padding:"0 2rem 0.75rem 2rem", marginTop:"-1.5rem"}}>
           <div style={{
-            borderRadius:"22px",
-            padding:"1rem 1.5rem",
+            borderRadius:"18px",
+            padding:"0.6rem 1.1rem",
             background:"linear-gradient(160deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
-            boxShadow:"0 8px 0 #CC6A00, 0 12px 30px rgba(255,150,0,0.45), 0 2px 0 rgba(255,255,255,0.35) inset",
+            boxShadow:"0 6px 0 #CC6A00, 0 10px 24px rgba(255,150,0,0.4), 0 2px 0 rgba(255,255,255,0.35) inset",
             display:"flex",
             alignItems:"center",
-            gap:"1.5rem",
+            gap:"1rem",
             flexWrap:"wrap",
           }}>
-            <div style={{display:"flex", alignItems:"center", gap:"0.5rem", flexShrink:0}}>
-              <span style={{fontSize:"1.5rem"}}>⏰</span>
+            <div style={{display:"flex", alignItems:"center", gap:"0.4rem", flexShrink:0}}>
+              <span style={{fontSize:"1.25rem"}}>⏰</span>
               <div style={{display:"flex", flexDirection:"column", lineHeight:1.1}}>
-                <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"1rem"}}>АКЦИЯ ДО 15 МАЯ</span>
-                <span style={{color:"rgba(255,255,255,0.9)", fontSize:"0.75rem", fontWeight:600}}>Осталось мест: <b>45</b> из 70</span>
+                <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem"}}>АКЦИЯ ДО 15 МАЯ</span>
+                <span style={{color:"rgba(255,255,255,0.9)", fontSize:"0.7rem", fontWeight:600}}>Осталось мест: <b>45</b> из 70</span>
               </div>
             </div>
 
             <span style={{
               background:"#00C9A7",
               boxShadow:"0 3px 0 #008F78, 0 1px 0 rgba(255,255,255,0.3) inset",
-              borderRadius:"10px",
-              padding:"4px 14px",
+              borderRadius:"9px",
+              padding:"3px 11px",
               color:"white",
               fontWeight:900,
-              fontSize:"1.1rem",
+              fontSize:"0.95rem",
               flexShrink:0,
             }}>−12%</span>
 
-            <div style={{display:"flex", alignItems:"stretch", gap:"0.35rem", flex:"1 1 300px", minWidth:"260px"}}>
+            <div style={{display:"flex", alignItems:"stretch", gap:"0.3rem", flex:"1 1 240px", minWidth:"220px"}}>
               <TimerBlock value={countdown.days} label="ДНЕЙ" />
               <TimerBlock value={countdown.hours} label="ЧАСОВ" />
               <TimerBlock value={countdown.minutes} label="МИНУТ" />
               <TimerBlock value={countdown.seconds} label="СЕКУНД" />
             </div>
 
-            <div style={{display:"flex", gap:"0.75rem", flexShrink:0}}>
+            <div style={{display:"flex", gap:"0.5rem", flexShrink:0}}>
               <button onClick={scrollToBooking} className="rainbow-cta" style={{
-                padding:"0.75rem 1.25rem",
-                fontSize:"0.95rem",
+                padding:"0.55rem 1rem",
+                fontSize:"0.85rem",
                 whiteSpace:"nowrap",
                 color:"white",
                 fontWeight:900,
-                borderRadius:"14px",
+                borderRadius:"12px",
                 border:"none",
                 cursor:"pointer",
                 background:"linear-gradient(90deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7, #6C5CE7, #FF3D8B)",
                 backgroundSize:"300% 100%",
-                boxShadow:"0 4px 0 rgba(204,63,11,0.45), 0 8px 20px rgba(255,94,26,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
+                boxShadow:"0 3px 0 rgba(204,63,11,0.45), 0 6px 16px rgba(255,94,26,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
                 transition:"transform 0.15s",
               }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
                 🎉 Забронировать −12%
               </button>
               <a
                 href="#program"
-                className="font-bold rounded-2xl border-2 bg-white/90 transition-all hover:scale-105"
-                style={{padding:"0.75rem 1.25rem", fontSize:"0.95rem", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", whiteSpace:"nowrap"}}
+                className="font-bold rounded-xl border-2 bg-white/90 transition-all hover:scale-105"
+                style={{padding:"0.55rem 1rem", fontSize:"0.85rem", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", whiteSpace:"nowrap"}}
               >
                 Программа смен
               </a>
