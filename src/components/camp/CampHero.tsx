@@ -218,9 +218,14 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-6">
               <div className="flex-shrink-0 flex flex-col items-center gap-2">
                 <span className="text-5xl md:text-6xl">🌐</span>
-                <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#FFD93D,#FF9A56,#FFD93D)", color:"#3D1E70", letterSpacing:"0.5px", whiteSpace:"nowrap"}}>
-                  ⚡ АНАЛОГОВ В КЕРЧИ НЕТ
-                </span>
+                <div className="flex flex-col items-center px-3 py-1.5 rounded-2xl" style={{background:"#FFD93D", color:"#3D1E70", boxShadow:"0 4px 0 rgba(204,150,0,0.35)", whiteSpace:"nowrap", lineHeight:1.15}}>
+                  <span className="font-black text-sm md:text-base" style={{letterSpacing:"0.3px"}}>
+                    Уникальная смена для подростка
+                  </span>
+                  <span className="font-semibold text-[10px] md:text-[11px]" style={{opacity:0.85}}>
+                    для тех, кому скучно в обычных лагерях
+                  </span>
+                </div>
               </div>
 
               <div className="flex-1 text-center md:text-left">
