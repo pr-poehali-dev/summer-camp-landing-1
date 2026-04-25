@@ -57,19 +57,20 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
 
         <div className="relative z-10 w-full" style={{display:"grid", gridTemplateColumns:"1fr 1fr", alignItems:"stretch"}}>
 
-            {/* ── ЛЕВАЯ КОЛОНКА: фото ── */}
-            <div style={{position:"relative", overflow:"hidden", minHeight:"380px"}}>
+            {/* ── ЛЕВАЯ КОЛОНКА: фото на всю высоту правой колонки ── */}
+            <div style={{position:"relative", overflow:"hidden", minHeight:"560px"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/9b990763-8f65-44b0-a17c-bc2d40ad3847.jpg"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
-                style={{position:"absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"contain", objectPosition:"center top", background:"transparent"}}
+                style={{position:"absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", background:"transparent"}}
               />
             </div>
 
-            {/* ── ПРАВАЯ КОЛОНКА: текст ── */}
-            <div style={{textAlign:"left", padding:"0.5rem 2.5rem 1rem 2rem", display:"flex", flexDirection:"column", justifyContent:"flex-start"}}>
+            {/* ── ПРАВАЯ КОЛОНКА: текст + блок акция (выровнено по нижнему краю с фото) ── */}
+            <div style={{textAlign:"left", padding:"0.75rem 2rem 1rem 2rem", display:"flex", flexDirection:"column", justifyContent:"space-between", gap:"1rem"}}>
 
-              {/* Бейдж — у верха, на уровне фото */}
+              <div style={{display:"flex", flexDirection:"column"}}>
+              {/* Бейдж — у верха */}
               <div className="animate-bounce-slow" style={{alignSelf:"flex-start", marginBottom:"0.75rem"}}>
                 <div style={{
                   background:"linear-gradient(135deg, #00C9A7 0%, #00A67E 60%, #00DEB8 100%)",
@@ -117,78 +118,78 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы
               </p>
 
-              <p className="text-sm mb-2 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
+              <p className="text-sm mb-0 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
                 Авторские смены, где дети становятся самостоятельнее,
                 находят друзей и возвращаются окрылёнными!
               </p>
-
-            </div>
-        </div>
-
-        {/* ── ПОЛОСА «АКЦИЯ» — ДЛИННАЯ, НА ВСЮ ШИРИНУ СТРАНИЦЫ ── */}
-        <div style={{padding:"0 2rem 0.75rem 2rem", marginTop:"-1.5rem"}}>
-          <div style={{
-            borderRadius:"18px",
-            padding:"0.6rem 1.1rem",
-            background:"linear-gradient(160deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
-            boxShadow:"0 6px 0 #CC6A00, 0 10px 24px rgba(255,150,0,0.4), 0 2px 0 rgba(255,255,255,0.35) inset",
-            display:"flex",
-            alignItems:"center",
-            gap:"1rem",
-            flexWrap:"wrap",
-          }}>
-            <div style={{display:"flex", alignItems:"center", gap:"0.4rem", flexShrink:0}}>
-              <span style={{fontSize:"1.25rem"}}>⏰</span>
-              <div style={{display:"flex", flexDirection:"column", lineHeight:1.1}}>
-                <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem"}}>АКЦИЯ ДО 15 МАЯ</span>
-                <span style={{color:"rgba(255,255,255,0.9)", fontSize:"0.7rem", fontWeight:600}}>Осталось мест: <b>45</b> из 70</span>
               </div>
-            </div>
 
-            <span style={{
-              background:"#00C9A7",
-              boxShadow:"0 3px 0 #008F78, 0 1px 0 rgba(255,255,255,0.3) inset",
-              borderRadius:"9px",
-              padding:"3px 11px",
-              color:"white",
-              fontWeight:900,
-              fontSize:"0.95rem",
-              flexShrink:0,
-            }}>−12%</span>
+              {/* ── БЛОК «АКЦИЯ» — компактный, под текстом, выровнен по низу с фото ── */}
+              <div style={{
+                borderRadius:"20px",
+                padding:"0.9rem 1.1rem",
+                background:"linear-gradient(160deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
+                boxShadow:"0 6px 0 #CC6A00, 0 10px 24px rgba(255,150,0,0.4), 0 2px 0 rgba(255,255,255,0.35) inset",
+                display:"flex",
+                flexDirection:"column",
+                gap:"0.7rem",
+              }}>
+                <div style={{display:"flex", alignItems:"center", gap:"0.6rem", justifyContent:"space-between"}}>
+                  <div style={{display:"flex", alignItems:"center", gap:"0.4rem"}}>
+                    <span style={{fontSize:"1.25rem"}}>⏰</span>
+                    <div style={{display:"flex", flexDirection:"column", lineHeight:1.1}}>
+                      <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem"}}>АКЦИЯ ДО 15 МАЯ</span>
+                      <span style={{color:"rgba(255,255,255,0.9)", fontSize:"0.7rem", fontWeight:600}}>Осталось мест: <b>45</b> из 70</span>
+                    </div>
+                  </div>
+                  <span style={{
+                    background:"#00C9A7",
+                    boxShadow:"0 3px 0 #008F78, 0 1px 0 rgba(255,255,255,0.3) inset",
+                    borderRadius:"9px",
+                    padding:"3px 11px",
+                    color:"white",
+                    fontWeight:900,
+                    fontSize:"0.95rem",
+                    flexShrink:0,
+                  }}>−12%</span>
+                </div>
 
-            <div style={{display:"flex", alignItems:"stretch", gap:"0.3rem", flex:"1 1 240px", minWidth:"220px"}}>
-              <TimerBlock value={countdown.days} label="ДНЕЙ" />
-              <TimerBlock value={countdown.hours} label="ЧАСОВ" />
-              <TimerBlock value={countdown.minutes} label="МИНУТ" />
-              <TimerBlock value={countdown.seconds} label="СЕКУНД" />
-            </div>
+                <div style={{display:"flex", alignItems:"stretch", gap:"0.3rem"}}>
+                  <TimerBlock value={countdown.days} label="ДНЕЙ" />
+                  <TimerBlock value={countdown.hours} label="ЧАСОВ" />
+                  <TimerBlock value={countdown.minutes} label="МИНУТ" />
+                  <TimerBlock value={countdown.seconds} label="СЕКУНД" />
+                </div>
 
-            <div style={{display:"flex", gap:"0.5rem", flexShrink:0}}>
-              <button onClick={scrollToBooking} className="rainbow-cta" style={{
-                padding:"0.55rem 1rem",
-                fontSize:"0.85rem",
-                whiteSpace:"nowrap",
-                color:"white",
-                fontWeight:900,
-                borderRadius:"12px",
-                border:"none",
-                cursor:"pointer",
-                background:"linear-gradient(90deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7, #6C5CE7, #FF3D8B)",
-                backgroundSize:"300% 100%",
-                boxShadow:"0 3px 0 rgba(204,63,11,0.45), 0 6px 16px rgba(255,94,26,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
-                transition:"transform 0.15s",
-              }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
-                🎉 Забронировать −12%
-              </button>
-              <a
-                href="#program"
-                className="font-bold rounded-xl border-2 bg-white/90 transition-all hover:scale-105"
-                style={{padding:"0.55rem 1rem", fontSize:"0.85rem", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", whiteSpace:"nowrap"}}
-              >
-                Программа смен
-              </a>
+                <div style={{display:"flex", gap:"0.5rem"}}>
+                  <button onClick={scrollToBooking} className="rainbow-cta" style={{
+                    flex:"1 1 auto",
+                    padding:"0.65rem 1rem",
+                    fontSize:"0.9rem",
+                    whiteSpace:"nowrap",
+                    color:"white",
+                    fontWeight:900,
+                    borderRadius:"12px",
+                    border:"none",
+                    cursor:"pointer",
+                    background:"linear-gradient(90deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7, #6C5CE7, #FF3D8B)",
+                    backgroundSize:"300% 100%",
+                    boxShadow:"0 3px 0 rgba(204,63,11,0.45), 0 6px 16px rgba(255,94,26,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
+                    transition:"transform 0.15s",
+                  }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
+                    🎉 Забронировать −12%
+                  </button>
+                  <a
+                    href="#program"
+                    className="font-bold rounded-xl border-2 bg-white/90 transition-all hover:scale-105"
+                    style={{padding:"0.65rem 1rem", fontSize:"0.9rem", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", whiteSpace:"nowrap"}}
+                  >
+                    Программа
+                  </a>
+                </div>
+              </div>
+
             </div>
-          </div>
         </div>
 
         <div className="hero-wave">
