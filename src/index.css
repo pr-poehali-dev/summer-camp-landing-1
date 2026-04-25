@@ -123,6 +123,27 @@
     transform: translateY(-8px) rotate(2deg);
   }
 }
+@keyframes icon-jump {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) scale(1.08) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.12) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) scale(1.08) rotate(4deg);
+  }
+}
+.shift-icon {
+  transition: transform 0.3s ease;
+}
+.shift-icon-wrap:hover .shift-icon {
+  animation: icon-jump 0.6s ease-in-out infinite;
+}
 @keyframes wave {
   0% {
     transform: rotate(0deg);
