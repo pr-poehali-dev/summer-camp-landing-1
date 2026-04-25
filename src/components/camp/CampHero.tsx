@@ -1,6 +1,7 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS, useCountdown } from "./CampData";
 import CampFAQ from "./CampFAQ";
+import VideoReviews from "./VideoReviews";
 
 interface CampHeroProps {
   scrollToBooking: () => void;
@@ -282,33 +283,8 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
           </div>
 
           {/* видеоотзывы детей */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            {[
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/69878726-465d-473a-9d01-5984d7c6234a.mp4", name: "Полина", shift: "4 смена" },
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/5aa0afd9-eb3f-40b0-aae7-55eb0abab924.mp4", name: "Амира", shift: "2 смена" },
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/8d89b8bb-e70d-47d5-8dbb-f80fb41670b6.mp4", name: "Лиза", shift: "2 смена" },
-              { src: "https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/11c3322d-2b5b-4e36-8b45-97a6b5f197ec.mp4", name: "Настя", shift: "2 смена" },
-            ].map((v, i) => (
-              <div key={i} className="flex flex-col">
-                <div
-                  className="relative overflow-hidden bg-white"
-                  style={{borderRadius:"24px", border:"3px solid #FFE5D9", boxShadow:"0 12px 30px rgba(255,154,86,0.25), 0 2px 0 rgba(255,255,255,0.4) inset", aspectRatio:"9/16"}}
-                >
-                  <video
-                    src={v.src}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <p className="font-black text-base" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>{v.name}</p>
-                  <p className="text-sm font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"#FF9A56"}}>{v.shift}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <VideoReviews />
+
 
           <CampFAQ />
         </div>
