@@ -189,7 +189,16 @@ export default function CampProgram({
                     boxShadow:"0 2px 0 rgba(255,255,255,0.45) inset, 0 -3px 0 rgba(204,106,0,0.18) inset",
                   }}>
                   <div className="flex items-center gap-3 min-w-0 flex-1">
-                    <span className="text-3xl flex-shrink-0" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
+                    {shift.iconUrl ? (
+                      <img
+                        src={shift.iconUrl}
+                        alt={shift.name}
+                        className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 object-contain"
+                        style={{filter:"drop-shadow(0 3px 6px rgba(0,0,0,0.25))"}}
+                      />
+                    ) : (
+                      <span className="text-3xl flex-shrink-0" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
+                    )}
                     <div className="min-w-0 flex-1">
                       {isTeen && (
                         <div className="flex flex-wrap gap-1.5 mb-1.5">
