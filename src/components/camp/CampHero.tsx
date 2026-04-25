@@ -1,7 +1,6 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS, useCountdown } from "./CampData";
 import CampFAQ from "./CampFAQ";
-import ReserveCTA from "./ReserveCTA";
 
 interface CampHeroProps {
   scrollToBooking: () => void;
@@ -165,17 +164,18 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             <div style={{display:"flex", gap:"0.75rem", flexShrink:0}}>
-              <button onClick={scrollToBooking} style={{
+              <button onClick={scrollToBooking} className="rainbow-cta" style={{
                 padding:"0.75rem 1.25rem",
                 fontSize:"0.95rem",
                 whiteSpace:"nowrap",
-                background:"#00C9A7",
                 color:"white",
                 fontWeight:900,
                 borderRadius:"14px",
                 border:"none",
                 cursor:"pointer",
-                boxShadow:"0 4px 0 #008F78, 0 8px 20px rgba(0,201,167,0.4), 0 1px 0 rgba(255,255,255,0.3) inset",
+                background:"linear-gradient(90deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7, #6C5CE7, #FF3D8B)",
+                backgroundSize:"300% 100%",
+                boxShadow:"0 4px 0 rgba(204,63,11,0.45), 0 8px 20px rgba(255,94,26,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
                 transition:"transform 0.15s",
               }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
                 🎉 Забронировать −12%
@@ -189,7 +189,6 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               </a>
             </div>
           </div>
-          <ReserveCTA />
         </div>
 
         <div className="hero-wave">
