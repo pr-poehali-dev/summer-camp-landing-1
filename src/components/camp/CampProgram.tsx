@@ -162,26 +162,6 @@ export default function CampProgram({
               const isShort = shift.id === 7;
               return (
               <div key={shift.id} className="rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5 relative" style={isTeen ? {border:"3px solid #6C5CE7", boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : isShort ? {border:"3px solid #00C9A7", boxShadow:"0 14px 0 rgba(0,201,167,0.22), 0 18px 50px rgba(0,201,167,0.4), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : {border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
-                {isTeen && (
-                  <div className="absolute -top-3 left-4 z-10 flex flex-wrap gap-2">
-                    <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full text-white shadow-lg animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", letterSpacing:"0.5px"}}>
-                      🔥 ДЛЯ ПОДРОСТКОВ
-                    </span>
-                    <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full shadow-lg" style={{background:"#FFD93D", color:"#3D1E70"}}>
-                      ⚡ АНАЛОГОВ В КЕРЧИ НЕТ
-                    </span>
-                  </div>
-                )}
-                {isShort && (
-                  <div className="absolute -top-3 left-4 z-10 flex flex-wrap gap-2">
-                    <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full text-white shadow-lg animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#00C9A7,#00A67E,#FFD93D)", letterSpacing:"0.5px"}}>
-                      ⚡ ФИНАЛ ЛЕТА · 5 ДНЕЙ
-                    </span>
-                    <span className="text-[11px] md:text-xs font-black px-3 py-1 rounded-full shadow-lg" style={{background:"#FFD93D", color:"#1A5C4D"}}>
-                      💰 ВСЕГО 7 000 ₽
-                    </span>
-                  </div>
-                )}
                 <button
                   onClick={() => setOpenAccordion(openAccordion === shift.id ? null : shift.id)}
                   className="w-full flex items-center justify-between p-5 text-left font-black hover:brightness-105 transition-all"
@@ -189,20 +169,38 @@ export default function CampProgram({
                     background:"linear-gradient(135deg, #6C5CE7 0%, #A855F7 50%, #FF3D8B 100%)",
                     color:"#FFFFFF",
                     boxShadow:"0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.18) inset",
-                    paddingTop: "1.75rem",
                   } : isShort ? {
                     background:"linear-gradient(135deg, #00DEB8 0%, #00C9A7 50%, #0094C6 100%)",
                     color:"#FFFFFF",
                     boxShadow:"0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.18) inset",
-                    paddingTop: "1.75rem",
                   } : {
                     background:"linear-gradient(135deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
                     color:"#5C2E00",
                     boxShadow:"0 2px 0 rgba(255,255,255,0.45) inset, 0 -3px 0 rgba(204,106,0,0.18) inset",
                   }}>
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
-                    <div>
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    <span className="text-3xl flex-shrink-0" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
+                    <div className="min-w-0 flex-1">
+                      {isTeen && (
+                        <div className="flex flex-wrap gap-1.5 mb-1.5">
+                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full text-white shadow animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#FFD93D,#FF3D8B,#FFD93D)", color:"#3D1E70", letterSpacing:"0.5px"}}>
+                            🔥 ДЛЯ ПОДРОСТКОВ
+                          </span>
+                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#3D1E70"}}>
+                            ⚡ АНАЛОГОВ В КЕРЧИ НЕТ
+                          </span>
+                        </div>
+                      )}
+                      {isShort && (
+                        <div className="flex flex-wrap gap-1.5 mb-1.5">
+                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow animate-rainbow-pulse" style={{background:"#FFD93D", color:"#1A5C4D", letterSpacing:"0.5px"}}>
+                            ⚡ ФИНАЛ ЛЕТА · 5 ДНЕЙ
+                          </span>
+                          <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#fff", color:"#1A5C4D"}}>
+                            💰 ВСЕГО 7 000 ₽
+                          </span>
+                        </div>
+                      )}
                       <div className="text-lg md:text-xl" style={(isTeen || isShort) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
                       <div className="text-sm font-semibold" style={(isTeen || isShort) ? {color:"rgba(255,255,255,0.9)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age} · Осталось {shift.spots} мест{isShort ? " · 7 000 ₽" : ""}</div>
                     </div>
