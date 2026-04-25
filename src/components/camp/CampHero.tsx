@@ -8,10 +8,10 @@ interface CampHeroProps {
 
 const TimerBlock = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-lg px-1.5 py-1 flex-1 min-w-0">
-    <span className="text-xl font-black text-white tabular-nums leading-none">
+    <span className="text-xl font-black text-white tabular-nums leading-none" style={{textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-[9px] text-white/80 font-semibold mt-0.5">{label}</span>
+    <span className="text-[9px] font-bold mt-0.5" style={{color:"#fff", textShadow:"0 1px 2px rgba(92,46,0,0.5)"}}>{label}</span>
   </div>
 );
 
@@ -138,8 +138,8 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   <div style={{display:"flex", alignItems:"center", gap:"0.4rem"}}>
                     <span style={{fontSize:"1.25rem"}}>⏰</span>
                     <div style={{display:"flex", flexDirection:"column", lineHeight:1.1}}>
-                      <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem"}}>АКЦИЯ ДО 15 МАЯ</span>
-                      <span style={{color:"rgba(255,255,255,0.9)", fontSize:"0.7rem", fontWeight:600}}>Осталось мест: <b>45</b> из 70</span>
+                      <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem", textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>АКЦИЯ ДО 15 МАЯ</span>
+                      <span style={{color:"#fff", fontSize:"0.7rem", fontWeight:700, textShadow:"0 1px 0 rgba(204,106,0,0.7), 0 2px 4px rgba(92,46,0,0.4)"}}>Осталось мест: <b>45</b> из 70</span>
                     </div>
                   </div>
                   <span style={{
@@ -151,6 +151,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     fontWeight:900,
                     fontSize:"0.95rem",
                     flexShrink:0,
+                    textShadow:"0 1px 0 rgba(0,143,120,0.9), 0 2px 4px rgba(0,77,64,0.5)",
                   }}>−12%</span>
                 </div>
 
@@ -176,6 +177,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     backgroundSize:"300% 100%",
                     boxShadow:"0 3px 0 rgba(204,63,11,0.45), 0 6px 16px rgba(255,94,26,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
                     transition:"transform 0.15s",
+                    textShadow:"0 1px 0 rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.3)",
                   }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
                     🎉 Забронировать −12%
                   </button>
