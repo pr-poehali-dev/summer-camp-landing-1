@@ -1,5 +1,19 @@
 import { useEffect, useState } from "react";
 import { SHIFTS } from "./CampData";
+
+interface ReserveCTAProps {
+  defaultShiftId?: number | null;
+}
+
+const SHIFT_ACCUSATIVE: Record<number, string> = {
+  1: "«Сундук со сказками»",
+  2: "«Вкусные открытия»",
+  3: "«Мульти-драйв»",
+  4: "«Поколение АЛЬФА»",
+  5: "«Есть ли жизнь на Марсе?»",
+  6: "«Кругосветку»",
+  7: "«Лабораторию чудес»",
+};
 import {
   useRobokassa,
   openPaymentPage,
@@ -11,16 +25,22 @@ import func2url from "../../../backend/func2url.json";
 
 const RESERVATION_AMOUNT = 1000;
 
-export default function ReserveCTA() {
+export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = {}) {
   const [open, setOpen] = useState(false);
   const [motherName, setMotherName] = useState("");
   const [phone, setPhone] = useState("");
   const [childName, setChildName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
-  const [shiftId, setShiftId] = useState<number | null>(null);
+  const [shiftId, setShiftId] = useState<number | null>(defaultShiftId);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (defaultShiftId) setShiftId(defaultShiftId);
+  }, [defaultShiftId]);
+
+  const ctaShiftName = defaultShiftId ? SHIFT_ACCUSATIVE[defaultShiftId] : null;
 
   const { createPayment } = useRobokassa({
     apiUrl: func2url["robokassa-robokassa"],
@@ -105,7 +125,7 @@ export default function ReserveCTA() {
         >
           <span className="inline-flex items-center gap-2 justify-center flex-wrap">
             <span className="text-2xl">🎉</span>
-            <span>Оплати — и место в смене гарантированно ваше</span>
+            <span>{ctaShiftName ? `Забронировать ${ctaShiftName} — место будет ваше` : "Оплати — и место в смене гарантированно ваше"}</span>
           </span>
         </button>
         <p className="text-xs md:text-sm mt-2 font-semibold text-center" style={{ color: "rgba(61,61,61,0.65)" }}>

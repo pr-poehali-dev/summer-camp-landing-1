@@ -160,8 +160,18 @@ export default function CampProgram({
             {SHIFTS.map((shift) => {
               const isTeen = shift.id === 4 || shift.id === 5;
               const isShort = shift.id === 7;
+              const shiftAccusative: Record<number, string> = {
+                1: "«Сундук со сказками»",
+                2: "«Вкусные открытия»",
+                3: "«Мульти-драйв»",
+                4: "«Поколение АЛЬФА»",
+                5: "«Есть ли жизнь на Марсе?»",
+                6: "«Кругосветку»",
+                7: "«Лабораторию чудес»",
+              };
+              const shiftName = shiftAccusative[shift.id] ?? `«${shift.name}»`;
               return (
-              <div key={shift.id} className="rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5 relative" style={isTeen ? {border:"3px solid #6C5CE7", boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : isShort ? {border:"3px solid #00C9A7", boxShadow:"0 14px 0 rgba(0,201,167,0.22), 0 18px 50px rgba(0,201,167,0.4), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : {border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
+              <div key={shift.id} className={`rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""}`} style={isTeen ? {border:"3px solid #6C5CE7", boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : isShort ? {border:"3px solid #00C9A7"} : {border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
                 <button
                   onClick={() => setOpenAccordion(openAccordion === shift.id ? null : shift.id)}
                   className="w-full flex items-center justify-between p-5 text-left font-black hover:brightness-105 transition-all"
@@ -248,7 +258,7 @@ export default function CampProgram({
                       className="mt-4 font-bold px-5 py-2.5 rounded-xl text-sm text-white transition-all hover:scale-105"
                       style={isTeen ? {background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", boxShadow:"0 6px 18px rgba(108,92,231,0.45)"} : isShort ? {background:"linear-gradient(90deg,#00C9A7,#0094C6,#FFD93D)", boxShadow:"0 6px 18px rgba(0,201,167,0.45)"} : {background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
                     >
-                      {isTeen ? "🚀 Забронировать уникальную смену →" : isShort ? "💰 Забронировать за 7 000 ₽ →" : "Забронировать эту смену →"}
+                      {isTeen ? `🚀 Забронировать ${shiftName} →` : isShort ? `💰 Забронировать ${shiftName} за 7 000 ₽ →` : `Забронировать ${shiftName} →`}
                     </button>
                   </div>
                 )}

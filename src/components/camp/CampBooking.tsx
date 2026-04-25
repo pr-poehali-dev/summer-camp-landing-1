@@ -121,7 +121,7 @@ export default function CampBooking({ bookingRef, selectedShift }: CampBookingPr
 
           {/* CTA: крупная переливающаяся кнопка */}
           <div className="mb-8">
-            <ReserveCTA />
+            <ReserveCTA defaultShiftId={selectedShift ?? null} />
           </div>
 
           {/* Блок «Глаза разбегаются» — большой и яркий */}
