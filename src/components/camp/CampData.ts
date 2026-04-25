@@ -110,8 +110,10 @@ export const TESTIMONIALS = [
   { text: "Ребёнок перестал сидеть в телефоне, появились друзья!", author: "Светлана", child: "мама Кати, 10 лет", emoji: "🧡" },
 ];
 
-export const PRICE_FULL = 12500;
+export const PRICE_FULL = 14990;
 export const PRICE_SALE = 11000;
+export const PRICE_KERCH_AFTER = 12500;
+export const PRICE_OTHER_AFTER = 15000;
 
 // ── таймер до 15 мая 2026 ────────────────────────────────────────────────────
 export function useCountdown(targetDate: Date) {

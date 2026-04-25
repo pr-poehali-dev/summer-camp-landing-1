@@ -153,7 +153,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     fontSize:"0.95rem",
                     flexShrink:0,
                     textShadow:"0 1px 0 rgba(0,143,120,0.9), 0 2px 4px rgba(0,77,64,0.5)",
-                  }}>−12%</span>
+                  }}>−26%</span>
                 </div>
 
                 <div style={{display:"flex", alignItems:"stretch", gap:"0.3rem"}}>
@@ -180,7 +180,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     transition:"transform 0.15s",
                     textShadow:"0 1px 0 rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.3)",
                   }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
-                    🎉 Забронировать −12%
+                    🎉 Забронировать −26%
                   </button>
                   <a
                     href="#program"

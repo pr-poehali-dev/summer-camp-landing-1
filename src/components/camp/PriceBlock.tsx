@@ -47,6 +47,28 @@ export default function PriceBlock({
       >
         💰 Стоимость смены ({isShort ? "5 дней" : "10 дней"})
       </h2>
+
+      {/* Подзаголовок про скидку для жителей Керчи */}
+      {!isShort && afterDiscount && (
+        <div
+          className="inline-block mb-4 px-5 py-3 rounded-2xl"
+          style={{
+            background: "linear-gradient(135deg, #FF3D8B 0%, #FF9A56 50%, #FFD93D 100%)",
+            boxShadow: "0 6px 18px rgba(255,61,139,0.4), 0 2px 0 rgba(255,255,255,0.4) inset",
+          }}
+        >
+          <p
+            className="font-black text-base md:text-lg text-white"
+            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.35)", fontFamily: "'Baloo 2', cursive" }}
+          >
+            🏖️ Для жителей Керчи действует скидка <span style={{ color: "#FFFFFF", background: "rgba(255,255,255,0.25)", padding: "0 8px", borderRadius: "8px" }}>−26%</span>
+          </p>
+          <p className="text-sm md:text-base font-bold text-white mt-1" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.3)" }}>
+            Стоимость со скидкой <b>11 000 ₽</b> · только до 15 мая
+          </p>
+        </div>
+      )}
+
       <div className="flex items-center justify-center gap-4 flex-wrap mb-4">
         <span className="line-through text-2xl" style={{ color: "rgba(61,61,61,0.5)" }}>
           {oldPrice.toLocaleString()} ₽
@@ -77,10 +99,47 @@ export default function PriceBlock({
             className="font-black px-3 py-1 rounded-full text-sm text-white"
             style={{ background: "#FF9A56" }}
           >
-            −12% до 15 мая
+            −26% для керчан до 15 мая
           </span>
         )}
       </div>
+
+      {/* Плашка: цены после 15 мая */}
+      {!isShort && afterDiscount && (
+        <div
+          className="max-w-2xl mx-auto mb-5 rounded-2xl px-4 py-3"
+          style={{
+            background: "#FFF8F0",
+            border: "2px dashed #FF9A56",
+          }}
+        >
+          <p className="text-sm md:text-base font-bold mb-2" style={{ color: "#3D3D3D" }}>
+            ⏳ С 15 мая цены вырастут:
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-sm">
+            <span
+              className="font-black px-3 py-1.5 rounded-xl"
+              style={{
+                background: "linear-gradient(90deg, #00C9A7, #0094C6)",
+                color: "white",
+                boxShadow: "0 3px 0 rgba(0,148,198,0.35)",
+              }}
+            >
+              🏖️ Жители Керчи · 12 500 ₽
+            </span>
+            <span
+              className="font-black px-3 py-1.5 rounded-xl"
+              style={{
+                background: "linear-gradient(90deg, #FF9A56, #FF3D8B)",
+                color: "white",
+                boxShadow: "0 3px 0 rgba(255,61,139,0.35)",
+              }}
+            >
+              🌍 Все остальные · 15 000 ₽
+            </span>
+          </div>
+        </div>
+      )}
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-2xl mx-auto text-left mb-2">
         {[
