@@ -331,18 +331,6 @@ export default function CampProgram({
         </div>
       </section>
 
-      {/* ── БЛОК 7: КОМАНДА ───────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Наша команда</h2>
-          <p className="mb-10" style={{color:"rgba(61,61,61,0.7)"}}>Педагоги-профессионалы, а не «студенты-аниматоры»</p>
-          <div className="rounded-3xl p-10 border-2 border-dashed" style={{background:"#FFF8F0", borderColor:"#00C9A7"}}>
-            <div className="text-5xl mb-4">👩‍🏫</div>
-            <p className="text-warm-700 text-lg font-semibold">Здесь появятся фото и рассказы о вожатых</p>
-            <p className="text-sm text-warm-500 mt-2">Добавьте реальные фотографии команды — это вызывает доверие родителей!</p>
-          </div>
-        </div>
-      </section>
 
       {/* ── БЛОК 8: БЕЗОПАСНОСТЬ ──────────────────────────────────────────────── */}
       <section className="py-16 px-4" style={{background:"linear-gradient(180deg, #FFF8F0 0%, #FFE5D9 100%)"}}>
