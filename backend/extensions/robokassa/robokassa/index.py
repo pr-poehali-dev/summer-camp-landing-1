@@ -71,6 +71,15 @@ def build_receipt(cart_items: list, total_amount: float) -> dict:
         diff = round(total_amount - items_total, 2)
         items[-1]['sum'] = round(items[-1]['sum'] + diff, 2)
 
+    # Robokassa ожидает sum как число с максимум 2 знаками после запятой,
+    # без хвостового .0 для целых. Приводим вручную через формат.
+    for it in items:
+        s = it['sum']
+        if s == int(s):
+            it['sum'] = int(s)
+        else:
+            it['sum'] = float(f"{s:.2f}")
+
     return {
         'sno': 'patent',
         'items': items,
@@ -148,22 +157,23 @@ def handler(event: dict, context) -> dict:
 
         # Receipt — номенклатура для чека (ФЗ-54). ПСН + Без НДС.
         receipt = build_receipt(cart_items, amount)
+        # Подписываем СЫРОЙ JSON (не URL-кодированный) — так делают официальные SDK Robokassa.
         receipt_json = json.dumps(receipt, ensure_ascii=False, separators=(',', ':'))
-        receipt_encoded = quote(receipt_json, safe='')
 
-        # Подпись Robokassa с фискализацией:
-        # MerchantLogin:OutSum:InvId:Receipt(URL-encoded):Password#1
+        # Подпись: MerchantLogin:OutSum:InvId:Receipt(raw JSON):Password#1
         signature = calculate_signature(
             merchant_login, amount_str, robokassa_inv_id,
-            receipt_encoded, password_1
+            receipt_json, password_1
         )
 
         print(f"[Robokassa] === Создание платежа ===")
         print(f"[Robokassa] InvId: {robokassa_inv_id}, OutSum: {amount_str}")
-        print(f"[Robokassa] Receipt JSON: {receipt_json}")
-        print(f"[Robokassa] Receipt encoded: {receipt_encoded}")
-        print(f"[Robokassa] Signature input: {merchant_login}:{amount_str}:{robokassa_inv_id}:{receipt_encoded}:***")
+        print(f"[Robokassa] Receipt JSON (raw): {receipt_json}")
+        print(f"[Robokassa] Signature input: {merchant_login}:{amount_str}:{robokassa_inv_id}:{receipt_json}:***")
         print(f"[Robokassa] Signature: {signature}")
+
+        # В URL Receipt передаётся URL-кодированным
+        receipt_url_encoded = quote(receipt_json, safe='')
 
         query_params = {
             'MerchantLogin': merchant_login,
@@ -175,8 +185,7 @@ def handler(event: dict, context) -> dict:
             'Description': f'Заказ {order_number}',
         }
 
-        # Receipt уже URL-кодирован — добавляем как есть
-        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}&Receipt={receipt_encoded}"
+        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}&Receipt={receipt_url_encoded}"
         print(f"[Robokassa] Payment URL: {payment_url}")
 
         cur.execute("UPDATE orders SET payment_url = %s WHERE id = %s", (payment_url, order_id))
