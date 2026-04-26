@@ -68,7 +68,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     if (!childName.trim()) errs.childName = "Введите имя ребёнка";
     if (!age.trim()) errs.age = "Введите возраст";
     if (!shiftId) errs.shift = "Выберите смену";
-    if (email && !isValidEmail(email)) errs.email = "Некорректный email";
+    if (!email.trim()) errs.email = "Введите email — на него придёт копия чека";
+    else if (!isValidEmail(email)) errs.email = "Некорректный email";
     return errs;
   };
 
@@ -83,11 +84,10 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     setIsSubmitting(true);
     try {
       const shift = SHIFTS.find((s) => s.id === shiftId);
-      const userEmail = email.trim() || "noreply@rybka-dolly.ru";
       const data = await createPayment({
         amount: RESERVATION_AMOUNT,
         userName: motherName,
-        userEmail,
+        userEmail: email.trim(),
         userPhone: phone,
         orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.`,
         cartItems: [
@@ -208,7 +208,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
               </div>
 
               <Field
-                label="Email (для чека)"
+                label="Email (для копии чека)"
+                required
                 error={errors.email}
                 value={email}
                 onChange={setEmail}
