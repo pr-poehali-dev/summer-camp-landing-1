@@ -274,6 +274,13 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
                 </div>
               </div>
 
+              <p
+                className="text-[11px] md:text-xs leading-snug px-1"
+                style={{ color: "rgba(61,61,61,0.6)" }}
+              >
+                Кассовые чеки мы формируем на физической кассе в нашем центре — вы можете получить оригинал у нас в любое время или в первый день смены. Копию чека направим вам на email после оплаты.
+              </p>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
