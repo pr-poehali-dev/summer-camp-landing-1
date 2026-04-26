@@ -14,6 +14,7 @@ import SectionDarkPromo from "@/components/camp/SectionDarkPromo";
 import SectionKidsReviews from "@/components/camp/SectionKidsReviews";
 import SectionFAQ from "@/components/camp/SectionFAQ";
 import SectionQuiz from "@/components/camp/SectionQuiz";
+import SectionLocation from "@/components/camp/SectionLocation";
 
 export default function Index() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -78,7 +79,10 @@ export default function Index() {
       {/* 10. FAQ */}
       <SectionFAQ />
 
-      {/* 11. ПОДВАЛ */}
+      {/* 11. КАК НАС НАЙТИ */}
+      <SectionLocation />
+
+      {/* 12. ПОДВАЛ */}
       <CampFooter />
     </div>
   );
