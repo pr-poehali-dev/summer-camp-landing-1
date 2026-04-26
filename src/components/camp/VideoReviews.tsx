@@ -47,7 +47,7 @@ export default function VideoReviews() {
               >
                 <img
                   src={POSTER}
-                  alt={`Видеоотзыв ${v.name}`}
+                  alt={`Видеоотзыв ребёнка ${v.name} о летнем лагере Рыбка Долли в Керчи`}
                   className="w-full h-full object-cover"
                 />
                 <div

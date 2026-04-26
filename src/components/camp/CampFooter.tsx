@@ -5,11 +5,20 @@ export default function CampFooter() {
         <div className="flex items-center justify-center gap-2 mb-4">
           <span className="font-black text-xl" style={{fontFamily:"'Fredoka One',cursive"}}>Рыбка Долли</span>
         </div>
-        <p className="text-sm mb-3" style={{color:"rgba(255,255,255,0.6)"}}>г. Керчь, ул. Циолковского, 12</p>
+        <p className="text-sm mb-3" style={{color:"rgba(255,255,255,0.6)"}}>Летний городской лагерь в Керчи · г. Керчь, ул. Циолковского, 12</p>
         <div className="flex items-center justify-center gap-6 flex-wrap mb-4">
           <a href="tel:+79881521698" className="font-semibold" style={{color:"#FFD93D"}}>+7 988 152-16-98 (МТС)</a>
           <a href="tel:+79787120353" className="font-semibold" style={{color:"#FFD93D"}}>+7 978 712-03-53 (Волна)</a>
         </div>
+        <nav className="flex items-center justify-center gap-4 flex-wrap mb-4 text-sm" aria-label="Разделы сайта">
+          <a href="#programmy" className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Программа смен</a>
+          <span style={{color:"rgba(255,255,255,0.3)"}}>·</span>
+          <a href="#otzyvy" className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Отзывы</a>
+          <span style={{color:"rgba(255,255,255,0.3)"}}>·</span>
+          <a href="#tseny" className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Цены</a>
+          <span style={{color:"rgba(255,255,255,0.3)"}}>·</span>
+          <a href="#kontakty" className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Контакты</a>
+        </nav>
         <a
           href="https://vk.com/app6379730_-179759189#l=8"
           target="_blank"

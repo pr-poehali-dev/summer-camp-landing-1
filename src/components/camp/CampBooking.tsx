@@ -24,6 +24,7 @@ export default function CampBooking({ bookingRef, selectedShift }: CampBookingPr
       {/* ── ФИНАЛЬНЫЙ БЛОК: ЦЕНА + CTA + КВИЗ ─────────────────────────────────── */}
       <section
         ref={bookingRef}
+        id="tseny"
         className="py-16 px-4 relative overflow-hidden"
         style={{ background: "linear-gradient(180deg, #FFF8F0 0%, #FFE5D9 100%)" }}
       >

@@ -93,7 +93,7 @@ export default function CampTeam() {
             <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/d3bca7f2-21f5-4ee8-919d-25cca436a8af.jpg"
-                alt="Наталья Петровна — главный вожатый"
+                alt="Наталья Петровна — главный вожатый летнего лагеря для детей в Керчи"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
@@ -144,7 +144,7 @@ export default function CampTeam() {
             <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/4937136d-f7e6-44ad-b427-2a927b4483e6.jpg"
-                alt="Ирина Павловна — вожатая-исследователь"
+                alt="Ирина Павловна — вожатая-исследователь детского лагеря Рыбка Долли в Керчи"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />

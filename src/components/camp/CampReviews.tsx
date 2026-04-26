@@ -72,7 +72,7 @@ export default function CampReviews() {
   };
 
   return (
-    <section id="reviews" className="py-16 px-4 bg-white">
+    <section id="otzyvy" className="py-16 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <ReviewsList items={items} loading={loading} onOpenForm={() => setOpen(true)} />
       </div>

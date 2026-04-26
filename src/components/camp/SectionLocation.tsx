@@ -1,6 +1,6 @@
 export default function SectionLocation() {
   return (
-    <section className="px-4 py-12 md:py-16" style={{ background: "#FFF8F0" }}>
+    <section id="kontakty" className="px-4 py-12 md:py-16" style={{ background: "#FFF8F0" }}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-6 md:mb-8">
           <h2
