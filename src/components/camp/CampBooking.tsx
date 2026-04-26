@@ -2,7 +2,6 @@ import { useCountdown, PRICE_FULL, PRICE_SALE } from "./CampData";
 import ReserveCTA from "./ReserveCTA";
 import PriceBlock from "./PriceBlock";
 import QuizCallout from "./QuizCallout";
-import CampFooter from "./CampFooter";
 
 interface CampBookingProps {
   bookingRef: React.RefObject<HTMLDivElement>;
@@ -48,9 +47,6 @@ export default function CampBooking({ bookingRef, selectedShift }: CampBookingPr
           <QuizCallout />
         </div>
       </section>
-
-      {/* ── ФУТЕР ─────────────────────────────────────────────────────────────── */}
-      <CampFooter />
     </>
   );
 }
