@@ -36,6 +36,17 @@ function pushDataLayer(payload: Record<string, unknown>) {
   }
 }
 
+export function ecommerceDetail(products: EcommerceProduct[]) {
+  pushDataLayer({
+    ecommerce: {
+      currencyCode: "RUB",
+      detail: {
+        products: products.map((p) => ({ ...p, quantity: p.quantity ?? 1 })),
+      },
+    },
+  });
+}
+
 export function ecommerceAddToCart(products: EcommerceProduct[]) {
   pushDataLayer({
     ecommerce: {

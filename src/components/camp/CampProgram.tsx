@@ -1,6 +1,8 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
-import { ymGoal } from "@/lib/ymGoal";
+import { ymGoal, ecommerceDetail } from "@/lib/ymGoal";
+
+const SHIFT_RESERVATION_PRICE = 1000;
 
 interface CampProgramProps {
   openAccordion: number | null;
@@ -42,7 +44,18 @@ export default function CampProgram({
                 onClick={() => {
                   const isOpening = openAccordion !== shift.id;
                   setOpenAccordion(isOpening ? shift.id : null);
-                  if (isOpening) ymGoal("shift_open", { shift_id: shift.id, shift_name: shift.name });
+                  if (isOpening) {
+                    ymGoal("shift_open", { shift_id: shift.id, shift_name: shift.name });
+                    ecommerceDetail([
+                      {
+                        id: `reserve-shift-${shift.id}`,
+                        name: `Бронирование смены №${shift.id} — ${shift.name}`,
+                        price: SHIFT_RESERVATION_PRICE,
+                        category: "Бронирование смены",
+                        brand: "Рыбка Долли",
+                      },
+                    ]);
+                  }
                 }}
                 className="shift-icon-wrap w-full flex items-center justify-between px-4 py-3 md:px-5 md:py-3.5 text-left font-black hover:brightness-105 transition-all"
                 style={isTeen ? {
