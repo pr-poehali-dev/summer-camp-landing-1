@@ -146,24 +146,21 @@ def handler(event: dict, context) -> dict:
         # Формирование ссылки на оплату
         amount_str = f"{amount:.2f}"
 
-        # Формируем Receipt и URL-кодируем для подписи
+        # Receipt: компактный JSON (raw) — для подписи; URL-кодированный — для URL
         receipt = build_receipt(cart_items, amount)
         receipt_json = json.dumps(receipt, ensure_ascii=False, separators=(',', ':'))
-        receipt_encoded = quote(receipt_json)
+        receipt_encoded = quote(receipt_json, safe='')
 
-        # Подпись: MerchantLogin:OutSum:InvId:Receipt:Password#1
-        # (+ SuccessUrl2/FailUrl2 если переданы — но Receipt вставляется перед паролем)
-        if success_url or fail_url:
-            signature = calculate_signature(
-                merchant_login, amount_str, robokassa_inv_id,
-                receipt_encoded,
-                success_url, 'GET', fail_url, 'GET', password_1
-            )
-        else:
-            signature = calculate_signature(
-                merchant_login, amount_str, robokassa_inv_id,
-                receipt_encoded, password_1
-            )
+        # Подпись по документации Robokassa с фискализацией:
+        # MerchantLogin:OutSum:InvId:Receipt:Password#1
+        # Receipt в подписи — URL-кодированный JSON (как в URL).
+        signature = calculate_signature(
+            merchant_login, amount_str, robokassa_inv_id,
+            receipt_encoded, password_1
+        )
+        print(f"[Robokassa] sig_input: {merchant_login}:{amount_str}:{robokassa_inv_id}:{receipt_encoded}:***")
+        print(f"[Robokassa] receipt_json: {receipt_json}")
+        print(f"[Robokassa] signature: {signature}")
 
         query_params = {
             'MerchantLogin': merchant_login,
@@ -174,13 +171,6 @@ def handler(event: dict, context) -> dict:
             'Culture': 'ru',
             'Description': f'Заказ {order_number}',
         }
-
-        if success_url:
-            query_params['SuccessUrl2'] = success_url
-            query_params['SuccessUrl2Method'] = 'GET'
-        if fail_url:
-            query_params['FailUrl2'] = fail_url
-            query_params['FailUrl2Method'] = 'GET'
 
         # Receipt уже URL-закодирован — добавляем как есть, без повторного кодирования
         payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}&Receipt={receipt_encoded}"
