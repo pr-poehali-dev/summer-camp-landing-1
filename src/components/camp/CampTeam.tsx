@@ -84,13 +84,13 @@ export default function CampTeam() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6 max-w-4xl mx-auto">
           {/* НАТАЛЬЯ ПЕТРОВНА */}
           <article
             className="bg-white rounded-3xl overflow-hidden flex flex-col"
-            style={{ border: "2px solid #FFE5D9", boxShadow: "0 10px 30px rgba(255,154,86,0.15)" }}
+            style={{ border: "2px solid #FFE5D9", boxShadow: "0 8px 24px rgba(255,154,86,0.15)" }}
           >
-            <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
+            <div className="relative w-full" style={{ aspectRatio: "4 / 3", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/d3bca7f2-21f5-4ee8-919d-25cca436a8af.jpg"
                 alt="Наталья Петровна — главный вожатый"
@@ -98,14 +98,14 @@ export default function CampTeam() {
                 loading="lazy"
               />
               <div
-                className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-black text-white"
-                style={{ background: "linear-gradient(90deg,#FF3D8B,#FF9A56)", boxShadow: "0 4px 12px rgba(255,61,139,0.4)" }}
+                className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-black text-white"
+                style={{ background: "linear-gradient(90deg,#FF3D8B,#FF9A56)", boxShadow: "0 3px 10px rgba(255,61,139,0.4)" }}
               >
                 ⭐ ГЛАВНЫЙ ВОЖАТЫЙ
               </div>
             </div>
-            <div className="p-6 md:p-7">
-              <h3 className="text-2xl font-black mb-1" style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}>
+            <div className="p-5 md:p-6">
+              <h3 className="text-xl md:text-2xl font-black mb-1" style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}>
                 Наталья Петровна
               </h3>
               <p className="text-sm font-semibold mb-4" style={{ color: "#FF3D8B" }}>
@@ -139,9 +139,9 @@ export default function CampTeam() {
           {/* ИРИНА ПАВЛОВНА */}
           <article
             className="bg-white rounded-3xl overflow-hidden flex flex-col"
-            style={{ border: "2px solid #FFE5D9", boxShadow: "0 10px 30px rgba(255,154,86,0.15)" }}
+            style={{ border: "2px solid #FFE5D9", boxShadow: "0 8px 24px rgba(255,154,86,0.15)" }}
           >
-            <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
+            <div className="relative w-full" style={{ aspectRatio: "4 / 3", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/4937136d-f7e6-44ad-b427-2a927b4483e6.jpg"
                 alt="Ирина Павловна — вожатая-исследователь"
@@ -149,14 +149,14 @@ export default function CampTeam() {
                 loading="lazy"
               />
               <div
-                className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-black text-white"
-                style={{ background: "linear-gradient(90deg,#00C9A7,#6C5CE7)", boxShadow: "0 4px 12px rgba(108,92,231,0.4)" }}
+                className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-black text-white"
+                style={{ background: "linear-gradient(90deg,#00C9A7,#6C5CE7)", boxShadow: "0 3px 10px rgba(108,92,231,0.4)" }}
               >
                 🔬 ИССЛЕДОВАТЕЛЬ
               </div>
             </div>
-            <div className="p-6 md:p-7">
-              <h3 className="text-2xl font-black mb-1" style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}>
+            <div className="p-5 md:p-6">
+              <h3 className="text-xl md:text-2xl font-black mb-1" style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}>
                 Ирина Павловна
               </h3>
               <p className="text-sm font-semibold mb-4" style={{ color: "#6C5CE7" }}>

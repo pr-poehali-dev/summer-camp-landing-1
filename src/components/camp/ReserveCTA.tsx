@@ -112,19 +112,19 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
       <div className="mt-3 flex flex-col items-center">
         <button
           onClick={() => setOpen(true)}
-          className="rainbow-cta group relative font-black text-white px-6 md:px-10 py-4 md:py-5 rounded-3xl text-base md:text-xl transition-transform hover:scale-[1.03] active:scale-[0.98] w-full max-w-xl"
+          className="rainbow-cta group relative font-black text-white px-5 md:px-8 py-3 md:py-4 rounded-2xl text-sm md:text-base transition-transform hover:scale-[1.03] active:scale-[0.98] w-full max-w-md"
           style={{
             background:
               "linear-gradient(90deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7, #6C5CE7, #FF3D8B)",
             backgroundSize: "300% 100%",
             boxShadow:
-              "0 8px 0 rgba(204,63,11,0.45), 0 12px 30px rgba(255,94,26,0.45), 0 2px 0 rgba(255,255,255,0.35) inset",
+              "0 6px 0 rgba(204,63,11,0.4), 0 10px 24px rgba(255,94,26,0.4), 0 2px 0 rgba(255,255,255,0.3) inset",
             letterSpacing: "0.01em",
             lineHeight: 1.2,
           }}
         >
           <span className="inline-flex items-center gap-2 justify-center flex-wrap">
-            <span className="text-2xl">🎉</span>
+            <span className="text-lg">🎉</span>
             <span>{ctaShiftName ? `Забронировать ${ctaShiftName} — место будет ваше` : "Оплати — и место в смене гарантированно ваше"}</span>
           </span>
         </button>
