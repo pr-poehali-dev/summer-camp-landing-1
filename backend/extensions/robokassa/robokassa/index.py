@@ -168,9 +168,8 @@ def handler(event: dict, context) -> dict:
         query_params = {
             'MerchantLogin': merchant_login,
             'OutSum': amount_str,
-            'InvoiceID': robokassa_inv_id,
+            'InvId': robokassa_inv_id,
             'SignatureValue': signature,
-            'Receipt': receipt_encoded,
             'Email': user_email,
             'Culture': 'ru',
             'Description': f'Заказ {order_number}',
@@ -183,10 +182,8 @@ def handler(event: dict, context) -> dict:
             query_params['FailUrl2'] = fail_url
             query_params['FailUrl2Method'] = 'GET'
 
-        # Receipt уже URL-закодирован — передаём как есть, без повторного кодирования
-        # urlencode будет кодировать остальные параметры
-        base_params = {k: v for k, v in query_params.items() if k != 'Receipt'}
-        payment_url = f"{ROBOKASSA_URL}?{urlencode(base_params)}&Receipt={receipt_encoded}"
+        # Receipt уже URL-закодирован — добавляем как есть, без повторного кодирования
+        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}&Receipt={receipt_encoded}"
 
         cur.execute("UPDATE orders SET payment_url = %s WHERE id = %s", (payment_url, order_id))
         conn.commit()
