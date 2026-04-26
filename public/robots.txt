@@ -1,5 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+
+User-agent: Yandex
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid
+
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
@@ -10,5 +23,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Host: https://ribkadollilend.ru
+Sitemap: https://ribkadollilend.ru/sitemap.xml
