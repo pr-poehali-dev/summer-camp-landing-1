@@ -36,6 +36,39 @@ export default function Index() {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    const highlight = (hash: string) => {
+      if (!hash) return;
+      const id = hash.replace(/^#/, "");
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove("anchor-highlight");
+      void el.offsetWidth;
+      el.classList.add("anchor-highlight");
+      window.setTimeout(() => el.classList.remove("anchor-highlight"), 3500);
+    };
+
+    if (window.location.hash) {
+      window.setTimeout(() => highlight(window.location.hash), 350);
+    }
+
+    const onHashChange = () => highlight(window.location.hash);
+    const onClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement | null)?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+      if (!target) return;
+      const href = target.getAttribute("href");
+      if (!href || href === "#") return;
+      window.setTimeout(() => highlight(href), 50);
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen" style={{ background: "#FFF8F0" }}>
       {/* 1. ПЕРВЫЙ ЭКРАН (Hero) */}
