@@ -579,9 +579,11 @@
     gap: 1.25rem;
   }
   .hero-photo {
-    min-height: 0;
-    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    height: 56vw;
+    max-height: 360px;
     width: 100%;
+    display: block;
   }
   .hero-text-col {
     padding: 0;
