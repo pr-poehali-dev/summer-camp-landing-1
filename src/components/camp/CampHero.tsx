@@ -161,6 +161,44 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   <TimerBlock value={countdown.seconds} label="СЕКУНД" />
                 </div>
 
+                <div style={{
+                  display:"flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  gap:"0.5rem",
+                  flexWrap:"wrap",
+                  background:"rgba(255,255,255,0.22)",
+                  borderRadius:"12px",
+                  padding:"0.4rem 0.7rem",
+                  border:"1.5px solid rgba(255,255,255,0.5)",
+                }}>
+                  <span style={{
+                    color:"rgba(255,255,255,0.85)",
+                    fontWeight:700,
+                    fontSize:"0.85rem",
+                    textDecoration:"line-through",
+                    textShadow:"0 1px 0 rgba(204,106,0,0.7)",
+                  }}>
+                    12 500 ₽
+                  </span>
+                  <span style={{
+                    color:"white",
+                    fontWeight:900,
+                    fontSize:"1.1rem",
+                    textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 4px rgba(92,46,0,0.45)",
+                  }}>
+                    11 000 ₽
+                  </span>
+                  <span style={{
+                    color:"rgba(255,255,255,0.95)",
+                    fontWeight:700,
+                    fontSize:"0.72rem",
+                    textShadow:"0 1px 0 rgba(204,106,0,0.6)",
+                  }}>
+                    со скидкой до 15 мая
+                  </span>
+                </div>
+
                 <div style={{display:"flex", gap:"0.5rem"}}>
                   <button onClick={scrollToBooking} className="rainbow-cta" style={{
                     flex:"1 1 auto",
