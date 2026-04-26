@@ -13,6 +13,7 @@ import SectionVideos from "@/components/camp/SectionVideos";
 import SectionDarkPromo from "@/components/camp/SectionDarkPromo";
 import SectionKidsReviews from "@/components/camp/SectionKidsReviews";
 import SectionFAQ from "@/components/camp/SectionFAQ";
+import SectionQuiz from "@/components/camp/SectionQuiz";
 
 export default function Index() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -46,6 +47,9 @@ export default function Index() {
         scrollToBooking={scrollToBooking}
         setSelectedShift={setSelectedShift}
       />
+
+      {/* 2.5 ПОМОЩЬ В ВЫБОРЕ (КВИЗ) */}
+      <SectionQuiz />
 
       {/* 3. РАСПИСАНИЕ ДНЯ */}
       <SectionSchedule />

@@ -1,7 +1,6 @@
 import { useCountdown, PRICE_FULL, PRICE_SALE } from "./CampData";
 import ReserveCTA from "./ReserveCTA";
 import PriceBlock from "./PriceBlock";
-import QuizCallout from "./QuizCallout";
 
 interface CampBookingProps {
   bookingRef: React.RefObject<HTMLDivElement>;
@@ -39,12 +38,9 @@ export default function CampBooking({ bookingRef, selectedShift }: CampBookingPr
           />
 
           {/* CTA: крупная переливающаяся кнопка */}
-          <div className="mb-8">
+          <div className="mb-2">
             <ReserveCTA defaultShiftId={selectedShift ?? null} />
           </div>
-
-          {/* Блок «Глаза разбегаются» — большой и яркий */}
-          <QuizCallout />
         </div>
       </section>
     </>
