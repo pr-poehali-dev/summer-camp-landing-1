@@ -90,7 +90,7 @@ export default function CampTeam() {
             className="bg-white rounded-3xl overflow-hidden flex flex-col"
             style={{ border: "2px solid #FFE5D9", boxShadow: "0 8px 24px rgba(255,154,86,0.15)" }}
           >
-            <div className="relative w-full" style={{ aspectRatio: "4 / 3", background: "#FFE5D9" }}>
+            <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/d3bca7f2-21f5-4ee8-919d-25cca436a8af.jpg"
                 alt="Наталья Петровна — главный вожатый"
@@ -141,7 +141,7 @@ export default function CampTeam() {
             className="bg-white rounded-3xl overflow-hidden flex flex-col"
             style={{ border: "2px solid #FFE5D9", boxShadow: "0 8px 24px rgba(255,154,86,0.15)" }}
           >
-            <div className="relative w-full" style={{ aspectRatio: "4 / 3", background: "#FFE5D9" }}>
+            <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/4937136d-f7e6-44ad-b427-2a927b4483e6.jpg"
                 alt="Ирина Павловна — вожатая-исследователь"
