@@ -1,6 +1,50 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ecommercePurchase, ymGoal } from "@/lib/ymGoal";
 
 export default function PaymentSuccess() {
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const invId = params.get("InvId") || params.get("invId") || "";
+      const outSum = parseFloat(params.get("OutSum") || params.get("outSum") || "0");
+
+      const raw = localStorage.getItem("pendingOrder");
+      let product: { id: string; name: string; price: number } | null = null;
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw) as { id?: string; name?: string; price?: number };
+          if (parsed?.id && parsed?.name && typeof parsed.price === "number") {
+            product = { id: parsed.id, name: parsed.name, price: parsed.price };
+          }
+        } catch {
+          /* noop */
+        }
+      }
+
+      const finalProduct = product ?? {
+        id: "reserve-shift-unknown",
+        name: "Бронирование смены",
+        price: outSum || 1000,
+      };
+      const orderId = invId || `order-${Date.now()}`;
+
+      ecommercePurchase(orderId, [
+        {
+          ...finalProduct,
+          quantity: 1,
+          category: "Бронирование смены",
+          brand: "Рыбка Долли",
+        },
+      ]);
+      ymGoal("reserve_payment_success", { order_id: orderId, amount: finalProduct.price });
+
+      localStorage.removeItem("pendingOrder");
+    } catch {
+      /* noop */
+    }
+  }, []);
+
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4"

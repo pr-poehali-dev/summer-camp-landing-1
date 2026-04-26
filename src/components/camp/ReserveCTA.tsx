@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SHIFTS } from "./CampData";
-import { ymGoal } from "@/lib/ymGoal";
+import { ymGoal, ecommerceAddToCart } from "@/lib/ymGoal";
 
 interface ReserveCTAProps {
   defaultShiftId?: number | null;
@@ -86,6 +86,18 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     ymGoal("reserve_pay_submit", { shift_id: shiftId });
     try {
       const shift = SHIFTS.find((s) => s.id === shiftId);
+      const productId = `reserve-shift-${shiftId}`;
+      const productName = `Бронирование смены №${shiftId}${shift ? ` — ${shift.name}` : ""}`;
+      ecommerceAddToCart([
+        {
+          id: productId,
+          name: productName,
+          price: RESERVATION_AMOUNT,
+          quantity: 1,
+          category: "Бронирование смены",
+          brand: "Рыбка Долли",
+        },
+      ]);
       const data = await createPayment({
         amount: RESERVATION_AMOUNT,
         userName: motherName,
@@ -101,6 +113,20 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           },
         ],
       });
+      try {
+        localStorage.setItem(
+          "pendingOrder",
+          JSON.stringify({
+            id: productId,
+            name: productName,
+            price: RESERVATION_AMOUNT,
+            shiftId,
+            ts: Date.now(),
+          }),
+        );
+      } catch {
+        /* noop */
+      }
       openPaymentPage(data.payment_url);
     } catch {
       /* onError handled */
