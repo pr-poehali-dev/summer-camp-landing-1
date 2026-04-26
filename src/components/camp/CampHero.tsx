@@ -52,12 +52,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
       </header>
 
       {/* ── БЛОК 1: HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative pt-16 pb-12" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
+      <section className="relative pt-16 pb-12 hero-section" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
 
-        <div className="relative z-10 w-full" style={{display:"grid", gridTemplateColumns:"1fr 1fr", alignItems:"stretch", padding:"0 1.25rem", gap:"1rem"}}>
+        <div className="relative z-10 w-full hero-grid">
 
             {/* ── ЛЕВАЯ КОЛОНКА: фото на всю высоту правой колонки ── */}
-            <div style={{position:"relative", overflow:"hidden", minHeight:"560px", borderRadius:"24px", boxShadow:"0 12px 30px rgba(255,154,86,0.25), 0 2px 0 rgba(255,255,255,0.4) inset"}}>
+            <div className="hero-photo" style={{position:"relative", overflow:"hidden", borderRadius:"24px", boxShadow:"0 12px 30px rgba(255,154,86,0.25), 0 2px 0 rgba(255,255,255,0.4) inset"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/9b990763-8f65-44b0-a17c-bc2d40ad3847.jpg"
                 alt="Дети в летнем клубе Рыбка Долли, Керчь"
@@ -66,7 +66,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             </div>
 
             {/* ── ПРАВАЯ КОЛОНКА: текст + блок акция (выровнено по нижнему краю с фото) ── */}
-            <div style={{textAlign:"left", padding:"0.75rem 2rem 1rem 2rem", display:"flex", flexDirection:"column", justifyContent:"space-between", gap:"1rem"}}>
+            <div className="hero-text-col" style={{textAlign:"left", display:"flex", flexDirection:"column", justifyContent:"space-between", gap:"1rem"}}>
 
               <div style={{display:"flex", flexDirection:"column"}}>
               {/* Бейдж — у верха */}

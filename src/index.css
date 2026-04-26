@@ -552,3 +552,34 @@
 .rainbow-cta {
   animation: rainbow-cta-shift 4s linear infinite;
 }
+
+/* ── Hero adaptive grid ──────────────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  padding: 0 1.25rem;
+  gap: 1rem;
+}
+.hero-photo {
+  min-height: 560px;
+}
+.hero-text-col {
+  padding: 0.75rem 2rem 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1.25rem;
+  }
+  .hero-photo {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+  }
+  .hero-text-col {
+    padding: 0;
+  }
+}
