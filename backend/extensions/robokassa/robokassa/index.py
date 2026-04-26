@@ -146,12 +146,24 @@ def handler(event: dict, context) -> dict:
         # Формирование ссылки на оплату
         amount_str = f"{amount:.2f}"
 
-        # У магазина подключены "Робочеки" — фискализация на стороне Robokassa.
-        # Receipt передавать НЕ нужно, чек сформируется автоматически.
-        # Подпись по базовой формуле: MerchantLogin:OutSum:InvId:Password#1
+        # Receipt — номенклатура для чека (ФЗ-54). ПСН + Без НДС.
+        receipt = build_receipt(cart_items, amount)
+        receipt_json = json.dumps(receipt, ensure_ascii=False, separators=(',', ':'))
+        receipt_encoded = quote(receipt_json, safe='')
+
+        # Подпись Robokassa с фискализацией:
+        # MerchantLogin:OutSum:InvId:Receipt(URL-encoded):Password#1
         signature = calculate_signature(
-            merchant_login, amount_str, robokassa_inv_id, password_1
+            merchant_login, amount_str, robokassa_inv_id,
+            receipt_encoded, password_1
         )
+
+        print(f"[Robokassa] === Создание платежа ===")
+        print(f"[Robokassa] InvId: {robokassa_inv_id}, OutSum: {amount_str}")
+        print(f"[Robokassa] Receipt JSON: {receipt_json}")
+        print(f"[Robokassa] Receipt encoded: {receipt_encoded}")
+        print(f"[Robokassa] Signature input: {merchant_login}:{amount_str}:{robokassa_inv_id}:{receipt_encoded}:***")
+        print(f"[Robokassa] Signature: {signature}")
 
         query_params = {
             'MerchantLogin': merchant_login,
@@ -163,7 +175,9 @@ def handler(event: dict, context) -> dict:
             'Description': f'Заказ {order_number}',
         }
 
-        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}"
+        # Receipt уже URL-кодирован — добавляем как есть
+        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}&Receipt={receipt_encoded}"
+        print(f"[Robokassa] Payment URL: {payment_url}")
 
         cur.execute("UPDATE orders SET payment_url = %s WHERE id = %s", (payment_url, order_id))
         conn.commit()
