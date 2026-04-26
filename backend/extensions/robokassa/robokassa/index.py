@@ -146,21 +146,12 @@ def handler(event: dict, context) -> dict:
         # Формирование ссылки на оплату
         amount_str = f"{amount:.2f}"
 
-        # Receipt: компактный JSON (raw) — для подписи; URL-кодированный — для URL
-        receipt = build_receipt(cart_items, amount)
-        receipt_json = json.dumps(receipt, ensure_ascii=False, separators=(',', ':'))
-        receipt_encoded = quote(receipt_json, safe='')
-
-        # Подпись по документации Robokassa с фискализацией:
-        # MerchantLogin:OutSum:InvId:Receipt:Password#1
-        # Receipt в подписи — URL-кодированный JSON (как в URL).
+        # У магазина подключены "Робочеки" — фискализация на стороне Robokassa.
+        # Receipt передавать НЕ нужно, чек сформируется автоматически.
+        # Подпись по базовой формуле: MerchantLogin:OutSum:InvId:Password#1
         signature = calculate_signature(
-            merchant_login, amount_str, robokassa_inv_id,
-            receipt_encoded, password_1
+            merchant_login, amount_str, robokassa_inv_id, password_1
         )
-        print(f"[Robokassa] sig_input: {merchant_login}:{amount_str}:{robokassa_inv_id}:{receipt_encoded}:***")
-        print(f"[Robokassa] receipt_json: {receipt_json}")
-        print(f"[Robokassa] signature: {signature}")
 
         query_params = {
             'MerchantLogin': merchant_login,
@@ -172,8 +163,7 @@ def handler(event: dict, context) -> dict:
             'Description': f'Заказ {order_number}',
         }
 
-        # Receipt уже URL-закодирован — добавляем как есть, без повторного кодирования
-        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}&Receipt={receipt_encoded}"
+        payment_url = f"{ROBOKASSA_URL}?{urlencode(query_params)}"
 
         cur.execute("UPDATE orders SET payment_url = %s WHERE id = %s", (payment_url, order_id))
         conn.commit()
