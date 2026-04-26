@@ -6,11 +6,11 @@ interface CampHeroProps {
 }
 
 const TimerBlock = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-lg px-1.5 py-1 flex-1 min-w-0">
-    <span className="text-xl font-black text-white tabular-nums leading-none" style={{textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>
+  <div className="flex flex-col items-center bg-white/20 backdrop-blur rounded-lg px-1 py-1 flex-1 min-w-0 basis-0">
+    <span className="font-black text-white tabular-nums leading-none" style={{fontSize:"clamp(0.95rem, 4.2vw, 1.25rem)", textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-[9px] font-bold mt-0.5" style={{color:"#fff", textShadow:"0 1px 2px rgba(92,46,0,0.5)"}}>{label}</span>
+    <span className="font-bold mt-0.5" style={{fontSize:"clamp(7px, 2vw, 9px)", color:"#fff", textShadow:"0 1px 2px rgba(92,46,0,0.5)"}}>{label}</span>
   </div>
 );
 
@@ -22,18 +22,18 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
     <>
       {/* ── ШАПКА ─────────────────────────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm" style={{background: "rgba(255,154,86,0.97)"}}>
-        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-black text-white text-lg leading-tight" style={{fontFamily:"'Nunito', sans-serif", fontSize:"1.25rem"}}>Рыбка Долли</span>
+        <div className="max-w-5xl mx-auto px-3 md:px-4 py-2 md:py-3 flex items-center justify-between gap-2 md:gap-4">
+          <div className="flex items-center gap-2 min-w-0 flex-shrink">
+            <span className="font-black text-white leading-tight whitespace-nowrap" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(0.95rem, 3.5vw, 1.25rem)"}}>Рыбка Долли</span>
           </div>
-          <div className="flex items-center gap-3 flex-wrap justify-end">
-            <a href="tel:+79881521698" className="flex items-center gap-1.5 text-sm font-bold text-white/90 hover:text-white transition-colors">
-              <Icon name="Phone" size={15} />
+          <div className="flex items-center gap-1.5 md:gap-3 justify-end flex-shrink-0">
+            <a href="tel:+79881521698" className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
+              <Icon name="Phone" size={14} />
               <span className="hidden sm:inline">+7 988 152-16-98</span>
               <span className="sm:hidden">МТС</span>
             </a>
-            <a href="tel:+79787120353" className="flex items-center gap-1.5 text-sm font-bold text-white/90 hover:text-white transition-colors">
-              <Icon name="Phone" size={15} />
+            <a href="tel:+79787120353" className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
+              <Icon name="Phone" size={14} />
               <span className="hidden sm:inline">+7 978 712-03-53</span>
               <span className="sm:hidden">Волна</span>
             </a>
@@ -41,11 +41,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               href="https://vk.com/app6379730_-179759189#l=8"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-bold px-4 py-2 rounded-full transition-all flex items-center gap-2"
+              className="text-xs md:text-sm font-bold px-2.5 md:px-4 py-1.5 md:py-2 rounded-full transition-all flex items-center gap-1.5 md:gap-2"
               style={{background:"rgba(255,255,255,0.25)", border:"1px solid rgba(255,255,255,0.5)", color:"white"}}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.131-.427.131-.427s-.019-1.305.585-1.496c.596-.188 1.361 1.26 2.174 1.815.614.418 1.08.326 1.08.326l2.17-.03s1.135-.071.597-1.002c-.044-.076-.312-.681-1.608-1.927-1.356-1.303-1.173-1.093.459-3.348.997-1.384 1.395-2.228 1.269-2.588-.12-.344-.876-.253-.876-.253l-2.443.015s-.181-.025-.315.056c-.132.079-.217.262-.217.262s-.386 1.077-.901 1.991c-1.085 1.923-1.52 2.025-1.698 1.905-.413-.274-.31-1.112-.31-1.705 0-1.854.273-2.628-.537-2.824-.27-.067-.468-.111-1.158-.118-.885-.009-1.633.003-2.057.218-.282.144-.499.463-.367.48.163.022.532.103.727.378.252.352.243 1.143.243 1.143s.145 2.186-.338 2.453c-.331.181-.786-.188-1.761-1.876-.5-.896-.878-1.888-.878-1.888s-.072-.177-.202-.272c-.157-.115-.376-.151-.376-.151l-2.322.015s-.348.01-.476.166c-.114.139-.009.427-.009.427s1.816 4.424 3.872 6.651c1.885 2.042 4.026 1.907 4.026 1.907h.97z"/></svg>
-              ВКонтакте
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.131-.427.131-.427s-.019-1.305.585-1.496c.596-.188 1.361 1.26 2.174 1.815.614.418 1.08.326 1.08.326l2.17-.03s1.135-.071.597-1.002c-.044-.076-.312-.681-1.608-1.927-1.356-1.303-1.173-1.093.459-3.348.997-1.384 1.395-2.228 1.269-2.588-.12-.344-.876-.253-.876-.253l-2.443.015s-.181-.025-.315.056c-.132.079-.217.262-.217.262s-.386 1.077-.901 1.991c-1.085 1.923-1.52 2.025-1.698 1.905-.413-.274-.31-1.112-.31-1.705 0-1.854.273-2.628-.537-2.824-.27-.067-.468-.111-1.158-.118-.885-.009-1.633.003-2.057.218-.282.144-.499.463-.367.48.163.022.532.103.727.378.252.352.243 1.143.243 1.143s.145 2.186-.338 2.453c-.331.181-.786-.188-1.761-1.876-.5-.896-.878-1.888-.878-1.888s-.072-.177-.202-.272c-.157-.115-.376-.151-.376-.151l-2.322.015s-.348.01-.476.166c-.114.139-.009.427-.009.427s1.816 4.424 3.872 6.651c1.885 2.042 4.026 1.907 4.026 1.907h.97z"/></svg>
+              <span className="hidden xs:inline">ВКонтакте</span>
+              <span className="xs:hidden">ВК</span>
             </a>
           </div>
         </div>
@@ -124,14 +125,15 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               </div>
 
               {/* ── БЛОК «АКЦИЯ» — компактный, под текстом, выровнен по низу с фото ── */}
-              <div style={{
+              <div className="hero-promo" style={{
                 borderRadius:"20px",
-                padding:"0.9rem 1.1rem",
                 background:"linear-gradient(160deg, #FFE55A 0%, #FFB830 50%, #FF8C00 100%)",
                 boxShadow:"0 6px 0 #CC6A00, 0 10px 24px rgba(255,150,0,0.4), 0 2px 0 rgba(255,255,255,0.35) inset",
                 display:"flex",
                 flexDirection:"column",
                 gap:"0.7rem",
+                minWidth:0,
+                maxWidth:"100%",
               }}>
                 <div style={{display:"flex", alignItems:"center", gap:"0.6rem", justifyContent:"space-between"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"0.4rem"}}>
@@ -199,12 +201,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   </span>
                 </div>
 
-                <div style={{display:"flex", gap:"0.5rem"}}>
+                <div style={{display:"flex", gap:"0.5rem", flexWrap:"wrap"}}>
                   <button onClick={scrollToBooking} className="rainbow-cta" style={{
-                    flex:"1 1 auto",
-                    padding:"0.65rem 1rem",
-                    fontSize:"0.9rem",
-                    whiteSpace:"nowrap",
+                    flex:"2 1 180px",
+                    minWidth:0,
+                    padding:"0.65rem 0.85rem",
+                    fontSize:"clamp(0.8rem, 3.4vw, 0.9rem)",
                     color:"white",
                     fontWeight:900,
                     borderRadius:"12px",
@@ -221,7 +223,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   <a
                     href="#program"
                     className="font-bold rounded-xl border-2 bg-white/90 transition-all hover:scale-105"
-                    style={{padding:"0.65rem 1rem", fontSize:"0.9rem", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", whiteSpace:"nowrap"}}
+                    style={{flex:"1 1 110px", minWidth:0, padding:"0.65rem 0.85rem", fontSize:"clamp(0.8rem, 3.4vw, 0.9rem)", color:"#FF9A56", borderColor:"white", display:"flex", alignItems:"center", justifyContent:"center", whiteSpace:"nowrap"}}
                   >
                     Программа
                   </a>

@@ -566,12 +566,16 @@
 }
 .hero-text-col {
   padding: 0.75rem 2rem 1rem 2rem;
+  min-width: 0;
+}
+.hero-promo {
+  padding: 0.9rem 1.1rem;
 }
 
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 0 0.75rem;
     gap: 1.25rem;
   }
   .hero-photo {
@@ -581,5 +585,8 @@
   }
   .hero-text-col {
     padding: 0;
+  }
+  .hero-promo {
+    padding: 0.75rem 0.7rem;
   }
 }
