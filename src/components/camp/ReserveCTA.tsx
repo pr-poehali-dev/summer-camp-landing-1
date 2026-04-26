@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SHIFTS } from "./CampData";
+import { ymGoal } from "@/lib/ymGoal";
 
 interface ReserveCTAProps {
   defaultShiftId?: number | null;
@@ -82,6 +83,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     }
     setErrors({});
     setIsSubmitting(true);
+    ymGoal("reserve_pay_submit", { shift_id: shiftId });
     try {
       const shift = SHIFTS.find((s) => s.id === shiftId);
       const data = await createPayment({
@@ -111,7 +113,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     <>
       <div className="mt-3 flex flex-col items-center">
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => { ymGoal("reserve_cta_click", { shift_id: defaultShiftId ?? null }); setOpen(true); }}
           className="rainbow-cta group relative font-black text-white px-5 md:px-8 py-3 md:py-4 rounded-2xl text-sm md:text-base transition-transform hover:scale-[1.03] active:scale-[0.98] w-full max-w-md"
           style={{
             background:

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReviewsList, { type Review } from "./ReviewsList";
 import ReviewModal from "./ReviewModal";
+import { ymGoal } from "@/lib/ymGoal";
 
 const REVIEWS_URL = "https://functions.poehali.dev/f0ac4a46-76e0-4844-9a17-0e69fca7a807";
 
@@ -54,6 +55,7 @@ export default function CampReviews() {
         }),
       });
       if (!res.ok) throw new Error("err");
+      ymGoal("review_form_submit");
       setStatus("sent");
       setParentName("");
       setChildName("");
@@ -74,7 +76,7 @@ export default function CampReviews() {
   return (
     <section id="otzyvy" className="py-16 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
-        <ReviewsList items={items} loading={loading} onOpenForm={() => setOpen(true)} />
+        <ReviewsList items={items} loading={loading} onOpenForm={() => { ymGoal("review_form_open"); setOpen(true); }} />
       </div>
 
       {open && (

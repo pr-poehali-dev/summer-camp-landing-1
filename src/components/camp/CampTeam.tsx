@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ymGoal } from "@/lib/ymGoal";
 
 const APPLY_URL = "https://functions.poehali.dev/888ad9f6-9ffa-4eb9-a1b3-84ae5e011c17";
 
@@ -36,6 +37,7 @@ export default function CampTeam() {
         }),
       });
       if (!res.ok) throw new Error("Ошибка отправки");
+      ymGoal("team_apply_submit");
       setStatus("sent");
       setFullName("");
       setAge("");
@@ -260,7 +262,7 @@ export default function CampTeam() {
             </p>
           </div>
           <button
-            onClick={() => setOpen(true)}
+            onClick={() => { ymGoal("team_apply_open"); setOpen(true); }}
             className="font-black rounded-2xl px-6 py-3.5 text-base transition-transform hover:scale-105 whitespace-nowrap"
             style={{
               background: "linear-gradient(90deg,#FF3D8B,#FF9A56)",

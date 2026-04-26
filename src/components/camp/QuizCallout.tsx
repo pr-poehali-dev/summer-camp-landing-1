@@ -1,3 +1,5 @@
+import { ymGoal } from "@/lib/ymGoal";
+
 export default function QuizCallout() {
   return (
     <div
@@ -35,6 +37,7 @@ export default function QuizCallout() {
           href="https://vk.com/app6379730_-179759189#l=8"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => ymGoal("quiz_click")}
           className="inline-flex items-center gap-2 font-black px-6 md:px-8 py-3 md:py-3.5 rounded-2xl transition-transform hover:scale-105 active:scale-[0.98] text-sm md:text-base"
           style={{
             background: "white",

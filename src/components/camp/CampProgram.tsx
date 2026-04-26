@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
+import { ymGoal } from "@/lib/ymGoal";
 
 interface CampProgramProps {
   openAccordion: number | null;
@@ -38,7 +39,11 @@ export default function CampProgram({
             return (
             <div key={shift.id} className={`rounded-3xl overflow-hidden transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""}`} style={isTeen ? {border:"3px solid #6C5CE7", boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset"} : isShort ? {border:"3px solid #00C9A7"} : {border:"3px solid #FFE5D9", boxShadow:"0 14px 0 rgba(204,106,0,0.18), 0 18px 40px rgba(255,154,86,0.3), 0 2px 0 rgba(255,255,255,0.5) inset"}}>
               <button
-                onClick={() => setOpenAccordion(openAccordion === shift.id ? null : shift.id)}
+                onClick={() => {
+                  const isOpening = openAccordion !== shift.id;
+                  setOpenAccordion(isOpening ? shift.id : null);
+                  if (isOpening) ymGoal("shift_open", { shift_id: shift.id, shift_name: shift.name });
+                }}
                 className="shift-icon-wrap w-full flex items-center justify-between px-4 py-3 md:px-5 md:py-3.5 text-left font-black hover:brightness-105 transition-all"
                 style={isTeen ? {
                   background:"linear-gradient(135deg, #6C5CE7 0%, #A855F7 50%, #FF3D8B 100%)",
@@ -125,7 +130,11 @@ export default function CampProgram({
                     <p className="text-sm italic" style={{color:"rgba(61,61,61,0.7)"}}>Подробная программа скоро появится. Следите за обновлениями в ВКонтакте!</p>
                   )}
                   <button
-                    onClick={() => { setSelectedShift(shift.id); scrollToBooking(); }}
+                    onClick={() => {
+                      ymGoal("shift_book_click", { shift_id: shift.id, shift_name: shift.name });
+                      setSelectedShift(shift.id);
+                      scrollToBooking();
+                    }}
                     className="mt-4 font-bold px-5 py-2.5 rounded-xl text-sm text-white transition-all hover:scale-105"
                     style={isTeen ? {background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", boxShadow:"0 6px 18px rgba(108,92,231,0.45)"} : isShort ? {background:"linear-gradient(90deg,#00C9A7,#0094C6,#FFD93D)", boxShadow:"0 6px 18px rgba(0,201,167,0.45)"} : {background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
                   >

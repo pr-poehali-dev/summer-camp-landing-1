@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS, useCountdown } from "./CampData";
+import { ymGoal } from "@/lib/ymGoal";
 
 interface CampHeroProps {
   scrollToBooking: () => void;
@@ -27,12 +28,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             <span className="font-black text-white leading-tight whitespace-nowrap" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(0.95rem, 3.5vw, 1.25rem)"}}>Рыбка Долли</span>
           </div>
           <div className="flex items-center gap-1.5 md:gap-3 justify-end flex-shrink-0">
-            <a href="tel:+79881521698" className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
+            <a href="tel:+79881521698" onClick={() => ymGoal("phone_click", { place: "header", carrier: "mts" })} className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
               <Icon name="Phone" size={14} />
               <span className="hidden sm:inline">+7 988 152-16-98</span>
               <span className="sm:hidden">МТС</span>
             </a>
-            <a href="tel:+79787120353" className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
+            <a href="tel:+79787120353" onClick={() => ymGoal("phone_click", { place: "header", carrier: "volna" })} className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
               <Icon name="Phone" size={14} />
               <span className="hidden sm:inline">+7 978 712-03-53</span>
               <span className="sm:hidden">Волна</span>
@@ -41,6 +42,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
               href="https://vk.com/app6379730_-179759189#l=8"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => ymGoal("vk_click", { place: "header" })}
               className="text-xs md:text-sm font-bold px-2.5 md:px-4 py-1.5 md:py-2 rounded-full transition-all flex items-center gap-1.5 md:gap-2"
               style={{background:"rgba(255,255,255,0.25)", border:"1px solid rgba(255,255,255,0.5)", color:"white"}}
             >

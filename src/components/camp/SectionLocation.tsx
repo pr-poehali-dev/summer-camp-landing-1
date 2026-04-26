@@ -1,3 +1,5 @@
+import { ymGoal } from "@/lib/ymGoal";
+
 export default function SectionLocation() {
   return (
     <section id="kontakty" className="px-4 py-12 md:py-16" style={{ background: "#FFF8F0" }}>
@@ -84,6 +86,7 @@ export default function SectionLocation() {
                 </div>
                 <a
                   href="tel:+79881521698"
+                  onClick={() => ymGoal("phone_click", { place: "location", carrier: "mts" })}
                   className="block font-bold text-base hover:underline"
                   style={{ color: "white", textShadow: "0 1px 2px rgba(92,46,0,0.4)" }}
                 >
@@ -91,6 +94,7 @@ export default function SectionLocation() {
                 </a>
                 <a
                   href="tel:+79787120353"
+                  onClick={() => ymGoal("phone_click", { place: "location", carrier: "volna" })}
                   className="block font-bold text-base hover:underline"
                   style={{ color: "white", textShadow: "0 1px 2px rgba(92,46,0,0.4)" }}
                 >
@@ -103,6 +107,7 @@ export default function SectionLocation() {
               href="https://yandex.ru/maps/?ol=biz&oid=120578628138"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => ymGoal("map_route_click")}
               className="mt-auto inline-flex items-center justify-center gap-2 font-black rounded-2xl px-4 py-3 transition-transform hover:scale-105"
               style={{
                 background: "white",
