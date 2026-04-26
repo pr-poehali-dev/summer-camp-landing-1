@@ -23,7 +23,7 @@ import {
 } from "@/components/extensions/robokassa/useRobokassa";
 import func2url from "../../../backend/func2url.json";
 
-const RESERVATION_AMOUNT = 1;
+const RESERVATION_AMOUNT = 1000;
 
 export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = {}) {
   const [open, setOpen] = useState(false);
@@ -129,7 +129,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           </span>
         </button>
         <p className="text-xs md:text-sm mt-2 font-semibold text-center" style={{ color: "rgba(61,61,61,0.65)" }}>
-          Тестовый режим: предоплата 1 ₽ · остаток оплачиваете в первый день смены
+          Предоплата брони — всего 1 000 ₽ · остаток оплачиваете в первый день смены
         </p>
       </div>
 
