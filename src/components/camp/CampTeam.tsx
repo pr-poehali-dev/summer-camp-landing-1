@@ -146,7 +146,7 @@ export default function CampTeam() {
             <div className="relative w-full" style={{ aspectRatio: "4 / 5", background: "#FFE5D9" }}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/4937136d-f7e6-44ad-b427-2a927b4483e6.jpg"
-                alt="Ирина Павловна — вожатая-исследователь детского клуба Рыбка Долли в Керчи"
+                alt="Ирина Павловна — вожатая-исследователь городского клуба Рыбка Долли в Керчи"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />

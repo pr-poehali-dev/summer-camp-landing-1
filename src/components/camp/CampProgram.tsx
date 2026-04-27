@@ -21,7 +21,7 @@ export default function CampProgram({
     <section id="programmy" className="py-16 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Программа смен детского клуба в Керчи 2026 (10 дней)</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Программа смен городского клуба в Керчи 2026 (10 дней)</h2>
           <p style={{color:"rgba(61,61,61,0.7)"}}>Городской клуб дневного пребывания: каждая смена — отдельная история с уникальной темой!</p>
         </div>
         <div className="space-y-4">
@@ -75,7 +75,7 @@ export default function CampProgram({
                   {shift.iconUrl ? (
                     <img
                       src={shift.iconUrl}
-                      alt={`Программа смены «${shift.name}» детского клуба Рыбка Долли в Керчи`}
+                      alt={`Программа смены «${shift.name}» городского клуба Рыбка Долли в Керчи`}
                       className="shift-icon w-20 h-20 md:w-24 md:h-24 flex-shrink-0 object-contain"
                       style={{filter:"drop-shadow(0 4px 10px rgba(0,0,0,0.35))"}}
                     />
