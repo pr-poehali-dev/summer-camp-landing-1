@@ -1,5 +1,4 @@
 import { SHIFTS } from "./CampData";
-import SectionTitle from "./SectionTitle";
 
 interface Countdown {
   days: number;
@@ -42,9 +41,12 @@ export default function PriceBlock({
           ⚡ Выбрана смена «{shortShift.name}» · 5 дней
         </div>
       )}
-      <SectionTitle className="mb-2">
+      <h2
+        className="text-3xl md:text-4xl font-black mb-2"
+        style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}
+      >
         💰 Стоимость смены ({isShort ? "5 дней" : "10 дней"})
-      </SectionTitle>
+      </h2>
       <div className="flex items-center justify-center gap-4 flex-wrap mb-4">
         <span className="line-through text-2xl" style={{ color: "rgba(61,61,61,0.5)" }}>
           {oldPrice.toLocaleString()} ₽

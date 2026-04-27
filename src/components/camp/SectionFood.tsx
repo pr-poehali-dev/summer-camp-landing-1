@@ -1,11 +1,9 @@
-import SectionTitle from "./SectionTitle";
-
 export default function SectionFood() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <SectionTitle className="mb-3">🍜 Чем кормим?</SectionTitle>
+          <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>🍜 Чем кормим?</h2>
           <p style={{color:"rgba(61,61,61,0.7)"}}>Вкусно, сытно и по-домашнему!</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
