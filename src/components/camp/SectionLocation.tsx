@@ -1,21 +1,12 @@
 import { ymGoal } from "@/lib/ymGoal";
+import SectionTitle from "./SectionTitle";
 
 export default function SectionLocation() {
   return (
     <section id="kontakty" className="px-4 py-12 md:py-16" style={{ background: "#FFF8F0" }}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-6 md:mb-8">
-          <h2
-            className="font-black text-3xl md:text-5xl mb-3"
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "#FF5E1A",
-              textShadow:
-                "0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 8px rgba(0,0,0,0.2)",
-            }}
-          >
-            📍 Как нас найти
-          </h2>
+          <SectionTitle className="mb-3">📍 Как нас найти</SectionTitle>
           <p
             className="text-base md:text-lg font-bold"
             style={{ color: "#3D3D3D" }}

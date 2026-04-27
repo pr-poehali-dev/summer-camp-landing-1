@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import SectionTitle from "./SectionTitle";
 
 const QUESTIONS_URL = "https://functions.poehali.dev/e5f876ee-298a-401b-b6dd-8251bc6df945";
 
@@ -138,9 +139,7 @@ export default function CampFAQ() {
         <div className="inline-flex items-center gap-2 font-bold px-4 py-1.5 rounded-full text-xs mb-3 text-white" style={{ background: "linear-gradient(90deg,#FF9A56,#FFD93D)" }}>
           ❓ FAQ
         </div>
-        <h2 className="text-3xl md:text-4xl font-black" style={{ fontFamily: "'Baloo 2', cursive", color: "#3D3D3D" }}>
-          Частые вопросы
-        </h2>
+        <SectionTitle>Частые вопросы</SectionTitle>
         <p className="mt-2" style={{ color: "rgba(61,61,61,0.7)" }}>
           Мы собрали то, что чаще всего спрашивают родители
         </p>

@@ -1,3 +1,5 @@
+import SectionTitle from "./SectionTitle";
+
 export default function SectionSchedule() {
   return (
     <section className="py-14 px-4" style={{background:"linear-gradient(180deg, #FFF8F0 0%, #FFE5D9 100%)"}}>
@@ -6,7 +8,7 @@ export default function SectionSchedule() {
           <div className="inline-flex items-center gap-2 font-bold px-4 py-1.5 rounded-full text-xs mb-3 text-white" style={{background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}>
             ⏰ РАСПИСАНИЕ
           </div>
-          <h2 className="text-3xl md:text-4xl font-black mb-2" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Как проходит день в клубе?</h2>
+          <SectionTitle className="mb-2">Как проходит день в клубе?</SectionTitle>
           <p style={{color:"rgba(61,61,61,0.7)"}}>Каждая минута продумана — дети под контролем и в движении!</p>
         </div>
 

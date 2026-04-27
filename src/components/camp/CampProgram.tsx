@@ -1,6 +1,7 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
 import { ymGoal, ecommerceDetail } from "@/lib/ymGoal";
+import SectionTitle from "./SectionTitle";
 
 const SHIFT_RESERVATION_PRICE = 1000;
 
@@ -21,7 +22,7 @@ export default function CampProgram({
     <section id="programmy" className="py-16 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Программа смен городского клуба в Керчи 2026 (10 дней)</h2>
+          <SectionTitle className="mb-3">Программа смен городского клуба в Керчи 2026 (10 дней)</SectionTitle>
           <p style={{color:"rgba(61,61,61,0.7)"}}>Городской клуб дневного пребывания: каждая смена — отдельная история с уникальной темой!</p>
         </div>
         <div className="space-y-4">

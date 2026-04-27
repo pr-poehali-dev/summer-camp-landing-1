@@ -1,4 +1,5 @@
 import ReviewStars from "./ReviewStars";
+import SectionTitle from "./SectionTitle";
 
 export interface Review {
   id: number;
@@ -25,20 +26,7 @@ export default function ReviewsList({ items, loading, onOpenForm }: ReviewsListP
         >
           💬 ОТЗЫВЫ РОДИТЕЛЕЙ
         </div>
-        <h2
-          className="text-3xl md:text-5xl font-black mb-3 animate-rainbow-pulse"
-          style={{
-            fontFamily: "'Fredoka One', cursive",
-            backgroundImage:
-              "linear-gradient(90deg, #FF3D8B 0%, #FF9A56 20%, #FFD93D 40%, #00C9A7 60%, #6C5CE7 80%, #FF3D8B 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            letterSpacing: "0.5px",
-          }}
-        >
-          ⭐ Что говорят родители
-        </h2>
+        <SectionTitle className="mb-3">⭐ Что говорят родители</SectionTitle>
         <p className="max-w-2xl mx-auto" style={{ color: "rgba(61,61,61,0.7)" }}>
           Реальные отзывы родителей наших маленьких рыбок
         </p>

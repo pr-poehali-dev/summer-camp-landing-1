@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ymGoal } from "@/lib/ymGoal";
+import SectionTitle from "./SectionTitle";
 
 const APPLY_URL = "https://functions.poehali.dev/888ad9f6-9ffa-4eb9-a1b3-84ae5e011c17";
 
@@ -67,20 +68,7 @@ export default function CampTeam() {
           >
             👥 НАША КОМАНДА
           </div>
-          <h2
-            className="text-3xl md:text-5xl font-black mb-3 animate-rainbow-pulse"
-            style={{
-              fontFamily: "'Fredoka One', cursive",
-              backgroundImage:
-                "linear-gradient(90deg, #FF3D8B 0%, #FF9A56 20%, #FFD93D 40%, #00C9A7 60%, #6C5CE7 80%, #FF3D8B 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              letterSpacing: "0.5px",
-            }}
-          >
-            💛 Кто будет с вашим ребёнком
-          </h2>
+          <SectionTitle className="mb-3">💛 Кто будет с вашим ребёнком</SectionTitle>
           <p className="max-w-2xl mx-auto" style={{ color: "rgba(61,61,61,0.7)" }}>
             Не случайные люди, а те, кто искренне любит детей и работает с ними годами.
           </p>

@@ -1,9 +1,11 @@
+import SectionTitle from "./SectionTitle";
+
 export default function SectionForWhom() {
   return (
     <section className="py-16 px-4" style={{background:"linear-gradient(180deg, #E8FF6A 0%, #C8F000 100%)"}}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-black mb-3" style={{fontFamily:"'Baloo 2', cursive", color:"#3D3D3D"}}>Рыбка Долли — это для вашего ребёнка, если:</h2>
+          <SectionTitle className="mb-3">Рыбка Долли — это для вашего ребёнка, если:</SectionTitle>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {[
