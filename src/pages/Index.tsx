@@ -21,7 +21,11 @@ export default function Index() {
   const [selectedShift, setSelectedShift] = useState<number | null>(null);
 
   const bookingRef = useRef<HTMLDivElement>(null);
-  const scrollToBooking = () => bookingRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToBooking = () => {
+    bookingRef.current?.scrollIntoView({ behavior: "smooth" });
+    window.history.replaceState(null, "", "#book");
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  };
 
   useEffect(() => {
     const obs = new IntersectionObserver(

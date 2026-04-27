@@ -204,15 +204,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
 
                 <div style={{display:"flex", gap:"0.5rem", flexWrap:"wrap"}}>
-                  <button onClick={() => {
-                    scrollToBooking();
-                    if (window.location.hash === "#book") {
-                      window.dispatchEvent(new HashChangeEvent("hashchange"));
-                    } else {
-                      window.history.replaceState(null, "", "#book");
-                      window.dispatchEvent(new HashChangeEvent("hashchange"));
-                    }
-                  }} className="rainbow-cta" style={{
+                  <button onClick={scrollToBooking} className="rainbow-cta" style={{
                     flex:"2 1 180px",
                     minWidth:0,
                     padding:"0.65rem 0.85rem",

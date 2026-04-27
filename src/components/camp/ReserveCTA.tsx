@@ -62,7 +62,12 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
   });
 
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      if (window.location.hash === "#book") {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      return;
+    }
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
