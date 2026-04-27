@@ -92,7 +92,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
               </div>
 
-              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Koyon', 'Nunito', sans-serif", fontSize:"clamp(2.2rem, 4.6vw, 3.4rem)", lineHeight:1.1, textAlign:"center"}}>
+              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Koyon', 'Nunito', sans-serif", fontSize:"clamp(1.9rem, 4.2vw, 3.1rem)", lineHeight:1.15, textAlign:"center", letterSpacing:"0.08em", wordSpacing:"0.15em"}}>
                 <span style={{
                   color:"#FF5E1A",
                   textShadow:"0 0 20px rgba(255,94,26,0.5), 0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 0 #B33307, 0 5px 0 #992A05, 0 6px 12px rgba(0,0,0,0.35)",
@@ -109,10 +109,12 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   WebkitBackgroundClip:"text",
                   WebkitTextFillColor:"transparent",
                   backgroundClip:"text",
-                  fontSize:"0.7em",
-                  letterSpacing:"0.05em",
+                  fontSize:"0.62em",
+                  letterSpacing:"0.12em",
                   filter:"drop-shadow(0 2px 0 #CC3F0B) drop-shadow(0 4px 0 rgba(153,42,5,0.6)) drop-shadow(0 6px 12px rgba(0,0,0,0.3))",
                   display:"inline-block",
+                  paddingRight:"0.15em",
+                  whiteSpace:"nowrap",
                 }}>Лето 2026</span>
               </h1>
 
