@@ -41,6 +41,19 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     if (defaultShiftId) setShiftId(defaultShiftId);
   }, [defaultShiftId]);
 
+  useEffect(() => {
+    const openByHash = () => {
+      const h = window.location.hash.replace(/^#/, "").toLowerCase();
+      if (h === "book" || h === "забронировать" || h === "broni" || h === "bron") {
+        setOpen(true);
+        ymGoal("reserve_cta_click", { shift_id: defaultShiftId ?? null, source: "anchor" });
+      }
+    };
+    openByHash();
+    window.addEventListener("hashchange", openByHash);
+    return () => window.removeEventListener("hashchange", openByHash);
+  }, [defaultShiftId]);
+
   const ctaShiftName = defaultShiftId ? SHIFT_ACCUSATIVE[defaultShiftId] : null;
 
   const { createPayment } = useRobokassa({
