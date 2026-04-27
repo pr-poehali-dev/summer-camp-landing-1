@@ -83,11 +83,11 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                   flexDirection:"column",
                   gap:"2px",
                 }}>
-                  <span style={{color:"white", fontWeight:800, fontSize:"0.9rem", letterSpacing:"0.01em"}}>
-                    🌊 Керчь · Городской летний клуб · Для детей 7–14 лет
+                  <span style={{color:"white", fontWeight:800, fontSize:"0.9rem", letterSpacing:"0.01em", textAlign:"center"}}>
+                    🌊 Летний городской клуб в Керчи, ул. Циолковского, 12
                   </span>
                   <span style={{color:"rgba(255,255,255,0.9)", fontWeight:600, fontSize:"0.78rem", textAlign:"center"}}>
-                    ⭐ Работаем с детьми с 2018 года
+                    ⭐ Для детей 7–14 лет · Работаем с 2018 года
                   </span>
                 </div>
               </div>
