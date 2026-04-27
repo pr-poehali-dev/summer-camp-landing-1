@@ -92,30 +92,25 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
               </div>
 
-              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Koyon', 'Nunito', sans-serif", fontSize:"clamp(1.9rem, 4.2vw, 3.1rem)", lineHeight:1.15, textAlign:"center", letterSpacing:"0.08em", wordSpacing:"0.15em"}}>
-                <span style={{
-                  color:"#FF5E1A",
-                  textShadow:"0 0 20px rgba(255,94,26,0.5), 0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 0 #B33307, 0 5px 0 #992A05, 0 6px 12px rgba(0,0,0,0.35)",
-                  WebkitTextStroke:"1px #FF4500",
-                }}>Рыбка </span>
-                <span style={{
-                  color:"#FFCC00",
-                  textShadow:"0 0 20px rgba(255,204,0,0.6), 0 1px 0 #FFE066, 0 2px 0 #E6B800, 0 3px 0 #CC9E00, 0 4px 0 #B38600, 0 5px 0 #996F00, 0 6px 12px rgba(0,0,0,0.35)",
-                  WebkitTextStroke:"1px #E6B800",
-                }}>Долли</span>
-                <br />
-                <span style={{
-                  background:"linear-gradient(135deg, #FF5E1A 0%, #FF9A00 50%, #FFCC00 100%)",
-                  WebkitBackgroundClip:"text",
-                  WebkitTextFillColor:"transparent",
-                  backgroundClip:"text",
-                  fontSize:"0.62em",
-                  letterSpacing:"0.12em",
-                  filter:"drop-shadow(0 2px 0 #CC3F0B) drop-shadow(0 4px 0 rgba(153,42,5,0.6)) drop-shadow(0 6px 12px rgba(0,0,0,0.3))",
-                  display:"inline-block",
-                  paddingRight:"0.15em",
+              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Koyon', 'Nunito', sans-serif", fontSize:"clamp(1.7rem, 3.8vw, 2.8rem)", lineHeight:1.2, textAlign:"center", letterSpacing:"0.06em", wordSpacing:"0.15em", WebkitTextStroke:"2.5px #5A1A00", paintOrder:"stroke fill"}}>
+                <div style={{whiteSpace:"nowrap"}}>
+                  <span style={{
+                    color:"#FF5E1A",
+                    textShadow:"0 1px 0 #FF7F3F, 0 2px 0 #E64D12, 0 3px 0 #CC3F0B, 0 4px 0 #B33307, 0 5px 0 #992A05, 0 6px 12px rgba(0,0,0,0.45)",
+                  }}>Рыбка </span>
+                  <span style={{
+                    color:"#FFCC00",
+                    textShadow:"0 1px 0 #FFE066, 0 2px 0 #E6B800, 0 3px 0 #CC9E00, 0 4px 0 #B38600, 0 5px 0 #996F00, 0 6px 12px rgba(0,0,0,0.45)",
+                  }}>Долли</span>
+                </div>
+                <div style={{
                   whiteSpace:"nowrap",
-                }}>Лето 2026</span>
+                  fontSize:"0.65em",
+                  letterSpacing:"0.1em",
+                  marginTop:"0.15em",
+                  color:"#FF9A00",
+                  textShadow:"0 1px 0 #FFB840, 0 2px 0 #E68A00, 0 3px 0 #CC7A00, 0 4px 0 #B36B00, 0 5px 0 #995C00, 0 6px 12px rgba(0,0,0,0.45)",
+                }}>Лето 2026</div>
               </h1>
 
               <p className="text-base font-bold mb-1" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
