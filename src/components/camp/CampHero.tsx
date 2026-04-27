@@ -63,7 +63,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
             <div className="hero-photo" style={{position:"relative", overflow:"hidden", borderRadius:"24px", boxShadow:"0 12px 30px rgba(255,154,86,0.25), 0 2px 0 rgba(255,255,255,0.4) inset"}}>
               <img
                 src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/9b990763-8f65-44b0-a17c-bc2d40ad3847.jpg"
-                alt="Дети на море в летнем лагере Рыбка Долли Керчь"
+                alt="Дети на море в летнем клубе Рыбка Долли Керчь"
                 style={{position:"absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", background:"transparent"}}
               />
             </div>
@@ -264,7 +264,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                     Уникальная смена для подростка
                   </span>
                   <span className="font-semibold text-[9px] md:text-[10px]" style={{opacity:0.85}}>
-                    для тех, кому скучно в обычных лагерях
+                    для тех, кому скучно на обычных сменах
                   </span>
                 </div>
               </div>

@@ -102,7 +102,7 @@ export default function ReviewsList({ items, loading, onOpenForm }: ReviewsListP
       >
         <div>
           <h3 className="font-black text-xl md:text-2xl mb-1" style={{ color: "#3D3D3D", fontFamily: "'Baloo 2', cursive" }}>
-            💛 Был у нас в лагере? Поделись впечатлениями!
+            💛 Был у нас в клубе? Поделись впечатлениями!
           </h3>
           <p className="text-sm md:text-base" style={{ color: "rgba(61,61,61,0.75)" }}>
             Отзыв появится на сайте после короткой проверки модератором.

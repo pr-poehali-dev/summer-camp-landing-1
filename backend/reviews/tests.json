@@ -27,7 +27,7 @@
         "parent_name": "Анна",
         "child_name": "Маша",
         "rating": 5,
-        "text": "Замечательный лагерь!"
+        "text": "Замечательный клуб!"
       },
       "expectedStatus": 200
     }

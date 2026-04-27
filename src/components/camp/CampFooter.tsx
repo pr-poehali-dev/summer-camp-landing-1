@@ -7,7 +7,7 @@ export default function CampFooter() {
         <div className="flex items-center justify-center gap-2 mb-4">
           <span className="font-black text-xl" style={{fontFamily:"'Fredoka One',cursive"}}>Рыбка Долли</span>
         </div>
-        <p className="text-sm mb-3" style={{color:"rgba(255,255,255,0.6)"}}>Летний городской лагерь в Керчи · г. Керчь, ул. Циолковского, 12</p>
+        <p className="text-sm mb-3" style={{color:"rgba(255,255,255,0.6)"}}>Летний городской клуб в Керчи · г. Керчь, ул. Циолковского, 12</p>
         <div className="flex items-center justify-center gap-6 flex-wrap mb-4">
           <a href="tel:+79881521698" onClick={() => ymGoal("phone_click", { place: "footer", carrier: "mts" })} className="font-semibold" style={{color:"#FFD93D"}}>+7 988 152-16-98 (МТС)</a>
           <a href="tel:+79787120353" onClick={() => ymGoal("phone_click", { place: "footer", carrier: "volna" })} className="font-semibold" style={{color:"#FFD93D"}}>+7 978 712-03-53 (Волна)</a>
