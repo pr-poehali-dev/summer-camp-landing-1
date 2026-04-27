@@ -92,7 +92,7 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
               </div>
 
-              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Koyon', 'Nunito', sans-serif", fontSize:"clamp(1.7rem, 3.8vw, 2.8rem)", lineHeight:1.2, textAlign:"center", letterSpacing:"0.06em", wordSpacing:"0.15em", WebkitTextStroke:"2.5px #5A1A00", paintOrder:"stroke fill"}}>
+              <h1 className="font-black mb-2 leading-tight" style={{fontFamily:"'Koyon', 'Nunito', sans-serif", fontSize:"clamp(2.6rem, 5.7vw, 4.2rem)", lineHeight:1.15, textAlign:"center", letterSpacing:"0.04em", wordSpacing:"0.12em", WebkitTextStroke:"3px #5A1A00", paintOrder:"stroke fill", marginLeft:"-1rem", marginRight:"-1rem", width:"calc(100% + 2rem)"}}>
                 <div style={{whiteSpace:"nowrap"}}>
                   <span style={{
                     color:"#FF5E1A",
@@ -105,8 +105,8 @@ export default function CampHero({ scrollToBooking }: CampHeroProps) {
                 </div>
                 <div style={{
                   whiteSpace:"nowrap",
-                  fontSize:"0.65em",
-                  letterSpacing:"0.1em",
+                  fontSize:"0.62em",
+                  letterSpacing:"0.08em",
                   marginTop:"0.15em",
                   color:"#FF9A00",
                   textShadow:"0 1px 0 #FFB840, 0 2px 0 #E68A00, 0 3px 0 #CC7A00, 0 4px 0 #B36B00, 0 5px 0 #995C00, 0 6px 12px rgba(0,0,0,0.45)",
