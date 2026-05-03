@@ -54,10 +54,14 @@ export default function SectionSchedule() {
           ))}
         </div>
 
-        <div className="mt-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2.5 font-bold text-sm" style={{ border: "2px solid #FFE5D9", color: "#3D3D3D", boxShadow: "0 6px 16px rgba(255,154,86,0.15)" }}>
+        <div className="mt-6 flex flex-col items-center gap-3">
+          <div className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2.5 font-bold text-sm text-center" style={{ border: "2px solid #FFE5D9", color: "#3D3D3D", boxShadow: "0 6px 16px rgba(255,154,86,0.15)" }}>
             <span className="text-lg">🕙</span>
             Пребывание с 10:00 до 18:00 · 8 часов насыщенной программы
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-bold text-sm text-center text-white" style={{ background: "linear-gradient(90deg,#FF9A56,#FF5E1A)", boxShadow: "0 6px 16px rgba(255,94,26,0.25)" }}>
+            <span className="text-lg">🌅</span>
+            Возможно раннее посещение с 8:00 — доплата 3000 ₽ (с завтраком)
           </div>
         </div>
       </div>
