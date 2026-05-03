@@ -25,6 +25,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
   const [email, setEmail] = useState("");
   const [shiftId, setShiftId] = useState<number | null>(defaultShiftId);
   const [earlyStart, setEarlyStart] = useState(false);
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submittedRef = useRef(false);
@@ -159,6 +160,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     if (!shiftId) errs.shift = "Выберите смену";
     if (!email.trim()) errs.email = "Введите email — на него придёт копия чека";
     else if (!isValidEmail(email)) errs.email = "Некорректный email";
+    if (!privacyConsent) errs.privacy = "Необходимо согласие на обработку персональных данных";
     return errs;
   };
 
@@ -266,6 +268,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           setShiftId={setShiftId}
           earlyStart={earlyStart}
           setEarlyStart={setEarlyStart}
+          privacyConsent={privacyConsent}
+          setPrivacyConsent={setPrivacyConsent}
           errors={errors}
           isSubmitting={isSubmitting}
         />

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ymGoal } from "@/lib/ymGoal";
+import PrivacyConsent from "./PrivacyConsent";
 
 const APPLY_URL = "https://functions.poehali.dev/888ad9f6-9ffa-4eb9-a1b3-84ae5e011c17";
 
@@ -15,6 +16,7 @@ export default function CampTeamApplyModal({ open, onClose }: CampTeamApplyModal
   const [email, setEmail] = useState("");
   const [about, setAbout] = useState("");
   const [experience, setExperience] = useState("");
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -22,6 +24,11 @@ export default function CampTeamApplyModal({ open, onClose }: CampTeamApplyModal
     e.preventDefault();
     if (!fullName.trim() || !phone.trim()) {
       setErrorMsg("Заполни имя и телефон");
+      setStatus("error");
+      return;
+    }
+    if (!privacyConsent) {
+      setErrorMsg("Необходимо согласие на обработку персональных данных");
       setStatus("error");
       return;
     }
@@ -49,6 +56,7 @@ export default function CampTeamApplyModal({ open, onClose }: CampTeamApplyModal
       setEmail("");
       setAbout("");
       setExperience("");
+      setPrivacyConsent(false);
     } catch {
       setErrorMsg("Не получилось отправить. Попробуй ещё раз или позвони нам.");
       setStatus("error");
@@ -198,6 +206,12 @@ export default function CampTeamApplyModal({ open, onClose }: CampTeamApplyModal
               />
             </div>
 
+            <PrivacyConsent
+              checked={privacyConsent}
+              onChange={setPrivacyConsent}
+              id="team-privacy"
+            />
+
             {status === "error" && errorMsg && (
               <p className="text-sm font-semibold" style={{ color: "#FF3D8B" }}>
                 {errorMsg}
@@ -216,9 +230,6 @@ export default function CampTeamApplyModal({ open, onClose }: CampTeamApplyModal
             >
               {status === "sending" ? "Отправляем..." : "Отправить заявку"}
             </button>
-            <p className="text-xs text-center" style={{ color: "rgba(61,61,61,0.55)" }}>
-              Нажимая кнопку, ты соглашаешься на обработку персональных данных
-            </p>
           </form>
         )}
       </div>

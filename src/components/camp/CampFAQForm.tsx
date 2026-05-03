@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PrivacyConsent from "./PrivacyConsent";
 
 const QUESTIONS_URL = "https://functions.poehali.dev/e5f876ee-298a-401b-b6dd-8251bc6df945";
 
@@ -8,6 +9,7 @@ export default function CampFAQForm() {
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [question, setQuestion] = useState("");
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -15,6 +17,11 @@ export default function CampFAQForm() {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !question.trim()) {
       setErrorMsg("Заполни имя, email и вопрос");
+      setStatus("error");
+      return;
+    }
+    if (!privacyConsent) {
+      setErrorMsg("Необходимо согласие на обработку персональных данных");
       setStatus("error");
       return;
     }
@@ -32,6 +39,7 @@ export default function CampFAQForm() {
       setAge("");
       setEmail("");
       setQuestion("");
+      setPrivacyConsent(false);
     } catch {
       setErrorMsg("Не получилось отправить. Попробуй ещё раз или позвони нам.");
       setStatus("error");
@@ -143,6 +151,12 @@ export default function CampFAQForm() {
                   required
                 />
               </label>
+
+              <PrivacyConsent
+                checked={privacyConsent}
+                onChange={setPrivacyConsent}
+                id="faq-privacy"
+              />
 
               {status === "error" && errorMsg && (
                 <p className="text-sm font-bold" style={{ color: "#E64D12" }}>

@@ -1,6 +1,7 @@
 import { SHIFTS } from "./CampData";
 import { formatPhoneNumber } from "@/components/extensions/robokassa/useRobokassa";
 import { Field, RESERVATION_AMOUNT } from "./reserveCTAUtils";
+import PrivacyConsent from "./PrivacyConsent";
 
 interface ReserveModalFormProps {
   onClose: () => void;
@@ -19,6 +20,8 @@ interface ReserveModalFormProps {
   setShiftId: (v: number) => void;
   earlyStart: boolean;
   setEarlyStart: (v: boolean) => void;
+  privacyConsent: boolean;
+  setPrivacyConsent: (v: boolean) => void;
   errors: Record<string, string>;
   isSubmitting: boolean;
 }
@@ -40,6 +43,8 @@ export default function ReserveModalForm({
   setShiftId,
   earlyStart,
   setEarlyStart,
+  privacyConsent,
+  setPrivacyConsent,
   errors,
   isSubmitting,
 }: ReserveModalFormProps) {
@@ -220,6 +225,13 @@ export default function ReserveModalForm({
           >
             Кассовые чеки мы формируем на физической кассе в нашем центре — вы можете получить оригинал у нас в любое время или в первый день смены. Копию чека направим вам на email после оплаты.
           </p>
+
+          <PrivacyConsent
+            checked={privacyConsent}
+            onChange={setPrivacyConsent}
+            error={errors.privacy}
+            id="reserve-privacy"
+          />
 
           <button
             type="submit"

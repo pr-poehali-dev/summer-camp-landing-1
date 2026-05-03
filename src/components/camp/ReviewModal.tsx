@@ -1,4 +1,5 @@
 import ReviewStars from "./ReviewStars";
+import PrivacyConsent from "./PrivacyConsent";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -11,6 +12,8 @@ interface ReviewModalProps {
   setRating: (v: number) => void;
   text: string;
   setText: (v: string) => void;
+  privacyConsent: boolean;
+  setPrivacyConsent: (v: boolean) => void;
   status: Status;
   errorMsg: string;
   onSubmit: (e: React.FormEvent) => void;
@@ -26,6 +29,8 @@ export default function ReviewModal({
   setRating,
   text,
   setText,
+  privacyConsent,
+  setPrivacyConsent,
   status,
   errorMsg,
   onSubmit,
@@ -130,6 +135,12 @@ export default function ReviewModal({
                 required
               />
             </div>
+
+            <PrivacyConsent
+              checked={privacyConsent}
+              onChange={setPrivacyConsent}
+              id="review-privacy"
+            />
 
             {status === "error" && errorMsg && (
               <p className="text-sm font-semibold" style={{ color: "#FF3D8B" }}>

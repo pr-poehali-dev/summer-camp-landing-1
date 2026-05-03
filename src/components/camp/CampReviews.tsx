@@ -14,6 +14,7 @@ export default function CampReviews() {
   const [childName, setChildName] = useState("");
   const [rating, setRating] = useState(5);
   const [text, setText] = useState("");
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -41,6 +42,11 @@ export default function CampReviews() {
       setStatus("error");
       return;
     }
+    if (!privacyConsent) {
+      setErrorMsg("Необходимо согласие на обработку персональных данных");
+      setStatus("error");
+      return;
+    }
     setStatus("sending");
     setErrorMsg("");
     try {
@@ -61,6 +67,7 @@ export default function CampReviews() {
       setChildName("");
       setRating(5);
       setText("");
+      setPrivacyConsent(false);
     } catch {
       setErrorMsg("Не удалось отправить. Попробуй ещё раз.");
       setStatus("error");
@@ -89,6 +96,8 @@ export default function CampReviews() {
           setRating={setRating}
           text={text}
           setText={setText}
+          privacyConsent={privacyConsent}
+          setPrivacyConsent={setPrivacyConsent}
           status={status}
           errorMsg={errorMsg}
           onSubmit={submit}
