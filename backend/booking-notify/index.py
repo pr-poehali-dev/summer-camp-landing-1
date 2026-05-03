@@ -33,15 +33,16 @@ def send_email_to(to_email: str, subject: str, html_body: str) -> bool:
         return False
 
 
-def esc(s: str) -> str:
-    return (s or '').replace('<', '&lt;').replace('>', '&gt;')
+def esc(s) -> str:
+    return (str(s) if s is not None else '').replace('<', '&lt;').replace('>', '&gt;')
 
 
 def handler(event: dict, context) -> dict:
     '''
-    Business: Уведомление менеджеру о новой попытке брони — отправляется ДО оплаты,
-             чтобы менеджер мог связаться с клиентом, даже если оплата не прошла.
-    Args: event - dict с httpMethod, body (mother_name, phone, child_name, age, email, shift_id, shift_name, early_start)
+    Business: Уведомление менеджеру о бронировании или брошенной форме.
+             stage="submit" — родитель нажал "Оплатить", форма прошла валидацию.
+             stage="abandoned" — родитель открыл форму, что-то заполнил и закрыл.
+    Args: event - dict с httpMethod, body
           context - объект с request_id
     Returns: HTTP response со статусом отправки
     '''
@@ -85,12 +86,60 @@ def handler(event: dict, context) -> dict:
     early_start = bool(body.get('early_start'))
     stage = (body.get('stage') or 'submit').strip()
 
-    if not mother_name or not phone:
-        return {
-            'statusCode': 400,
-            'headers': {'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'error': 'mother_name and phone required'}),
-        }
+    is_abandoned = stage == 'abandoned'
+
+    if is_abandoned:
+        if not any([mother_name, phone, child_name, age, email, shift_id]):
+            return {
+                'statusCode': 400,
+                'headers': {'Access-Control-Allow-Origin': '*'},
+                'body': json.dumps({'error': 'Empty form, nothing to notify'}),
+            }
+    else:
+        if not mother_name or not phone:
+            return {
+                'statusCode': 400,
+                'headers': {'Access-Control-Allow-Origin': '*'},
+                'body': json.dumps({'error': 'mother_name and phone required'}),
+            }
+
+    if is_abandoned:
+        stage_label = '⚠️ Не дошёл до оплаты — заполнял форму, но закрыл'
+        header_bg = 'linear-gradient(135deg,#FF9A56 0%,#FFB347 50%,#FFD93D 100%)'
+        title_text = '⚠️ Брошенная форма брони'
+        subject = f'⚠️ Брошенная форма: {mother_name or "(имя не указано)"} — смена №{shift_id or "?"}'
+        footer_hint = (
+            '💡 Клиент заинтересовался, но не закончил оформление. '
+            'Если есть телефон — позвоните: скорее всего, остался вопрос или сомнение, '
+            'которое легко закрыть и довести его до оплаты.'
+        )
+    else:
+        stage_label = '💳 Перешли к оплате'
+        header_bg = 'linear-gradient(135deg,#FF3D8B 0%,#FF9A56 50%,#FFD93D 100%)'
+        title_text = '🎉 Новая бронь — Рыбка Долли'
+        subject = f'🎉 Новая бронь: {mother_name} — смена №{shift_id}'
+        footer_hint = (
+            '💡 Свяжитесь с клиентом по телефону, даже если оплата не прошла — '
+            'это поможет не потерять заявку.'
+        )
+
+    def cell(label: str, value: str, link: str = '') -> str:
+        is_empty = not value or value in ('(не указано)', '—')
+        display = link if link and not is_empty else esc(value or '—')
+        bg = ';background:#FFF5EE' if is_empty and is_abandoned else ''
+        return (
+            f'<tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;width:42%{bg};"><b>{label}</b></td>'
+            f'<td style="padding:10px 14px;border-bottom:1px solid #FFE5D9{bg};">{display}</td></tr>'
+        )
+
+    phone_link = (
+        f'<a href="tel:{esc(phone)}" style="color:#FF5E1A;font-weight:bold;text-decoration:none;">{esc(phone)}</a>'
+        if phone else ''
+    )
+    email_link = (
+        f'<a href="mailto:{esc(email)}" style="color:#FF5E1A;">{esc(email)}</a>'
+        if email else ''
+    )
 
     early_html = ''
     if early_start:
@@ -102,43 +151,42 @@ def handler(event: dict, context) -> dict:
             '</td></tr>'
         )
 
-    stage_label = '💳 Перешли к оплате' if stage == 'submit' else '⚠️ Открыли форму'
+    child_value = ''
+    if child_name or age:
+        child_value = f'{esc(child_name) or "—"}, {esc(age) or "?"} лет'
+
+    shift_value = ''
+    if shift_id:
+        shift_value = f'№{esc(shift_id)} — {esc(shift_name)}'
+
+    rows = (
+        cell('Мама:', mother_name)
+        + cell('Телефон:', phone, phone_link)
+        + cell('Email:', email, email_link)
+        + cell('Ребёнок:', child_value)
+        + cell('Смена:', shift_value)
+        + early_html
+    )
 
     html = f"""
     <div style="font-family:Arial,sans-serif;max-width:620px;margin:0 auto;padding:20px;background:#FFF8F0;border-radius:12px;">
-      <div style="background:linear-gradient(135deg,#FF3D8B 0%,#FF9A56 50%,#FFD93D 100%);padding:18px;border-radius:10px;margin-bottom:16px;text-align:center;">
+      <div style="background:{header_bg};padding:18px;border-radius:10px;margin-bottom:16px;text-align:center;">
         <h2 style="color:white;margin:0;font-size:22px;text-shadow:0 1px 2px rgba(0,0,0,0.2);">
-          🎉 Новая бронь — Рыбка Долли
+          {title_text}
         </h2>
         <div style="color:white;font-size:13px;margin-top:6px;opacity:0.95;">{stage_label}</div>
       </div>
       <table style="width:100%;border-collapse:collapse;background:white;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
-        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;width:42%;"><b>Мама:</b></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">{esc(mother_name)}</td></tr>
-        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Телефон:</b></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">
-              <a href="tel:{esc(phone)}" style="color:#FF5E1A;font-weight:bold;text-decoration:none;">{esc(phone)}</a>
-            </td></tr>
-        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Email:</b></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">
-              <a href="mailto:{esc(email)}" style="color:#FF5E1A;">{esc(email) or '—'}</a>
-            </td></tr>
-        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Ребёнок:</b></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">{esc(child_name)}, {esc(age)} лет</td></tr>
-        <tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;"><b>Смена:</b></td>
-            <td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;">№{shift_id} — {esc(shift_name)}</td></tr>
-        {early_html}
+        {rows}
       </table>
-      <p style="color:#777;font-size:13px;margin-top:14px;line-height:1.5;">
-        💡 Свяжитесь с клиентом по телефону, даже если оплата не прошла — это поможет не потерять заявку.
-      </p>
+      <p style="color:#777;font-size:13px;margin-top:14px;line-height:1.5;">{footer_hint}</p>
     </div>
     """
 
     admin = os.environ.get('NOTIFICATION_EMAIL')
     sent = False
     if admin:
-        sent = send_email_to(admin, f'🎉 Новая бронь: {mother_name} — смена №{shift_id}', html)
+        sent = send_email_to(admin, subject, html)
 
     return {
         'statusCode': 200,
@@ -146,5 +194,5 @@ def handler(event: dict, context) -> dict:
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
         },
-        'body': json.dumps({'ok': True, 'email_sent': sent}),
+        'body': json.dumps({'ok': True, 'email_sent': sent, 'stage': stage}),
     }

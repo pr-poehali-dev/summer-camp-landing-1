@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SHIFTS } from "./CampData";
 import { ymGoal, ecommerceAddToCart } from "@/lib/ymGoal";
 
@@ -37,6 +37,30 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
   const [earlyStart, setEarlyStart] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittedRef = useRef(false);
+  const openedAtRef = useRef<number>(0);
+  const formSnapshotRef = useRef({
+    motherName: "",
+    phone: "",
+    childName: "",
+    age: "",
+    email: "",
+    shiftId: null as number | null,
+    earlyStart: false,
+  });
+  const abandonNotifiedRef = useRef(false);
+
+  useEffect(() => {
+    formSnapshotRef.current = {
+      motherName,
+      phone,
+      childName,
+      age,
+      email,
+      shiftId,
+      earlyStart,
+    };
+  }, [motherName, phone, childName, age, email, shiftId, earlyStart]);
 
   useEffect(() => {
     if (defaultShiftId) setShiftId(defaultShiftId);
@@ -62,6 +86,51 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     onError: (err) => alert("Ошибка оплаты: " + err.message),
   });
 
+  const sendAbandonNotification = () => {
+    if (abandonNotifiedRef.current || submittedRef.current) return;
+    const elapsed = Date.now() - openedAtRef.current;
+    if (elapsed < 30000) return;
+    const snap = formSnapshotRef.current;
+    const filledCount = [
+      snap.motherName,
+      snap.phone,
+      snap.childName,
+      snap.age,
+      snap.email,
+    ].filter((v) => v && v.trim().length > 0).length;
+    if (filledCount === 0 && !snap.shiftId) return;
+    abandonNotifiedRef.current = true;
+    const shift = SHIFTS.find((s) => s.id === snap.shiftId);
+    try {
+      const url = func2url["booking-notify"];
+      const body = JSON.stringify({
+        mother_name: snap.motherName || "(не указано)",
+        phone: snap.phone || "(не указано)",
+        child_name: snap.childName,
+        age: snap.age,
+        email: snap.email,
+        shift_id: snap.shiftId,
+        shift_name: shift?.name ?? "",
+        early_start: snap.earlyStart,
+        stage: "abandoned",
+      });
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], { type: "application/json" });
+        navigator.sendBeacon(url, blob);
+      } else {
+        fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body,
+          keepalive: true,
+        }).catch(() => {});
+      }
+      ymGoal("reserve_form_abandoned", { shift_id: snap.shiftId, filled: filledCount });
+    } catch {
+      /* noop */
+    }
+  };
+
   useEffect(() => {
     if (!open) {
       if (window.location.hash === "#book") {
@@ -69,15 +138,27 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
       }
       return;
     }
+    submittedRef.current = false;
+    abandonNotifiedRef.current = false;
+    openedAtRef.current = Date.now();
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
+    const onBeforeUnload = () => sendAbandonNotification();
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") sendAbandonNotification();
+    };
     window.addEventListener("keydown", onKey);
+    window.addEventListener("beforeunload", onBeforeUnload);
+    document.addEventListener("visibilitychange", onVisibility);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      document.removeEventListener("visibilitychange", onVisibility);
+      sendAbandonNotification();
     };
   }, [open]);
 
@@ -102,6 +183,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     }
     setErrors({});
     setIsSubmitting(true);
+    submittedRef.current = true;
     ymGoal("reserve_pay_submit", { shift_id: shiftId });
     try {
       const shift = SHIFTS.find((s) => s.id === shiftId);

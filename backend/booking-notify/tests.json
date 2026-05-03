@@ -22,14 +22,40 @@
         "stage": "submit"
       },
       "expectedStatus": 200,
-      "expectedBody": {"ok": true},
+      "expectedBody": {"ok": true, "stage": "submit"},
       "bodyMatcher": "partial"
     },
     {
-      "name": "Reject when no name",
+      "name": "Notify abandoned form (partial fill)",
       "method": "POST",
       "path": "/",
-      "body": {"phone": "+79991234567"},
+      "body": {
+        "mother_name": "Ольга",
+        "phone": "+7 (999) 555-44-33",
+        "child_name": "",
+        "age": "",
+        "email": "",
+        "shift_id": 1,
+        "shift_name": "Сундук со сказками",
+        "early_start": false,
+        "stage": "abandoned"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true, "stage": "abandoned"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject submit when no name",
+      "method": "POST",
+      "path": "/",
+      "body": {"phone": "+79991234567", "stage": "submit"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Reject empty abandoned form",
+      "method": "POST",
+      "path": "/",
+      "body": {"stage": "abandoned"},
       "expectedStatus": 400
     }
   ]
