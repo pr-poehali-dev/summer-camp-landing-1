@@ -12,6 +12,7 @@ export default function CampTeamCards() {
             alt="Наталья Петровна — главный вожатый летнего клуба для детей в Керчи"
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
           />
           <div
             className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-black text-white"
@@ -63,6 +64,7 @@ export default function CampTeamCards() {
             alt="Ирина Павловна — вожатая-исследователь городского клуба Рыбка Долли в Керчи"
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
           />
           <div
             className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-black text-white"

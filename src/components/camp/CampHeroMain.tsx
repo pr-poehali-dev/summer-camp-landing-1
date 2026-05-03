@@ -23,6 +23,9 @@ export default function CampHeroMain({ countdown, scrollToBooking }: CampHeroMai
             <img
               src="https://cdn.poehali.dev/projects/2b4c2b75-58ba-4ecb-8368-ef9eaf1417bb/bucket/9b990763-8f65-44b0-a17c-bc2d40ad3847.jpg"
               alt="Дети на море в летнем клубе Рыбка Долли Керчь"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               style={{position:"absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", background:"transparent"}}
             />
           </div>

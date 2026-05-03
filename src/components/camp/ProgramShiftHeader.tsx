@@ -58,6 +58,8 @@ export default function ProgramShiftHeader({
           <img
             src={shift.iconUrl}
             alt={`Программа смены «${shift.name}» городского клуба Рыбка Долли в Керчи`}
+            loading="lazy"
+            decoding="async"
             className="shift-icon w-20 h-20 md:w-24 md:h-24 flex-shrink-0 object-contain"
             style={{filter:"drop-shadow(0 4px 10px rgba(0,0,0,0.35))"}}
           />

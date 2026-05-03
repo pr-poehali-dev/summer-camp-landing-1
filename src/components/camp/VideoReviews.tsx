@@ -48,6 +48,8 @@ export default function VideoReviews() {
                 <img
                   src={POSTER}
                   alt={`Видеоотзыв ребёнка ${v.name} о летнем клубе Рыбка Долли в Керчи`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div
