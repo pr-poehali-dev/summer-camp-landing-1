@@ -1,30 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { SHIFTS } from "./CampData";
 import { ymGoal, ecommerceAddToCart } from "@/lib/ymGoal";
-
-interface ReserveCTAProps {
-  defaultShiftId?: number | null;
-}
-
-const SHIFT_ACCUSATIVE: Record<number, string> = {
-  1: "«Сундук со сказками»",
-  2: "«Вкусные открытия»",
-  3: "«Мульти-драйв»",
-  4: "«Поколение АЛЬФА»",
-  5: "«Есть ли жизнь на Марсе?»",
-  6: "«Кругосветку»",
-  7: "«Лабораторию чудес»",
-};
 import {
   useRobokassa,
   openPaymentPage,
-  formatPhoneNumber,
   isValidEmail,
   isValidPhone,
 } from "@/components/extensions/robokassa/useRobokassa";
 import func2url from "../../../backend/func2url.json";
+import { RESERVATION_AMOUNT } from "./reserveCTAUtils";
+import ReserveButton from "./ReserveButton";
+import ReserveModalForm from "./ReserveModalForm";
 
-const RESERVATION_AMOUNT = 1000;
+interface ReserveCTAProps {
+  defaultShiftId?: number | null;
+}
 
 export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = {}) {
   const [open, setOpen] = useState(false);
@@ -78,8 +68,6 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     window.addEventListener("hashchange", openByHash);
     return () => window.removeEventListener("hashchange", openByHash);
   }, [defaultShiftId]);
-
-  const ctaShiftName = defaultShiftId ? SHIFT_ACCUSATIVE[defaultShiftId] : null;
 
   const { createPayment } = useRobokassa({
     apiUrl: func2url["robokassa-robokassa"],
@@ -258,268 +246,30 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
 
   return (
     <>
-      <div className="mt-3 flex flex-col items-center">
-        <button
-          onClick={() => { ymGoal("reserve_cta_click", { shift_id: defaultShiftId ?? null }); setOpen(true); }}
-          className="rainbow-cta group relative font-black text-white px-5 md:px-8 py-3 md:py-4 rounded-2xl text-sm md:text-base transition-transform hover:scale-[1.03] active:scale-[0.98] w-full max-w-md"
-          style={{
-            background:
-              "linear-gradient(90deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7, #6C5CE7, #FF3D8B)",
-            backgroundSize: "300% 100%",
-            boxShadow:
-              "0 6px 0 rgba(204,63,11,0.4), 0 10px 24px rgba(255,94,26,0.4), 0 2px 0 rgba(255,255,255,0.3) inset",
-            letterSpacing: "0.01em",
-            lineHeight: 1.2,
-          }}
-        >
-          <span className="inline-flex items-center gap-2 justify-center flex-wrap">
-            <span className="text-lg">🎉</span>
-            <span>{ctaShiftName ? `Забронировать ${ctaShiftName} — место будет ваше` : "Оплати — и место в смене гарантированно ваше"}</span>
-          </span>
-        </button>
-        <p className="text-xs md:text-sm mt-2 font-semibold text-center" style={{ color: "rgba(61,61,61,0.65)" }}>
-          Предоплата брони — всего 1 000 ₽ · остаток оплачиваете в первый день смены
-        </p>
-      </div>
+      <ReserveButton defaultShiftId={defaultShiftId} onClick={() => setOpen(true)} />
 
       {open && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          style={{ background: "rgba(30,20,10,0.55)", backdropFilter: "blur(4px)" }}
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-lg rounded-3xl bg-white overflow-hidden max-h-[92vh] overflow-y-auto"
-            style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div
-              className="px-5 py-4 md:px-6 md:py-5 text-white relative"
-              style={{
-                background:
-                  "linear-gradient(135deg, #FF3D8B 0%, #FF9A56 50%, #FFD93D 100%)",
-              }}
-            >
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/25 hover:bg-white/40 transition-colors flex items-center justify-center text-white font-black text-xl"
-                aria-label="Закрыть"
-              >
-                ×
-              </button>
-              <div className="font-black text-xl md:text-2xl leading-tight pr-10" style={{ fontFamily: "'Baloo 2', cursive" }}>
-                🎉 Бронирование места
-              </div>
-              <div className="text-sm md:text-base mt-1 text-white/90 font-semibold">
-                Предоплата {RESERVATION_AMOUNT.toLocaleString("ru-RU")} ₽ — остаток оплачиваете в первый день смены
-              </div>
-            </div>
-
-            <form onSubmit={submit} className="p-5 md:p-6 space-y-3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <Field
-                  label="Имя мамы"
-                  required
-                  error={errors.motherName}
-                  value={motherName}
-                  onChange={setMotherName}
-                  placeholder="Анна"
-                />
-                <Field
-                  label="Телефон"
-                  required
-                  error={errors.phone}
-                  value={phone}
-                  onChange={(v) => setPhone(formatPhoneNumber(v))}
-                  placeholder="+7 (___) ___-__-__"
-                  inputMode="tel"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <Field
-                  label="Имя ребёнка"
-                  required
-                  error={errors.childName}
-                  value={childName}
-                  onChange={setChildName}
-                  placeholder="Миша"
-                />
-                <Field
-                  label="Возраст"
-                  required
-                  error={errors.age}
-                  value={age}
-                  onChange={setAge}
-                  placeholder="9"
-                  inputMode="numeric"
-                />
-              </div>
-
-              <Field
-                label="Email (для копии чека)"
-                required
-                error={errors.email}
-                value={email}
-                onChange={setEmail}
-                placeholder="mama@example.com"
-                inputMode="email"
-              />
-
-              <div>
-                <label className="text-sm font-bold block mb-2" style={{ color: "#3D3D3D" }}>
-                  Выберите смену <span style={{ color: "#FF3D8B" }}>*</span>
-                </label>
-                <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
-                  {SHIFTS.map((s) => {
-                    const active = shiftId === s.id;
-                    return (
-                      <button
-                        key={s.id}
-                        type="button"
-                        onClick={() => setShiftId(s.id)}
-                        className="aspect-square rounded-xl font-black text-lg transition-transform hover:scale-105"
-                        style={{
-                          background: active
-                            ? "linear-gradient(135deg,#FF3D8B,#FF9A56)"
-                            : "#FFF8F0",
-                          color: active ? "white" : "#3D3D3D",
-                          border: active ? "2px solid #FF3D8B" : "2px solid #FFE5D9",
-                          boxShadow: active ? "0 6px 16px rgba(255,61,139,0.35)" : "none",
-                        }}
-                      >
-                        {s.id}
-                      </button>
-                    );
-                  })}
-                </div>
-                {errors.shift && (
-                  <p className="text-xs font-bold mt-1" style={{ color: "#E64D12" }}>
-                    {errors.shift}
-                  </p>
-                )}
-                <p className="text-xs mt-2" style={{ color: "rgba(61,61,61,0.6)" }}>
-                  Номера смен смотрите в блоке «Программа смен» выше
-                </p>
-              </div>
-
-              <label
-                className="flex items-start gap-3 rounded-2xl p-3 md:p-4 cursor-pointer transition-colors"
-                style={{
-                  background: earlyStart ? "#FFF1E2" : "#FFF8F0",
-                  border: earlyStart ? "2px solid #FF9A56" : "2px solid #FFE5D9",
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={earlyStart}
-                  onChange={(e) => setEarlyStart(e.target.checked)}
-                  className="mt-0.5 w-5 h-5 rounded accent-orange-500 flex-shrink-0 cursor-pointer"
-                />
-                <div className="flex-1">
-                  <div className="font-bold text-sm md:text-base flex items-center gap-2 flex-wrap" style={{ color: "#3D3D3D" }}>
-                    <span>🌅 Раннее посещение с 8:00</span>
-                    <span
-                      className="font-black px-2 py-0.5 rounded-lg text-white text-xs"
-                      style={{ background: "linear-gradient(90deg,#FF9A56,#FF5E1A)" }}
-                    >
-                      +3000 ₽
-                    </span>
-                  </div>
-                  <p className="text-xs mt-1" style={{ color: "rgba(61,61,61,0.7)" }}>
-                    Включён завтрак. Доплата за смену — оплачивается в первый день.
-                  </p>
-                </div>
-              </label>
-
-              <div
-                className="rounded-2xl p-3 md:p-4 flex items-center justify-between gap-3"
-                style={{ background: "#FFF8F0", border: "2px dashed #FF9A56" }}
-              >
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider" style={{ color: "#FF9A56" }}>
-                    К оплате сейчас
-                  </div>
-                  <div className="font-black text-2xl" style={{ color: "#3D3D3D" }}>
-                    {RESERVATION_AMOUNT.toLocaleString("ru-RU")} ₽
-                  </div>
-                </div>
-                <div className="text-xs text-right" style={{ color: "rgba(61,61,61,0.7)" }}>
-                  Только бронь места.
-                  <br />
-                  Полную стоимость оплачиваете
-                  <br />
-                  в первый день смены.
-                </div>
-              </div>
-
-              <p
-                className="text-[11px] md:text-xs leading-snug px-1"
-                style={{ color: "rgba(61,61,61,0.6)" }}
-              >
-                Кассовые чеки мы формируем на физической кассе в нашем центре — вы можете получить оригинал у нас в любое время или в первый день смены. Копию чека направим вам на email после оплаты.
-              </p>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full font-black text-white py-4 rounded-2xl text-base md:text-lg transition-transform hover:scale-[1.02] disabled:opacity-60"
-                style={{
-                  background:
-                    "linear-gradient(90deg,#00C9A7,#00A67E)",
-                  boxShadow: "0 6px 0 #008F78, 0 10px 25px rgba(0,201,167,0.4)",
-                }}
-              >
-                {isSubmitting ? "Переходим к оплате..." : `💳 Оплатить ${RESERVATION_AMOUNT.toLocaleString("ru-RU")} ₽ и забронировать`}
-              </button>
-
-              <p className="text-xs text-center" style={{ color: "rgba(61,61,61,0.55)" }}>
-                Оплата через Robokassa — безопасно. Нажимая «Оплатить», вы соглашаетесь с условиями оферты.
-              </p>
-            </form>
-          </div>
-        </div>
+        <ReserveModalForm
+          onClose={() => setOpen(false)}
+          onSubmit={submit}
+          motherName={motherName}
+          setMotherName={setMotherName}
+          phone={phone}
+          setPhone={setPhone}
+          childName={childName}
+          setChildName={setChildName}
+          age={age}
+          setAge={setAge}
+          email={email}
+          setEmail={setEmail}
+          shiftId={shiftId}
+          setShiftId={setShiftId}
+          earlyStart={earlyStart}
+          setEarlyStart={setEarlyStart}
+          errors={errors}
+          isSubmitting={isSubmitting}
+        />
       )}
     </>
-  );
-}
-
-function Field({
-  label,
-  value,
-  onChange,
-  placeholder,
-  error,
-  required,
-  inputMode,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
-  error?: string;
-  required?: boolean;
-  inputMode?: "text" | "tel" | "email" | "numeric";
-}) {
-  return (
-    <label className="block">
-      <span className="text-sm font-bold" style={{ color: "#3D3D3D" }}>
-        {label} {required && <span style={{ color: "#FF3D8B" }}>*</span>}
-      </span>
-      <input
-        type="text"
-        inputMode={inputMode}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="w-full mt-1 px-4 py-2.5 rounded-xl bg-white outline-none"
-        style={{ border: error ? "2px solid #E64D12" : "2px solid #FFE5D9" }}
-      />
-      {error && (
-        <span className="text-xs font-bold mt-1 block" style={{ color: "#E64D12" }}>
-          {error}
-        </span>
-      )}
-    </label>
   );
 }
