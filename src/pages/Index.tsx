@@ -1,20 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import CampHero from "@/components/camp/CampHero";
-import CampProgram from "@/components/camp/CampProgram";
-import CampTeam from "@/components/camp/CampTeam";
-import CampReviews from "@/components/camp/CampReviews";
-import CampBooking from "@/components/camp/CampBooking";
-import CampFooter from "@/components/camp/CampFooter";
-import SectionSchedule from "@/components/camp/SectionSchedule";
-import SectionSafety from "@/components/camp/SectionSafety";
-import SectionFood from "@/components/camp/SectionFood";
-import SectionForWhom from "@/components/camp/SectionForWhom";
-import SectionVideos from "@/components/camp/SectionVideos";
-import SectionDarkPromo from "@/components/camp/SectionDarkPromo";
-import SectionKidsReviews from "@/components/camp/SectionKidsReviews";
-import SectionFAQ from "@/components/camp/SectionFAQ";
-import SectionQuiz from "@/components/camp/SectionQuiz";
-import SectionLocation from "@/components/camp/SectionLocation";
+
+const CampProgram = lazy(() => import("@/components/camp/CampProgram"));
+const CampTeam = lazy(() => import("@/components/camp/CampTeam"));
+const CampReviews = lazy(() => import("@/components/camp/CampReviews"));
+const CampBooking = lazy(() => import("@/components/camp/CampBooking"));
+const CampFooter = lazy(() => import("@/components/camp/CampFooter"));
+const SectionSchedule = lazy(() => import("@/components/camp/SectionSchedule"));
+const SectionSafety = lazy(() => import("@/components/camp/SectionSafety"));
+const SectionFood = lazy(() => import("@/components/camp/SectionFood"));
+const SectionForWhom = lazy(() => import("@/components/camp/SectionForWhom"));
+const SectionVideos = lazy(() => import("@/components/camp/SectionVideos"));
+const SectionDarkPromo = lazy(() => import("@/components/camp/SectionDarkPromo"));
+const SectionKidsReviews = lazy(() => import("@/components/camp/SectionKidsReviews"));
+const SectionFAQ = lazy(() => import("@/components/camp/SectionFAQ"));
+const SectionQuiz = lazy(() => import("@/components/camp/SectionQuiz"));
+const SectionLocation = lazy(() => import("@/components/camp/SectionLocation"));
+
+const SectionFallback = () => (
+  <div className="py-16 px-4 flex items-center justify-center" style={{ background: "#FFF8F0" }}>
+    <div className="w-10 h-10 rounded-full border-4 border-orange-200 border-t-orange-500 animate-spin" />
+  </div>
+);
 
 export default function Index() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -78,49 +85,51 @@ export default function Index() {
       {/* 1. ПЕРВЫЙ ЭКРАН (Hero) */}
       <CampHero scrollToBooking={scrollToBooking} />
 
-      {/* 2. ПРОГРАММА СМЕН */}
-      <CampProgram
-        openAccordion={openAccordion}
-        setOpenAccordion={setOpenAccordion}
-        scrollToBooking={scrollToBooking}
-        setSelectedShift={setSelectedShift}
-      />
+      <Suspense fallback={<SectionFallback />}>
+        {/* 2. ПРОГРАММА СМЕН */}
+        <CampProgram
+          openAccordion={openAccordion}
+          setOpenAccordion={setOpenAccordion}
+          scrollToBooking={scrollToBooking}
+          setSelectedShift={setSelectedShift}
+        />
 
-      {/* 2.5 ПОМОЩЬ В ВЫБОРЕ (КВИЗ) */}
-      <SectionQuiz />
+        {/* 2.5 ПОМОЩЬ В ВЫБОРЕ (КВИЗ) */}
+        <SectionQuiz />
 
-      {/* 3. РАСПИСАНИЕ ДНЯ */}
-      <SectionSchedule />
+        {/* 3. РАСПИСАНИЕ ДНЯ */}
+        <SectionSchedule />
 
-      {/* 4. БЕЗОПАСНОСТЬ + ПИТАНИЕ */}
-      <SectionSafety />
-      <SectionFood />
+        {/* 4. БЕЗОПАСНОСТЬ + ПИТАНИЕ */}
+        <SectionSafety />
+        <SectionFood />
 
-      {/* 5. КОМАНДА */}
-      <CampTeam />
+        {/* 5. КОМАНДА */}
+        <CampTeam />
 
-      {/* 6. ЭТО ДЛЯ ВАС, ЕСЛИ... */}
-      <SectionForWhom />
+        {/* 6. ЭТО ДЛЯ ВАС, ЕСЛИ... */}
+        <SectionForWhom />
 
-      {/* 7. ФОТО/ВИДЕО ПРОШЛОГО ГОДА + промо-блок */}
-      <SectionVideos />
-      <SectionDarkPromo scrollToBooking={scrollToBooking} />
+        {/* 7. ФОТО/ВИДЕО ПРОШЛОГО ГОДА + промо-блок */}
+        <SectionVideos />
+        <SectionDarkPromo scrollToBooking={scrollToBooking} />
 
-      {/* 8. ОТЗЫВЫ ДЕТЕЙ + РОДИТЕЛЕЙ */}
-      <SectionKidsReviews />
-      <CampReviews />
+        {/* 8. ОТЗЫВЫ ДЕТЕЙ + РОДИТЕЛЕЙ */}
+        <SectionKidsReviews />
+        <CampReviews />
 
-      {/* 9. СТОИМОСТЬ И ОПЛАТА */}
-      <CampBooking bookingRef={bookingRef} selectedShift={selectedShift} />
+        {/* 9. СТОИМОСТЬ И ОПЛАТА */}
+        <CampBooking bookingRef={bookingRef} selectedShift={selectedShift} />
 
-      {/* 10. FAQ */}
-      <SectionFAQ />
+        {/* 10. FAQ */}
+        <SectionFAQ />
 
-      {/* 11. КАК НАС НАЙТИ */}
-      <SectionLocation />
+        {/* 11. КАК НАС НАЙТИ */}
+        <SectionLocation />
 
-      {/* 12. ПОДВАЛ */}
-      <CampFooter />
+        {/* 12. ПОДВАЛ */}
+        <CampFooter />
+      </Suspense>
     </div>
   );
 }
