@@ -1,0 +1,36 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Notify booking with early start",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "mother_name": "Анна Тест",
+        "phone": "+7 (999) 123-45-67",
+        "child_name": "Миша",
+        "age": "9",
+        "email": "test@example.com",
+        "shift_id": 3,
+        "shift_name": "Мульти-драйв",
+        "early_start": true,
+        "stage": "submit"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject when no name",
+      "method": "POST",
+      "path": "/",
+      "body": {"phone": "+79991234567"},
+      "expectedStatus": 400
+    }
+  ]
+}

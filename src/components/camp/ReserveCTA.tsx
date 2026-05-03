@@ -105,6 +105,26 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     ymGoal("reserve_pay_submit", { shift_id: shiftId });
     try {
       const shift = SHIFTS.find((s) => s.id === shiftId);
+      try {
+        fetch(func2url["booking-notify"], {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            mother_name: motherName,
+            phone,
+            child_name: childName,
+            age,
+            email: email.trim(),
+            shift_id: shiftId,
+            shift_name: shift?.name ?? "",
+            early_start: earlyStart,
+            stage: "submit",
+          }),
+          keepalive: true,
+        }).catch(() => {});
+      } catch {
+        /* noop */
+      }
       const productId = `reserve-shift-${shiftId}`;
       const productName = `Бронирование смены №${shiftId}${shift ? ` — ${shift.name}` : ""}`;
       ecommerceAddToCart([

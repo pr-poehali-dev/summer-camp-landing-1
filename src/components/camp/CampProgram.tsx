@@ -142,6 +142,11 @@ export default function CampProgram({
                   ) : (
                     <p className="text-sm italic" style={{color:"rgba(61,61,61,0.7)"}}>Подробная программа скоро появится. Следите за обновлениями в ВКонтакте!</p>
                   )}
+                  {shift.id === 1 && (
+                    <p className="mt-3 text-[10px] italic leading-snug" style={{color:"rgba(61,61,61,0.55)"}}>
+                      * блюда могут быть изменены в зависимости от возраста детей и приоритетов центра
+                    </p>
+                  )}
                   <button
                     onClick={() => {
                       ymGoal("shift_book_click", { shift_id: shift.id, shift_name: shift.name });
