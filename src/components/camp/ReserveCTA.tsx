@@ -34,6 +34,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [shiftId, setShiftId] = useState<number | null>(defaultShiftId);
+  const [earlyStart, setEarlyStart] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -121,7 +122,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
         userName: motherName,
         userEmail: email.trim(),
         userPhone: phone,
-        orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.`,
+        orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.${earlyStart ? " ДОП. ОПЦИЯ: раннее посещение с 8:00 (+3000 ₽ с завтраком, оплата в первый день)." : ""}`,
         cartItems: [
           {
             id: `reserve-${shiftId}`,
@@ -299,6 +300,35 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
                   Номера смен смотрите в блоке «Программа смен» выше
                 </p>
               </div>
+
+              <label
+                className="flex items-start gap-3 rounded-2xl p-3 md:p-4 cursor-pointer transition-colors"
+                style={{
+                  background: earlyStart ? "#FFF1E2" : "#FFF8F0",
+                  border: earlyStart ? "2px solid #FF9A56" : "2px solid #FFE5D9",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={earlyStart}
+                  onChange={(e) => setEarlyStart(e.target.checked)}
+                  className="mt-0.5 w-5 h-5 rounded accent-orange-500 flex-shrink-0 cursor-pointer"
+                />
+                <div className="flex-1">
+                  <div className="font-bold text-sm md:text-base flex items-center gap-2 flex-wrap" style={{ color: "#3D3D3D" }}>
+                    <span>🌅 Раннее посещение с 8:00</span>
+                    <span
+                      className="font-black px-2 py-0.5 rounded-lg text-white text-xs"
+                      style={{ background: "linear-gradient(90deg,#FF9A56,#FF5E1A)" }}
+                    >
+                      +3000 ₽
+                    </span>
+                  </div>
+                  <p className="text-xs mt-1" style={{ color: "rgba(61,61,61,0.7)" }}>
+                    Включён завтрак. Доплата за смену — оплачивается в первый день.
+                  </p>
+                </div>
+              </label>
 
               <div
                 className="rounded-2xl p-3 md:p-4 flex items-center justify-between gap-3"
