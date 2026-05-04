@@ -38,7 +38,7 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
           <span style={{fontSize:"1.25rem"}}>⏰</span>
           <div style={{display:"flex", flexDirection:"column", lineHeight:1.1}}>
             <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem", textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>АКЦИЯ ДО 15 МАЯ</span>
-            <span style={{color:"#fff", fontSize:"0.7rem", fontWeight:700, textShadow:"0 1px 0 rgba(204,106,0,0.7), 0 2px 4px rgba(92,46,0,0.4)"}}>Скидка −12% на первую бронь</span>
+            <span style={{color:"#fff", fontSize:"0.7rem", fontWeight:700, textShadow:"0 1px 0 rgba(204,106,0,0.7), 0 2px 4px rgba(92,46,0,0.4)"}}>Скидка 12% сохраняется всё лето при брони от 2 смен</span>
           </div>
         </div>
         <span style={{
