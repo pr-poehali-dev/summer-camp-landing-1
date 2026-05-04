@@ -1,10 +1,11 @@
 import { ymGoal } from "@/lib/ymGoal";
+import { openReserveModal } from "./reserveCTAUtils";
 
 interface Props {
   scrollToBooking: () => void;
 }
 
-export default function SectionDarkPromo({ scrollToBooking }: Props) {
+export default function SectionDarkPromo({ scrollToBooking: _scrollToBooking }: Props) {
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       <div className="absolute inset-0" style={{background:"linear-gradient(135deg, #3D3D3D 0%, #1a1a1a 100%)"}} />
@@ -29,7 +30,7 @@ export default function SectionDarkPromo({ scrollToBooking }: Props) {
         <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 font-semibold">
           Лето 2026 в Керчи — это море, песок, изумрудная трава и столько радости, что хватит на весь год!
         </p>
-        <button onClick={() => { ymGoal("dark_promo_book_click"); scrollToBooking(); }} className="btn-cta text-base px-7 py-3">
+        <button onClick={() => { ymGoal("dark_promo_book_click"); openReserveModal(); }} className="btn-cta text-base px-7 py-3">
           🌊 Забронировать место на лето
         </button>
       </div>

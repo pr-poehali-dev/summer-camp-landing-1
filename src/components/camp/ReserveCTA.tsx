@@ -8,7 +8,7 @@ import {
   isValidPhone,
 } from "@/components/extensions/robokassa/useRobokassa";
 import func2url from "../../../backend/func2url.json";
-import { RESERVATION_AMOUNT } from "./reserveCTAUtils";
+import { RESERVATION_AMOUNT, RESERVE_OPEN_EVENT } from "./reserveCTAUtils";
 import ReserveButton from "./ReserveButton";
 import ReserveModalForm from "./ReserveModalForm";
 
@@ -66,8 +66,19 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
       }
     };
     openByHash();
+    const onOpenEvent = (e: Event) => {
+      const ce = e as CustomEvent<{ shiftId?: number | null }>;
+      const sid = ce?.detail?.shiftId ?? null;
+      if (sid) setShiftId(sid);
+      setOpen(true);
+      ymGoal("reserve_cta_click", { shift_id: sid ?? defaultShiftId ?? null, source: "event" });
+    };
     window.addEventListener("hashchange", openByHash);
-    return () => window.removeEventListener("hashchange", openByHash);
+    window.addEventListener(RESERVE_OPEN_EVENT, onOpenEvent as EventListener);
+    return () => {
+      window.removeEventListener("hashchange", openByHash);
+      window.removeEventListener(RESERVE_OPEN_EVENT, onOpenEvent as EventListener);
+    };
   }, [defaultShiftId]);
 
   const { createPayment } = useRobokassa({

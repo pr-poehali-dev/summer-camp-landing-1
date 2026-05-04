@@ -10,6 +10,17 @@ export const SHIFT_ACCUSATIVE: Record<number, string> = {
 
 export const RESERVATION_AMOUNT = 1000;
 
+export const RESERVE_OPEN_EVENT = "reserve:open";
+
+export function openReserveModal(shiftId?: number | null) {
+  if (typeof window === "undefined") return;
+  const target = document.getElementById("tseny");
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.dispatchEvent(
+    new CustomEvent(RESERVE_OPEN_EVENT, { detail: { shiftId: shiftId ?? null } }),
+  );
+}
+
 export function Field({
   label,
   value,

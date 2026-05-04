@@ -1,5 +1,6 @@
 import { SHIFTS } from "./CampData";
 import { ymGoal } from "@/lib/ymGoal";
+import { openReserveModal } from "./reserveCTAUtils";
 
 type Shift = (typeof SHIFTS)[number];
 
@@ -65,7 +66,7 @@ export default function ProgramShiftBody({
         onClick={() => {
           ymGoal("shift_book_click", { shift_id: shift.id, shift_name: shift.name });
           setSelectedShift(shift.id);
-          scrollToBooking();
+          openReserveModal(shift.id);
         }}
         className="mt-4 font-bold px-5 py-2.5 rounded-xl text-sm text-white transition-all hover:scale-105"
         style={isTeen ? {background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", boxShadow:"0 6px 18px rgba(108,92,231,0.45)"} : isShort ? {background:"linear-gradient(90deg,#00C9A7,#0094C6,#FFD93D)", boxShadow:"0 6px 18px rgba(0,201,167,0.45)"} : {background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
