@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import CampHero from "@/components/camp/CampHero";
+import FloatingBookButton from "@/components/camp/FloatingBookButton";
 
 const CampProgram = lazy(() => import("@/components/camp/CampProgram"));
 const CampTeam = lazy(() => import("@/components/camp/CampTeam"));
@@ -130,6 +131,8 @@ export default function Index() {
         {/* 12. ПОДВАЛ */}
         <CampFooter />
       </Suspense>
+
+      <FloatingBookButton />
     </div>
   );
 }
