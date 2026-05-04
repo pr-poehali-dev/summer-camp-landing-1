@@ -85,7 +85,7 @@ export default function ProgramShiftHeader({
             </div>
           )}
           <div className="text-lg md:text-xl" style={(isTeen || isShort) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
-          <div className="text-sm font-semibold" style={(isTeen || isShort) ? {color:"rgba(255,255,255,0.9)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age} · Осталось {shift.spots} мест{isShort ? " · 7 000 ₽" : ""}</div>
+          <div className="text-sm font-semibold" style={(isTeen || isShort) ? {color:"rgba(255,255,255,0.9)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age}{isShort ? " · 7 000 ₽" : ""}</div>
         </div>
       </div>
       <Icon name={openAccordion === shift.id ? "ChevronUp" : "ChevronDown"} size={22} />
