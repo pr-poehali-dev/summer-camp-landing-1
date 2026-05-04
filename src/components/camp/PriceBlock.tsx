@@ -101,6 +101,25 @@ export default function PriceBlock({
         ))}
       </div>
 
+      <div
+        className="max-w-2xl mx-auto mt-4 mb-2 rounded-2xl px-4 py-3 flex items-center gap-3 text-left"
+        style={{
+          background: "linear-gradient(135deg, #FFF4D6 0%, #FFE0B3 100%)",
+          border: "2px dashed #FF9A56",
+          boxShadow: "0 6px 18px rgba(255,154,86,0.18)",
+        }}
+      >
+        <span className="text-2xl md:text-3xl flex-shrink-0">🎁</span>
+        <div className="min-w-0">
+          <div className="font-black text-sm md:text-base" style={{ color: "#5C2E00" }}>
+            Бронируете 2 смены и больше?
+          </div>
+          <div className="text-xs md:text-sm font-semibold" style={{ color: "rgba(92,46,0,0.85)" }}>
+            Скидка <b>12%</b> сохраняется на каждую смену — всё лето, даже после 15 мая.
+          </div>
+        </div>
+      </div>
+
       {afterDiscount && (
         <div className="mt-6 mb-4">
           <p className="font-bold mb-3" style={{ color: "#FF9A56" }}>
