@@ -1,0 +1,2 @@
+ALTER TABLE t_p26412149_summer_camp_landing_.reviews ADD COLUMN IF NOT EXISTS is_pinned boolean NOT NULL DEFAULT false;
+UPDATE t_p26412149_summer_camp_landing_.reviews SET created_at = '2026-05-05 12:00:00', is_pinned = true WHERE id = 6;

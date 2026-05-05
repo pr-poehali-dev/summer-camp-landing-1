@@ -33,7 +33,7 @@ def handler(event: dict, context) -> dict:
                 cur.execute(
                     "SELECT id, parent_name, child_name, rating, text, created_at "
                     "FROM reviews WHERE status = 'approved' "
-                    "ORDER BY created_at DESC LIMIT 50"
+                    "ORDER BY is_pinned DESC, created_at DESC LIMIT 50"
                 )
                 rows = cur.fetchall()
         finally:
