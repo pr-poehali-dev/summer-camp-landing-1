@@ -31,7 +31,7 @@ def handler(event: dict, context) -> dict:
         try:
             with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
                 cur.execute(
-                    "SELECT id, parent_name, child_name, rating, text, created_at "
+                    "SELECT id, parent_name, child_name, rating, text, created_at, is_pinned "
                     "FROM reviews WHERE status = 'approved' "
                     "ORDER BY is_pinned DESC, created_at DESC LIMIT 50"
                 )
@@ -47,6 +47,7 @@ def handler(event: dict, context) -> dict:
                 'rating': r['rating'],
                 'text': r['text'],
                 'created_at': r['created_at'].isoformat() if r['created_at'] else None,
+                'is_pinned': bool(r.get('is_pinned')),
             })
         return {
             'statusCode': 200,

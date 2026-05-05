@@ -7,6 +7,7 @@ export interface Review {
   rating: number;
   text: string;
   created_at: string | null;
+  is_pinned?: boolean;
 }
 
 interface ReviewsListProps {
@@ -67,8 +68,31 @@ export default function ReviewsList({ items, loading, onOpenForm }: ReviewsListP
             <article
               key={r.id}
               className="rounded-3xl p-6 bg-white relative"
-              style={{ border: "2px solid #FFE5D9", boxShadow: "0 8px 24px rgba(255,154,86,0.12)" }}
+              style={
+                r.is_pinned
+                  ? {
+                      border: "3px solid transparent",
+                      backgroundImage:
+                        "linear-gradient(white, white), linear-gradient(135deg, #FF3D8B, #FF9A56, #FFD93D, #00C9A7)",
+                      backgroundOrigin: "border-box",
+                      backgroundClip: "padding-box, border-box",
+                      boxShadow: "0 12px 32px rgba(255,61,139,0.18)",
+                    }
+                  : { border: "2px solid #FFE5D9", boxShadow: "0 8px 24px rgba(255,154,86,0.12)" }
+              }
             >
+              {r.is_pinned && (
+                <div
+                  className="absolute -top-3 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black text-white whitespace-nowrap"
+                  style={{
+                    background: "linear-gradient(90deg,#FF3D8B,#FF9A56)",
+                    boxShadow: "0 4px 12px rgba(255,61,139,0.35)",
+                    letterSpacing: "0.3px",
+                  }}
+                >
+                  💛 Постоянный родитель · 3-й год с нами
+                </div>
+              )}
               <div className="absolute -top-3 -left-2 text-5xl select-none" style={{ color: "#FF9A56", opacity: 0.25 }}>
                 ❝
               </div>
