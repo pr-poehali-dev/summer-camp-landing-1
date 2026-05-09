@@ -18,12 +18,12 @@ export default function CampHeroTopBar() {
           <span className="font-black text-white leading-tight whitespace-nowrap" style={{fontFamily:"'Nunito', sans-serif", fontSize:"clamp(0.95rem, 3.5vw, 1.25rem)"}}>Рыбка Долли</span>
           {showVictory && (
             <span
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-black text-[11px] md:text-xs whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 font-black text-sm md:text-base whitespace-nowrap"
               style={{
                 background: "linear-gradient(90deg,#C0392B,#E74C3C,#FFD93D)",
                 color: "#fff",
-                border: "1.5px solid #FFD93D",
-                boxShadow: "0 2px 8px rgba(192,57,43,0.4)",
+                border: "2px solid #FFD93D",
+                boxShadow: "0 3px 10px rgba(192,57,43,0.45)",
                 fontFamily: "'Nunito', sans-serif",
               }}
               title="9 мая — День Победы"
@@ -35,16 +35,16 @@ export default function CampHeroTopBar() {
           )}
           {showVictory && (
             <span
-              className="sm:hidden inline-flex items-center justify-center rounded-full px-2 py-0.5 font-black text-[10px] whitespace-nowrap"
+              className="sm:hidden inline-flex items-center justify-center gap-1 rounded-full px-2.5 py-1 font-black text-xs whitespace-nowrap"
               style={{
                 background: "linear-gradient(90deg,#C0392B,#E74C3C,#FFD93D)",
                 color: "#fff",
-                border: "1px solid #FFD93D",
+                border: "1.5px solid #FFD93D",
                 fontFamily: "'Nunito', sans-serif",
               }}
               title="9 мая — День Победы, 81 год"
             >
-              81 🕊
+              81 год 🕊
             </span>
           )}
         </div>
