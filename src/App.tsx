@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFail from "./pages/PaymentFail";
 import Admin from "./pages/Admin";
+import QuickLink from "./pages/QuickLink";
 import CookieBanner from "./components/camp/CookieBanner";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/zabronirovat" element={<QuickLink target="tseny" />} />
+          <Route path="/kviz" element={<QuickLink target="kviz" />} />
+          <Route path="/zvonok" element={<QuickLink target="call" />} />
           <Route path="/oferta" element={<Oferta />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
