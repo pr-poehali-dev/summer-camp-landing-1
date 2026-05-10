@@ -49,6 +49,23 @@ export default function Index() {
   }, []);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const go = params.get("go");
+    if (!go) return;
+    const targetId = go === "tseny" ? "tseny" : go === "kviz" ? "kviz" : go === "call" ? "call" : null;
+    if (!targetId) return;
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", `#${targetId}`);
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      }
+    }, 400);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
     const highlight = (hash: string) => {
       if (!hash) return;
       const id = hash.replace(/^#/, "");
