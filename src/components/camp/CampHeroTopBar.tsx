@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 import { ymGoal } from "@/lib/ymGoal";
 
@@ -11,6 +12,19 @@ function isVictoryPeriod(): boolean {
 
 export default function CampHeroTopBar() {
   const showVictory = isVictoryPeriod();
+  const [highlightCall, setHighlightCall] = useState(false);
+
+  useEffect(() => {
+    const trigger = () => {
+      if (window.location.hash === "#call") {
+        setHighlightCall(true);
+        window.setTimeout(() => setHighlightCall(false), 2600);
+      }
+    };
+    trigger();
+    window.addEventListener("hashchange", trigger);
+    return () => window.removeEventListener("hashchange", trigger);
+  }, []);
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md shadow-sm" style={{background: "rgba(255,154,86,0.97)"}}>
       <div className="max-w-5xl mx-auto px-3 md:px-4 py-2 md:py-3 flex items-center justify-between gap-2 md:gap-4">
@@ -49,12 +63,20 @@ export default function CampHeroTopBar() {
           )}
         </div>
         <div id="call" className="flex items-center gap-1.5 md:gap-3 justify-end flex-shrink-0 scroll-mt-24">
-          <a href="tel:+79881521698" onClick={() => ymGoal("phone_click", { place: "header", carrier: "mts" })} className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
+          <a
+            href="tel:+79881521698"
+            onClick={() => ymGoal("phone_click", { place: "header", carrier: "mts" })}
+            className={`flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-all rounded-md px-1.5 py-0.5 ${highlightCall ? "phone-pulse" : ""}`}
+          >
             <Icon name="Phone" size={14} />
             <span className="hidden sm:inline">+7 988 152-16-98</span>
             <span className="sm:hidden">МТС</span>
           </a>
-          <a href="tel:+79787120353" onClick={() => ymGoal("phone_click", { place: "header", carrier: "volna" })} className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
+          <a
+            href="tel:+79787120353"
+            onClick={() => ymGoal("phone_click", { place: "header", carrier: "volna" })}
+            className={`flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-all rounded-md px-1.5 py-0.5 ${highlightCall ? "phone-pulse" : ""}`}
+          >
             <Icon name="Phone" size={14} />
             <span className="hidden sm:inline">+7 978 712-03-53</span>
             <span className="sm:hidden">Волна</span>
