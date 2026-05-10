@@ -48,7 +48,7 @@ export default function CampHeroTopBar() {
             </span>
           )}
         </div>
-        <div className="flex items-center gap-1.5 md:gap-3 justify-end flex-shrink-0">
+        <div id="call" className="flex items-center gap-1.5 md:gap-3 justify-end flex-shrink-0 scroll-mt-24">
           <a href="tel:+79881521698" onClick={() => ymGoal("phone_click", { place: "header", carrier: "mts" })} className="flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-colors">
             <Icon name="Phone" size={14} />
             <span className="hidden sm:inline">+7 988 152-16-98</span>
