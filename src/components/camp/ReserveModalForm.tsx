@@ -20,6 +20,10 @@ interface ReserveModalFormProps {
   setShiftId: (v: number) => void;
   earlyStart: boolean;
   setEarlyStart: (v: boolean) => void;
+  withFriend: boolean;
+  setWithFriend: (v: boolean) => void;
+  friendName: string;
+  setFriendName: (v: string) => void;
   privacyConsent: boolean;
   setPrivacyConsent: (v: boolean) => void;
   errors: Record<string, string>;
@@ -43,6 +47,10 @@ export default function ReserveModalForm({
   setShiftId,
   earlyStart,
   setEarlyStart,
+  withFriend,
+  setWithFriend,
+  friendName,
+  setFriendName,
   privacyConsent,
   setPrivacyConsent,
   errors,
@@ -197,6 +205,49 @@ export default function ReserveModalForm({
               </p>
             </div>
           </label>
+
+          <div
+            className="rounded-2xl p-3 md:p-4"
+            style={{
+              background: withFriend ? "#FFF1E2" : "#FFF8F0",
+              border: withFriend ? "2px solid #FF9A56" : "2px solid #FFE5D9",
+            }}
+          >
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={withFriend}
+                onChange={(e) => setWithFriend(e.target.checked)}
+                className="mt-0.5 w-5 h-5 rounded accent-orange-500 flex-shrink-0 cursor-pointer"
+              />
+              <div className="flex-1">
+                <div className="font-bold text-sm md:text-base flex items-center gap-2 flex-wrap" style={{ color: "#3D3D3D" }}>
+                  <span>👯 Я с другом</span>
+                  <span
+                    className="font-black px-2 py-0.5 rounded-lg text-white text-xs"
+                    style={{ background: "linear-gradient(90deg,#00C9A7,#0094C6)" }}
+                  >
+                    −10% обоим
+                  </span>
+                </div>
+                <p className="text-xs mt-1" style={{ color: "rgba(61,61,61,0.7)" }}>
+                  Скидка 10% и вам, и другу при совместной брони. Акция до 31 мая.
+                </p>
+              </div>
+            </label>
+            {withFriend && (
+              <div className="mt-3">
+                <Field
+                  label="Имя и фамилия друга"
+                  required
+                  error={errors.friendName}
+                  value={friendName}
+                  onChange={setFriendName}
+                  placeholder="Иван Петров"
+                />
+              </div>
+            )}
+          </div>
 
           <div
             className="rounded-2xl p-3 md:p-4 flex items-center justify-between gap-3"

@@ -84,6 +84,8 @@ def handler(event: dict, context) -> dict:
     shift_id = body.get('shift_id')
     shift_name = (body.get('shift_name') or '').strip()
     early_start = bool(body.get('early_start'))
+    with_friend = bool(body.get('with_friend'))
+    friend_name = (body.get('friend_name') or '').strip()
     stage = (body.get('stage') or 'submit').strip()
 
     is_abandoned = stage == 'abandoned'
@@ -151,6 +153,17 @@ def handler(event: dict, context) -> dict:
             '</td></tr>'
         )
 
+    friend_html = ''
+    if with_friend:
+        friend_value = esc(friend_name) if friend_name else '<i>имя не указано</i>'
+        friend_html = (
+            '<tr><td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;background:#E8FBF5;">'
+            '<b>👯 Акция «Я с другом»:</b></td>'
+            '<td style="padding:10px 14px;border-bottom:1px solid #FFE5D9;background:#E8FBF5;">'
+            f'<b style="color:#008F78;">−10% обоим</b> · друг: {friend_value}'
+            '</td></tr>'
+        )
+
     child_value = ''
     if child_name or age:
         child_value = f'{esc(child_name) or "—"}, {esc(age) or "?"} лет'
@@ -166,6 +179,7 @@ def handler(event: dict, context) -> dict:
         + cell('Ребёнок:', child_value)
         + cell('Смена:', shift_value)
         + early_html
+        + friend_html
     )
 
     html = f"""

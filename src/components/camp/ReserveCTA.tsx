@@ -25,6 +25,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
   const [email, setEmail] = useState("");
   const [shiftId, setShiftId] = useState<number | null>(defaultShiftId);
   const [earlyStart, setEarlyStart] = useState(false);
+  const [withFriend, setWithFriend] = useState(false);
+  const [friendName, setFriendName] = useState("");
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,6 +40,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     email: "",
     shiftId: null as number | null,
     earlyStart: false,
+    withFriend: false,
+    friendName: "",
   });
   const abandonNotifiedRef = useRef(false);
 
@@ -50,8 +54,10 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
       email,
       shiftId,
       earlyStart,
+      withFriend,
+      friendName,
     };
-  }, [motherName, phone, childName, age, email, shiftId, earlyStart]);
+  }, [motherName, phone, childName, age, email, shiftId, earlyStart, withFriend, friendName]);
 
   useEffect(() => {
     if (defaultShiftId) setShiftId(defaultShiftId);
@@ -112,6 +118,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
         shift_id: snap.shiftId,
         shift_name: shift?.name ?? "",
         early_start: snap.earlyStart,
+        with_friend: snap.withFriend,
+        friend_name: snap.friendName,
         stage: "abandoned",
       });
       if (navigator.sendBeacon) {
@@ -171,6 +179,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     if (!shiftId) errs.shift = "Выберите смену";
     if (!email.trim()) errs.email = "Введите email — на него придёт копия чека";
     else if (!isValidEmail(email)) errs.email = "Некорректный email";
+    if (withFriend && !friendName.trim()) errs.friendName = "Введите имя и фамилию друга";
     if (!privacyConsent) errs.privacy = "Необходимо согласие на обработку персональных данных";
     return errs;
   };
@@ -201,6 +210,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
             shift_id: shiftId,
             shift_name: shift?.name ?? "",
             early_start: earlyStart,
+            with_friend: withFriend,
+            friend_name: friendName,
             stage: "submit",
           }),
           keepalive: true,
@@ -225,7 +236,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
         userName: motherName,
         userEmail: email.trim(),
         userPhone: phone,
-        orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.${earlyStart ? " ДОП. ОПЦИЯ: раннее посещение с 8:00 (+3000 ₽ с завтраком, оплата в первый день)." : ""}`,
+        orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.${earlyStart ? " ДОП. ОПЦИЯ: раннее посещение с 8:00 (+3000 ₽ с завтраком, оплата в первый день)." : ""}${withFriend ? ` АКЦИЯ «Я с другом»: ${friendName} (−10% обоим).` : ""}`,
         cartItems: [
           {
             id: `reserve-${shiftId}`,
@@ -279,6 +290,10 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           setShiftId={setShiftId}
           earlyStart={earlyStart}
           setEarlyStart={setEarlyStart}
+          withFriend={withFriend}
+          setWithFriend={setWithFriend}
+          friendName={friendName}
+          setFriendName={setFriendName}
           privacyConsent={privacyConsent}
           setPrivacyConsent={setPrivacyConsent}
           errors={errors}

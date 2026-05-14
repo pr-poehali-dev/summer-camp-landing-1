@@ -45,6 +45,27 @@
       "bodyMatcher": "partial"
     },
     {
+      "name": "Notify booking with friend",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "mother_name": "Елена Тест",
+        "phone": "+7 (999) 222-33-44",
+        "child_name": "Маша",
+        "age": "10",
+        "email": "test2@example.com",
+        "shift_id": 2,
+        "shift_name": "Море и творчество",
+        "early_start": false,
+        "with_friend": true,
+        "friend_name": "Иван Петров",
+        "stage": "submit"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true, "stage": "submit"},
+      "bodyMatcher": "partial"
+    },
+    {
       "name": "Reject submit when no name",
       "method": "POST",
       "path": "/",
