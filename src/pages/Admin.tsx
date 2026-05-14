@@ -174,13 +174,22 @@ export default function Admin() {
               Админка · Рыбка Долли
             </h1>
           </div>
-          <button
-            onClick={logout}
-            className="text-sm font-bold px-4 py-2 rounded-xl"
-            style={{ background: "#FFE5D9", color: "#3D3D3D" }}
-          >
-            Выйти
-          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href="/"
+              className="text-sm font-bold px-4 py-2 rounded-xl flex items-center gap-1.5"
+              style={{ background: "linear-gradient(135deg,#FF9A56,#FFD93D)", color: "white" }}
+            >
+              ← На сайт
+            </a>
+            <button
+              onClick={logout}
+              className="text-sm font-bold px-4 py-2 rounded-xl"
+              style={{ background: "#FFE5D9", color: "#3D3D3D" }}
+            >
+              Выйти
+            </button>
+          </div>
         </div>
       </header>
 
