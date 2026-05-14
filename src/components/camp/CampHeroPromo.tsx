@@ -37,8 +37,8 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
         <div style={{display:"flex", alignItems:"center", gap:"0.4rem"}}>
           <span style={{fontSize:"1.25rem"}}>⏰</span>
           <div style={{display:"flex", flexDirection:"column", lineHeight:1.1}}>
-            <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem", textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>АКЦИЯ ДО 15 МАЯ</span>
-            <span style={{color:"#fff", fontSize:"0.7rem", fontWeight:700, textShadow:"0 1px 0 rgba(204,106,0,0.7), 0 2px 4px rgba(92,46,0,0.4)"}}>Скидка 12% сохраняется всё лето при брони от 2 смен</span>
+            <span className="font-black text-white" style={{fontFamily:"'Nunito', sans-serif", fontSize:"0.9rem", textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 0 rgba(153,79,0,0.6), 0 3px 6px rgba(92,46,0,0.45)"}}>АКЦИЯ ДО 31 МАЯ</span>
+            <span style={{color:"#fff", fontSize:"0.7rem", fontWeight:700, textShadow:"0 1px 0 rgba(204,106,0,0.7), 0 2px 4px rgba(92,46,0,0.4)"}}>Приведи друга — скидка 10% обоим</span>
           </div>
         </div>
         <span style={{
@@ -51,7 +51,7 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
           fontSize:"0.95rem",
           flexShrink:0,
           textShadow:"0 1px 0 rgba(0,143,120,0.9), 0 2px 4px rgba(0,77,64,0.5)",
-        }}>−12%</span>
+        }}>−10%</span>
       </div>
 
       <div style={{display:"flex", alignItems:"stretch", gap:"0.3rem"}}>
@@ -73,21 +73,12 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
         border:"1.5px solid rgba(255,255,255,0.5)",
       }}>
         <span style={{
-          color:"rgba(255,255,255,0.85)",
-          fontWeight:700,
-          fontSize:"0.85rem",
-          textDecoration:"line-through",
-          textShadow:"0 1px 0 rgba(204,106,0,0.7)",
-        }}>
-          12 500 ₽
-        </span>
-        <span style={{
           color:"white",
           fontWeight:900,
           fontSize:"1.1rem",
           textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 4px rgba(92,46,0,0.45)",
         }}>
-          11 000 ₽
+          12 500 ₽
         </span>
         <span style={{
           color:"rgba(255,255,255,0.95)",
@@ -95,7 +86,7 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
           fontSize:"0.72rem",
           textShadow:"0 1px 0 rgba(204,106,0,0.6)",
         }}>
-          со скидкой до 15 мая
+          −10% за друга, акция до 31 мая
         </span>
       </div>
 
@@ -116,7 +107,7 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
           transition:"transform 0.15s",
           textShadow:"0 1px 0 rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.3)",
         }} onMouseEnter={(e) => e.currentTarget.style.transform="scale(1.04)"} onMouseLeave={(e) => e.currentTarget.style.transform="scale(1)"}>
-          🎉 Забронировать −12%
+          🎉 Забронировать
         </button>
         <a
           href="#program"

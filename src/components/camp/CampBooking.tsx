@@ -11,12 +11,12 @@ const SHORT_SHIFT_ID = 7;
 const SHORT_SHIFT_PRICE = 7000;
 
 export default function CampBooking({ bookingRef, selectedShift }: CampBookingProps) {
-  const deadline = new Date("2026-05-15T23:59:00");
+  const deadline = new Date("2026-05-31T23:59:00");
   const countdown = useCountdown(deadline);
-  const afterDiscount = countdown.days > 0 || countdown.hours > 0;
+  const promoActive = countdown.days > 0 || countdown.hours > 0;
 
   const isShort = selectedShift === SHORT_SHIFT_ID;
-  const displayPrice = isShort ? SHORT_SHIFT_PRICE : (afterDiscount ? PRICE_SALE : PRICE_FULL);
+  const displayPrice = isShort ? SHORT_SHIFT_PRICE : PRICE_FULL;
   const oldPrice = isShort ? PRICE_SALE : PRICE_FULL;
 
   return (
@@ -34,7 +34,7 @@ export default function CampBooking({ bookingRef, selectedShift }: CampBookingPr
             shortShiftId={SHORT_SHIFT_ID}
             displayPrice={displayPrice}
             oldPrice={oldPrice}
-            afterDiscount={afterDiscount}
+            afterDiscount={promoActive}
             countdown={countdown}
           />
 

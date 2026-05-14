@@ -48,9 +48,11 @@ export default function PriceBlock({
         💰 Стоимость смены ({isShort ? "5 дней" : "10 дней"})
       </h2>
       <div className="flex items-center justify-center gap-4 flex-wrap mb-4">
-        <span className="line-through text-2xl" style={{ color: "rgba(61,61,61,0.5)" }}>
-          {oldPrice.toLocaleString()} ₽
-        </span>
+        {oldPrice !== displayPrice && (
+          <span className="line-through text-2xl" style={{ color: "rgba(61,61,61,0.5)" }}>
+            {oldPrice.toLocaleString()} ₽
+          </span>
+        )}
         <span
           className="font-black text-4xl px-4 py-1 rounded-xl"
           style={isShort ? {
@@ -77,7 +79,7 @@ export default function PriceBlock({
             className="font-black px-3 py-1 rounded-full text-sm text-white"
             style={{ background: "#FF9A56" }}
           >
-            −12% до 15 мая
+            −10% за друга, до 31 мая
           </span>
         )}
       </div>
@@ -112,10 +114,10 @@ export default function PriceBlock({
         <span className="text-2xl md:text-3xl flex-shrink-0">🎁</span>
         <div className="min-w-0">
           <div className="font-black text-sm md:text-base" style={{ color: "#5C2E00" }}>
-            Бронируете 2 смены и больше?
+            Приведи друга — скидка обоим
           </div>
           <div className="text-xs md:text-sm font-semibold" style={{ color: "rgba(92,46,0,0.85)" }}>
-            Скидка <b>12%</b> сохраняется на каждую смену — всё лето, даже после 15 мая.
+            Скидка <b>10%</b> и тебе, и другу при совместной брони. Акция действует до <b>31 мая</b>.
           </div>
         </div>
       </div>

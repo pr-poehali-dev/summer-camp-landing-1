@@ -8,7 +8,7 @@ interface CampHeroProps {
 }
 
 export default function CampHero({ scrollToBooking }: CampHeroProps) {
-  const deadline = new Date("2026-05-15T23:59:00");
+  const deadline = new Date("2026-05-31T23:59:00");
   const countdown = useCountdown(deadline);
 
   return (
