@@ -51,9 +51,12 @@ function WhyUsCard({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const show = () => setVisible(true);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) { show(); return; }
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
+      ([entry]) => { if (entry.isIntersecting) { show(); obs.disconnect(); } },
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -92,27 +95,19 @@ function WhyUsCard({
         cursor: "default",
       }}
     >
-      <div
+      <img
+        src={icon}
+        alt=""
+        loading="lazy"
         style={{
-          width: 88,
-          height: 88,
-          borderRadius: 20,
-          background: "rgba(255,255,255,0.28)",
-          backdropFilter: "blur(4px)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          width: 100,
+          height: 100,
+          objectFit: "contain",
           marginBottom: 12,
           flexShrink: 0,
+          filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.28))",
         }}
-      >
-        <img
-          src={icon}
-          alt=""
-          loading="lazy"
-          style={{ width: 64, height: 64, objectFit: "contain", filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.18))" }}
-        />
-      </div>
+      />
       <p style={{ color: "#fff", fontWeight: 700, fontSize: 14, lineHeight: 1.35, textShadow: "0 1px 4px rgba(0,0,0,0.25)" }}>
         {text}
       </p>
