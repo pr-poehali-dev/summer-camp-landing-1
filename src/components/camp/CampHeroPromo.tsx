@@ -5,8 +5,6 @@ interface Countdown {
   seconds: number;
 }
 
-import { openReserveModal } from "./reserveCTAUtils";
-
 interface CampHeroPromoProps {
   countdown: Countdown;
   scrollToBooking: () => void;
@@ -91,7 +89,7 @@ export default function CampHeroPromo({ countdown, scrollToBooking }: CampHeroPr
       </div>
 
       <div style={{display:"flex", gap:"0.5rem", flexWrap:"wrap"}}>
-        <button onClick={() => openReserveModal()} className="rainbow-cta" style={{
+        <button onClick={scrollToBooking} className="rainbow-cta" style={{
           flex:"2 1 180px",
           minWidth:0,
           padding:"0.65rem 0.85rem",
