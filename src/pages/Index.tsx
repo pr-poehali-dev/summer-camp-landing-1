@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import CampHero from "@/components/camp/CampHero";
 import FloatingBookButton from "@/components/camp/FloatingBookButton";
+import { openReserveModal } from "@/components/camp/reserveCTAUtils";
 
 const CampProgram = lazy(() => import("@/components/camp/CampProgram"));
 const CampTeam = lazy(() => import("@/components/camp/CampTeam"));
@@ -47,6 +48,13 @@ export default function Index() {
     );
     document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === "#book") {
+      const t = window.setTimeout(() => openReserveModal(), 400);
+      return () => window.clearTimeout(t);
+    }
   }, []);
 
   useEffect(() => {
