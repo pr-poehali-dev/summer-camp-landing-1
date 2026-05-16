@@ -17,6 +17,7 @@ const SectionKidsReviews = lazy(() => import("@/components/camp/SectionKidsRevie
 const SectionFAQ = lazy(() => import("@/components/camp/SectionFAQ"));
 const SectionQuiz = lazy(() => import("@/components/camp/SectionQuiz"));
 const SectionLocation = lazy(() => import("@/components/camp/SectionLocation"));
+const SectionWhyUs = lazy(() => import("@/components/camp/SectionWhyUs"));
 
 const SectionFallback = () => (
   <div className="py-16 px-4 flex items-center justify-center" style={{ background: "#FFF8F0" }}>
@@ -104,6 +105,9 @@ export default function Index() {
       <CampHero scrollToBooking={scrollToBooking} />
 
       <Suspense fallback={<SectionFallback />}>
+        {/* 1.5 ПОЧЕМУ ИМЕННО МЫ */}
+        <SectionWhyUs />
+
         {/* 2. ПРОГРАММА СМЕН */}
         <CampProgram
           openAccordion={openAccordion}
