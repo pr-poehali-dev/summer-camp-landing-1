@@ -67,6 +67,7 @@ export default function CampHeroTopBar() {
             href="tel:+79881521698"
             onClick={() => ymGoal("phone_click", { place: "header", carrier: "mts" })}
             className={`flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-all rounded-md px-1.5 py-0.5 ${highlightCall ? "phone-pulse" : ""}`}
+            style={{textShadow: "0 1px 4px rgba(0,0,0,0.35)"}}
           >
             <Icon name="Phone" size={14} />
             <span className="hidden sm:inline">+7 988 152-16-98</span>
@@ -76,6 +77,7 @@ export default function CampHeroTopBar() {
             href="tel:+79787120353"
             onClick={() => ymGoal("phone_click", { place: "header", carrier: "volna" })}
             className={`flex items-center gap-1 text-xs md:text-sm font-bold text-white/90 hover:text-white transition-all rounded-md px-1.5 py-0.5 ${highlightCall ? "phone-pulse" : ""}`}
+            style={{textShadow: "0 1px 4px rgba(0,0,0,0.35)"}}
           >
             <Icon name="Phone" size={14} />
             <span className="hidden sm:inline">+7 978 712-03-53</span>
