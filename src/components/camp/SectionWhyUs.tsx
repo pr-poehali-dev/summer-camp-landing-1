@@ -25,8 +25,8 @@ const ITEMS = [
   },
 ];
 
-export default function SectionWhyUs() {
-  const Card = ({ icon, text }: { icon: string; text: string }) => (
+function WhyUsCard({ icon, text }: { icon: string; text: string }) {
+  return (
     <div
       className="bg-white rounded-3xl p-4 md:p-5 flex flex-col items-center text-center transition-transform hover:-translate-y-1"
       style={{ border: "2px solid #FFE5D9", boxShadow: "0 6px 18px rgba(255,154,86,0.10)" }}
@@ -42,7 +42,9 @@ export default function SectionWhyUs() {
       </p>
     </div>
   );
+}
 
+export default function SectionWhyUs() {
   return (
     <section className="py-12 px-4" style={{ background: "#FFF8F0" }}>
       <div className="max-w-5xl mx-auto">
@@ -55,13 +57,13 @@ export default function SectionWhyUs() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {ITEMS.slice(0, 4).map((it, i) => (
-            <Card key={i} {...it} />
+            <WhyUsCard key={i} icon={it.icon} text={it.text} />
           ))}
         </div>
 
         <div className="grid grid-cols-2 gap-3 md:gap-4 mt-3 md:mt-4 md:max-w-[50%] md:mx-auto">
           {ITEMS.slice(4).map((it, i) => (
-            <Card key={i + 4} {...it} />
+            <WhyUsCard key={i + 4} icon={it.icon} text={it.text} />
           ))}
         </div>
       </div>
