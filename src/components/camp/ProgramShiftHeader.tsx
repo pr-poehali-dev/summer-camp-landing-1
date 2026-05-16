@@ -84,7 +84,14 @@ export default function ProgramShiftHeader({
               </span>
             </div>
           )}
-          <div className="text-lg md:text-xl" style={(isTeen || isShort) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="text-lg md:text-xl" style={(isTeen || isShort) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
+            {shift.id === 1 && (
+              <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FF3D3D", color:"#fff", letterSpacing:"0.5px"}}>
+                🔥 СКИДКА 20% ДО 29 МАЯ
+              </span>
+            )}
+          </div>
           <div className="text-sm font-semibold" style={(isTeen || isShort) ? {color:"rgba(255,255,255,0.9)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age}{isShort ? " · 7 000 ₽" : ""}</div>
         </div>
       </div>
