@@ -1,4 +1,4 @@
-import { SHIFTS, useCountdown } from "./CampData";
+import { useCountdown } from "./CampData";
 import CampHeroTopBar from "./CampHeroTopBar";
 import CampHeroMain from "./CampHeroMain";
 import CampHeroTeenBanner from "./CampHeroTeenBanner";
