@@ -2,7 +2,9 @@ import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
 import { ymGoal, ecommerceDetail } from "@/lib/ymGoal";
 
-const SHIFT_SPOTS: Record<number, { count: number; discount?: boolean }> = {
+const SHIFT_RESERVATION_PRICE = 1000;
+
+export const SHIFT_SPOTS: Record<number, { count: number; discount?: boolean }> = {
   1: { count: 3, discount: true },
   2: { count: 2 },
   3: { count: 5 },
@@ -11,8 +13,6 @@ const SHIFT_SPOTS: Record<number, { count: number; discount?: boolean }> = {
   6: { count: 7 },
   7: { count: 8 },
 };
-
-const SHIFT_RESERVATION_PRICE = 1000;
 
 type Shift = (typeof SHIFTS)[number];
 

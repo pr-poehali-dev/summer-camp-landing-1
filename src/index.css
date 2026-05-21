@@ -16,6 +16,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes tag-swing {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+.tag-swing {
+  animation: tag-swing 2.4s ease-in-out infinite;
+  transform-origin: top right;
+}
+
 @keyframes phone-pulse {
   0%,
   100% {
