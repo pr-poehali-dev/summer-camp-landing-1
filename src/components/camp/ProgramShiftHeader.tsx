@@ -50,7 +50,11 @@ export default function ProgramShiftHeader({
         }
       }}
       className="shift-icon-wrap w-full flex items-center justify-between px-4 py-3 md:px-5 md:py-3.5 text-left font-black hover:brightness-105 transition-all"
-      style={isTeen ? {
+      style={shift.id === 4 ? {
+        background:"linear-gradient(135deg, #D8D8D8 0%, #C8C8C8 50%, #B8B8B8 100%)",
+        color:"#555555",
+        boxShadow:"0 2px 0 rgba(255,255,255,0.3) inset, 0 -3px 0 rgba(0,0,0,0.1) inset",
+      } : isTeen ? {
         background:"linear-gradient(135deg, #6C5CE7 0%, #A855F7 50%, #FF3D8B 100%)",
         color:"#FFFFFF",
         boxShadow:"0 2px 0 rgba(255,255,255,0.25) inset, 0 -3px 0 rgba(0,0,0,0.18) inset",

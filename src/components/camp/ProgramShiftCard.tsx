@@ -42,7 +42,12 @@ export default function ProgramShiftCard({
     <div className="relative" style={{ marginBottom: spots ? "28px" : "0" }}>
       <div
         className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""}`}
-        style={isTeen ? {
+        style={shift.id === 4 ? {
+          border:"3px solid #C8C8C8",
+          boxShadow:"0 6px 0 rgba(0,0,0,0.07), 0 10px 24px rgba(0,0,0,0.1)",
+          overflow: "hidden",
+          opacity: 0.75,
+        } : isTeen ? {
           border:"3px solid #6C5CE7",
           boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset",
           overflow: "hidden",
