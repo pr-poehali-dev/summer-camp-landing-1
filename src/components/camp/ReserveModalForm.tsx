@@ -145,7 +145,7 @@ export default function ReserveModalForm({
               Выберите смену <span style={{ color: "#FF3D8B" }}>*</span>
             </label>
             <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
-              {SHIFTS.map((s) => {
+              {SHIFTS.filter((s) => s.id !== 4).map((s) => {
                 const active = shiftId === s.id;
                 return (
                   <button
