@@ -85,15 +85,14 @@ export default function ProgramShiftCard({
           }}
         >
           <div style={shift.id === 4 ? {
-            background: "#F0F0F0",
-            border: "1.5px solid #9E9E9E",
+            background: "#EFEFEF",
+            border: "2.5px solid #666666",
             borderRadius: "8px",
             padding: "5px 12px 6px",
             fontSize: "10px",
-            fontWeight: 700,
-            color: "#555555",
-            whiteSpace: "nowrap",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.12)",
+            fontWeight: 900,
+            color: "#333333",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.22)",
             lineHeight: 1.4,
             textAlign: "center",
             position: "relative",
@@ -120,9 +119,9 @@ export default function ProgramShiftCard({
               transform: "translateX(-50%)",
               width: "12px",
               height: "8px",
-              borderLeft: shift.id === 4 ? "1.5px solid #9E9E9E" : "1.5px solid #E53E3E",
-              borderRight: shift.id === 4 ? "1.5px solid #9E9E9E" : "1.5px solid #E53E3E",
-              borderTop: shift.id === 4 ? "1.5px solid #9E9E9E" : "1.5px solid #E53E3E",
+              borderLeft: shift.id === 4 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
+              borderRight: shift.id === 4 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
+              borderTop: shift.id === 4 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
               borderRadius: "5px 5px 0 0",
               background: shift.id === 4 ? "#F0F0F0" : "#FFFAF0",
             }} />
@@ -130,7 +129,7 @@ export default function ProgramShiftCard({
               <>
                 🚫 Места закончились
                 <br />
-                <span style={{ fontSize: "9px", fontWeight: 600, color: "#777777" }}>
+                <span style={{ fontSize: "9px", fontWeight: 800, color: "#555555" }}>
                   Могут появиться перед началом смены,<br />если кто-то откажется от брони
                 </span>
               </>
