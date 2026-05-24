@@ -84,14 +84,29 @@ export default function ProgramShiftCard({
             transformOrigin: "top center",
           }}
         >
-          <div style={{
+          <div style={shift.id === 4 ? {
+            background: "#F0F0F0",
+            border: "1.5px solid #9E9E9E",
+            borderRadius: "8px",
+            padding: "5px 12px 6px",
+            fontSize: "10px",
+            fontWeight: 700,
+            color: "#555555",
+            whiteSpace: "nowrap",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.12)",
+            lineHeight: 1.4,
+            textAlign: "center",
+            position: "relative",
+            maxWidth: "180px",
+            whiteSpace: "normal",
+          } : {
             background: "#FFFAF0",
             border: "1.5px solid #E53E3E",
             borderRadius: "8px",
             padding: "5px 12px 6px",
             fontSize: "10px",
             fontWeight: 900,
-            color: spots.count === 1 ? "#C53030" : "#7B2D00",
+            color: "#7B2D00",
             whiteSpace: "nowrap",
             boxShadow: "0 4px 10px rgba(0,0,0,0.18)",
             lineHeight: 1.4,
@@ -105,25 +120,37 @@ export default function ProgramShiftCard({
               transform: "translateX(-50%)",
               width: "12px",
               height: "8px",
-              borderLeft: "1.5px solid #E53E3E",
-              borderRight: "1.5px solid #E53E3E",
-              borderTop: "1.5px solid #E53E3E",
+              borderLeft: shift.id === 4 ? "1.5px solid #9E9E9E" : "1.5px solid #E53E3E",
+              borderRight: shift.id === 4 ? "1.5px solid #9E9E9E" : "1.5px solid #E53E3E",
+              borderTop: shift.id === 4 ? "1.5px solid #9E9E9E" : "1.5px solid #E53E3E",
               borderRadius: "5px 5px 0 0",
-              background: "#FFFAF0",
+              background: shift.id === 4 ? "#F0F0F0" : "#FFFAF0",
             }} />
-            📍 Осталось{" "}
-            <strong style={{ color: spots.count === 1 ? "#C53030" : "#C05621" }}>
-              {spots.count}
-            </strong>{" "}
-            {spotsWord(spots.count)}
-            <br />
-            <span style={{ fontSize: "9px", fontWeight: 700, color: "#A0522D" }}>
-              Успейте забронировать!
-            </span>
-            {spots.discount && (
-              <div style={{ marginTop: "2px", fontSize: "9px", fontWeight: 900, color: "#C53030" }}>
-                + скидка 20%
-              </div>
+            {shift.id === 4 ? (
+              <>
+                🚫 Места закончились
+                <br />
+                <span style={{ fontSize: "9px", fontWeight: 600, color: "#777777" }}>
+                  Могут появиться перед началом смены,<br />если кто-то откажется от брони
+                </span>
+              </>
+            ) : (
+              <>
+                📍 Осталось{" "}
+                <strong style={{ color: "#C05621" }}>
+                  {spots.count}
+                </strong>{" "}
+                {spotsWord(spots.count)}
+                <br />
+                <span style={{ fontSize: "9px", fontWeight: 700, color: "#A0522D" }}>
+                  Успейте забронировать!
+                </span>
+                {spots.discount && (
+                  <div style={{ marginTop: "2px", fontSize: "9px", fontWeight: 900, color: "#C53030" }}>
+                    + скидка 20%
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
