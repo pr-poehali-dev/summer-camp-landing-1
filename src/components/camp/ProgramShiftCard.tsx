@@ -88,15 +88,15 @@ export default function ProgramShiftCard({
             background: "#EFEFEF",
             border: "2.5px solid #666666",
             borderRadius: "8px",
-            padding: "5px 12px 6px",
-            fontSize: "10px",
+            padding: "6px 14px 8px",
+            fontSize: "11px",
             fontWeight: 900,
             color: "#333333",
             boxShadow: "0 4px 12px rgba(0,0,0,0.22)",
-            lineHeight: 1.4,
+            lineHeight: 1.45,
             textAlign: "center",
             position: "relative",
-            maxWidth: "180px",
+            maxWidth: "200px",
             whiteSpace: "normal",
           } : {
             background: "#FFFAF0",
@@ -129,7 +129,7 @@ export default function ProgramShiftCard({
               <>
                 🚫 Места закончились
                 <br />
-                <span style={{ fontSize: "9px", fontWeight: 800, color: "#555555" }}>
+                <span style={{ fontSize: "10px", fontWeight: 800, color: "#555555" }}>
                   Могут появиться перед началом смены,<br />если кто-то откажется от брони
                 </span>
               </>
