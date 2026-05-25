@@ -287,11 +287,14 @@ export default function ReserveModalForm({
           <button
             type="submit"
             disabled={isSubmitting}
+            onClick={() => console.log("PAY BUTTON CLICKED")}
             className="w-full font-black text-white py-4 rounded-2xl text-base md:text-lg transition-transform hover:scale-[1.02] disabled:opacity-60"
             style={{
               background:
                 "linear-gradient(90deg,#00C9A7,#00A67E)",
               boxShadow: "0 6px 0 #008F78, 0 10px 25px rgba(0,201,167,0.4)",
+              position: "relative",
+              zIndex: 9999,
             }}
           >
             {isSubmitting ? "Переходим к оплате..." : `💳 Оплатить ${RESERVATION_AMOUNT.toLocaleString("ru-RU")} ₽ и забронировать`}
