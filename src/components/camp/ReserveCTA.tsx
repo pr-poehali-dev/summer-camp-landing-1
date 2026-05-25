@@ -233,6 +233,8 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           brand: "Рыбка Долли",
         },
       ]);
+      // Открываем окно ДО await — иначе iOS Safari блокирует как недоверенный переход
+      const payWin = window.open("", "_blank");
       const data = await createPayment({
         amount: RESERVATION_AMOUNT,
         userName: motherName,
@@ -262,7 +264,11 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
       } catch {
         /* noop */
       }
-      openPaymentPage(data.payment_url);
+      if (payWin) {
+        payWin.location.href = data.payment_url;
+      } else {
+        window.location.href = data.payment_url;
+      }
     } catch {
       /* onError handled */
     } finally {
