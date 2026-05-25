@@ -133,13 +133,7 @@ export function useRobokassa(options: UseRobokassaOptions): UseRobokassaReturn {
  * На мобильных устройствах открывает в новом окне
  */
 export function openPaymentPage(paymentUrl: string): void {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    window.open(paymentUrl, "_blank");
-  } else {
-    window.location.href = paymentUrl;
-  }
+  window.location.href = paymentUrl;
 }
 
 /**
