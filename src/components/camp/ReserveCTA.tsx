@@ -141,11 +141,13 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
 
   useEffect(() => {
     if (!open) {
+      window.dispatchEvent(new CustomEvent("reserve:close"));
       if (window.location.hash === "#book") {
         window.history.replaceState(null, "", window.location.pathname + window.location.search);
       }
       return;
     }
+    window.dispatchEvent(new CustomEvent("reserve:open"));
     submittedRef.current = false;
     abandonNotifiedRef.current = false;
     openedAtRef.current = Date.now();

@@ -4,17 +4,27 @@ import { openReserveModal } from "./reserveCTAUtils";
 
 export default function FloatingBookButton() {
   const [visible, setVisible] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > 600);
-    };
+    const onScroll = () => setVisible(window.scrollY > 600);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!visible) return null;
+  useEffect(() => {
+    const onOpen = () => setModalOpen(true);
+    const onClose = () => setModalOpen(false);
+    window.addEventListener("reserve:open", onOpen);
+    window.addEventListener("reserve:close", onClose);
+    return () => {
+      window.removeEventListener("reserve:open", onOpen);
+      window.removeEventListener("reserve:close", onClose);
+    };
+  }, []);
+
+  if (!visible || modalOpen) return null;
 
   return (
     <>
