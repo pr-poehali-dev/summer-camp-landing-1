@@ -107,16 +107,13 @@ export default function Index() {
     };
   }, []);
 
-  const isMobile = typeof window !== "undefined" && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
   return (
     <div className="min-h-screen" style={{ background: "#FFF8F0" }}>
       {/* 1. ПЕРВЫЙ ЭКРАН (Hero) */}
       <CampHero scrollToBooking={scrollToBooking} />
 
       {/* ВРЕМЕННАЯ ПЛАШКА — только для мобильных */}
-      {isMobile && (
-        <div className="mx-3 mt-3 md:hidden rounded-2xl px-4 py-3" style={{
+      <div className="mx-3 mt-3 md:hidden rounded-2xl px-4 py-3" style={{
           background: "linear-gradient(135deg, #FFF3CD, #FFE08A)",
           border: "2px solid #FFC107",
           boxShadow: "0 4px 12px rgba(255,193,7,0.3)",
@@ -136,7 +133,6 @@ export default function Index() {
             </div>
           </div>
         </div>
-      )}
 
       <Suspense fallback={<SectionFallback />}>
         {/* 1.5 ПОЧЕМУ ИМЕННО МЫ */}
