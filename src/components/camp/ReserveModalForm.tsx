@@ -58,13 +58,14 @@ export default function ReserveModalForm({
 }: ReserveModalFormProps) {
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[100] overflow-y-auto"
       style={{ background: "rgba(30,20,10,0.55)", backdropFilter: "blur(4px)" }}
       onClick={onClose}
     >
+      <div className="flex min-h-full items-center justify-center p-4">
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-white overflow-y-auto"
-        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92vh" }}
+        className="relative w-full max-w-lg rounded-3xl bg-white"
+        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
@@ -301,6 +302,7 @@ export default function ReserveModalForm({
             Оплата через Robokassa — безопасно. Нажимая «Оплатить», вы соглашаетесь с условиями оферты.
           </p>
         </form>
+      </div>
       </div>
     </div>
   );
