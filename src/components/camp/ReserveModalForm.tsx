@@ -63,8 +63,8 @@ export default function ReserveModalForm({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-white flex flex-col overflow-hidden"
-        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92dvh" }}
+        className="relative w-full max-w-lg rounded-3xl bg-white overflow-y-auto"
+        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92vh" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
@@ -89,7 +89,7 @@ export default function ReserveModalForm({
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="p-5 md:p-6 space-y-3 overflow-y-auto flex-1">
+        <form onSubmit={onSubmit} className="p-5 md:p-6 space-y-3">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field
               label="Имя мамы"
@@ -287,14 +287,11 @@ export default function ReserveModalForm({
           <button
             type="submit"
             disabled={isSubmitting}
-            onClick={() => console.log("PAY BUTTON CLICKED")}
             className="w-full font-black text-white py-4 rounded-2xl text-base md:text-lg transition-transform hover:scale-[1.02] disabled:opacity-60"
             style={{
               background:
                 "linear-gradient(90deg,#00C9A7,#00A67E)",
               boxShadow: "0 6px 0 #008F78, 0 10px 25px rgba(0,201,167,0.4)",
-              position: "relative",
-              zIndex: 9999,
             }}
           >
             {isSubmitting ? "Переходим к оплате..." : `💳 Оплатить ${RESERVATION_AMOUNT.toLocaleString("ru-RU")} ₽ и забронировать`}
