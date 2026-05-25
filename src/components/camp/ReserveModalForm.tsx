@@ -63,8 +63,8 @@ export default function ReserveModalForm({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-white overflow-hidden flex flex-col"
-        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92vh" }}
+        className="relative w-full max-w-lg rounded-3xl bg-white flex flex-col"
+        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92vh", overflow: "hidden" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
@@ -89,7 +89,7 @@ export default function ReserveModalForm({
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="p-5 md:p-6 space-y-3">
+        <form onSubmit={onSubmit} className="p-5 md:p-6 space-y-3 overflow-y-auto flex-1">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field
               label="Имя мамы"
