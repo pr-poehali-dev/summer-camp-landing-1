@@ -32,7 +32,7 @@ export default function CookieBanner() {
     <div
       role="dialog"
       aria-label="Использование cookies"
-      className="fixed left-3 right-3 bottom-3 md:left-auto md:right-4 md:bottom-4 md:max-w-md z-[9999] animate-in"
+      className="fixed left-3 right-3 bottom-3 md:left-auto md:right-4 md:bottom-4 md:max-w-md z-[90] animate-in"
       style={{
         background: "white",
         borderRadius: "20px",
