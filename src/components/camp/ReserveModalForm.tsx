@@ -63,8 +63,8 @@ export default function ReserveModalForm({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-white flex flex-col"
-        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92vh", overflow: "hidden" }}
+        className="relative w-full max-w-lg rounded-3xl bg-white flex flex-col overflow-hidden"
+        style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)", maxHeight: "92dvh" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
