@@ -28,6 +28,9 @@ interface ReserveModalFormProps {
   setPrivacyConsent: (v: boolean) => void;
   errors: Record<string, string>;
   isSubmitting: boolean;
+  debugLogs: string[];
+  showDebug: boolean;
+  onToggleDebug: () => void;
 }
 
 export default function ReserveModalForm({
@@ -55,6 +58,9 @@ export default function ReserveModalForm({
   setPrivacyConsent,
   errors,
   isSubmitting,
+  debugLogs,
+  showDebug,
+  onToggleDebug,
 }: ReserveModalFormProps) {
   return (
     <div
@@ -311,6 +317,29 @@ export default function ReserveModalForm({
           <p className="text-xs text-center" style={{ color: "rgba(61,61,61,0.55)" }}>
             Оплата через Robokassa — безопасно. Нажимая «Оплатить», вы соглашаетесь с условиями оферты.
           </p>
+
+          <div>
+            <button
+              type="button"
+              onClick={onToggleDebug}
+              className="text-xs underline"
+              style={{ color: "rgba(61,61,61,0.35)" }}
+            >
+              {showDebug ? "Скрыть диагностику" : "🔍 Диагностика"}
+            </button>
+            {showDebug && (
+              <div
+                className="mt-2 rounded-xl p-3 text-[11px] font-mono overflow-auto max-h-48"
+                style={{ background: "#1a1a2e", color: "#00ff88", border: "1px solid #333" }}
+              >
+                {debugLogs.length === 0 ? (
+                  <div style={{ color: "#888" }}>Нажмите кнопку оплаты — здесь появятся логи</div>
+                ) : (
+                  debugLogs.map((log, i) => <div key={i}>{log}</div>)
+                )}
+              </div>
+            )}
+          </div>
         </form>
       </div>
       </div>

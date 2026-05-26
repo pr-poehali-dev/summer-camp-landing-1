@@ -30,6 +30,13 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [debugLogs, setDebugLogs] = useState<string[]>([]);
+  const [showDebug, setShowDebug] = useState(false);
+
+  const addLog = (msg: string) => {
+    const time = new Date().toLocaleTimeString("ru-RU");
+    setDebugLogs((prev) => [...prev.slice(-30), `[${time}] ${msg}`]);
+  };
   const submittedRef = useRef(false);
   const openedAtRef = useRef<number>(0);
   const formSnapshotRef = useRef({
@@ -89,7 +96,10 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
 
   const { createPayment } = useRobokassa({
     apiUrl: func2url["robokassa-robokassa"],
-    onError: (err) => alert("Ошибка оплаты: " + err.message),
+    onError: (err) => {
+      addLog(`❌ ОШИБКА ОПЛАТЫ: ${err.message}`);
+      setShowDebug(true);
+    },
   });
 
   const sendAbandonNotification = () => {
@@ -188,9 +198,11 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    addLog(`🔘 Нажата кнопка оплаты`);
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
+      addLog(`⚠️ Ошибки валидации: ${Object.values(errs).join(", ")}`);
       setTimeout(() => {
         const firstError = document.querySelector("[data-field-error]");
         if (firstError) {
@@ -202,6 +214,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     setErrors({});
     setIsSubmitting(true);
     submittedRef.current = true;
+    addLog(`✅ Валидация OK. Создаём платёж... URL: ${func2url["robokassa-robokassa"]}`);
     ymGoal("reserve_pay_submit", { shift_id: shiftId });
     try {
       const shift = SHIFTS.find((s) => s.id === shiftId);
@@ -239,6 +252,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           brand: "Рыбка Долли",
         },
       ]);
+      addLog(`📡 Отправляем запрос на создание платежа...`);
       const data = await createPayment({
         amount: RESERVATION_AMOUNT,
         userName: motherName,
@@ -268,9 +282,12 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
       } catch {
         /* noop */
       }
+      addLog(`✅ Платёж создан! Перенаправляем на: ${data.payment_url}`);
       window.location.href = data.payment_url;
-    } catch {
-      /* onError handled */
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      addLog(`❌ catch: ${msg}`);
+      setShowDebug(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -306,6 +323,9 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
           setPrivacyConsent={setPrivacyConsent}
           errors={errors}
           isSubmitting={isSubmitting}
+          debugLogs={debugLogs}
+          showDebug={showDebug}
+          onToggleDebug={() => setShowDebug((v) => !v)}
         />
       )}
     </>
