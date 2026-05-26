@@ -9,7 +9,7 @@ export const SHIFT_SPOTS: Record<number, { count: number; discount?: boolean }> 
   2: { count: 2 },
   3: { count: 5 },
   4: { count: 1 },
-  5: { count: 4 },
+  5: { count: 2 },
   6: { count: 7 },
   7: { count: 8 },
 };
