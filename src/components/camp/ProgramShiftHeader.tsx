@@ -6,7 +6,7 @@ const SHIFT_RESERVATION_PRICE = 1000;
 
 export const SHIFT_SPOTS: Record<number, { count: number; discount?: boolean }> = {
   1: { count: 3, discount: true },
-  2: { count: 2 },
+  2: { count: 1 },
   3: { count: 5 },
   4: { count: 1 },
   5: { count: 2 },
