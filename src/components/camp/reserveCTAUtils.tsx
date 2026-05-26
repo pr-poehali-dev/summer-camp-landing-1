@@ -53,7 +53,7 @@ export function Field({
         style={{ border: error ? "2px solid #E64D12" : "2px solid #FFE5D9" }}
       />
       {error && (
-        <span className="text-xs font-bold mt-1 block" style={{ color: "#E64D12" }}>
+        <span data-field-error className="text-xs font-bold mt-1 block" style={{ color: "#E64D12" }}>
           {error}
         </span>
       )}

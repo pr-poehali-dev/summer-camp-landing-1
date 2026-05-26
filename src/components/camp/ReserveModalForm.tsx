@@ -285,6 +285,16 @@ export default function ReserveModalForm({
             id="reserve-privacy"
           />
 
+          {Object.keys(errors).length > 0 && (
+            <div
+              data-field-error
+              className="rounded-2xl px-4 py-3 text-sm font-bold"
+              style={{ background: "#FFF0ED", border: "2px solid #E64D12", color: "#E64D12" }}
+            >
+              ⚠️ Пожалуйста, заполните все обязательные поля выше
+            </div>
+          )}
+
           <button
             type="submit"
             disabled={isSubmitting}

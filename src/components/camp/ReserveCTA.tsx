@@ -191,6 +191,12 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
+      setTimeout(() => {
+        const firstError = document.querySelector("[data-field-error]");
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 50);
       return;
     }
     setErrors({});
