@@ -20,7 +20,7 @@ export default function PrivacyConsent({ checked, onChange, error, id = "privacy
         <span className="text-[12px] leading-snug" style={{ color: "rgba(61,61,61,0.75)" }}>
           Я согласен с{" "}
           <a
-            href="/privacy"
+            href="/personal-data"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
@@ -29,7 +29,17 @@ export default function PrivacyConsent({ checked, onChange, error, id = "privacy
           >
             обработкой персональных данных
           </a>{" "}
-          в соответствии с ФЗ-152
+          и{" "}
+          <a
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+            style={{ color: "#FF5E1A" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            политикой конфиденциальности
+          </a>
         </span>
       </label>
       {error && (
