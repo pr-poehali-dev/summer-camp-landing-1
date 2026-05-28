@@ -20,6 +20,8 @@ export default function CampFooter() {
           <a href="#tseny" className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Цены</a>
           <span style={{color:"rgba(255,255,255,0.3)"}}>·</span>
           <a href="#kontakty" className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Контакты</a>
+          <span style={{color:"rgba(255,255,255,0.3)"}}>·</span>
+          <a href="https://disk.yandex.ru/d/FQH7Qmhi6x2Rfw" target="_blank" rel="noopener noreferrer" onClick={() => ymGoal("docs_click", { place: "footer" })} className="hover:underline" style={{color:"rgba(255,255,255,0.75)"}}>Договоры</a>
         </nav>
         <a
           href="https://vk.com/app6379730_-179759189#l=8"
