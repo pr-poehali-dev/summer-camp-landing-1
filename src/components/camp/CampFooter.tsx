@@ -34,7 +34,7 @@ export default function CampFooter() {
           ВКонтакте
         </a>
         <p className="text-xs" style={{color:"rgba(255,255,255,0.4)"}}>
-          © 2026 Летний клуб «Рыбка Долли» · <a href="/oferta" className="underline">Публичная оферта</a> · <a href="/privacy" className="underline">Политика конфиденциальности</a> · <a href="/admin" className="underline">Вход для администратора</a>
+          © 2026 Летний клуб «Рыбка Долли» · <a href="/oferta" className="underline">Публичная оферта</a> · <a href="/privacy" className="underline">Политика конфиденциальности</a> · <a href="/personal-data" className="underline">Согласие на обработку ПД</a> · <a href="/admin" className="underline">Вход для администратора</a>
         </p>
       </div>
     </footer>

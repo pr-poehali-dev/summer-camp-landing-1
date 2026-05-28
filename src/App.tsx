@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Oferta from "./pages/Oferta";
 import Privacy from "./pages/Privacy";
+import PersonalData from "./pages/PersonalData";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFail from "./pages/PaymentFail";
 import Admin from "./pages/Admin";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/zvonok" element={<QuickLink target="call" />} />
           <Route path="/oferta" element={<Oferta />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/personal-data" element={<PersonalData />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-fail" element={<PaymentFail />} />
           <Route path="/admin" element={<Admin />} />
