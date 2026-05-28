@@ -84,6 +84,16 @@ export default function PriceBlock({
         )}
       </div>
 
+      <a
+        href="https://disk.yandex.ru/d/FQH7Qmhi6x2Rfw"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-sm font-semibold mb-4 hover:underline"
+        style={{ color: "rgba(61,61,61,0.6)" }}
+      >
+        📄 Ознакомиться с договором
+      </a>
+
       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-2xl mx-auto text-left mb-2">
         {[
           "✅ 2-разовое питание",
