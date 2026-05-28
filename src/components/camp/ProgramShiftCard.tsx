@@ -42,7 +42,7 @@ export default function ProgramShiftCard({
     <div className="relative" style={{ marginBottom: spots ? "28px" : "0" }}>
       <div
         className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""}`}
-        style={shift.id === 4 ? {
+        style={shift.id === 4 || shift.id === 2 ? {
           border:"3px solid #C8C8C8",
           boxShadow:"0 6px 0 rgba(0,0,0,0.07), 0 10px 24px rgba(0,0,0,0.1)",
           overflow: "hidden",
@@ -79,7 +79,7 @@ export default function ProgramShiftCard({
         )}
       </div>
 
-      {spots && (
+      {(spots || shift.id === 2) && (
         <div
           className="tag-swing absolute pointer-events-none"
           style={{
@@ -89,7 +89,7 @@ export default function ProgramShiftCard({
             transformOrigin: "top center",
           }}
         >
-          <div style={shift.id === 4 ? {
+          <div style={shift.id === 4 || shift.id === 2 ? {
             background: "#EFEFEF",
             border: "2.5px solid #666666",
             borderRadius: "8px",
@@ -124,13 +124,13 @@ export default function ProgramShiftCard({
               transform: "translateX(-50%)",
               width: "12px",
               height: "8px",
-              borderLeft: shift.id === 4 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
-              borderRight: shift.id === 4 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
-              borderTop: shift.id === 4 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
+              borderLeft: shift.id === 4 || shift.id === 2 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
+              borderRight: shift.id === 4 || shift.id === 2 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
+              borderTop: shift.id === 4 || shift.id === 2 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
               borderRadius: "5px 5px 0 0",
-              background: shift.id === 4 ? "#F0F0F0" : "#FFFAF0",
+              background: shift.id === 4 || shift.id === 2 ? "#F0F0F0" : "#FFFAF0",
             }} />
-            {shift.id === 4 ? (
+            {shift.id === 4 || shift.id === 2 ? (
               <>
                 🚫 Места закончились
                 <br />
