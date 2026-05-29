@@ -12,10 +12,12 @@ def send_email_to(to_email: str, subject: str, html_body: str) -> bool:
     user = os.environ.get('SMTP_USER')
     password = os.environ.get('SMTP_PASSWORD')
 
-    if not all([host, user, password, to_email]):
-        print('SMTP config missing, skip email')
+    missing = [n for n, v in (('SMTP_HOST', host), ('SMTP_USER', user), ('SMTP_PASSWORD', password), ('to_email', to_email)) if not v]
+    if missing:
+        print(f'SMTP config missing: {missing}, skip email')
         return False
 
+    print(f'SMTP try: host={host} user={user} -> {to_email}')
     try:
         msg = MIMEMultipart('alternative')
         msg['Subject'] = subject
@@ -27,9 +29,10 @@ def send_email_to(to_email: str, subject: str, html_body: str) -> bool:
         with smtplib.SMTP_SSL(host, 465, context=ctx, timeout=15) as server:
             server.login(user, password)
             server.sendmail(user, [to_email], msg.as_string())
+        print(f'SMTP OK: sent to {to_email}')
         return True
     except Exception as e:
-        print(f'Email send error to {to_email}: {e}')
+        print(f'SMTP ERROR to {to_email}: {type(e).__name__}: {e}')
         return False
 
 
@@ -201,6 +204,9 @@ def handler(event: dict, context) -> dict:
     sent = False
     if admin:
         sent = send_email_to(admin, subject, html)
+    else:
+        print('NOTIFICATION_EMAIL is empty, no recipient')
+    print(f'Notify result: stage={stage} admin_set={bool(admin)} sent={sent}')
 
     return {
         'statusCode': 200,
