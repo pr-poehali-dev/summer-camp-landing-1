@@ -51,8 +51,13 @@ export default function Index() {
   }, []);
 
   useEffect(() => {
-    if (window.location.hash === "#book") {
-      const t = window.setTimeout(() => openReserveModal(), 400);
+    const params = new URLSearchParams(window.location.search);
+    const shiftParam = params.get("shift");
+    const shiftIdFromUrl = shiftParam ? parseInt(shiftParam, 10) : null;
+    const wantBook = window.location.hash === "#book" || !!shiftIdFromUrl;
+    if (wantBook) {
+      if (shiftIdFromUrl) setSelectedShift(shiftIdFromUrl);
+      const t = window.setTimeout(() => openReserveModal(shiftIdFromUrl), 500);
       return () => window.clearTimeout(t);
     }
   }, []);
