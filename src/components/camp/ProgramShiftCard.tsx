@@ -39,7 +39,7 @@ export default function ProgramShiftCard({
   };
   const shiftName = shiftAccusative[shift.id] ?? `«${shift.name}»`;
   return (
-    <div className="relative" style={{ marginBottom: spots ? "28px" : "0" }}>
+    <div id={`shift-${shift.id}`} className="relative scroll-mt-24" style={{ marginBottom: spots ? "28px" : "0" }}>
       <div
         className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""}`}
         style={shift.id === 4 || shift.id === 2 ? {

@@ -51,15 +51,30 @@ export default function Index() {
   }, []);
 
   useEffect(() => {
+    if (window.location.hash === "#book") {
+      const t = window.setTimeout(() => openReserveModal(), 400);
+      return () => window.clearTimeout(t);
+    }
+  }, []);
+
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const shiftParam = params.get("shift");
     const shiftIdFromUrl = shiftParam ? parseInt(shiftParam, 10) : null;
-    const wantBook = window.location.hash === "#book" || !!shiftIdFromUrl;
-    if (wantBook) {
-      if (shiftIdFromUrl) setSelectedShift(shiftIdFromUrl);
-      const t = window.setTimeout(() => openReserveModal(shiftIdFromUrl), 500);
-      return () => window.clearTimeout(t);
-    }
+    if (!shiftIdFromUrl) return;
+    setSelectedShift(shiftIdFromUrl);
+    setOpenAccordion(shiftIdFromUrl);
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(`shift-${shiftIdFromUrl}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        el.classList.remove("anchor-highlight");
+        void el.offsetWidth;
+        el.classList.add("anchor-highlight");
+        window.setTimeout(() => el.classList.remove("anchor-highlight"), 3500);
+      }
+    }, 600);
+    return () => window.clearTimeout(t);
   }, []);
 
   useEffect(() => {
