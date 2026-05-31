@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminReviews from "@/components/admin/AdminReviews";
 import AdminApplications from "@/components/admin/AdminApplications";
+import AdminAds from "@/components/admin/AdminAds";
 import {
   ADMIN_URL,
   TOKEN_KEY,
@@ -246,6 +247,17 @@ export default function Admin() {
           >
             🌟 Заявки в команду
           </button>
+          <button
+            onClick={() => setTab("ads")}
+            className="font-bold px-4 py-2 rounded-xl text-sm"
+            style={{
+              background: tab === "ads" ? "#00C9A7" : "white",
+              color: tab === "ads" ? "white" : "#3D3D3D",
+              border: "2px solid #FFE5D9",
+            }}
+          >
+            📣 Ссылки для рекламы
+          </button>
         </div>
 
         {tab === "reviews" && (
@@ -266,6 +278,8 @@ export default function Admin() {
             deleteApplication={deleteApplication}
           />
         )}
+
+        {tab === "ads" && <AdminAds />}
       </main>
     </div>
   );

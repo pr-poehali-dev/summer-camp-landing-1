@@ -29,4 +29,4 @@ export interface Stats {
 }
 
 export type ReviewFilter = "pending" | "approved" | "rejected" | "all";
-export type AdminTab = "reviews" | "applications";
+export type AdminTab = "reviews" | "applications" | "ads";
