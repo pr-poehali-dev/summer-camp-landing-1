@@ -1,4 +1,4 @@
-import { useCountdown, PRICE_FULL, PRICE_SALE } from "./CampData";
+import { PRICE_FULL } from "./CampData";
 import ReserveCTA from "./ReserveCTA";
 import PriceBlock from "./PriceBlock";
 
@@ -11,13 +11,8 @@ const SHORT_SHIFT_ID = 7;
 const SHORT_SHIFT_PRICE = 7000;
 
 export default function CampBooking({ bookingRef, selectedShift }: CampBookingProps) {
-  const deadline = new Date("2026-05-31T23:59:00");
-  const countdown = useCountdown(deadline);
-  const promoActive = countdown.days > 0 || countdown.hours > 0;
-
   const isShort = selectedShift === SHORT_SHIFT_ID;
   const displayPrice = isShort ? SHORT_SHIFT_PRICE : PRICE_FULL;
-  const oldPrice = isShort ? PRICE_SALE : PRICE_FULL;
 
   return (
     <>
@@ -33,9 +28,6 @@ export default function CampBooking({ bookingRef, selectedShift }: CampBookingPr
             isShort={isShort}
             shortShiftId={SHORT_SHIFT_ID}
             displayPrice={displayPrice}
-            oldPrice={oldPrice}
-            afterDiscount={promoActive}
-            countdown={countdown}
           />
 
           {/* CTA: крупная переливающаяся кнопка */}

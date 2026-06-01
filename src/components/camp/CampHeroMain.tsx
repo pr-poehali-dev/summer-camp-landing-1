@@ -1,18 +1,10 @@
 import CampHeroPromo from "./CampHeroPromo";
 
-interface Countdown {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
 interface CampHeroMainProps {
-  countdown: Countdown;
   scrollToBooking: () => void;
 }
 
-export default function CampHeroMain({ countdown, scrollToBooking }: CampHeroMainProps) {
+export default function CampHeroMain({ scrollToBooking }: CampHeroMainProps) {
   return (
     <section className="relative pt-16 pb-12 hero-section" style={{background:"linear-gradient(180deg, rgba(255,217,61,0.18) 0%, rgba(255,154,86,0.28) 100%)", backgroundColor:"#FFF8F0", overflow:"clip"}}>
 
@@ -87,7 +79,7 @@ export default function CampHeroMain({ countdown, scrollToBooking }: CampHeroMai
             </div>
 
             {/* ── БЛОК «АКЦИЯ» — компактный, под текстом, выровнен по низу с фото ── */}
-            <CampHeroPromo countdown={countdown} scrollToBooking={scrollToBooking} />
+            <CampHeroPromo scrollToBooking={scrollToBooking} />
 
           </div>
       </div>

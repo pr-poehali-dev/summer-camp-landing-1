@@ -149,11 +149,6 @@ export default function ProgramShiftCard({
                 <span style={{ fontSize: "9px", fontWeight: 700, color: "#A0522D" }}>
                   Успейте забронировать!
                 </span>
-                {spots.discount && (
-                  <div style={{ marginTop: "2px", fontSize: "9px", fontWeight: 900, color: "#C53030" }}>
-                    + скидка 20%
-                  </div>
-                )}
               </>
             )}
           </div>
