@@ -43,6 +43,32 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
         </span>
       </div>
 
+      <div style={{
+        display:"flex",
+        alignItems:"center",
+        gap:"0.55rem",
+        background:"linear-gradient(135deg, #00C9A7 0%, #00A67E 55%, #00DEB8 100%)",
+        borderRadius:"14px",
+        padding:"0.5rem 0.7rem",
+        boxShadow:"0 4px 0 #008F78, 0 6px 16px rgba(0,201,167,0.4), 0 1px 0 rgba(255,255,255,0.3) inset",
+      }}>
+        <span style={{fontSize:"1.4rem", flexShrink:0, filter:"drop-shadow(0 1px 2px rgba(0,77,64,0.4))"}}>👯</span>
+        <div style={{display:"flex", flexDirection:"column", lineHeight:1.15, minWidth:0}}>
+          <span style={{
+            color:"#fff",
+            fontWeight:900,
+            fontSize:"0.9rem",
+            textShadow:"0 1px 0 rgba(0,143,120,0.9), 0 2px 4px rgba(0,77,64,0.5)",
+          }}>Акция «Я с другом»</span>
+          <span style={{
+            color:"rgba(255,255,255,0.95)",
+            fontWeight:700,
+            fontSize:"0.72rem",
+            textShadow:"0 1px 2px rgba(0,77,64,0.4)",
+          }}>Минус 500 ₽ каждому при совместной брони</span>
+        </div>
+      </div>
+
       <div style={{display:"flex", gap:"0.5rem", flexWrap:"wrap"}}>
         <button onClick={scrollToBooking} className="rainbow-cta" style={{
           flex:"2 1 180px",
