@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const SITE = "https://ribkadollilend.ru";
+const SITE = "https://dolliklub.ru";
 
 const ADS: { emoji: string; name: string; campaign: string; shiftId: number }[] = [
   { emoji: "🎬", name: "Мульти-драйв", campaign: "multidrive", shiftId: 3 },
