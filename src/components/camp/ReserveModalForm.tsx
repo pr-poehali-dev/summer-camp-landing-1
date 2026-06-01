@@ -234,11 +234,11 @@ export default function ReserveModalForm({
                     className="font-black px-2 py-0.5 rounded-lg text-white text-xs"
                     style={{ background: "linear-gradient(90deg,#00C9A7,#0094C6)" }}
                   >
-                    −10% обоим
+                    −500 ₽ каждому
                   </span>
                 </div>
                 <p className="text-xs mt-1" style={{ color: "rgba(61,61,61,0.7)" }}>
-                  Скидка 10% и вам, и другу при совместной брони. Акция до 31 мая.
+                  Минус 500 ₽ и вам, и другу при совместной брони.
                 </p>
               </div>
             </label>

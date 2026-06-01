@@ -258,7 +258,7 @@ export default function ReserveCTA({ defaultShiftId = null }: ReserveCTAProps = 
         userName: motherName,
         userEmail: email.trim(),
         userPhone: phone,
-        orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.${earlyStart ? " ДОП. ОПЦИЯ: раннее посещение с 8:00 (+3000 ₽ с завтраком, оплата в первый день)." : ""}${withFriend ? ` АКЦИЯ «Я с другом»: ${friendName} (−10% обоим).` : ""}`,
+        orderComment: `БРОНЬ. Мама: ${motherName}. Ребёнок: ${childName}, ${age} лет. Смена №${shiftId}${shift ? ` (${shift.name})` : ""}.${earlyStart ? " ДОП. ОПЦИЯ: раннее посещение с 8:00 (+3000 ₽ с завтраком, оплата в первый день)." : ""}${withFriend ? ` АКЦИЯ «Я с другом»: ${friendName} (−500 ₽ каждому).` : ""}`,
         cartItems: [
           {
             id: `reserve-${shiftId}`,
