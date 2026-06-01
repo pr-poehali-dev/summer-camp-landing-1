@@ -14,6 +14,8 @@ function buildUrl(shiftId: number, campaign: string) {
   return `${SITE}/?shift=${shiftId}&utm_source=yandex&utm_medium=cpc&utm_campaign=${campaign}`;
 }
 
+const QUICK_BOOK_URL = `${SITE}/?utm_source=yandex&utm_medium=cpc&utm_campaign=booking#book`;
+
 export default function AdminAds() {
   const [copied, setCopied] = useState<number | null>(null);
 
@@ -37,6 +39,32 @@ export default function AdminAds() {
         целиком в поле «Ссылка в объявлении» при создании рекламы в
         Яндекс.Директе. По ссылке человек попадёт сразу на описание нужной смены,
         а в Метрике будет видно, с какого объявления пришла заявка.
+      </div>
+
+      <div
+        className="rounded-2xl p-4 mb-5"
+        style={{ background: "linear-gradient(135deg,#FF3D8B,#FF9A56)", border: "2px solid #FF9A56" }}
+      >
+        <div className="flex items-center gap-2 mb-2 text-white">
+          <span className="text-xl">⚡</span>
+          <span className="font-black">Быстрая ссылка — сразу к форме оплаты</span>
+        </div>
+        <div className="text-xs mb-3" style={{ color: "rgba(255,255,255,0.9)" }}>
+          Человек нажимает и сразу попадает в открытую форму бронирования. Удобно для быстрых ссылок в Директе.
+        </div>
+        <div className="flex items-stretch gap-2">
+          <div className="flex-1 text-xs font-mono break-all rounded-xl px-3 py-2 bg-white" style={{ color: "#6B6B6B" }}>
+            {QUICK_BOOK_URL}
+          </div>
+          <button
+            onClick={() => copy(QUICK_BOOK_URL, 0)}
+            className="font-bold px-4 rounded-xl text-sm whitespace-nowrap flex items-center gap-1.5"
+            style={{ background: copied === 0 ? "#00C9A7" : "white", color: copied === 0 ? "white" : "#FF3D8B" }}
+          >
+            <Icon name={copied === 0 ? "Check" : "Copy"} size={16} />
+            {copied === 0 ? "Скопировано" : "Копировать"}
+          </button>
+        </div>
       </div>
 
       <div className="space-y-3">
