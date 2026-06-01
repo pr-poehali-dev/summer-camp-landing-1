@@ -11,7 +11,7 @@ const ADS: { emoji: string; name: string; campaign: string; shiftId: number }[] 
 ];
 
 function buildUrl(shiftId: number, campaign: string) {
-  return `${SITE}/?shift=${shiftId}&utm_source=yandex&utm_medium=cpc&utm_campaign=${campaign}&utm_content={ad_id}&utm_term={keyword}`;
+  return `${SITE}/?shift=${shiftId}&utm_source=yandex&utm_medium=cpc&utm_campaign=${campaign}`;
 }
 
 export default function AdminAds() {
@@ -33,12 +33,10 @@ export default function AdminAds() {
         className="rounded-2xl p-4 mb-5 text-sm"
         style={{ background: "#FFF1E2", border: "2px solid #FFE5D9", color: "#7B4A1E" }}
       >
-        <b>Как использовать:</b> скопируйте ссылку нужной смены и вставьте её в поле
-        «Ссылка в объявлении» при создании рекламы в Яндекс.Директе. Метки
-        <code className="mx-1 px-1 rounded" style={{ background: "#FFE5D9" }}>{"{ad_id}"}</code>
-        и
-        <code className="mx-1 px-1 rounded" style={{ background: "#FFE5D9" }}>{"{keyword}"}</code>
-        Директ заполнит сам — менять их не нужно.
+        <b>Как использовать:</b> скопируйте ссылку нужной смены и вставьте её
+        целиком в поле «Ссылка в объявлении» при создании рекламы в
+        Яндекс.Директе. По ссылке человек попадёт сразу на описание нужной смены,
+        а в Метрике будет видно, с какого объявления пришла заявка.
       </div>
 
       <div className="space-y-3">
