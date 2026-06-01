@@ -80,6 +80,24 @@ export default function PriceBlock({
         ))}
       </div>
 
+      <div
+        className="max-w-2xl mx-auto mt-4 rounded-2xl px-4 py-3 flex items-center gap-3 text-left"
+        style={{
+          background: "linear-gradient(135deg, #00C9A7 0%, #00A67E 55%, #00DEB8 100%)",
+          boxShadow: "0 6px 18px rgba(0,201,167,0.35), 0 2px 0 rgba(255,255,255,0.25) inset",
+        }}
+      >
+        <span className="text-2xl md:text-3xl flex-shrink-0">👯</span>
+        <div className="min-w-0">
+          <div className="font-black text-sm md:text-base text-white">
+            Акция «Я с другом»
+          </div>
+          <div className="text-xs md:text-sm font-semibold" style={{ color: "rgba(255,255,255,0.95)" }}>
+            Минус <b>500 ₽</b> и вам, и другу при совместной брони. Отметьте галочку при бронировании.
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
