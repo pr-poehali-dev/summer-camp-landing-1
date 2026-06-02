@@ -149,7 +149,15 @@ export default function ProgramShiftCard({
               borderRadius: "5px 5px 0 0",
               background: isClosed ? "#F0F0F0" : isHighlight ? "#FFFBEA" : "#FFFAF0",
             }} />
-            {isClosed ? (
+            {shift.id === 1 ? (
+              <>
+                ⏳ Смена идёт. Набор закрыт.
+                <br />
+                <span style={{ fontSize: "10px", fontWeight: 800, color: "#555555" }}>
+                  Узнать про свободные места<br />можно, позвонив нам.
+                </span>
+              </>
+            ) : isClosed ? (
               <>
                 🚫 Места закончились
                 <br />
