@@ -27,6 +27,8 @@ export default function ProgramShiftCard({
 }: ProgramShiftCardProps) {
   const isTeen = shift.id === 4 || shift.id === 5;
   const isShort = shift.id === 7;
+  const isClosed = shift.id === 1 || shift.id === 2 || shift.id === 4;
+  const isHighlight = shift.id === 3;
   const spots = SHIFT_SPOTS[shift.id];
   const shiftAccusative: Record<number, string> = {
     1: "«Сундук со сказками»",
@@ -41,12 +43,15 @@ export default function ProgramShiftCard({
   return (
     <div id={`shift-${shift.id}`} className="relative scroll-mt-24" style={{ marginBottom: spots ? "28px" : "0" }}>
       <div
-        className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""}`}
-        style={shift.id === 4 || shift.id === 2 ? {
+        className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""} ${isHighlight ? "animate-highlight-shift" : ""}`}
+        style={isClosed ? {
           border:"3px solid #C8C8C8",
           boxShadow:"0 6px 0 rgba(0,0,0,0.07), 0 10px 24px rgba(0,0,0,0.1)",
           overflow: "hidden",
           opacity: 0.75,
+        } : isHighlight ? {
+          border:"3px solid #FFD93D",
+          overflow: "hidden",
         } : isTeen ? {
           border:"3px solid #6C5CE7",
           boxShadow:"0 14px 0 rgba(108,92,231,0.25), 0 18px 50px rgba(108,92,231,0.45), 0 0 0 4px rgba(255,217,61,0.35), 0 2px 0 rgba(255,255,255,0.5) inset",
@@ -79,7 +84,7 @@ export default function ProgramShiftCard({
         )}
       </div>
 
-      {(spots || shift.id === 2) && (
+      {(spots || isClosed) && (
         <div
           className="tag-swing absolute pointer-events-none"
           style={{
@@ -89,7 +94,7 @@ export default function ProgramShiftCard({
             transformOrigin: "top center",
           }}
         >
-          <div style={shift.id === 4 || shift.id === 2 ? {
+          <div style={isClosed ? {
             background: "#EFEFEF",
             border: "2.5px solid #666666",
             borderRadius: "8px",
@@ -102,6 +107,20 @@ export default function ProgramShiftCard({
             textAlign: "center",
             position: "relative",
             maxWidth: "200px",
+            whiteSpace: "normal",
+          } : isHighlight ? {
+            background: "#FFFBEA",
+            border: "2.5px solid #FF3D8B",
+            borderRadius: "8px",
+            padding: "6px 14px 8px",
+            fontSize: "11px",
+            fontWeight: 900,
+            color: "#7B2D00",
+            boxShadow: "0 4px 14px rgba(255,61,139,0.3)",
+            lineHeight: 1.45,
+            textAlign: "center",
+            position: "relative",
+            maxWidth: "210px",
             whiteSpace: "normal",
           } : {
             background: "#FFFAF0",
@@ -124,18 +143,26 @@ export default function ProgramShiftCard({
               transform: "translateX(-50%)",
               width: "12px",
               height: "8px",
-              borderLeft: shift.id === 4 || shift.id === 2 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
-              borderRight: shift.id === 4 || shift.id === 2 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
-              borderTop: shift.id === 4 || shift.id === 2 ? "2.5px solid #666666" : "1.5px solid #E53E3E",
+              borderLeft: isClosed ? "2.5px solid #666666" : isHighlight ? "2.5px solid #FF3D8B" : "1.5px solid #E53E3E",
+              borderRight: isClosed ? "2.5px solid #666666" : isHighlight ? "2.5px solid #FF3D8B" : "1.5px solid #E53E3E",
+              borderTop: isClosed ? "2.5px solid #666666" : isHighlight ? "2.5px solid #FF3D8B" : "1.5px solid #E53E3E",
               borderRadius: "5px 5px 0 0",
-              background: shift.id === 4 || shift.id === 2 ? "#F0F0F0" : "#FFFAF0",
+              background: isClosed ? "#F0F0F0" : isHighlight ? "#FFFBEA" : "#FFFAF0",
             }} />
-            {shift.id === 4 || shift.id === 2 ? (
+            {isClosed ? (
               <>
                 🚫 Места закончились
                 <br />
                 <span style={{ fontSize: "10px", fontWeight: 800, color: "#555555" }}>
                   Могут появиться перед началом смены,<br />если кто-то откажется от брони
+                </span>
+              </>
+            ) : isHighlight ? (
+              <>
+                🔥 Ближайшая смена со свободными местами
+                <br />
+                <span style={{ fontSize: "11px", fontWeight: 900, color: "#FF3D8B" }}>
+                  Осталось 5 мест
                 </span>
               </>
             ) : (
