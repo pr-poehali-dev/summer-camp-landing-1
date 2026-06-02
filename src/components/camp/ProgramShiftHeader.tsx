@@ -86,6 +86,11 @@ export default function ProgramShiftHeader({
               <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#3D1E70", letterSpacing:"0.5px"}}>
                 🔥 ДЛЯ ПОДРОСТКОВ
               </span>
+              {shift.id === 5 && (
+                <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#fff", color:"#6C5CE7", letterSpacing:"0.5px"}}>
+                  🎮 ИММЕРСИВНАЯ ИГРА «МИССИЯ: МАРС» · СИМУЛЯТОР ВЫЖИВАНИЯ
+                </span>
+              )}
             </div>
           )}
           {isShort && (
