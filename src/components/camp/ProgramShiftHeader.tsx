@@ -87,7 +87,7 @@ export default function ProgramShiftHeader({
                 🔥 ДЛЯ ПОДРОСТКОВ
               </span>
               {shift.id === 5 && (
-                <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#fff", color:"#6C5CE7", letterSpacing:"0.5px"}}>
+                <span className="text-[10px] md:text-[11px] font-black px-2.5 py-0.5 rounded-full animate-rainbow-pulse" style={{background:"linear-gradient(90deg,#FF3D8B,#FF9A56,#FFD93D,#00C9A7,#6C5CE7,#FF3D8B)", color:"#fff", letterSpacing:"0.5px", textShadow:"0 1px 2px rgba(0,0,0,0.4)", boxShadow:"0 0 14px rgba(255,61,139,0.6)"}}>
                   🎮 ИММЕРСИВНАЯ ИГРА «МИССИЯ: МАРС» · СИМУЛЯТОР ВЫЖИВАНИЯ
                 </span>
               )}
