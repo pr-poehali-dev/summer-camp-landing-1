@@ -3,7 +3,8 @@ import ReviewsList, { type Review } from "./ReviewsList";
 import ReviewModal from "./ReviewModal";
 import { ymGoal } from "@/lib/ymGoal";
 
-const REVIEWS_URL = "https://functions.poehali.dev/f0ac4a46-76e0-4844-9a17-0e69fca7a807";
+const REVIEWS_URL =
+  "https://functions.poehali.dev/f0ac4a46-76e0-4844-9a17-0e69fca7a807";
 
 export default function CampReviews() {
   const [items, setItems] = useState<Review[]>([]);
