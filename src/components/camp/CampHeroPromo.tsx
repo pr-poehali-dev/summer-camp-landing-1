@@ -97,6 +97,31 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
         </a>
       </div>
 
+      <a
+        href="https://max.ru/+79881521698"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition-all hover:scale-[1.03]"
+        style={{
+          display:"flex",
+          alignItems:"center",
+          justifyContent:"center",
+          gap:"0.5rem",
+          padding:"0.6rem 0.85rem",
+          borderRadius:"12px",
+          background:"linear-gradient(135deg, #1FA2FF 0%, #12D8FA 55%, #1FA2FF 100%)",
+          boxShadow:"0 3px 0 #0B7FCC, 0 6px 16px rgba(18,162,250,0.4), 0 1px 0 rgba(255,255,255,0.35) inset",
+          color:"#fff",
+          fontWeight:900,
+          fontSize:"clamp(0.8rem, 3.4vw, 0.9rem)",
+          textShadow:"0 1px 0 rgba(0,0,0,0.2)",
+          textDecoration:"none",
+        }}
+      >
+        <span style={{fontSize:"1.15rem"}}>💬</span>
+        Написать в МАКС
+      </a>
+
       <div style={{
         display:"flex",
         alignItems:"center",
