@@ -98,7 +98,7 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
       </div>
 
       <a
-        href="https://max.ru/+79881521698"
+        href="https://max.ru/u/f9LHodD0cOIBNFUsB_OY0OUavQDjw_Wx94xIjk6Ikef9qAnQGfZvFH_YhuQ"
         target="_blank"
         rel="noopener noreferrer"
         className="transition-all hover:scale-[1.03]"
