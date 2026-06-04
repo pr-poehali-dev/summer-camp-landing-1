@@ -84,7 +84,7 @@ export default function ProgramShiftCard({
         )}
       </div>
 
-      {(spots || isClosed) && (
+      {isClosed && (
         <div
           className="tag-swing absolute pointer-events-none"
           style={{

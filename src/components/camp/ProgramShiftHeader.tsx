@@ -6,10 +6,16 @@ const SHIFT_RESERVATION_PRICE = 1000;
 
 export const SHIFT_SPOTS: Record<number, { count: number }> = {
   3: { count: 5 },
-  5: { count: 2 },
-  6: { count: 7 },
-  7: { count: 8 },
+  5: { count: 3 },
+  6: { count: 5 },
+  7: { count: 7 },
 };
+
+function spotsWordH(n: number) {
+  if (n === 1) return "место";
+  if (n >= 2 && n <= 4) return "места";
+  return "мест";
+}
 
 type Shift = (typeof SHIFTS)[number];
 
@@ -103,13 +109,15 @@ export default function ProgramShiftHeader({
               </span>
             </div>
           )}
-          {shift.id === 3 && (
-            <div className="flex flex-wrap gap-1.5 mb-1.5">
-              <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#7B2D00", letterSpacing:"0.5px"}}>
-                🔥 БЛИЖАЙШАЯ СМЕНА
-              </span>
-              <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#fff", color:"#FF3D8B"}}>
-                ОСТАЛОСЬ 5 МЕСТ
+          {SHIFT_SPOTS[shift.id] && (
+            <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+              {shift.id === 3 && (
+                <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#7B2D00", letterSpacing:"0.5px"}}>
+                  🔥 БЛИЖАЙШАЯ СМЕНА
+                </span>
+              )}
+              <span className="animate-rainbow-pulse text-[11px] md:text-[13px] font-black px-2.5 py-1 rounded-full" style={{background:"linear-gradient(90deg,#FF3D8B,#FF5E1A,#FFD93D,#FF3D8B)", color:"#fff", letterSpacing:"0.4px", textShadow:"0 1px 2px rgba(0,0,0,0.35)", boxShadow:"0 0 14px rgba(255,61,139,0.7)"}}>
+                ⚡ УСПЕЙТЕ! ОСТАЛОСЬ {SHIFT_SPOTS[shift.id].count} {spotsWordH(SHIFT_SPOTS[shift.id].count).toUpperCase()}
               </span>
             </div>
           )}
