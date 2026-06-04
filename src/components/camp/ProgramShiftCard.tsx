@@ -169,8 +169,8 @@ export default function ProgramShiftCard({
               <>
                 🔥 Ближайшая смена со свободными местами
                 <br />
-                <span style={{ fontSize: "11px", fontWeight: 900, color: "#FF3D8B" }}>
-                  Осталось 5 мест
+                <span className="animate-rainbow-pulse" style={{ display: "inline-block", marginTop: "3px", fontSize: "12px", fontWeight: 900, color: "#fff", background: "linear-gradient(90deg,#FF3D8B,#FF5E1A,#FF3D8B)", borderRadius: "999px", padding: "2px 10px", letterSpacing: "0.3px", textShadow: "0 1px 2px rgba(0,0,0,0.35)", boxShadow: "0 0 12px rgba(255,61,139,0.7)" }}>
+                  ⚡ Успейте! Осталось всего 5 мест
                 </span>
               </>
             ) : (
