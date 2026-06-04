@@ -96,6 +96,28 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
           Программа
         </a>
       </div>
+
+      <div style={{
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        gap:"0.4rem",
+        background:"rgba(255,255,255,0.92)",
+        borderRadius:"12px",
+        padding:"0.45rem 0.7rem",
+        boxShadow:"0 2px 0 rgba(204,106,0,0.35), 0 1px 0 rgba(255,255,255,0.6) inset",
+      }}>
+        <span style={{fontSize:"1.1rem", flexShrink:0}}>⚡</span>
+        <span style={{
+          color:"#C81E5B",
+          fontWeight:900,
+          fontSize:"0.78rem",
+          lineHeight:1.25,
+          textAlign:"center",
+        }}>
+          Ответим за 5 минут и закрепим место за вашим ребёнком
+        </span>
+      </div>
     </div>
   );
 }

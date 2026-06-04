@@ -41,8 +41,11 @@ export default function CampHeroMain({ scrollToBooking }: CampHeroMainProps) {
                 <span style={{color:"white", fontWeight:800, fontSize:"0.9rem", letterSpacing:"0.01em", textAlign:"center"}}>
                   🌊 Летний городской клуб в Керчи, ул. Циолковского, 12
                 </span>
-                <span style={{color:"rgba(255,255,255,0.9)", fontWeight:600, fontSize:"0.78rem", textAlign:"center"}}>
-                  ⭐ Для детей 7–14 лет · Работаем с 2018 года
+                <span style={{color:"rgba(255,255,255,0.95)", fontWeight:700, fontSize:"0.78rem", textAlign:"center"}}>
+                  ⭐ Для детей 7–14 лет
+                </span>
+                <span className="animate-rainbow-pulse" style={{display:"block", marginTop:"4px", background:"#FFF200", color:"#C81E5B", fontWeight:900, fontSize:"0.95rem", textAlign:"center", borderRadius:"999px", padding:"3px 10px", letterSpacing:"0.01em", textShadow:"0 1px 0 rgba(255,255,255,0.5)", boxShadow:"0 0 14px rgba(255,242,0,0.8)"}}>
+                  🔥 В ближайшей смене осталось всего 5 мест!
                 </span>
               </div>
             </div>
@@ -68,8 +71,12 @@ export default function CampHeroMain({ scrollToBooking }: CampHeroMainProps) {
               }}>Лето 2026</div>
             </h1>
 
-            <p className="text-base font-bold mb-1" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D"}}>
-              <span style={{color:"#00C9A7"}}>🌊</span> Море · <span style={{color:"#00C9A7"}}>🎨</span> Творчество · <span style={{color:"#00C9A7"}}>⛺</span> Походы
+            <p className="text-base font-black mb-1" style={{fontFamily:"'Nunito', sans-serif", color:"#3D3D3D", lineHeight:1.35}}>
+              <span style={{color:"#FF5E1A"}}>📵</span> 10 дней без гаджетов: <span style={{color:"#00C9A7"}}>🌊</span> море, <span style={{color:"#00C9A7"}}>🎨</span> творчество, <span style={{color:"#00C9A7"}}>⛺</span> походы и <span style={{color:"#00C9A7"}}>🤝</span> новые друзья
+            </p>
+
+            <p className="text-sm mb-1 font-black" style={{fontFamily:"'Nunito', sans-serif", color:"#C81E5B"}}>
+              ⏳ Запись уже идёт. Места заканчиваются
             </p>
 
             <p className="text-sm mb-0 font-semibold" style={{fontFamily:"'Nunito', sans-serif", color:"rgba(61,61,61,0.8)"}}>
