@@ -24,6 +24,7 @@ interface ProgramShiftHeaderProps {
   shift: Shift;
   isTeen: boolean;
   isShort: boolean;
+  soldOut?: boolean;
   openAccordion: number | null;
   setOpenAccordion: (id: number | null) => void;
 }
@@ -32,6 +33,7 @@ export default function ProgramShiftHeader({
   shift,
   isTeen,
   isShort,
+  soldOut = false,
   openAccordion,
   setOpenAccordion,
 }: ProgramShiftHeaderProps) {
@@ -39,6 +41,7 @@ export default function ProgramShiftHeader({
   const liveCount = spotsMap[shift.id];
   const hasSpots = SHIFT_SPOTS[shift.id] !== undefined;
   const spotsCount = liveCount !== undefined ? liveCount : SHIFT_SPOTS[shift.id]?.count ?? 0;
+  const grayHeader = shift.id === 1 || shift.id === 4 || shift.id === 2 || soldOut;
   return (
     <button
       onClick={() => {
@@ -57,8 +60,8 @@ export default function ProgramShiftHeader({
           ]);
         }
       }}
-      className={`shift-icon-wrap w-full flex items-center justify-between px-4 py-3 md:px-5 md:py-3.5 text-left font-black hover:brightness-105 transition-all ${shift.id === 3 ? "highlight-shift-header" : ""}`}
-      style={shift.id === 1 || shift.id === 4 || shift.id === 2 ? {
+      className={`shift-icon-wrap w-full flex items-center justify-between px-4 py-3 md:px-5 md:py-3.5 text-left font-black hover:brightness-105 transition-all ${shift.id === 3 && !soldOut ? "highlight-shift-header" : ""}`}
+      style={grayHeader ? {
         background:"linear-gradient(135deg, #D8D8D8 0%, #C8C8C8 50%, #B8B8B8 100%)",
         color:"#555555",
         boxShadow:"0 2px 0 rgba(255,255,255,0.3) inset, 0 -3px 0 rgba(0,0,0,0.1) inset",
@@ -114,7 +117,7 @@ export default function ProgramShiftHeader({
               </span>
             </div>
           )}
-          {hasSpots && spotsCount > 0 && (
+          {hasSpots && spotsCount > 0 && !soldOut && (
             <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
               {shift.id === 3 && (
                 <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#7B2D00", letterSpacing:"0.5px"}}>
@@ -129,7 +132,7 @@ export default function ProgramShiftHeader({
           <div className="flex flex-wrap items-center gap-2">
             <div className="text-lg md:text-xl" style={(isTeen || isShort || shift.id === 3) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
           </div>
-          <div className="text-sm font-semibold" style={(isTeen || isShort || shift.id === 3) ? {color:"rgba(255,255,255,0.95)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age}{isShort ? " · 7 000 ₽" : ""}</div>
+          <div className="text-sm font-semibold" style={grayHeader ? {color:"rgba(85,85,85,0.85)"} : (isTeen || isShort || shift.id === 3) ? {color:"rgba(255,255,255,0.95)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age}{isShort ? " · 7 000 ₽" : ""}</div>
         </div>
       </div>
       <Icon name={openAccordion === shift.id ? "ChevronUp" : "ChevronDown"} size={22} />

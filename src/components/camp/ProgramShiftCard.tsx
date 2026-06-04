@@ -1,6 +1,7 @@
 import { SHIFTS } from "./CampData";
 import ProgramShiftHeader, { SHIFT_SPOTS } from "./ProgramShiftHeader";
 import ProgramShiftBody from "./ProgramShiftBody";
+import { useShiftSpots } from "./useShiftSpots";
 
 type Shift = (typeof SHIFTS)[number];
 
@@ -25,10 +26,17 @@ export default function ProgramShiftCard({
   scrollToBooking,
   setSelectedShift,
 }: ProgramShiftCardProps) {
+  const spotsMap = useShiftSpots();
+  const hasSpotsConfig = SHIFT_SPOTS[shift.id] !== undefined;
+  const liveCount = spotsMap[shift.id];
+  const spotsCount = hasSpotsConfig
+    ? (liveCount !== undefined ? liveCount : SHIFT_SPOTS[shift.id].count)
+    : 0;
+  const soldOut = hasSpotsConfig && spotsCount <= 0;
   const isTeen = shift.id === 4 || shift.id === 5;
   const isShort = shift.id === 7;
-  const isClosed = shift.id === 1 || shift.id === 2 || shift.id === 4;
-  const isHighlight = shift.id === 3;
+  const isClosed = shift.id === 1 || shift.id === 2 || shift.id === 4 || soldOut;
+  const isHighlight = shift.id === 3 && !soldOut;
   const spots = SHIFT_SPOTS[shift.id];
   const shiftAccusative: Record<number, string> = {
     1: "«Сундук со сказками»",
@@ -69,6 +77,7 @@ export default function ProgramShiftCard({
           shift={shift}
           isTeen={isTeen}
           isShort={isShort}
+          soldOut={soldOut}
           openAccordion={openAccordion}
           setOpenAccordion={setOpenAccordion}
         />

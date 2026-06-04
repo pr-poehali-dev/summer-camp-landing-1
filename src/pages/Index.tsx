@@ -134,16 +134,16 @@ export default function Index() {
 
 
       <Suspense fallback={<SectionFallback />}>
-        {/* 1.5 ПОЧЕМУ ИМЕННО МЫ */}
-        <SectionWhyUs />
-
-        {/* 2. ПРОГРАММА СМЕН */}
+        {/* 1.5 ПРОГРАММА СМЕН */}
         <CampProgram
           openAccordion={openAccordion}
           setOpenAccordion={setOpenAccordion}
           scrollToBooking={scrollToBooking}
           setSelectedShift={setSelectedShift}
         />
+
+        {/* 2. ПОЧЕМУ ИМЕННО МЫ */}
+        <SectionWhyUs />
 
         {/* 2.5 ПОМОЩЬ В ВЫБОРЕ (КВИЗ) */}
         <SectionQuiz />
