@@ -24,6 +24,12 @@
       "method": "GET",
       "path": "/?action=unknown",
       "expectedStatus": 401
+    },
+    {
+      "name": "Public shift_spots without token",
+      "method": "GET",
+      "path": "/?action=shift_spots",
+      "expectedStatus": 200
     }
   ]
 }

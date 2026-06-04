@@ -1,6 +1,7 @@
 import Icon from "@/components/ui/icon";
 import { SHIFTS } from "./CampData";
 import { ymGoal, ecommerceDetail } from "@/lib/ymGoal";
+import { useShiftSpots } from "./useShiftSpots";
 
 const SHIFT_RESERVATION_PRICE = 1000;
 
@@ -34,6 +35,10 @@ export default function ProgramShiftHeader({
   openAccordion,
   setOpenAccordion,
 }: ProgramShiftHeaderProps) {
+  const spotsMap = useShiftSpots();
+  const liveCount = spotsMap[shift.id];
+  const hasSpots = SHIFT_SPOTS[shift.id] !== undefined;
+  const spotsCount = liveCount !== undefined ? liveCount : SHIFT_SPOTS[shift.id]?.count ?? 0;
   return (
     <button
       onClick={() => {
@@ -109,7 +114,7 @@ export default function ProgramShiftHeader({
               </span>
             </div>
           )}
-          {SHIFT_SPOTS[shift.id] && (
+          {hasSpots && spotsCount > 0 && (
             <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
               {shift.id === 3 && (
                 <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#7B2D00", letterSpacing:"0.5px"}}>
@@ -117,7 +122,7 @@ export default function ProgramShiftHeader({
                 </span>
               )}
               <span className="animate-rainbow-pulse text-[11px] md:text-[13px] font-black px-2.5 py-1 rounded-full" style={{background:"linear-gradient(90deg,#FF3D8B,#FF5E1A,#FFD93D,#FF3D8B)", color:"#fff", letterSpacing:"0.4px", textShadow:"0 1px 2px rgba(0,0,0,0.35)", boxShadow:"0 0 14px rgba(255,61,139,0.7)"}}>
-                ⚡ УСПЕЙТЕ! ОСТАЛОСЬ {SHIFT_SPOTS[shift.id].count} {spotsWordH(SHIFT_SPOTS[shift.id].count).toUpperCase()}
+                ⚡ УСПЕЙТЕ! ОСТАЛОСЬ {spotsCount} {spotsWordH(spotsCount).toUpperCase()}
               </span>
             </div>
           )}

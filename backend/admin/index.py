@@ -67,11 +67,64 @@ def handler(event: dict, context) -> dict:
             return json_resp(401, {'error': 'Неверный пароль'})
         return json_resp(200, {'ok': True, 'token': make_token(admin_pwd)})
 
+    # GET ?action=shift_spots — публичное чтение (для сайта), без токена
+    if method == 'GET' and action == 'shift_spots':
+        conn = psycopg2.connect(os.environ['DATABASE_URL'])
+        try:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute(
+                    "CREATE TABLE IF NOT EXISTS shift_spots ("
+                    "shift_id INTEGER PRIMARY KEY, "
+                    "count INTEGER NOT NULL DEFAULT 0, "
+                    "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+                )
+                cur.execute(
+                    "INSERT INTO shift_spots (shift_id, count) VALUES "
+                    "(3,5),(5,3),(6,5),(7,7) "
+                    "ON CONFLICT (shift_id) DO NOTHING"
+                )
+                conn.commit()
+                cur.execute(
+                    "SELECT shift_id, count FROM shift_spots ORDER BY shift_id"
+                )
+                rows = cur.fetchall()
+        finally:
+            conn.close()
+        spots = {str(r['shift_id']): r['count'] for r in rows}
+        return json_resp(200, {'spots': spots})
+
     # Все остальные действия требуют токен
     if not check_token(event):
         return json_resp(401, {'error': 'Не авторизован'})
 
     dsn = os.environ['DATABASE_URL']
+
+    # PUT ?action=shift_spots — body: {shift_id, count} (только админ)
+    if method == 'PUT' and action == 'shift_spots':
+        try:
+            body = json.loads(event.get('body') or '{}')
+        except json.JSONDecodeError:
+            return json_resp(400, {'error': 'Invalid JSON'})
+        try:
+            shift_id = int(body.get('shift_id'))
+            count = int(body.get('count'))
+        except (TypeError, ValueError):
+            return json_resp(400, {'error': 'Неверные данные'})
+        if count < 0:
+            count = 0
+        conn = psycopg2.connect(dsn)
+        try:
+            with conn.cursor() as cur:
+                cur.execute(
+                    f"INSERT INTO shift_spots (shift_id, count, updated_at) "
+                    f"VALUES ({shift_id}, {count}, CURRENT_TIMESTAMP) "
+                    f"ON CONFLICT (shift_id) DO UPDATE SET "
+                    f"count = {count}, updated_at = CURRENT_TIMESTAMP"
+                )
+            conn.commit()
+        finally:
+            conn.close()
+        return json_resp(200, {'ok': True})
 
     # GET ?action=reviews&status=pending|approved|rejected|all
     if method == 'GET' and action == 'reviews':

@@ -29,4 +29,11 @@ export interface Stats {
 }
 
 export type ReviewFilter = "pending" | "approved" | "rejected" | "all";
-export type AdminTab = "reviews" | "applications" | "ads";
+export type AdminTab = "reviews" | "applications" | "ads" | "spots";
+
+export const SHIFT_TITLES: Record<number, string> = {
+  3: "Смена 3 · «Мульти-драйв»",
+  5: "Смена 5 · «Есть ли жизнь на Марсе?»",
+  6: "Смена 6 · «Робинзоны»",
+  7: "Смена 7 · «Лаборатория чудес»",
+};

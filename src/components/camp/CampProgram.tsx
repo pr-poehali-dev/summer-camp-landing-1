@@ -1,6 +1,7 @@
 import { SHIFTS } from "./CampData";
 import CampProgramHeader from "./CampProgramHeader";
 import ProgramShiftCard from "./ProgramShiftCard";
+import { ShiftSpotsProvider } from "./useShiftSpots";
 
 interface CampProgramProps {
   openAccordion: number | null;
@@ -16,6 +17,7 @@ export default function CampProgram({
   setSelectedShift,
 }: CampProgramProps) {
   return (
+    <ShiftSpotsProvider>
     <section id="programmy" className="py-16 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         <CampProgramHeader />
@@ -46,5 +48,6 @@ export default function CampProgram({
         <p className="text-center text-warm-600 mt-6 text-sm">И это только малая часть активностей! Скорее бронируйте, пока места не закончились!</p>
       </div>
     </section>
+    </ShiftSpotsProvider>
   );
 }

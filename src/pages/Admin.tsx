@@ -3,6 +3,7 @@ import AdminLogin from "@/components/admin/AdminLogin";
 import AdminReviews from "@/components/admin/AdminReviews";
 import AdminApplications from "@/components/admin/AdminApplications";
 import AdminAds from "@/components/admin/AdminAds";
+import AdminSpots from "@/components/admin/AdminSpots";
 import {
   ADMIN_URL,
   TOKEN_KEY,
@@ -258,6 +259,17 @@ export default function Admin() {
           >
             📣 Ссылки для рекламы
           </button>
+          <button
+            onClick={() => setTab("spots")}
+            className="font-bold px-4 py-2 rounded-xl text-sm"
+            style={{
+              background: tab === "spots" ? "#FF3D8B" : "white",
+              color: tab === "spots" ? "white" : "#3D3D3D",
+              border: "2px solid #FFE5D9",
+            }}
+          >
+            🔢 Места в сменах
+          </button>
         </div>
 
         {tab === "reviews" && (
@@ -280,6 +292,8 @@ export default function Admin() {
         )}
 
         {tab === "ads" && <AdminAds />}
+
+        {tab === "spots" && <AdminSpots apiCall={apiCall} />}
       </main>
     </div>
   );
