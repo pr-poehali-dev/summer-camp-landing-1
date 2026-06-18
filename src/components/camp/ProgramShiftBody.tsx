@@ -36,13 +36,13 @@ export default function ProgramShiftBody({
             <span className="text-[11px] font-black px-2 py-0.5 rounded-full" style={{background:"#FFD93D", color:"#1A5C4D"}}>5-ДНЕВНЫЙ ФОРМАТ</span>
             <span className="text-[11px] font-black px-2 py-0.5 rounded-full" style={{background:"rgba(255,255,255,0.2)", color:"#fff", border:"1px solid rgba(255,255,255,0.4)"}}>ФИНАЛ ЛЕТА</span>
           </div>
-          <p className="font-black text-base md:text-lg mb-1">💰 Всего 7 000 ₽ — экономия почти в 2 раза!</p>
-          <p className="text-sm mb-2" style={{color:"rgba(255,255,255,0.92)"}}>Идеальный финал лета: 5 насыщенных дней, 20+ научных опытов и яркие впечатления перед школой. Подойдёт, если хотите сэкономить, ребёнок уже был в основной смене или нужно «протестировать» наш клуб.</p>
+          <p className="font-black text-base md:text-lg mb-1">💰 Всего 7 500 ₽ · фееричное завершение лета!</p>
+          <p className="text-sm mb-2" style={{color:"rgba(255,255,255,0.92)"}}>Идеальный финал лета: 5 насыщенных дней молекулярной кухни — опыты, которые можно съесть, и яркие впечатления перед школой. Места закончатся быстро — успейте забронировать!</p>
           <div className="flex flex-wrap gap-3 text-xs font-bold">
             <span>✅ 2-разовое питание</span>
-            <span>✅ Все материалы и реактивы</span>
+            <span>✅ Все ингредиенты и материалы</span>
             <span>✅ Море каждый день</span>
-            <span>✅ Подарки и диплом</span>
+            <span>✅ Диплом «Юного молекулярного шефа»</span>
           </div>
         </div>
       )}
@@ -107,7 +107,7 @@ export default function ProgramShiftBody({
         className={`mt-4 font-bold px-5 py-2.5 rounded-xl text-sm text-white transition-all hover:scale-105 ${shift.id === 3 ? "rainbow-cta" : ""}`}
         style={isTeen ? {background:"linear-gradient(90deg,#6C5CE7,#FF3D8B,#FFD93D)", boxShadow:"0 6px 18px rgba(108,92,231,0.45)"} : isShort ? {background:"linear-gradient(90deg,#00C9A7,#0094C6,#FFD93D)", boxShadow:"0 6px 18px rgba(0,201,167,0.45)"} : shift.id === 3 ? {background:"linear-gradient(90deg,#FF3D8B,#FF9A56,#FFD93D,#00C9A7,#6C5CE7,#FF3D8B)", backgroundSize:"300% 100%", boxShadow:"0 6px 18px rgba(255,94,26,0.45)"} : {background:"linear-gradient(90deg,#FF9A56,#FFD93D)"}}
       >
-        {isTeen ? `🚀 Забронировать ${shiftName} →` : isShort ? `💰 Забронировать ${shiftName} за 7 000 ₽ →` : shift.id === 3 ? `🎬 Забронировать ${shiftName} →` : `Забронировать ${shiftName} →`}
+        {isTeen ? `🚀 Забронировать ${shiftName} →` : isShort ? `💰 Забронировать ${shiftName} за 7 500 ₽ →` : shift.id === 3 ? `🎬 Забронировать ${shiftName} →` : `Забронировать ${shiftName} →`}
       </button>
     </div>
   );

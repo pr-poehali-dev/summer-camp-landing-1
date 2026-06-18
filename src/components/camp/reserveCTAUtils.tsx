@@ -5,7 +5,7 @@ export const SHIFT_ACCUSATIVE: Record<number, string> = {
   4: "«Поколение АЛЬФА»",
   5: "«Есть ли жизнь на Марсе?»",
   6: "«Кругосветку»",
-  7: "«Лабораторию чудес»",
+  7: "«Молекулярную кухню»",
 };
 
 export const RESERVATION_AMOUNT = 1000;

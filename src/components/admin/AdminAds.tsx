@@ -7,7 +7,7 @@ const ADS: { emoji: string; name: string; campaign: string; shiftId: number }[] 
   { emoji: "🎬", name: "Мульти-драйв", campaign: "multidrive", shiftId: 3 },
   { emoji: "🪐", name: "Есть ли жизнь на Марсе?", campaign: "mars", shiftId: 5 },
   { emoji: "🌍", name: "Кругосветка", campaign: "krugosvetka", shiftId: 6 },
-  { emoji: "🔬", name: "Лаборатория чудес", campaign: "laboratoria", shiftId: 7 },
+  { emoji: "🧪", name: "Молекулярная кухня", campaign: "molecular", shiftId: 7 },
 ];
 
 function buildUrl(shiftId: number, campaign: string) {

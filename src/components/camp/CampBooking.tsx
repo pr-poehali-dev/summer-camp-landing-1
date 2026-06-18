@@ -8,7 +8,7 @@ interface CampBookingProps {
 }
 
 const SHORT_SHIFT_ID = 7;
-const SHORT_SHIFT_PRICE = 7000;
+const SHORT_SHIFT_PRICE = 7500;
 
 export default function CampBooking({ bookingRef, selectedShift }: CampBookingProps) {
   const isShort = selectedShift === SHORT_SHIFT_ID;

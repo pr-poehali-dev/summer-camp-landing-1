@@ -45,7 +45,7 @@ export default function ProgramShiftCard({
     4: "«Поколение АЛЬФА»",
     5: "«Тинейджер-2026»",
     6: "«Робинзоны»",
-    7: "«Лабораторию чудес»",
+    7: "«Молекулярную кухню»",
   };
   const shiftName = shiftAccusative[shift.id] ?? `«${shift.name}»`;
   return (

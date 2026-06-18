@@ -44,8 +44,8 @@ export default function CampHeroMain({ scrollToBooking }: CampHeroMainProps) {
                 <span style={{color:"rgba(255,255,255,0.95)", fontWeight:700, fontSize:"0.78rem", textAlign:"center"}}>
                   ⭐ Для детей 7–14 лет
                 </span>
-                <span className="animate-rainbow-pulse" style={{display:"block", marginTop:"4px", background:"#FFF200", color:"#C81E5B", fontWeight:900, fontSize:"0.95rem", textAlign:"center", borderRadius:"999px", padding:"3px 10px", letterSpacing:"0.01em", textShadow:"0 1px 0 rgba(255,255,255,0.5)", boxShadow:"0 0 14px rgba(255,242,0,0.8)"}}>
-                  🔥 В ближайшей смене осталось всего 2 места!
+                <span className="animate-rainbow-pulse" style={{display:"block", marginTop:"4px", background:"linear-gradient(90deg,#FF3D8B,#FFD93D,#00DEB8,#FF3D8B)", backgroundSize:"300% 100%", color:"#3D1E00", fontWeight:900, fontSize:"0.95rem", textAlign:"center", borderRadius:"14px", padding:"6px 12px", letterSpacing:"0.01em", lineHeight:1.3, textShadow:"0 1px 0 rgba(255,255,255,0.6)", boxShadow:"0 0 18px rgba(255,61,139,0.7)"}}>
+                  🧪✨ Фееричное завершение лета — смена «Молекулярная кухня»! Места закончатся быстро, успейте забронировать
                 </span>
               </div>
             </div>

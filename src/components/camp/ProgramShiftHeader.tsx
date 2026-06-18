@@ -113,7 +113,7 @@ export default function ProgramShiftHeader({
                 ⚡ ФИНАЛ ЛЕТА · 5 ДНЕЙ
               </span>
               <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#fff", color:"#1A5C4D"}}>
-                💰 ВСЕГО 7 000 ₽
+                💰 ВСЕГО 7 500 ₽
               </span>
             </div>
           )}
@@ -132,7 +132,7 @@ export default function ProgramShiftHeader({
           <div className="flex flex-wrap items-center gap-2">
             <div className="text-lg md:text-xl" style={(isTeen || isShort || shift.id === 3) ? {textShadow:"0 1px 2px rgba(0,0,0,0.3)"} : {textShadow:"0 1px 0 rgba(255,255,255,0.5)"}}>Смена {shift.id}: «{shift.name}»</div>
           </div>
-          <div className="text-sm font-semibold" style={grayHeader ? {color:"rgba(85,85,85,0.85)"} : (isTeen || isShort || shift.id === 3) ? {color:"rgba(255,255,255,0.95)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age}{isShort ? " · 7 000 ₽" : ""}</div>
+          <div className="text-sm font-semibold" style={grayHeader ? {color:"rgba(85,85,85,0.85)"} : (isTeen || isShort || shift.id === 3) ? {color:"rgba(255,255,255,0.95)"} : {color:"rgba(92,46,0,0.75)"}}>{shift.dates} · {shift.age}{isShort ? " · 7 500 ₽" : ""}</div>
         </div>
       </div>
       <Icon name={openAccordion === shift.id ? "ChevronUp" : "ChevronDown"} size={22} />
