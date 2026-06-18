@@ -45,7 +45,7 @@ export default function CampHeroMain({ scrollToBooking }: CampHeroMainProps) {
                   ⭐ Для детей 7–14 лет
                 </span>
                 <span className="animate-rainbow-pulse" style={{display:"block", marginTop:"4px", background:"#FFF200", color:"#C81E5B", fontWeight:900, fontSize:"0.95rem", textAlign:"center", borderRadius:"999px", padding:"3px 10px", letterSpacing:"0.01em", textShadow:"0 1px 0 rgba(255,255,255,0.5)", boxShadow:"0 0 14px rgba(255,242,0,0.8)"}}>
-                  🔥 В ближайшей смене осталось всего 5 мест!
+                  🔥 В ближайшей смене осталось всего 2 места!
                 </span>
               </div>
             </div>
