@@ -31,7 +31,7 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
           fontSize:"1.25rem",
           textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 4px rgba(92,46,0,0.45)",
         }}>
-          12 500 ₽
+          14 500 ₽
         </span>
         <span style={{
           color:"rgba(255,255,255,0.95)",

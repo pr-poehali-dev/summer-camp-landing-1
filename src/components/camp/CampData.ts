@@ -188,7 +188,7 @@ export const TESTIMONIALS = [
   { text: "Ребёнок перестал сидеть в телефоне, появились друзья!", author: "Светлана", child: "мама Кати, 10 лет", emoji: "🧡" },
 ];
 
-export const PRICE_FULL = 12500;
+export const PRICE_FULL = 14500;
 export const PRICE_SALE = 11250;
 
 // ── таймер до 31 мая 2026 ────────────────────────────────────────────────────
