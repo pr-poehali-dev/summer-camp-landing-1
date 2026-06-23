@@ -189,7 +189,7 @@ export const TESTIMONIALS = [
 ];
 
 export const PRICE_FULL = 14500;
-export const PRICE_SALE = 11250;
+export const PRICE_SALE = 13250;
 
 // ── таймер до 31 мая 2026 ────────────────────────────────────────────────────
 export function useCountdown(targetDate: Date) {
