@@ -1,24 +1,25 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import CampHero from "@/components/camp/CampHero";
 import FloatingBookButton from "@/components/camp/FloatingBookButton";
 import { openReserveModal } from "@/components/camp/reserveCTAUtils";
+import { lazyWithRetry } from "@/lib/lazyWithRetry";
 
-const CampProgram = lazy(() => import("@/components/camp/CampProgram"));
-const CampTeam = lazy(() => import("@/components/camp/CampTeam"));
-const CampReviews = lazy(() => import("@/components/camp/CampReviews"));
-const CampBooking = lazy(() => import("@/components/camp/CampBooking"));
-const CampFooter = lazy(() => import("@/components/camp/CampFooter"));
-const SectionSchedule = lazy(() => import("@/components/camp/SectionSchedule"));
-const SectionSafety = lazy(() => import("@/components/camp/SectionSafety"));
-const SectionFood = lazy(() => import("@/components/camp/SectionFood"));
-const SectionForWhom = lazy(() => import("@/components/camp/SectionForWhom"));
-const SectionVideos = lazy(() => import("@/components/camp/SectionVideos"));
-const SectionDarkPromo = lazy(() => import("@/components/camp/SectionDarkPromo"));
-const SectionKidsReviews = lazy(() => import("@/components/camp/SectionKidsReviews"));
-const SectionFAQ = lazy(() => import("@/components/camp/SectionFAQ"));
-const SectionQuiz = lazy(() => import("@/components/camp/SectionQuiz"));
-const SectionLocation = lazy(() => import("@/components/camp/SectionLocation"));
-const SectionWhyUs = lazy(() => import("@/components/camp/SectionWhyUs"));
+const CampProgram = lazyWithRetry(() => import("@/components/camp/CampProgram"));
+const CampTeam = lazyWithRetry(() => import("@/components/camp/CampTeam"));
+const CampReviews = lazyWithRetry(() => import("@/components/camp/CampReviews"));
+const CampBooking = lazyWithRetry(() => import("@/components/camp/CampBooking"));
+const CampFooter = lazyWithRetry(() => import("@/components/camp/CampFooter"));
+const SectionSchedule = lazyWithRetry(() => import("@/components/camp/SectionSchedule"));
+const SectionSafety = lazyWithRetry(() => import("@/components/camp/SectionSafety"));
+const SectionFood = lazyWithRetry(() => import("@/components/camp/SectionFood"));
+const SectionForWhom = lazyWithRetry(() => import("@/components/camp/SectionForWhom"));
+const SectionVideos = lazyWithRetry(() => import("@/components/camp/SectionVideos"));
+const SectionDarkPromo = lazyWithRetry(() => import("@/components/camp/SectionDarkPromo"));
+const SectionKidsReviews = lazyWithRetry(() => import("@/components/camp/SectionKidsReviews"));
+const SectionFAQ = lazyWithRetry(() => import("@/components/camp/SectionFAQ"));
+const SectionQuiz = lazyWithRetry(() => import("@/components/camp/SectionQuiz"));
+const SectionLocation = lazyWithRetry(() => import("@/components/camp/SectionLocation"));
+const SectionWhyUs = lazyWithRetry(() => import("@/components/camp/SectionWhyUs"));
 
 const SectionFallback = () => (
   <div className="py-16 px-4 flex items-center justify-center" style={{ background: "#FFF8F0" }}>
