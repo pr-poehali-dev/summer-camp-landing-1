@@ -20,7 +20,7 @@ function ProgramList({
   const spotsMap = useShiftSpots();
 
   const isClosed = (id: number) => {
-    if (id === 1 || id === 2 || id === 4) return true;
+    if (id === 1 || id === 2) return true;
     if (SHIFT_SPOTS[id] !== undefined) {
       const c = spotsMap[id] !== undefined ? spotsMap[id] : SHIFT_SPOTS[id].count;
       return c <= 0;
@@ -28,7 +28,7 @@ function ProgramList({
     return false;
   };
 
-  const order = [3, 5, 6, 7];
+  const order = [3, 4, 5, 6, 7];
   const rank = (id: number) => {
     const i = order.indexOf(id);
     return i === -1 ? 100 + id : i;

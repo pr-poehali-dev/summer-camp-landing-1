@@ -43,11 +43,11 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
           </span>
         </div>
         <span style={{
-          color:"#FFF200",
+          color:"#FFFFFF",
           fontWeight:800,
           fontSize:"0.66rem",
           letterSpacing:"0.01em",
-          textShadow:"0 1px 0 rgba(204,106,0,0.7)",
+          textShadow:"0 1px 2px rgba(92,46,0,0.55)",
         }}>
           🔥 горящие путёвки со скидкой 15%
         </span>
