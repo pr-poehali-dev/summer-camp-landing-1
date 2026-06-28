@@ -7,6 +7,7 @@ const SHIFT_RESERVATION_PRICE = 1000;
 
 export const SHIFT_SPOTS: Record<number, { count: number }> = {
   3: { count: 5 },
+  4: { count: 2 },
   5: { count: 3 },
   6: { count: 5 },
   7: { count: 7 },
@@ -41,7 +42,7 @@ export default function ProgramShiftHeader({
   const liveCount = spotsMap[shift.id];
   const hasSpots = SHIFT_SPOTS[shift.id] !== undefined;
   const spotsCount = liveCount !== undefined ? liveCount : SHIFT_SPOTS[shift.id]?.count ?? 0;
-  const grayHeader = shift.id === 1 || shift.id === 4 || shift.id === 2 || soldOut;
+  const grayHeader = shift.id === 1 || shift.id === 2 || soldOut;
   return (
     <button
       onClick={() => {
@@ -125,7 +126,9 @@ export default function ProgramShiftHeader({
                 </span>
               )}
               <span className="animate-rainbow-pulse text-[11px] md:text-[13px] font-black px-2.5 py-1 rounded-full" style={{background:"linear-gradient(90deg,#FF3D8B,#FF5E1A,#FFD93D,#FF3D8B)", color:"#fff", letterSpacing:"0.4px", textShadow:"0 1px 2px rgba(0,0,0,0.35)", boxShadow:"0 0 14px rgba(255,61,139,0.7)"}}>
-                ⚡ УСПЕЙТЕ! ОСТАЛОСЬ {spotsCount} {spotsWordH(spotsCount).toUpperCase()}
+                {shift.id === 4
+                  ? `🔥 ПОЯВИЛОСЬ ${spotsCount} СВОБОДНЫХ ${spotsWordH(spotsCount).toUpperCase() === "МЕСТА" ? "МЕСТА" : "МЕСТ"}`
+                  : `⚡ УСПЕЙТЕ! ОСТАЛОСЬ ${spotsCount} ${spotsWordH(spotsCount).toUpperCase()}`}
               </span>
             </div>
           )}

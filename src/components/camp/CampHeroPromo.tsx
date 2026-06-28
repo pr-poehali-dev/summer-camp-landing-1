@@ -16,30 +16,40 @@ export default function CampHeroPromo({ scrollToBooking }: CampHeroPromoProps) {
     }}>
       <div style={{
         display:"flex",
+        flexDirection:"column",
         alignItems:"center",
-        justifyContent:"center",
-        gap:"0.5rem",
-        flexWrap:"wrap",
+        gap:"0.2rem",
         background:"rgba(255,255,255,0.22)",
         borderRadius:"12px",
         padding:"0.5rem 0.7rem",
         border:"1.5px solid rgba(255,255,255,0.5)",
       }}>
+        <div style={{display:"flex", alignItems:"center", justifyContent:"center", gap:"0.5rem", flexWrap:"wrap"}}>
+          <span style={{
+            color:"white",
+            fontWeight:900,
+            fontSize:"1.25rem",
+            textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 4px rgba(92,46,0,0.45)",
+          }}>
+            14 500 ₽
+          </span>
+          <span style={{
+            color:"rgba(255,255,255,0.95)",
+            fontWeight:700,
+            fontSize:"0.72rem",
+            textShadow:"0 1px 0 rgba(204,106,0,0.6)",
+          }}>
+            за смену · 10 дней
+          </span>
+        </div>
         <span style={{
-          color:"white",
-          fontWeight:900,
-          fontSize:"1.25rem",
-          textShadow:"0 1px 0 rgba(204,106,0,0.85), 0 2px 4px rgba(92,46,0,0.45)",
+          color:"#FFF200",
+          fontWeight:800,
+          fontSize:"0.66rem",
+          letterSpacing:"0.01em",
+          textShadow:"0 1px 0 rgba(204,106,0,0.7)",
         }}>
-          14 500 ₽
-        </span>
-        <span style={{
-          color:"rgba(255,255,255,0.95)",
-          fontWeight:700,
-          fontSize:"0.72rem",
-          textShadow:"0 1px 0 rgba(204,106,0,0.6)",
-        }}>
-          за смену · 10 дней
+          🔥 горящие путёвки со скидкой 15%
         </span>
       </div>
 

@@ -35,7 +35,7 @@ export default function ProgramShiftCard({
   const soldOut = hasSpotsConfig && spotsCount <= 0;
   const isTeen = shift.id === 4 || shift.id === 5;
   const isShort = shift.id === 7;
-  const isClosed = shift.id === 1 || shift.id === 2 || shift.id === 4 || soldOut;
+  const isClosed = shift.id === 1 || shift.id === 2 || soldOut;
   const isHighlight = shift.id === 3 && !soldOut;
   const spots = SHIFT_SPOTS[shift.id];
   const shiftAccusative: Record<number, string> = {
