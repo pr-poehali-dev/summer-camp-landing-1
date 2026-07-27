@@ -34,7 +34,7 @@ function ProgramList({
     return i === -1 ? 100 + id : i;
   };
 
-  const sorted = [...SHIFTS].sort((a, b) => {
+  const sorted = SHIFTS.filter((s) => s.id !== 3 && s.id !== 5).sort((a, b) => {
     if (isClosed(a.id) !== isClosed(b.id)) return isClosed(a.id) ? 1 : -1;
     if (isClosed(a.id)) return a.id - b.id;
     return rank(a.id) - rank(b.id);
