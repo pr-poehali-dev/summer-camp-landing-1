@@ -64,13 +64,21 @@ export default function ReserveModalForm({
 }: ReserveModalFormProps) {
   return (
     <div
-      className="fixed inset-0 z-[100] overflow-y-auto"
-      style={{ background: "rgba(30,20,10,0.55)", backdropFilter: "blur(4px)" }}
+      className="fixed inset-0 z-[100] overflow-y-auto overscroll-contain"
+      style={{
+        background: "rgba(30,20,10,0.55)",
+        backdropFilter: "blur(4px)",
+        WebkitOverflowScrolling: "touch",
+        isolation: "isolate",
+      }}
       onClick={onClose}
     >
-      <div className="flex min-h-full items-center justify-center p-4">
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-white"
+        className="flex items-start sm:items-center justify-center p-4"
+        style={{ minHeight: "100dvh" }}
+      >
+      <div
+        className="relative w-full max-w-lg rounded-3xl bg-white my-4"
         style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.35)" }}
         onClick={(e) => e.stopPropagation()}
       >
