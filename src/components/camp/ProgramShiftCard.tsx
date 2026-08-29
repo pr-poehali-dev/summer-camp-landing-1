@@ -35,8 +35,8 @@ export default function ProgramShiftCard({
   const soldOut = hasSpotsConfig && spotsCount <= 0;
   const isTeen = shift.id === 4 || shift.id === 5;
   const isShort = shift.id === 7;
-  const isClosed = shift.id === 1 || shift.id === 2 || shift.id === 4 || soldOut;
-  const isHighlight = shift.id === 3 && !soldOut;
+  const isClosed = true;
+  const isHighlight = false;
   const spots = SHIFT_SPOTS[shift.id];
   const shiftAccusative: Record<number, string> = {
     1: "«Сундук со сказками»",
@@ -49,9 +49,9 @@ export default function ProgramShiftCard({
   };
   const shiftName = shiftAccusative[shift.id] ?? `«${shift.name}»`;
   return (
-    <div id={`shift-${shift.id}`} className="relative scroll-mt-24" style={{ marginBottom: spots ? "28px" : "0" }}>
+    <div id={`shift-${shift.id}`} className="relative scroll-mt-24" style={{ marginBottom: spots || isClosed ? "28px" : "0" }}>
       <div
-        className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort ? "animate-short-shift" : ""} ${isHighlight ? "animate-highlight-shift" : ""}`}
+        className={`rounded-3xl transition-transform hover:-translate-y-0.5 relative ${isShort && !isClosed ? "animate-short-shift" : ""} ${isHighlight ? "animate-highlight-shift" : ""}`}
         style={isClosed ? {
           border:"3px solid #C8C8C8",
           boxShadow:"0 6px 0 rgba(0,0,0,0.07), 0 10px 24px rgba(0,0,0,0.1)",
@@ -158,20 +158,12 @@ export default function ProgramShiftCard({
               borderRadius: "5px 5px 0 0",
               background: isClosed ? "#F0F0F0" : isHighlight ? "#FFFBEA" : "#FFFAF0",
             }} />
-            {shift.id === 1 ? (
+            {isClosed ? (
               <>
-                ⏳ Смена идёт. Набор закрыт.
+                🍂 Летний клуб окончил свою работу в этом году
                 <br />
                 <span style={{ fontSize: "10px", fontWeight: 800, color: "#555555" }}>
-                  Узнать про свободные места<br />можно, позвонив нам.
-                </span>
-              </>
-            ) : isClosed ? (
-              <>
-                🚫 Места закончились
-                <br />
-                <span style={{ fontSize: "10px", fontWeight: 800, color: "#555555" }}>
-                  Могут появиться перед началом смены,<br />если кто-то откажется от брони
+                  Впереди осенние каникулы
                 </span>
               </>
             ) : isHighlight ? (

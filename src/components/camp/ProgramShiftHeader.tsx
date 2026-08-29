@@ -96,7 +96,7 @@ export default function ProgramShiftHeader({
           <span className="text-3xl flex-shrink-0" style={{filter:"drop-shadow(0 2px 3px rgba(92,46,0,0.25))"}}>{shift.emoji}</span>
         )}
         <div className="min-w-0 flex-1">
-          {isTeen && (
+          {isTeen && !grayHeader && (
             <div className="flex flex-wrap gap-1.5 mb-1.5">
               <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow" style={{background:"#FFD93D", color:"#3D1E70", letterSpacing:"0.5px"}}>
                 🔥 ДЛЯ ПОДРОСТКОВ
@@ -108,7 +108,7 @@ export default function ProgramShiftHeader({
               )}
             </div>
           )}
-          {isShort && (
+          {isShort && !grayHeader && (
             <div className="flex flex-wrap gap-1.5 mb-1.5">
               <span className="text-[10px] md:text-[11px] font-black px-2 py-0.5 rounded-full shadow animate-rainbow-pulse" style={{background:"#FFD93D", color:"#1A5C4D", letterSpacing:"0.5px"}}>
                 ⚡ ФИНАЛ ЛЕТА · 5 ДНЕЙ
